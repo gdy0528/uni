@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/studio/studio",
+    "pages/personal/personal",
+    "pages/login/login",
+    "pages/settings/settings"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "脑科专家",
+    "navigationBarBackgroundColor": "#0E92F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#0E92F8",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "static/tabbar/home.png",
+        "selectedIconPath": "static/tabbar/home_selected.png"
+      },
+      {
+        "pagePath": "pages/studio/studio",
+        "text": "工作室",
+        "iconPath": "static/tabbar/studio.png",
+        "selectedIconPath": "static/tabbar/studio_selected.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "我的",
+        "iconPath": "static/tabbar/personal.png",
+        "selectedIconPath": "static/tabbar/personal_selected.png"
+      }
+    ]
+  },
+  "permission": {},
+  "usingComponents": {
+    "layz-image": "/common/LazyImage/LazyImage"
+  }
+}

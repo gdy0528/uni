@@ -1,0 +1,184 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 产品规定样式 start */
+/* 通用背景颜色 */
+/* 通用字体颜色 */
+/* 通用字体大小 */
+/* 圆角（全局圆角只适应） */
+/* 中英文字体溢出 */
+/* 字体溢出 */
+/* 产品规定样式 end */
+.HomeNews .news-swiper.data-v-a614d9d6 {
+  margin-top: 20rpx;
+  padding-right: 20rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  background: #FFFFFF;
+}
+.HomeNews .news-swiper .swiper-icons.data-v-a614d9d6 {
+  width: 60rpx;
+  height: 60rpx;
+}
+.HomeNews .news-swiper .swiper-list.data-v-a614d9d6 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  height: 60rpx;
+  overflow: hidden;
+}
+.HomeNews .news-swiper .swiper-list .swiper-box.data-v-a614d9d6 {
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.HomeNews .news-swiper .swiper-list .swiper-box .swiper-item.data-v-a614d9d6 {
+  font-size: 26rpx;
+  color: #666666;
+}
+.HomeNews .news-service.data-v-a614d9d6 {
+  margin: 20rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+.HomeNews .news-service .service-tips.data-v-a614d9d6 {
+  padding: 30rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-border-radius: 10rpx;
+          border-radius: 10rpx;
+  background: #FFFFFF;
+}
+.HomeNews .news-service .service-tips .tips-title.data-v-a614d9d6 {
+  margin-bottom: 6rpx;
+  font-size: 24rpx;
+  color: #666666;
+  font-weight: bold;
+}
+.HomeNews .news-service .service-tips .tips-desc.data-v-a614d9d6 {
+  margin-bottom: 4rpx;
+  font-size: 24rpx;
+  color: #666666;
+}
+.HomeNews .news-service .service-box.data-v-a614d9d6 {
+  margin-top: 20rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.HomeNews .news-service .service-box .service-item.data-v-a614d9d6 {
+  position: relative;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 31%;
+          flex: 0 0 31%;
+  padding: 40rpx 0;
+  margin-right: 3.33%;
+  margin-bottom: 20rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-border-radius: 10rpx;
+          border-radius: 10rpx;
+  background: #FFFFFF;
+}
+.HomeNews .news-service .service-box .service-item.data-v-a614d9d6:nth-child(3n) {
+  margin-right: 0;
+}
+.HomeNews .news-service .service-box .service-item .item-icons.data-v-a614d9d6 {
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 20rpx;
+}
+.HomeNews .news-service .service-box .service-item .item-icons .bage.data-v-a614d9d6 {
+  position: absolute;
+  top: 38rpx;
+  right: 70rpx;
+  font-size: 22rpx;
+  color: #FFFFFF;
+  -webkit-border-radius: 100%;
+          border-radius: 100%;
+  background: #F9605E;
+  z-index: 9;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  min-width: 32rpx;
+  padding: 0 6rpx;
+  font-weight: 500;
+  line-height: 28rpx;
+  text-align: center;
+  border: 1px solid #FFFFFF;
+  -webkit-border-radius: 32rpx;
+          border-radius: 32rpx;
+  -webkit-transform: translateX(50%);
+  transform: translateX(50%);
+  -webkit-transform-origin: 100%;
+  transform-origin: 100%;
+}
+.HomeNews .news-service .service-box .service-item .item-icons .bages.data-v-a614d9d6 {
+  position: absolute;
+  top: 38rpx;
+  right: 60rpx;
+  width: 28rpx;
+  height: 28rpx;
+  -webkit-border-radius: 100%;
+          border-radius: 100%;
+  background: #F9605E;
+}
+.HomeNews .news-service .service-box .service-item .item-name.data-v-a614d9d6 {
+  font-size: 30rpx;
+  color: #333333;
+}
+

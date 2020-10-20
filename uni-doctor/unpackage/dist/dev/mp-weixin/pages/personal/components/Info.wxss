@@ -1,0 +1,172 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 产品规定样式 start */
+/* 通用背景颜色 */
+/* 通用字体颜色 */
+/* 通用字体大小 */
+/* 圆角（全局圆角只适应） */
+/* 中英文字体溢出 */
+/* 字体溢出 */
+/* 产品规定样式 end */
+.PersonalInfo.data-v-07cf25d1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+.PersonalInfo .info-box.data-v-07cf25d1 {
+  padding: 30rpx 50rpx 90rpx 50rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  background: #0E92F8;
+}
+.PersonalInfo .info-box .info-head.data-v-07cf25d1 {
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 40rpx;
+  -webkit-border-radius: 100%;
+          border-radius: 100%;
+  overflow: hidden;
+}
+.PersonalInfo .info-box .info-data.data-v-07cf25d1 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+          justify-content: flex-start;
+}
+.PersonalInfo .info-box .info-data .data-name.data-v-07cf25d1 {
+  margin-top: 10rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: baseline;
+  -webkit-align-items: baseline;
+          align-items: baseline;
+}
+.PersonalInfo .info-box .info-data .data-name .name.data-v-07cf25d1 {
+  margin-right: 12rpx;
+  font-size: 34rpx;
+  color: #FFFFFF;
+}
+.PersonalInfo .info-box .info-data .data-name .title.data-v-07cf25d1 {
+  font-size: 26rpx;
+  color: #FFFFFF;
+}
+.PersonalInfo .info-box .info-data .data-user .user.data-v-07cf25d1 {
+  padding: 5rpx 22rpx;
+  margin-top: 20rpx;
+  display: inline-block;
+  font-size: 30rpx;
+  color: #0E92F8;
+  -webkit-border-radius: 25px;
+          border-radius: 25px;
+  background: rgba(255, 255, 255, 0.7);
+}
+.PersonalInfo .give-box.data-v-07cf25d1 {
+  padding: 0 25rpx;
+  margin-top: -60rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+}
+.PersonalInfo .give-box .give-main.data-v-07cf25d1 {
+  width: 100%;
+  height: 80rpx;
+  padding: 20rpx 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-border-radius: 8rpx;
+          border-radius: 8rpx;
+  background: #FFFFFF;
+}
+.PersonalInfo .give-box .give-main .give-item.data-v-07cf25d1 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.PersonalInfo .give-box .give-main .give-item:nth-child(1) .item-nums.data-v-07cf25d1, .PersonalInfo .give-box .give-main .give-item:nth-child(1) .item-name.data-v-07cf25d1 {
+  color: #FF0000;
+}
+.PersonalInfo .give-box .give-main .give-item:nth-child(2) .item-nums.data-v-07cf25d1, .PersonalInfo .give-box .give-main .give-item:nth-child(2) .item-name.data-v-07cf25d1 {
+  color: #F3BE00;
+}
+.PersonalInfo .give-box .give-main .give-item:nth-child(3) .item-nums.data-v-07cf25d1, .PersonalInfo .give-box .give-main .give-item:nth-child(3) .item-name.data-v-07cf25d1 {
+  color: #FF467A;
+}
+.PersonalInfo .give-box .give-main .give-item:nth-child(4) .item-nums.data-v-07cf25d1, .PersonalInfo .give-box .give-main .give-item:nth-child(4) .item-name.data-v-07cf25d1 {
+  color: #F38C00;
+}
+.PersonalInfo .give-box .give-main .give-item .item-nums.data-v-07cf25d1 {
+  font-size: 45rpx;
+}
+.PersonalInfo .give-box .give-main .give-item .item-name.data-v-07cf25d1 {
+  font-size: 26rpx;
+}
+

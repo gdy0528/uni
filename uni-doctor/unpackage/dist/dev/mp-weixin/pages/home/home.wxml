@@ -1,0 +1,1 @@
+<view class="HomeContainer data-v-92bb8f34"><home-info vue-id="1da55560-1" infoObj="{{infoObj}}" class="data-v-92bb8f34" bind:__l="__l"></home-info><home-news vue-id="1da55560-2" msgList="{{msgList}}" serveObj="{{serveObj}}" class="data-v-92bb8f34" bind:__l="__l"></home-news></view>

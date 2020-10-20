@@ -1,0 +1,1 @@
+<image class="imgs data-v-458a64a9" src="{{src}}" mode="{{mode}}" lazy-load="{{lazy}}" fade-show="{{fade}}" webp="{{webp}}" show-menu-by-longpress="{{longpress}}" data-event-opts="{{[['error',[['handleError',['$event']]]],['load',[['handleLoad',['$event']]]]]}}" binderror="__e" bindload="__e"></image>

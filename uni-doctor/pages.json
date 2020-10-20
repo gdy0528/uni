@@ -1,0 +1,90 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "脑科专家"
+			}
+		},
+		{
+			"path": "pages/studio/studio",
+			"style": {
+				"navigationBarTitleText": "工作室"
+			}
+		},
+		{
+			"path": "pages/personal/personal",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path": "pages/settings/settings",
+			"style": {
+				"navigationBarTitleText": "我的设置"
+			}
+		}
+	],
+	"condition": {
+		"current": 0,
+		"list": [ //启动设置
+			{
+				"path": "pages/home/home",
+				"name": "首页"
+			},
+			{
+				"path": "pages/studio/studio",
+				"name": "工作室"
+			},
+			{
+				"path": "pages/personal/personal",
+				"name": "我的"
+			},
+			{
+				"path": "pages/login/login",
+				"name": "登录"
+			},
+			{
+				"path": "pages/settings/settings",
+				"name": "我的设置"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "脑科专家",
+		"navigationBarBackgroundColor": "#0E92F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#333333",
+		"selectedColor": "#0E92F8",
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "white",
+		"list": [ //底部导航
+			{
+				"pagePath": "pages/home/home",
+				"text": "首页",
+				"iconPath": "static/tabbar/home.png",
+				"selectedIconPath": "static/tabbar/home_selected.png"
+			}, {
+				"pagePath": "pages/studio/studio",
+				"text": "工作室",
+				"iconPath": "static/tabbar/studio.png",
+				"selectedIconPath": "static/tabbar/studio_selected.png"
+			},
+			{
+				"pagePath": "pages/personal/personal",
+				"text": "我的",
+				"iconPath": "static/tabbar/personal.png",
+				"selectedIconPath": "static/tabbar/personal_selected.png"
+			}
+		]
+	}
+}

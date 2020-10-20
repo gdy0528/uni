@@ -1,0 +1,94 @@
+<template>
+	<view class="SettingsContainer">
+		<view class="setting-box">
+			<view class="setting-item">
+				<text class="item-desc">修改密码</text>
+				<view class="item-arrow">
+					<LayzImage src="../../static/middle-return-light_gray-right.png" />
+				</view>
+			</view>
+		</view>
+		<view class="setting-btns">
+			<button class="btns" type="default" @click="handleClickLoginOut">退出登录</button>
+		</view>
+	</view>
+</template>
+
+<script>
+	import { mapMutations } from 'vuex'
+	export default {
+		methods: {
+			...mapMutations([
+				'SET_TOKEN',
+				'SET_INFO'
+			]),
+			handleClickLoginOut() {	//退出登录
+				uni.showModal({
+					title: "友情提示",
+					content: "确认是否退出登录?",
+					cancelText: "取消",
+					confirmText: "退出",
+					confirmColor: "#0E92F8",
+					success: (res) => {
+						if (res.confirm) {
+							this.SET_TOKEN('')
+							this.SET_INFO('')
+							uni.reLaunch({
+								url: "/pages/login/login"
+							})
+						} 
+					}
+				})
+			}
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+	.SettingsContainer {
+		/* #ifndef H5 */
+		height: 100vh;
+		/* #endif */
+		/* #ifdef H5 */
+		height: calc(100vh - 44px - env(safe-area-inset-top));
+		/* #endif */
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		.setting-box {
+			flex: 1;
+			margin-top: 10rpx;
+			display: flex;
+			flex-direction: column;
+			.setting-item {
+				padding: 30rpx 10rpx 30rpx 40rpx;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				background: $bgWhiteColor;
+				.item-desc {
+					flex: 1;
+					font-size: $fontSmallSize;
+					color: $fontBlackColor;
+				}
+				.item-arrow {
+					width: 45rpx;
+					height: 45rpx;
+				}
+			}
+		}
+		.setting-btns {
+			padding: 0 25rpx;
+			margin-bottom: 50rpx;
+			display: flex;
+			flex-direction: row;
+			.btns {
+				width: 100%;
+				font-size: $fontSmallSize;
+				color: $fontWhiteColor;
+				border-radius: 10rpx;
+				background: #F9605E;
+			}
+		}
+	}
+</style>
