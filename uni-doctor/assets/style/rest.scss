@@ -15,3 +15,13 @@
 		font-size: 28rpx;
 	}
 }
+
+/* 修改picker样式 */
+.uni-picker-container {
+	.uni-picker-action  {
+		font-size: $fontSmallSize;
+	}
+	.uni-picker-item {
+		font-size: $fontSize;
+	}
+}

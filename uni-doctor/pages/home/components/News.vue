@@ -19,14 +19,14 @@
 				<text class="tips-desc">2.患者发起咨询时，会短信通知，请注意短信查收。</text>
 			</view>
 			<view class="service-box">
-				<view class="service-item" v-for="(item, index) in service" :key="index">
+				<navigator class="service-item" v-for="(item, index) in service" :key="index" hover-class="none" :url="item.path">
 					<view class="item-icons">
 						<LayzImage :src="item.icons" />
 						<text v-if="item.bage > 0" class="bage">{{bageMaxNumber(item.bage)}}</text>
 						<text v-else-if="item.bage == -1" class="bages"></text>
 					</view>
 					<view class="item-name">{{item.name}}</view>
-				</view>
+				</navigator>
 			</view>
 		</view>
 	</view>
@@ -53,7 +53,7 @@
 						bage: this.serveObj.patientPush
 					},
 					{
-						path: "",
+						path: "/pages/receipt/receipt",
 						name: "咨询接单",
 						icons: "../../static/home/d_home_icon_orders.png",
 						bage: this.serveObj.orderPush

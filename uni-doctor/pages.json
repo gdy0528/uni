@@ -29,6 +29,19 @@
 			"style": {
 				"navigationBarTitleText": "我的设置"
 			}
+		}, 
+		{
+			"path": "pages/case/case",
+			"style": {
+				"navigationBarTitleText": "病历总库",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path" : "pages/receipt/receipt",
+			"style" : {
+				"navigationBarTitleText": "咨询接单"
+			}
 		}
 	],
 	"condition": {
@@ -53,6 +66,14 @@
 			{
 				"path": "pages/settings/settings",
 				"name": "我的设置"
+			},
+			{
+				"path": "pages/case/case",
+				"name": "病历总库"
+			},
+			{
+				"path": "pages/receipt/receipt",
+				"name": "咨询接单"
 			}
 		]
 	},

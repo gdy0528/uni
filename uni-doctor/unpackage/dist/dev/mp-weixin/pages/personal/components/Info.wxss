@@ -98,7 +98,8 @@
   color: #FFFFFF;
 }
 .PersonalInfo .info-box .info-data .data-user .user.data-v-07cf25d1 {
-  padding: 5rpx 22rpx;
+  line-height: 1;
+  padding: 10rpx 22rpx;
   margin-top: 20rpx;
   display: inline-block;
   font-size: 30rpx;

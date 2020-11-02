@@ -1,0 +1,1 @@
+<view class="TextScroll data-v-29b32519"><view class="{{['inner _div data-v-29b32519',(scroll)?'move':'']}}" style="{{(styleName)}}"><text class="tip-inder data-v-29b32519" space="nbsp">{{text+(scroll?text:'')}}</text></view></view>

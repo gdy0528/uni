@@ -47,6 +47,13 @@
 .uni-modal .uni-modal__btn {
   font-size: 28rpx;
 }
+/* 修改picker样式 */
+.uni-picker-container .uni-picker-action {
+  font-size: 30rpx;
+}
+.uni-picker-container .uni-picker-item {
+  font-size: 28rpx;
+}
 page {
   background: #F8F8F8;
 }

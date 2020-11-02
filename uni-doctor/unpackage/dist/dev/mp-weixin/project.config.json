@@ -51,6 +51,16 @@
           "name": "我的设置",
           "id": 4,
           "pathName": "pages/settings/settings"
+        },
+        {
+          "name": "病历总库",
+          "id": 5,
+          "pathName": "pages/case/case"
+        },
+        {
+          "name": "咨询接单",
+          "id": 6,
+          "pathName": "pages/receipt/receipt"
         }
       ]
     }

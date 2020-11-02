@@ -1,0 +1,1 @@
+<view class="CaseContainer"><case-search bind:search="__e" vue-id="fde2a280-1" data-event-opts="{{[['^search',[['handleChangeSearch']]]]}}" bind:__l="__l"></case-search><case-list class="vue-ref" vue-id="fde2a280-2" data-ref="CaseList" bind:__l="__l"></case-list></view>

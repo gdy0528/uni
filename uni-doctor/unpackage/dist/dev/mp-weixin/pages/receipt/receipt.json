@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "咨询接单",
+  "usingComponents": {
+    "text-scroll": "/common/TextScroll/TextScroll"
+  }
+}

@@ -2,7 +2,7 @@ import store from '@/store'
 
 const PROD_SERVICE = '' //线上环境
 // const DEV_SERVICE = 'http://www.nkzj999.com/wx/serve/test-doctor' //测试环境
-const DEV_SERVICE = 'http://192.168.0.183:8503' //测试环境
+const DEV_SERVICE = 'http://192.168.0.183:8502' //测试环境
 
 function getSerive() { //获取请求地址
 	if (process.env.NODE_ENV === 'production') {
@@ -39,8 +39,8 @@ function handleSuceesState(data, loading, toast) { //处理后台成功返回状
 	let datas = data.data
 	let state = datas.code //获取后台状态码
 	return new Promise(resolve => {
-		if(state != 200 && toast) {
-			if( state == 901 || state == 902 || state == 903 || state == 702 || state == 703 || state == 706 ){  //登录情况
+		if (state != 200 && toast && data.statusCode == 200) {
+			if (state == 901 || state == 902 || state == 903 || state == 702 || state == 703 || state == 706) { //登录情况
 				uni.showModal({
 					title: "友情提示",
 					content: datas.msg,
@@ -53,7 +53,7 @@ function handleSuceesState(data, loading, toast) { //处理后台成功返回状
 						})
 					}
 				})
-			}else{
+			} else {
 				uni.showToast({
 					title: datas.msg,
 					icon: "none",

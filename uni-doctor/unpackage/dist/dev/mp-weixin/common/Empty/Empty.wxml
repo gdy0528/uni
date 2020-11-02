@@ -1,0 +1,1 @@
+<view class="EmptyMain data-v-b380a396"><view class="empty-imgs data-v-b380a396"><layz-image vue-id="21b69971-1" src="{{imgs}}" class="data-v-b380a396" bind:__l="__l"></layz-image></view><view class="empty-content data-v-b380a396"><text class="content-desc data-v-b380a396">{{desc}}</text></view></view>

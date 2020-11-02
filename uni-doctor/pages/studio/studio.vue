@@ -17,13 +17,13 @@
 			</view>
 		</view>
 		<view class="studio-box">
-			<view class="studio-item">
+			<navigator class="studio-item" hover-class="none" url="../case/case">
 				<view class="item-icons">
 					<LayzImage src="../../static/studio/d_studio_icon_wardnews.png" />
 					<!-- <text class="bage">1</text> -->
 				</view>
 				<view class="item-name">查看患者病历</view>
-			</view>
+			</navigator>
 			<view class="studio-item">
 				<view class="item-icons">
 					<LayzImage src="../../static/studio/d_studio_icon_wardround.png" />
@@ -32,7 +32,7 @@
 				<view class="item-name">管理您的病人</view>
 			</view>
 		</view>
-		<view class="service-box">
+		<view class="service-box" v-if="routerType != 3">
 			<view class="service-icons">
 				<LayzImage src="../../static/studio/d_studio_icon_serve.png" />
 			</view>
@@ -45,14 +45,33 @@
 </template>
 
 <script>
+	import {
+		mapState
+	} from "vuex"
 	export default {
 		data() {
 			return {
-				
+				studio: {}
 			}
 		},
+		computed: {
+			...mapState({
+				routerType: state => state.info.userType //助手类型
+			})
+		},
 		methods: {
-			
+			postStudio() { //请求工作室数据
+				let self = this
+				this.$post('/api/doctor/login/studio').then(data => {
+					let res = data.data
+					if (res.code == 200) {
+						self.studio = res.data
+					}
+				})
+			}
+		},
+		onShow() {
+			// this.postStudio() //请求工作室数据
 		}
 	}
 </script>

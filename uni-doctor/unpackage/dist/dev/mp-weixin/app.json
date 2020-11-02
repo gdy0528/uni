@@ -4,7 +4,9 @@
     "pages/studio/studio",
     "pages/personal/personal",
     "pages/login/login",
-    "pages/settings/settings"
+    "pages/settings/settings",
+    "pages/case/case",
+    "pages/receipt/receipt"
   ],
   "subPackages": [],
   "window": {
@@ -41,6 +43,7 @@
   },
   "permission": {},
   "usingComponents": {
-    "layz-image": "/common/LazyImage/LazyImage"
+    "layz-image": "/common/LazyImage/LazyImage",
+    "empty": "/common/Empty/Empty"
   }
 }

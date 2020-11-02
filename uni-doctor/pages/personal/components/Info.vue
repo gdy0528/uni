@@ -2,35 +2,23 @@
 	<view class="PersonalInfo">
 		<view class="info-box">
 			<view class="info-head">
-				<LayzImage src="https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485915488,1837950760&fm=26&gp=0.jpg" />
+				<LayzImage :src="info.userImg" />
 			</view>
 			<view class="info-data">
 				<view class="data-name">
-					<text class="name">张爱华</text>
-					<text class="title">主治医生</text>
+					<text class="name">{{info.userNickname}}</text>
+					<text class="title">{{info.physicianTitle}}</text>
 				</view>
 				<view class="data-user">
-					<text class="user">账号：15988886666</text>
+					<text class="user">账号：{{info.userName}}</text>
 				</view>
 			</view>
 		</view>
 		<view class="give-box">
 			<view class="give-main">
-				<view class="give-item">
-					<text class="item-nums">0</text>
-					<text class="item-name">点赞</text>
-				</view>
-				<view class="give-item">
-					<text class="item-nums">0</text>
-					<text class="item-name">奖杯</text>
-				</view>
-				<view class="give-item">
-					<text class="item-nums">0</text>
-					<text class="item-name">鲜花</text>
-				</view>
-				<view class="give-item">
-					<text class="item-nums">0</text>
-					<text class="item-name">锦旗</text>
+				<view class="give-item" v-for="(item, index) in info.propCount" :key="index">
+					<text class="item-nums">{{item.count}}</text>
+					<text class="item-name">{{item.name}}</text>
 				</view>
 			</view>
 		</view>
@@ -38,6 +26,11 @@
 </template>
 
 <script>
+	export default {
+		props: {
+			info: Object
+		}
+	}
 </script>
 
 <style lang="scss" scoped>

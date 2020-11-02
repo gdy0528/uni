@@ -120,24 +120,20 @@
 		justify-content: center;
 		align-items: center;
 		background: $bgWhiteColor;
-
 		.logo-box {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			transition: all .8s;
-
 			.logo-icons {
 				width: 200rpx;
 				height: 200rpx;
 			}
-
 			.logo-name {
 				font-size: $fontSize;
 				color: $fontLightBlackColor;
 			}
 		}
-
 		.login-box {
 			width: 600rpx;
 			display: flex;
@@ -146,32 +142,27 @@
 			opacity: 0;
 			z-index: -1;
 			transition: all .8s;
-
 			.login-input {
 				padding: 60rpx 0 28rpx 0;
 				display: flex;
 				flex-direction: row;
 				align-items: center;
 				border-bottom: 1rpx solid #EFEFEF;
-
 				.input-name {
 					font-size: $fontSmallSize;
 					color: $fontBlackColor;
 				}
-
 				.input-value {
 					flex: 1;
 					padding: 0 20rpx;
 					font-size: $fontSmallSize;
 					color: $fontBlackColor;
 				}
-
 				.input-icons {
 					width: 48rpx;
 					height: 48rpx;
 				}
 			}
-
 			.login-link {
 				margin-top: 20rpx;
 				font-size: $fontSize;
@@ -179,12 +170,10 @@
 				text-align: right;
 			}
 		}
-
 		.btns-box {
 			width: 600rpx;
 			display: flex;
 			flex-direction: column;
-
 			.btns {
 				width: 100%;
 				padding: 5rpx 0;
@@ -194,12 +183,10 @@
 				border-radius: 40rpx;
 				transform: translateY(0px);
 				transition: all 0.8s;
-
 				&:after {
 					border: none;
 				}
 			}
-
 			.wx-btns {
 				@extend .btns;
 				color: $fontWhiteColor;
@@ -208,7 +195,6 @@
 				background-size: 39rpx 32rpx;
 				background-color: #2EC448;
 			}
-
 			.user-btns {
 				@extend .btns;
 				color: $fontLightBlackColor;
@@ -219,14 +205,12 @@
 			}
 		}
 	}
-
 	.LoginTransform {
 		.login-box {
 			opacity: 1;
 			z-index: 9;
 			transform: translateY(100rpx);
 		}
-
 		.btns-box {
 			.wx-btns {
 				transform: translateY(220rpx);
@@ -236,7 +220,6 @@
 				background-size: 39rpx 32rpx;
 				background-color: $bgWhiteColor;
 			}
-
 			.user-btns {
 				color: $fontWhiteColor;
 				border-color: $bgMainColor;
