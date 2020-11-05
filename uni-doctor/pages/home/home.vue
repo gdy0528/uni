@@ -2,16 +2,19 @@
 	<view class="HomeContainer">
 		<HomeInfo :infoObj="infoObj" />
 		<HomeNews :msgList="msgList" :serveObj="serveObj" />
+		<HomePerfect ref="HomePerfect" />
 	</view>
 </template>
 
 <script>
 	import HomeInfo from './components/Info'
 	import HomeNews from './components/News'
+	import HomePerfect from './components/Perfect'
 	export default {
 		components: {
 			HomeInfo,
-			HomeNews
+			HomeNews,
+			HomePerfect
 		},
 		data() {
 			return {
@@ -35,7 +38,8 @@
 					reexaminationPush: 0, //复诊角标
 					cfPushCount: 0, //查房角标
 					messageNumber: 0 //出院角标
-				}
+				},
+				verify: true	//是否展示个人资料补全
 			}
 		},
 		methods: {
@@ -57,6 +61,7 @@
 							userName: res.data.nickName //用户账号
 						}
 						self.msgList = res.data.msgList
+						self.verify = res.data.verify
 					}
 				})
 			},
@@ -78,10 +83,15 @@
 				})
 			}
 		},
+		watch: {
+			verify(newValue) {	//监听个人资料缺失状态
+				if (!newValue) this.$refs.HomePerfect.handleClickPopup(true)	//展示个人资料缺失
+			}
+		},
 		onShow() {
 			this.postHome() //请求首页数据
 			this.postHomeSign()	//获取首页角标
-		}
+		},
 	}
 </script>
 

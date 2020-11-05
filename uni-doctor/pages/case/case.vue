@@ -25,8 +25,8 @@
 				this.$refs.CaseList.handleSearchData(search, hospital)
 			}
 		},
-		onPullDownRefresh() {
-			this.$refs.CaseList.handleRefresh()
+		onPullDownRefresh() {	//监听下拉刷新
+			this.$refs.CaseList.handleRefresh()	
 		}
 	}
 </script>

@@ -1,7 +1,7 @@
 <template>
 	<view class="ReceiptContainer">
 		<view class="receipt-tabbar">
-			<view class="tabbar-item" :class="{'active' : index == tabIndex}" v-for="(item, index) in tabbar" :key="index"
+			<view class="tabbar-item" :class="{'active' : item.id === tabId}" v-for="(item, index) in tabbar" :key="index"
 			 @click="handleClickTabbar(index)">
 				<text class="item-title">{{item.name}}</text>
 			</view>
@@ -9,26 +9,32 @@
 		<view class="receipt-tips">
 			<TextScroll :text="tips" />
 		</view>
+		<ReceiptList ref="ReceiptList" :tabId="tabId" />
 	</view>
 </template>
 
 <script>
 	import TextScroll from '../../common/TextScroll/TextScroll'
+	import ReceiptList from './components/List'
 	export default {
 		components: {
-			TextScroll
+			TextScroll,
+			ReceiptList
 		},
 		data() {
 			return {
-				tabIndex: 0, //默认选中第0个
+				tabId: "A", //默认选中第0个
 				tabbar: [ //选项卡
 					{
+						id: "A",
 						name: "等待接单中"
 					},
 					{
+						id: "B",
 						name: "咨询进行中"
 					},
 					{
+						id: "C",
 						name: "已取消订单"
 					}
 				],
@@ -37,11 +43,14 @@
 		},
 		methods: {
 			handleClickTabbar(index) { //切换选项卡
-				this.tabIndex = index
-			},
-			handleStopTouchMove() { //禁止用户手动滑动
-				return false
+				this.tabId = this.tabbar[index].id
 			}
+		},
+		onPullDownRefresh() {	//监听下拉刷新
+			this.$refs.ReceiptList.handleRefresh()	
+		},
+		onNavigationBarButtonTap(e) {	//监听返回按钮
+			console.log(e)
 		}
 	}
 </script>
@@ -55,7 +64,7 @@
 			background: $bgWhiteColor;
 			.tabbar-item {
 				position: relative;
-				padding: 30rpx 0;
+				padding: 30upx 0;
 				flex: 1;
 				text-align: center;
 				.item-title {
@@ -66,11 +75,11 @@
 					&:after {
 						content: "";
 						position: absolute;
-						left: 75rpx;
+						left: 75upx;
 						bottom: 0;
-						width: 100rpx;
-						height: 6rpx;
-						border-radius: 3rpx;
+						width: 100upx;
+						height: 6upx;
+						border-radius: 3upx;
 						background: $bgMainColor;
 					}
 					.item-title {
@@ -81,7 +90,7 @@
 			}
 		}
 		.receipt-tips {
-			margin: 20rpx 0;
+			margin: 20upx 0;
 		}
 	}
 </style>

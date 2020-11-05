@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@dcloudio/uni-ui": "^1.2.5",
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "tki-qrcode": "^0.1.6"
   }
 }

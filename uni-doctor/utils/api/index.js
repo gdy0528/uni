@@ -24,7 +24,8 @@ function getSource() { //获取请求平台类型
 function showLoading(loading) { //开启loading加载
 	if (loading) {
 		uni.showLoading({
-			title: '加载中'
+			title: '加载中',
+			mask: true
 		})
 	}
 }

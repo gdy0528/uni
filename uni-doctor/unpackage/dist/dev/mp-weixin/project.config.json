@@ -61,6 +61,11 @@
           "name": "咨询接单",
           "id": 6,
           "pathName": "pages/receipt/receipt"
+        },
+        {
+          "name": "邀请二维码",
+          "id": 7,
+          "pathName": "pages/qrcode/qrcode"
         }
       ]
     }

@@ -78,56 +78,56 @@
 
 <style lang="scss" scoped>
 	.StudioContainer {
-		padding: 20rpx;
+		padding: 20upx;
 		.studio-box {
-			padding: 40rpx 0;
-			margin-bottom: 20rpx;
+			padding: 40upx 0;
+			margin-bottom: 20upx;
 			display: flex;
 			flex-direction: row;
-			border-radius: 10rpx;
+			border-radius: 10upx;
 			background: $bgWhiteColor;
 			.studio-item {
 				flex: 1;
 				display: flex;
 				flex-direction: column;
-				border-left: 1rpx solid #E5E5E5;
+				border-left: 1upx solid #E5E5E5;
 				&:first-child {
 					border: none;
 				}
 				.item-icons {
-					width: 200rpx;
-					height: 180rpx;
-					margin-bottom: 28rpx;
+					width: 200upx;
+					height: 180upx;
+					margin-bottom: 28upx;
 				}
 				.item-name {
-					margin-left: 40rpx;
-					margin-bottom: 20rpx;
+					margin-left: 40upx;
+					margin-bottom: 20upx;
 					font-size: $fontSize;
 					color: $fontLightBlackColor;
 				}
 			}
 		}
 		.service-box {
-			padding: 64rpx 40rpx 64rpx 28rpx;
-			margin-bottom: 20rpx;
+			padding: 64upx 40upx 64upx 28upx;
+			margin-bottom: 20upx;
 			display: flex;
 			flex-direction: row;
 			align-items: center;
-			border-radius: 10rpx;
+			border-radius: 10upx;
 			background: $bgWhiteColor;
 			.service-icons {
-				width: 60rpx;
-				height: 60rpx;
-				margin-right: 42rpx;
+				width: 60upx;
+				height: 60upx;
+				margin-right: 42upx;
 			}
 			.service-name {
 				flex: 1;
-				font-size: 34rpx;
+				font-size: 34upx;
 				color: $fontBlackColor;
 			}
 			.service-arrow {
-				width: 18rpx;
-				height: 32rpx;
+				width: 18upx;
+				height: 32upx;
 			}
 		}
 	}

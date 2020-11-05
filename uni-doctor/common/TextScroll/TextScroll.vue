@@ -30,7 +30,6 @@
 						this.tipWidth = data.width
 					}).exec();
 					query.select('.tip-inder').boundingClientRect(data => {
-						console.log('tip-inder', data.width)
 						if (data.width > this.tipWidth) {
 							let w = Number(data.width)
 							let time = Math.round(w / 25)
@@ -50,8 +49,8 @@
 <style lang="scss" scoped>
 	.TextScroll {
 		width: 100%;
-		height: 76rpx;
-		line-height: 76rpx;
+		height: 76upx;
+		line-height: 76upx;
 		font-size: $fontMinSize;
 		color: $fontBlackColor;
 		background: $bgWhiteColor;

@@ -33,14 +33,14 @@
 		justify-content: center;
 		align-items: center;
 		.empty-imgs {
-			width: 530rpx;
-			height: 300rpx;
+			width: 530upx;
+			height: 300upx;
 		}
 		.empty-content {
 			display: flex;
 			flex-direction: column;
 			.content-desc {
-				margin-top: 10rpx;
+				margin-top: 10upx;
 				font-size: $fontSmallSize;
 				color: $fontLightBlackColor;
 			}

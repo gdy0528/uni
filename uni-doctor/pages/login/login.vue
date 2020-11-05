@@ -126,8 +126,8 @@
 			align-items: center;
 			transition: all .8s;
 			.logo-icons {
-				width: 200rpx;
-				height: 200rpx;
+				width: 200upx;
+				height: 200upx;
 			}
 			.logo-name {
 				font-size: $fontSize;
@@ -135,52 +135,52 @@
 			}
 		}
 		.login-box {
-			width: 600rpx;
+			width: 600upx;
 			display: flex;
 			flex-direction: column;
-			transform: translateY(200rpx);
+			transform: translateY(200upx);
 			opacity: 0;
 			z-index: -1;
 			transition: all .8s;
 			.login-input {
-				padding: 60rpx 0 28rpx 0;
+				padding: 60upx 0 28upx 0;
 				display: flex;
 				flex-direction: row;
 				align-items: center;
-				border-bottom: 1rpx solid #EFEFEF;
+				border-bottom: 1upx solid #EFEFEF;
 				.input-name {
 					font-size: $fontSmallSize;
 					color: $fontBlackColor;
 				}
 				.input-value {
 					flex: 1;
-					padding: 0 20rpx;
+					padding: 0 20upx;
 					font-size: $fontSmallSize;
 					color: $fontBlackColor;
 				}
 				.input-icons {
-					width: 48rpx;
-					height: 48rpx;
+					width: 48upx;
+					height: 48upx;
 				}
 			}
 			.login-link {
-				margin-top: 20rpx;
+				margin-top: 20upx;
 				font-size: $fontSize;
 				color: $fontLightBlackColor;
 				text-align: right;
 			}
 		}
 		.btns-box {
-			width: 600rpx;
+			width: 600upx;
 			display: flex;
 			flex-direction: column;
 			.btns {
 				width: 100%;
-				padding: 5rpx 0;
-				margin-top: 30rpx;
+				padding: 5upx 0;
+				margin-top: 30upx;
 				font-size: $fontSize;
 				box-sizing: border-box;
-				border-radius: 40rpx;
+				border-radius: 40upx;
 				transform: translateY(0px);
 				transition: all 0.8s;
 				&:after {
@@ -190,17 +190,17 @@
 			.wx-btns {
 				@extend .btns;
 				color: $fontWhiteColor;
-				border: 2rpx solid #2EC448;
-				background: url(../../static/login/wechat_icon_off.png) 130rpx 25rpx no-repeat;
-				background-size: 39rpx 32rpx;
+				border: 2upx solid #2EC448;
+				background: url(../../static/login/wechat_icon_off.png) 130upx 25upx no-repeat;
+				background-size: 39upx 32upx;
 				background-color: #2EC448;
 			}
 			.user-btns {
 				@extend .btns;
 				color: $fontLightBlackColor;
-				border: 2rpx solid #C2C2C2;
-				background: url(../../static/login/phone.png) 160rpx 23rpx no-repeat;
-				background-size: 25rpx 35rpx;
+				border: 2upx solid #C2C2C2;
+				background: url(../../static/login/phone.png) 160upx 23upx no-repeat;
+				background-size: 25upx 35upx;
 				background-color: $bgWhiteColor;
 			}
 		}
@@ -209,15 +209,15 @@
 		.login-box {
 			opacity: 1;
 			z-index: 9;
-			transform: translateY(100rpx);
+			transform: translateY(100upx);
 		}
 		.btns-box {
 			.wx-btns {
-				transform: translateY(220rpx);
+				transform: translateY(220upx);
 				color: #2EC448;
 				border-color: #2EC448;
-				background: url(../../static/login/wechat_icon_on.png) 150rpx 25rpx no-repeat;
-				background-size: 39rpx 32rpx;
+				background: url(../../static/login/wechat_icon_on.png) 150upx 25upx no-repeat;
+				background-size: 39upx 32upx;
 				background-color: $bgWhiteColor;
 			}
 			.user-btns {

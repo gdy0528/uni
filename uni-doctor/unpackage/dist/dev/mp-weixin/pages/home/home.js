@@ -139,7 +139,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var HomeInfo = function HomeInfo() {Promise.all(/*! require.ensure | pages/home/components/Info */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/home/components/Info")]).then((function () {return resolve(__webpack_require__(/*! ./components/Info */ 75));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var HomeNews = function HomeNews() {__webpack_require__.e(/*! require.ensure | pages/home/components/News */ "pages/home/components/News").then((function () {return resolve(__webpack_require__(/*! ./components/News */ 82));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var HomeInfo = function HomeInfo() {Promise.all(/*! require.ensure | pages/home/components/Info */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/home/components/Info")]).then((function () {return resolve(__webpack_require__(/*! ./components/Info */ 91));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var HomeNews = function HomeNews() {__webpack_require__.e(/*! require.ensure | pages/home/components/News */ "pages/home/components/News").then((function () {return resolve(__webpack_require__(/*! ./components/News */ 98));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var HomePerfect = function HomePerfect() {__webpack_require__.e(/*! require.ensure | pages/home/components/Perfect */ "pages/home/components/Perfect").then((function () {return resolve(__webpack_require__(/*! ./components/Perfect */ 105));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
 
 
 
@@ -152,7 +154,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 {
   components: {
     HomeInfo: HomeInfo,
-    HomeNews: HomeNews },
+    HomeNews: HomeNews,
+    HomePerfect: HomePerfect },
 
   data: function data() {
     return {
@@ -176,8 +179,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
         reexaminationPush: 0, //复诊角标
         cfPushCount: 0, //查房角标
         messageNumber: 0 //出院角标
-      } };
-
+      },
+      verify: true //是否展示个人资料补全
+    };
   },
   methods: {
     postHome: function postHome() {//请求首页数据
@@ -198,6 +202,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
             userName: res.data.nickName //用户账号
           };
           self.msgList = res.data.msgList;
+          self.verify = res.data.verify;
         }
       });
     },
@@ -217,6 +222,11 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
           };
         }
       });
+    } },
+
+  watch: {
+    verify: function verify(newValue) {//监听个人资料缺失状态
+      if (!newValue) this.$refs.HomePerfect.handleClickPopup(true); //展示个人资料缺失
     } },
 
   onShow: function onShow() {

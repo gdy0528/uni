@@ -39,7 +39,7 @@
 					},
 					{
 						show: true,
-						link: "",
+						link: "/pages/qrcode/qrcode",
 						name: "邀请二维码",
 						icon: "../../static/personal/code.png"
 					},
@@ -57,7 +57,7 @@
 
 <style lang="scss" scoped>
 	.PersonalTab {
-		margin: 20rpx 0;
+		margin: 20upx 0;
 		display: flex;
 		flex-direction: column;
 		.tab-box {
@@ -66,28 +66,28 @@
 			background: $bgWhiteColor;
 			.tab-item {
 				position: relative;
-				padding: 30rpx;
+				padding: 30upx;
 				display: flex;
 				flex-direction: row;
 				align-items: center;
 				box-sizing: border-box;
 				&:after {
 					position: absolute;
-					right: 30rpx;
-					left: 30rpx;
+					right: 30upx;
+					left: 30upx;
 					bottom: 0;
 					box-sizing: border-box;
 					content: ' ';
 					pointer-events: none;
-					border-bottom: 2rpx solid #E5E5E5;
+					border-bottom: 2upx solid #E5E5E5;
 				}
 				&:last-child:after {
 					border: none;
 				}
 				.item-icons {
-					width: 36rpx;
-					height: 36rpx;
-					margin: 0 15rpx 0 10rpx;
+					width: 36upx;
+					height: 36upx;
+					margin: 0 15upx 0 10upx;
 				}
 				.item-name {
 					flex: 1;
@@ -95,8 +95,8 @@
 					color: $fontBlackColor;
 				}
 				.item-arrow {
-					width: 16rpx;
-					height: 32rpx;
+					width: 16upx;
+					height: 32upx;
 				}
 			}
 		}

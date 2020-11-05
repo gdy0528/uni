@@ -57,11 +57,11 @@
 		justify-content: space-between;
 		.setting-box {
 			flex: 1;
-			margin-top: 10rpx;
+			margin-top: 10upx;
 			display: flex;
 			flex-direction: column;
 			.setting-item {
-				padding: 30rpx 10rpx 30rpx 40rpx;
+				padding: 30upx 10upx 30upx 40upx;
 				display: flex;
 				flex-direction: row;
 				align-items: center;
@@ -72,21 +72,21 @@
 					color: $fontBlackColor;
 				}
 				.item-arrow {
-					width: 45rpx;
-					height: 45rpx;
+					width: 45upx;
+					height: 45upx;
 				}
 			}
 		}
 		.setting-btns {
-			padding: 0 25rpx;
-			margin-bottom: 50rpx;
+			padding: 0 25upx;
+			margin-bottom: 50upx;
 			display: flex;
 			flex-direction: row;
 			.btns {
 				width: 100%;
 				font-size: $fontSmallSize;
 				color: $fontWhiteColor;
-				border-radius: 10rpx;
+				border-radius: 10upx;
 				background: #F9605E;
 			}
 		}

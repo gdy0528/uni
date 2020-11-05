@@ -74,23 +74,23 @@
 		display: flex;
 		flex-direction: column;
 		.search-box {
-			padding: 12rpx 0 12rpx 30rpx;
+			padding: 12upx 0 12upx 30upx;
 			display: flex;
 			flex-direction: row;
 			align-items: center;
 			background: $bgMainColor;
 			.search-item {
-				padding: 10rpx 15rpx;
+				padding: 10upx 15upx;
 				flex: 1;
 				display: flex;
 				flex-direction: row;
 				align-items: center;
-				border-radius: 10rpx;
+				border-radius: 10upx;
 				background: $bgWhiteColor;
 				.item-icons {
-					width: 46rpx;
-					height: 46rpx;
-					margin-right: 13rpx;
+					width: 46upx;
+					height: 46upx;
+					margin-right: 13upx;
 				}
 				.item-input {
 					flex: 1;
@@ -101,9 +101,9 @@
 				}
 			}
 			.search-btns {
-				height: 66rpx;
-				line-height: 66rpx;
-				padding: 0 30rpx;
+				height: 66upx;
+				line-height: 66upx;
+				padding: 0 30upx;
 				font-size: $fontSmallSize;
 				color: $fontWhiteColor;
 				border: none;
@@ -111,7 +111,7 @@
 			}
 		}
 		.screen-box {
-			padding: 26rpx 0 26rpx 30rpx;
+			padding: 26upx 0 26upx 30upx;
 			display: flex;
 			flex-direction: row;
 			align-items: center;
@@ -121,18 +121,19 @@
 				color: $fontBlackColor;
 			}
 			.screen-icons {
-				width: 38rpx;
-				height: 38rpx;
-				margin: 0 10rpx -2rpx 10rpx;
+				width: 38upx;
+				height: 38upx;
+				margin: 0 10upx -2upx 10upx;
 			}
 			.screen-picker {
-				padding-left: 10rpx;
+				padding-left: 10upx;
 				flex: 1;
 				text-align: right;
 				.screen-value {
 					font-size: $fontSize;
 					color: $fontGrayColor;
-					@include ellipsis &.active-value {
+					@include ellipsis 
+					&.active-value {
 						color: $fontBlackColor;
 					}
 				}

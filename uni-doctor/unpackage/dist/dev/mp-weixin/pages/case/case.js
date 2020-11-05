@@ -128,7 +128,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var CaseSearch = function CaseSearch() {__webpack_require__.e(/*! require.ensure | pages/case/components/Search */ "pages/case/components/Search").then((function () {return resolve(__webpack_require__(/*! ./components/Search */ 103));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var CaseList = function CaseList() {Promise.all(/*! require.ensure | pages/case/components/List */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/case/components/List")]).then((function () {return resolve(__webpack_require__(/*! ./components/List */ 110));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var CaseSearch = function CaseSearch() {__webpack_require__.e(/*! require.ensure | pages/case/components/Search */ "pages/case/components/Search").then((function () {return resolve(__webpack_require__(/*! ./components/Search */ 126));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var CaseList = function CaseList() {Promise.all(/*! require.ensure | pages/case/components/List */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/case/components/List")]).then((function () {return resolve(__webpack_require__(/*! ./components/List */ 133));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -155,7 +155,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       this.$refs.CaseList.handleSearchData(search, hospital);
     } },
 
-  onPullDownRefresh: function onPullDownRefresh() {
+  onPullDownRefresh: function onPullDownRefresh() {//监听下拉刷新
     this.$refs.CaseList.handleRefresh();
   } };exports.default = _default;
 

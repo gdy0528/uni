@@ -18,7 +18,7 @@ export function timeRule(date) {
 }
 
 /* 拿上一条消息的时间与新的消息时间做对比 */
-export function sendTimeRule(lastTime, newTime) { 
+export function sendTimeRule(lastTime, newTime) {
 	let moment = require('moment')
 	let timeOut = 5 * 60 * 1000 //5分钟的毫秒
 	// let lastTime = '2019-08-15 11:22:05'  //模拟消息发送时间
@@ -43,7 +43,7 @@ export function computedNewMsgTime(last, next) {
 }
 
 /* 聊天消息时间规则 */
-export function msgTimeRule(date) { 
+export function msgTimeRule(date) {
 	let moment = require('moment')
 	let dateVal = moment(date).format('YYYY-MM-DD') //得出后台时间年月日
 	let currentDate = moment().format('YYYY-MM-DD') //获取当天年月日
@@ -61,24 +61,55 @@ export function msgTimeRule(date) {
 	}
 }
 
-
 /* 计算分数显示的颜色 */
 export function grade(conut) {
 	if (conut >= 0 && conut <= 40) {
 		return {
-			color: "#5fdc28"
+			color: "#5FDC28"
 		}
 	} else if (conut > 40 && conut <= 60) {
 		return {
-			color: "#fcbc22"
+			color: "#FCBC22"
 		}
 	} else if (conut > 60 && conut <= 80) {
 		return {
-			color: "#da58ff"
+			color: "#DA58FF"
 		}
 	} else if (conut > 80 && conut <= 100) {
 		return {
-			color: "#f9605e"
+			color: "#F9605E"
 		}
+	}
+}
+
+
+/* 咨询类型背景 */
+export function inquiry(type) {
+	switch (type) {
+		case "A": //图文
+			return {
+				name: "图文咨询",
+				color: "#DA58FF"
+			}
+		case "B": //电话
+			return {
+				name: "电话咨询",
+				color: "#3FC6FF"
+			}
+		case "C": //上门
+			return {
+				name: "上门咨询",
+				color: "#FE9846"
+			}
+		case "D": //义诊
+			return {
+				name: "义诊活动",
+				color: "#5FDC28"
+			}
+		case "E": //病房
+			return {
+				name: "病房服务",
+				color: "#0E92F8"
+			}
 	}
 }

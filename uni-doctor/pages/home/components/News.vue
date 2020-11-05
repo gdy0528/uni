@@ -90,80 +90,80 @@
 <style lang="scss" scoped>
 	.HomeNews {
 		.news-swiper {
-			margin-top: 20rpx;
-			padding-right: 20rpx;
+			margin-top: 20upx;
+			padding-right: 20upx;
 			display: flex;
 			flex-direction: row;
 			background: $bgWhiteColor;
 			.swiper-icons {
-				width: 60rpx;
-				height: 60rpx;
+				width: 60upx;
+				height: 60upx;
 			}
 			.swiper-list {
 				flex: 1;
-				height: 60rpx;
+				height: 60upx;
 				overflow: hidden;
 				.swiper-box {
-					height: 60rpx;
-					line-height: 60rpx;
+					height: 60upx;
+					line-height: 60upx;
 					.swiper-item {
-						font-size: 26rpx;
+						font-size: 26upx;
 						color: $fontLightBlackColor;
 					}
 				}
 			}
 		}
 		.news-service {
-			margin: 20rpx;
+			margin: 20upx;
 			display: flex;
 			flex-direction: column;
 			.service-tips {
-				padding: 30rpx;
+				padding: 30upx;
 				display: flex;
 				flex-direction: column;
-				border-radius: 10rpx;
+				border-radius: 10upx;
 				background: $bgWhiteColor;
 				.tips-title {
-					margin-bottom: 6rpx;
+					margin-bottom: 6upx;
 					font-size: $fontMinSize;
 					color: $fontLightBlackColor;
 					font-weight: bold;
 				}
 				.tips-desc {
-					margin-bottom: 4rpx;
+					margin-bottom: 4upx;
 					font-size: $fontMinSize;
 					color: $fontLightBlackColor;
 				}
 			}
 			.service-box {
-				margin-top: 20rpx;
+				margin-top: 20upx;
 				display: flex;
 				flex-direction: row;
 				flex-wrap: wrap;
 				.service-item {
 					position: relative;
 					flex: 0 0 31%;
-					padding: 40rpx 0;
+					padding: 40upx 0;
 					margin-right: 3.33%;
-					margin-bottom: 20rpx;
+					margin-bottom: 20upx;
 					display: flex;
 					flex-direction: column;
 					justify-content: center;
 					align-items: center;
-					border-radius: 10rpx;
+					border-radius: 10upx;
 					background: $bgWhiteColor;
 					&:nth-child(3n) {
 						margin-right: 0;
 					}
 					.item-icons {
-						width: 100rpx;
-						height: 100rpx;
-						margin-bottom: 20rpx;
+						width: 100upx;
+						height: 100upx;
+						margin-bottom: 20upx;
 						.bage {
 							position: absolute;
-							top: 38rpx;
-							right: 70rpx;
-							font-size: 22rpx;
+							top: 38upx;
+							right: 70upx;
+							font-size: 22upx;
 							color: $fontWhiteColor;
 							border-radius: 100%;
 							background: #F9605E;
@@ -172,10 +172,10 @@
 						}
 						.bages {
 							position: absolute;
-							top: 38rpx;
-							right: 60rpx;
-							width: 28rpx;
-							height: 28rpx;
+							top: 38upx;
+							right: 60upx;
+							width: 28upx;
+							height: 28upx;
 							border-radius: 100%;
 							background: #F9605E;
 						}

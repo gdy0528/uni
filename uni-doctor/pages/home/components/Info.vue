@@ -2,7 +2,7 @@
 	<view class="HomeInfo">
 		<view class="info-box">
 			<view class="head">
-				<LayzImage :src="infoObj.userHead" />
+				<LayzImage :src="infoObj.userHead" round />
 			</view>
 		</view>
 		<view class="info-collect" v-if="userType">
@@ -77,7 +77,7 @@
 <style lang="scss" scoped>
 	.HomeInfo {
 		.info-box {
-			padding: 18rpx 0 90rpx 0;
+			padding: 18upx 0 90upx 0;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -85,8 +85,8 @@
 			background: url(../../../static/home/d_home_bg.png) no-repeat;
 			background-size: 100% 100%;
 			.head {
-				width: 140rpx;
-				height: 140rpx;
+				width: 140upx;
+				height: 140upx;
 				border-radius: 100%;
 				overflow: hidden;
 			}
@@ -97,13 +97,13 @@
 			justify-content: center;
 			align-items: center;
 			.collect-box {
-				width: 480rpx;
-				margin-top: -75rpx;
-				padding: 30rpx 0;
+				width: 480upx;
+				margin-top: -75upx;
+				padding: 30upx 0;
 				display: flex;
 				flex-direction: row;
 				flex-wrap: wrap;
-				border-radius: 30rpx;
+				border-radius: 30upx;
 				background: $bgWhiteColor;
 				.collect-item {
 					flex: 0 0 50%;
@@ -112,13 +112,13 @@
 					justify-content: center;
 					align-items: center;
 					.nums {
-						margin-bottom: 3rpx;
-						font-size: 46rpx;
+						margin-bottom: 3upx;
+						font-size: 46upx;
 						color: $fontBlueColor;
 						font-weight: 400;
 					}
 					.desc {
-						font-size: 22rpx;
+						font-size: 22upx;
 						color: $fontBlackColor;
 					}
 					&.collect-item-active {

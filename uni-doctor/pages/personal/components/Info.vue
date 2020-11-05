@@ -2,7 +2,7 @@
 	<view class="PersonalInfo">
 		<view class="info-box">
 			<view class="info-head">
-				<LayzImage :src="info.userImg" />
+				<LayzImage :src="info.userImg" round />
 			</view>
 			<view class="info-data">
 				<view class="data-name">
@@ -38,14 +38,14 @@
 		display: flex;
 		flex-direction: column;
 		.info-box {
-			padding: 30rpx 50rpx 90rpx 50rpx;
+			padding: 30upx 50upx 90upx 50upx;
 			display: flex;
 			flex-direction: row;
 			background: $bgMainColor;
 			.info-head {
-				width: 140rpx;
-				height: 140rpx;
-				margin-right: 40rpx;
+				width: 140upx;
+				height: 140upx;
+				margin-right: 40upx;
 				border-radius: 100%;
 				overflow: hidden;
 			}
@@ -55,25 +55,25 @@
 				flex-direction: column;
 				justify-content: flex-start;
 				.data-name {
-					margin-top: 10rpx;
+					margin-top: 10upx;
 					display: flex;
 					flex-direction: row;
 					align-items: baseline;
 					.name {
-						margin-right: 12rpx;
-						font-size: 34rpx;
+						margin-right: 12upx;
+						font-size: 34upx;
 						color: $fontWhiteColor;
 					}
 					.title {
-						font-size: 26rpx;
+						font-size: 26upx;
 						color: $fontWhiteColor;
 					}
 				}
 				.data-user {
 					.user {
 						line-height: 1;
-						padding: 10rpx 22rpx;
-						margin-top: 20rpx;
+						padding: 10upx 22upx;
+						margin-top: 20upx;
 						display: inline-block;
 						font-size: $fontSmallSize;
 						color: $fontBlueColor;
@@ -84,17 +84,17 @@
 			}
 		}
 		.give-box {
-			padding: 0 25rpx;
-			margin-top: -60rpx;
+			padding: 0 25upx;
+			margin-top: -60upx;
 			display: flex;
 			flex-direction: row;
 			.give-main {
 				width: 100%;
-				height: 80rpx;
-				padding: 20rpx 0;
+				height: 80upx;
+				padding: 20upx 0;
 				display: flex;
 				flex-direction: row;
-				border-radius: 8rpx;
+				border-radius: 8upx;
 				background: $bgWhiteColor;
 				.give-item {
 					flex: 1;
@@ -123,10 +123,10 @@
 						}
 					}
 					.item-nums {
-						font-size: 45rpx;
+						font-size: 45upx;
 					}
 					.item-name {
-						font-size: 26rpx;
+						font-size: 26upx;
 					}
 				}
 			}

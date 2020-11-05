@@ -29,7 +29,7 @@
 			"style": {
 				"navigationBarTitleText": "我的设置"
 			}
-		}, 
+		},
 		{
 			"path": "pages/case/case",
 			"style": {
@@ -38,9 +38,27 @@
 			}
 		},
 		{
-			"path" : "pages/receipt/receipt",
-			"style" : {
-				"navigationBarTitleText": "咨询接单"
+			"path": "pages/receipt/receipt",
+			"style": {
+				"navigationBarTitleText": "咨询接单",
+				"enablePullDownRefresh": true,
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"width": "65px",
+							"float": "right",
+							"text": "接单记录",
+							"fontSize": "28upx",
+							"color": "#FFFFFF"
+						}]
+					}
+				}
+			}
+		}, 
+		{
+			"path": "pages/qrcode/qrcode",
+			"style": {
+				"navigationBarTitleText": "邀请二维码"
 			}
 		}
 	],
@@ -74,6 +92,10 @@
 			{
 				"path": "pages/receipt/receipt",
 				"name": "咨询接单"
+			},
+			{
+				"path": "pages/qrcode/qrcode",
+				"name": "邀请二维码"
 			}
 		]
 	},

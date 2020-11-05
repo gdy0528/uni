@@ -2,6 +2,7 @@
   "navigationBarTitleText": "脑科专家",
   "usingComponents": {
     "home-info": "/pages/home/components/Info",
-    "home-news": "/pages/home/components/News"
+    "home-news": "/pages/home/components/News",
+    "home-perfect": "/pages/home/components/Perfect"
   }
 }

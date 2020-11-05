@@ -1,6 +1,7 @@
 <template>
 	<image 
 		class="imgs"
+		:style="{borderRadius : round ? '100%' : 'none'}"
 		:src="src" 
 		:mode="mode" 
 		:lazy-load="lazy" 
@@ -44,6 +45,10 @@
 				default: false
 			},
 			longpress: {
+				type: Boolean,
+				default: false
+			},
+			round: {
 				type: Boolean,
 				default: false
 			}

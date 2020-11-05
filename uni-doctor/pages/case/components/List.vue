@@ -1,9 +1,9 @@
 <template>
-	<scroll-view class="CaseList" :style="{height: `${scrollH}rpx`}" refresher-background="$bgColor" scroll-y="true" @scrolltolower="handleLower">
+	<scroll-view class="CaseList" :style="{height: `${scrollH}upx`}" refresher-background="$bgColor" scroll-y="true" @scrolltolower="handleLower">
 		<view class="list-box" v-if="!isEmpty">
 			<view class="list-item" v-for="(item, index) in caseList" :key="index">
 				<view class="item-head">
-					<LayzImage :src="item.userImg" />
+					<LayzImage :src="item.userImg" round />
 				</view>
 				<view class="item-content">
 					<view class="content-info">
@@ -46,7 +46,7 @@
 			}
 		},
 		computed: {
-			scrollH() {	//计算底部高度
+			scrollH() {	//计算高度
 				let sys = uni.getSystemInfoSync();
 				let winWidth = sys.windowWidth;
 				let winrate = 750 / winWidth;
@@ -95,6 +95,7 @@
 				let self = this
 				self.disabled = false
 				self.current = 1 
+				self.caseList = []	//清空接单数据
 				self.postCaseData(false).then(res => {
 					uni.stopPullDownRefresh()
 					uni.showToast({
@@ -123,25 +124,22 @@
 <style lang="scss" scoped>
 	.CaseList {
 		.list-box {
-			margin: 0 10rpx 20rpx 10rpx;
+			margin: 0 10upx 20upx 10upx;
 			display: flex;
 			flex-direction: column;
 			.list-item {
-				padding: 20rpx;
-				margin-top: 20rpx;
+				padding: 20upx;
+				margin-top: 20upx;
 				display: flex;
 				flex-direction: row;
 				justify-content: flex-start;
-				border-radius: 10rpx;
+				border-radius: 10upx;
 				background: $bgWhiteColor;
 				.item-head {
-					width: 100rpx;
-					height: 100rpx;
-					margin-right: 20rpx;
+					width: 100upx;
+					height: 100upx;
+					margin-right: 20upx;
 					overflow: hidden;
-					.imgs {	//解决APP不展示圆角问题
-						border-radius: 100%;
-					}
 				}
 				.item-content {
 					flex: 1;
@@ -149,17 +147,17 @@
 					flex-direction: column;
 					overflow: hidden;
 					.content-info {
-						margin-bottom: 10rpx;
+						margin-bottom: 10upx;
 						display: flex;
 						flex-direction: row;
 						align-items: baseline;
 						.info-name {
-							margin-right: 30rpx;
+							margin-right: 30upx;
 							font-size: $fontSmallSize;
 							color: $fontBlackColor;
 						}
 						.info-sex {
-							margin-right: 20rpx;
+							margin-right: 20upx;
 							font-size: $fontSize;
 							color: $fontLightBlackColor;
 						}
@@ -173,11 +171,11 @@
 							align-items: baseline;
 							justify-content: flex-end;
 							.score-nums {
-								font-size: 44rpx;
+								font-size: 44upx;
 								font-weight: bold;
 							}
 							.score-text {
-								margin-left: 6rpx;
+								margin-left: 6upx;
 								font-size: $fontMinSize;
 							}
 						}
@@ -188,13 +186,13 @@
 						@include ellipsis;
 					}
 					.content-hospital {
-						margin-top: 20rpx;
+						margin-top: 20upx;
 						display: flex;
 						flex-direction: row;
 						align-items: center;
 						.hospital-name {
-							max-width: 160rpx;
-							margin-right: 22rpx;
+							max-width: 160upx;
+							margin-right: 22upx;
 							font-size: $fontMinSize;
 							color: $fontGrayColor;
 							@include ellipsis;
@@ -207,12 +205,12 @@
 						}
 					}
 					.content-case {
-						margin: 44rpx 0 10rpx 0;
+						margin: 44upx 0 10upx 0;
 						display: flex;
 						flex-direction: row;
 						align-items: center;
 						.case-item {
-							margin-right: 36rpx;
+							margin-right: 36upx;
 							font-size: $fontMinSize;
 							color: $fontBlackColor;
 						}
