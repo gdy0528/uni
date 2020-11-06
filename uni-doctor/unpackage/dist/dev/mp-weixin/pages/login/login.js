@@ -216,9 +216,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _interopRequireDefault(
       }
     },
     handleClickWxLogin: function handleClickWxLogin() {//微信快速登录/注册
-      var
-      isUser =
-      this.isUser;
+      var isUser = this.isUser;
       if (isUser) {
         this.isUser = false;
       } else {

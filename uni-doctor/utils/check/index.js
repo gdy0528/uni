@@ -37,12 +37,12 @@ export function insText(val, desc) {
 }
 
 /* 判断密码 */
-export function insPwd(pwd) { 
+export function insPwd(pwd, desc = "密码") { 
 	if (pwd.length < 0 || pwd == "") {
-		showToast('密码不能为空')
+		showToast(`${desc}不能为空`)
 		return
 	} else if (!/^[0-9A-Za-z]{6,12}$/.test(pwd)) {
-		showToast('密码必须为6-12字母数字组合')
+		showToast(`${desc}必须为6-12字母数字组合`)
 		return
 	} else {
 		return true

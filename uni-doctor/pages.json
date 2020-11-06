@@ -54,11 +54,23 @@
 					}
 				}
 			}
-		}, 
+		},
 		{
 			"path": "pages/qrcode/qrcode",
 			"style": {
 				"navigationBarTitleText": "邀请二维码"
+			}
+		},
+		{
+			"path": "pages/forget/forget",
+			"style": {
+				"navigationBarTitleText": "忘记密码"
+			}
+		},
+		{
+			"path": "pages/material/material",
+			"style": {
+				"navigationBarTitleText": "个人资料"
 			}
 		}
 	],
@@ -96,6 +108,14 @@
 			{
 				"path": "pages/qrcode/qrcode",
 				"name": "邀请二维码"
+			},
+			{
+				"path": "pages/forget/forget",
+				"name": "忘记密码"
+			},
+			{
+				"path": "pages/material/material",
+				"name": "个人资料"
 			}
 		]
 	},

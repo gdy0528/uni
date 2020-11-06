@@ -3,11 +3,10 @@
 		<view class="qrcode-box">
 			<view class="qrcode-info">
 				<view class="info-head">
-					<LayzImage src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2398757367,4141475674&fm=26&gp=0.jpg"
-					 round />
+					<LayzImage :src="userInfo.userImg" round />
 				</view>
-				<text class="info-name">李爱国</text>
-				<text class="info-desc">我为脑科专家代言</text>
+				<text class="info-name">{{userInfo.userNickname}}</text>
+				<text class="info-desc">{{userInfo.userType == 3 ? '邀请你成为我的助手' : '我为脑科专家代言'}}</text>
 			</view>
 			<view class="qrcode-border"></view>
 			<view class="qrcode-ewm">
@@ -40,7 +39,8 @@
 						val: "https://www.baidu.com",
 						icon: require("../../static/qrcode/qr_patient_logo.png"),
 					}
-				]
+				],
+				userInfo: {} //个人信息
 			}
 		},
 		computed: {
@@ -58,10 +58,19 @@
 					this.$refs.qrcode._makeCode() //重新生成二维码
 				})
 			},
-
+			getUserInfo() { //获取个人信息
+				let self = this
+				this.$get('/api/common/wx/getUserInfo', {}, false).then(data => {
+					let res = data.data
+					if (res.code == 200) {
+						self.userInfo = res.data
+						self.$refs.qrcode._makeCode() //生成二维码
+					}
+				})
+			}
 		},
 		mounted() {
-			this.$refs.qrcode._makeCode() //生成二维码
+			this.getUserInfo() //获取个人信息
 		}
 	}
 </script>
@@ -69,12 +78,7 @@
 <style lang="scss" scoped>
 	.QrcodeContainer {
 		width: 100%;
-		/* #ifndef H5 */
-		height: 100vh;
-		/* #endif */
-		/* #ifdef H5 */
-		height: calc(100vh - 44px - env(safe-area-inset-top));
-		/* #endif */
+		@include heightVh;
 		display: flex;
 		flex-direction: column;
 		.qrcode-box {

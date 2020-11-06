@@ -66,6 +66,16 @@
           "name": "邀请二维码",
           "id": 7,
           "pathName": "pages/qrcode/qrcode"
+        },
+        {
+          "name": "忘记密码",
+          "id": 8,
+          "pathName": "pages/forget/forget"
+        },
+        {
+          "name": "个人资料",
+          "id": 9,
+          "pathName": "pages/material/material"
         }
       ]
     }

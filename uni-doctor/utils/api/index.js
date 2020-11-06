@@ -129,3 +129,37 @@ export function postAction(url, data, loading = true, toast = true) { //POST请�
 		})
 	})
 }
+
+export function fileAction(url, filePath, loading = true, toast = true) { //FILE请求
+	showLoading(loading)
+	return new Promise((resolve, reject) => {
+		uni.uploadFile({
+			// 如果在H5解决跨域问题
+			// #ifdef H5
+			url,
+			// #endif
+			// #ifndef H5
+			url: `${getSerive()}${url}`,
+			// #endif
+			filePath,
+			name: 'file',
+			formData: {
+				'fileType': 'tx'
+			},
+			header: {
+				"token": store.state.token,
+				"source": getSource()
+			},
+			success: res => {
+				res.data = JSON.parse(res.data)	//处理返回json字符
+				handleSuceesState(res, loading, toast).then(state => {
+					resolve(res)
+				})
+			},
+			fail: err => {
+				reject(err)
+				hideLoding(loading)
+			}
+		})
+	})
+}

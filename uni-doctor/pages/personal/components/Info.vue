@@ -1,9 +1,9 @@
 <template>
 	<view class="PersonalInfo">
 		<view class="info-box">
-			<view class="info-head">
+			<navigator class="info-head" url="/pages/material/material">
 				<LayzImage :src="info.userImg" round />
-			</view>
+			</navigator>
 			<view class="info-data">
 				<view class="data-name">
 					<text class="name">{{info.userNickname}}</text>

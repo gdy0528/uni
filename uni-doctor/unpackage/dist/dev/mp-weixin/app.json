@@ -7,7 +7,9 @@
     "pages/settings/settings",
     "pages/case/case",
     "pages/receipt/receipt",
-    "pages/qrcode/qrcode"
+    "pages/qrcode/qrcode",
+    "pages/forget/forget",
+    "pages/material/material"
   ],
   "subPackages": [],
   "window": {

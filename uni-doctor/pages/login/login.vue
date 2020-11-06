@@ -19,7 +19,7 @@
 					<LayzImage v-else src="../../static/login/ic_login_password-nosee.png" />
 				</view>
 			</view>
-			<view class="login-link">忘记密码</view>
+			<navigator class="login-link" hover-class="none" url="/pages/forget/forget">忘记密码</navigator>
 		</view>
 		<view class="btns-box">
 			<button class="wx-btns" type="default" @click="handleClickWxLogin">{{ isUser ? '切换到微信登录' : '微信快速登录/注册' }}</button>
@@ -84,9 +84,7 @@
 				}
 			},
 			handleClickWxLogin() { //微信快速登录/注册
-				let {
-					isUser
-				} = this
+				let { isUser } = this
 				if (isUser) {
 					this.isUser = false
 				} else {
@@ -109,12 +107,7 @@
 <style lang="scss" scoped>
 	.LoginContainer {
 		width: 100%;
-		/* #ifndef H5 */
-		height: 100vh;
-		/* #endif */
-		/* #ifdef H5 */
-		height: calc(100vh - 44px - env(safe-area-inset-top));
-		/* #endif */
+		@include heightVh;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -143,18 +136,20 @@
 			z-index: -1;
 			transition: all .8s;
 			.login-input {
-				padding: 60upx 0 28upx 0;
 				display: flex;
 				flex-direction: row;
 				align-items: center;
 				border-bottom: 1upx solid #EFEFEF;
 				.input-name {
+					margin-right: 20upx;
 					font-size: $fontSmallSize;
 					color: $fontBlackColor;
 				}
 				.input-value {
+					height: 120upx;
+					line-height: 120upx;
+					padding-right: 20upx;
 					flex: 1;
-					padding: 0 20upx;
 					font-size: $fontSmallSize;
 					color: $fontBlackColor;
 				}
