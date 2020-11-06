@@ -15,9 +15,7 @@
 		</form>
 		<view class="screen-box">
 			<view class="screen-title">所属医院筛选</view>
-			<picker class="screen-picker" @change="handleChangeHospital" :range="hospitalArray">
-				<view class="screen-value" :class="{'active-value' : hospitalValue}">{{hospitalValue || "请选择"}}</view>
-			</picker>
+			<CommonPicker :colums="hospitalArray" :value="hospitalValue" @change="handleChangeHospital"/>
 			<view class="screen-icons">
 				<LayzImage src="../../static/middle-return-black-right.png" />
 			</view>
@@ -26,7 +24,11 @@
 </template>
 
 <script>
+	import CommonPicker from '../../../common/Picker/Picker'
 	export default {
+		components: {
+			CommonPicker
+		},
 		data() {
 			return {
 				search: "",	//搜索字段
@@ -46,13 +48,11 @@
 				})
 			},
 			handleSearch(e) {	//点击搜索
-				let value = e.target.value
-				this.search = value.search
+				this.search = e.target.value.search
 				this.handleEmitValue()
 			},
-			handleChangeHospital(e) { //监听选择所属医院
-				let index = e.target.value
-				this.hospitalValue = this.hospitalArray[index]
+			handleChangeHospital(value) { //监听选择所属医院
+				this.hospitalValue = value
 				this.handleEmitValue()
 			},
 			handleEmitValue() {	//回传搜索条件
@@ -124,19 +124,6 @@
 				width: 38upx;
 				height: 38upx;
 				margin: 0 10upx -2upx 10upx;
-			}
-			.screen-picker {
-				padding-left: 10upx;
-				flex: 1;
-				text-align: right;
-				.screen-value {
-					font-size: $fontSize;
-					color: $fontGrayColor;
-					@include ellipsis 
-					&.active-value {
-						color: $fontBlackColor;
-					}
-				}
 			}
 		}
 	}

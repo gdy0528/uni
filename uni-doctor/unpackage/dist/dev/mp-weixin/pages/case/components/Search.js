@@ -114,35 +114,37 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var CommonPicker = function CommonPicker() {__webpack_require__.e(/*! require.ensure | common/Picker/Picker */ "common/Picker/Picker").then((function () {return resolve(__webpack_require__(/*! ../../../common/Picker/Picker */ 373));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
+  components: {
+    CommonPicker: CommonPicker },
+
   data: function data() {
     return {
       search: "", //搜索字段
@@ -162,13 +164,11 @@ var _default =
       });
     },
     handleSearch: function handleSearch(e) {//点击搜索
-      var value = e.target.value;
-      this.search = value.search;
+      this.search = e.target.value.search;
       this.handleEmitValue();
     },
-    handleChangeHospital: function handleChangeHospital(e) {//监听选择所属医院
-      var index = e.target.value;
-      this.hospitalValue = this.hospitalArray[index];
+    handleChangeHospital: function handleChangeHospital(value) {//监听选择所属医院
+      this.hospitalValue = value;
       this.handleEmitValue();
     },
     handleEmitValue: function handleEmitValue() {//回传搜索条件

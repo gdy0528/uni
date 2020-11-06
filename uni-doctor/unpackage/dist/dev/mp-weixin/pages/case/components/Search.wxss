@@ -121,21 +121,4 @@
   height: 38rpx;
   margin: 0 10rpx -2rpx 10rpx;
 }
-.CaseSearch .screen-box .screen-picker.data-v-3283470a {
-  padding-left: 10rpx;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-          flex: 1;
-  text-align: right;
-}
-.CaseSearch .screen-box .screen-picker .screen-value.data-v-3283470a {
-  font-size: 28rpx;
-  color: #999999;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-.CaseSearch .screen-box .screen-picker .screen-value.active-value.data-v-3283470a {
-  color: #333333;
-}
 
