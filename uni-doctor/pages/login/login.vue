@@ -54,7 +54,7 @@
 						self.$get('/api/common/wx/getEncryptedString', {}, false, false).then(res => {
 							let ase = res.data.data
 							let password = aesEncrypt.encryption(self.password, ase.key, ase.iv)
-							uni.showLoading({title: '登录中'})
+							uni.showLoading({title: '登录中', mask: true})
 							self.$post('/api/common/wx/accountLogin', {
 								userName: self.phone,
 								userPass: password,
