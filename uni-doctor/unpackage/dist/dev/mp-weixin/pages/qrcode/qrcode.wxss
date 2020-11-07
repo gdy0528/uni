@@ -108,17 +108,31 @@
           align-items: center;
 }
 .QrcodeContainer .qrcode-box .qrcode-ewm .ewm-box.data-v-51e25bf4 {
-  padding: 10rpx 10rpx 0 10rpx;
+  position: relative;
+  width: 300rpx;
+  height: 300rpx;
+  padding: 10rpx;
   margin: 20rpx 0;
   border: 6rpx solid #0E92F8;
   -webkit-border-radius: 10rpx;
           border-radius: 10rpx;
   -webkit-transition: all 1s;
   transition: all 1s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
 }
-.QrcodeContainer .qrcode-box .qrcode-ewm .ewm-box.ewm-rotate.data-v-51e25bf4 {
+.QrcodeContainer .qrcode-box .qrcode-ewm .ewm-box .ewm-qrcode.data-v-51e25bf4 {
+  position: absolute;
+  top: 10rpx;
+  left: 10rpx;
+}
+.QrcodeContainer .qrcode-box .qrcode-ewm .ewm-box .ewm-qrcode.data-v-51e25bf4:last-child {
   -webkit-transform: rotateY(-180deg);
           transform: rotateY(-180deg);
+}
+.QrcodeContainer .qrcode-box .qrcode-ewm .ewm-box.ewm-rotate.data-v-51e25bf4 {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
 .QrcodeContainer .qrcode-box .qrcode-ewm .ewm-desc.data-v-51e25bf4 {
   font-size: 22rpx;

@@ -48,5 +48,6 @@
   "usingComponents": {
     "layz-image": "/common/LazyImage/LazyImage",
     "empty": "/common/Empty/Empty"
-  }
+  },
+  "sitemapLocation": "sitemap27.json"
 }
