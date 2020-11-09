@@ -1,108 +1,83 @@
 {
-	"description": "项目配置文件。",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"enhance": false,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": false,
-		"coverView": true,
-		"nodeModules": false,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"uglifyFileName": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": true,
-		"userConfirmedUseCompilerModuleSwitch": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "",
-	"appid": "wx3da7bf5c8dde4309",
-	"projectname": "uni-doctor",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"name": "首页",
-					"id": 0,
-					"pathName": "pages/home/home"
-				},
-				{
-					"name": "工作室",
-					"id": 1,
-					"pathName": "pages/studio/studio"
-				},
-				{
-					"name": "我的",
-					"id": 2,
-					"pathName": "pages/personal/personal"
-				},
-				{
-					"name": "登录",
-					"id": 3,
-					"pathName": "pages/login/login"
-				},
-				{
-					"name": "我的设置",
-					"id": 4,
-					"pathName": "pages/settings/settings"
-				},
-				{
-					"name": "病历总库",
-					"id": 5,
-					"pathName": "pages/case/case"
-				},
-				{
-					"name": "咨询接单",
-					"id": 6,
-					"pathName": "pages/receipt/receipt"
-				},
-				{
-					"name": "邀请二维码",
-					"id": 7,
-					"pathName": "pages/qrcode/qrcode"
-				},
-				{
-					"name": "忘记密码",
-					"id": 8,
-					"pathName": "pages/forget/forget"
-				},
-				{
-					"name": "个人资料",
-					"id": 9,
-					"pathName": "pages/material/material"
-				}
-			]
-		}
-	}
+  "description": "项目配置文件。",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "",
+  "appid": "wx3da7bf5c8dde4309",
+  "projectname": "uni-doctor",
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": 0,
+      "list": [
+        {
+          "name": "首页",
+          "id": 0,
+          "pathName": "pages/home/home"
+        },
+        {
+          "name": "工作室",
+          "id": 1,
+          "pathName": "pages/studio/studio"
+        },
+        {
+          "name": "我的",
+          "id": 2,
+          "pathName": "pages/personal/personal"
+        },
+        {
+          "name": "登录",
+          "id": 3,
+          "pathName": "pages/login/login"
+        },
+        {
+          "name": "我的设置",
+          "id": 4,
+          "pathName": "pages/settings/settings"
+        },
+        {
+          "name": "病历总库",
+          "id": 5,
+          "pathName": "pages/case/case"
+        },
+        {
+          "name": "咨询接单",
+          "id": 6,
+          "pathName": "pages/receipt/receipt"
+        },
+        {
+          "name": "邀请二维码",
+          "id": 7,
+          "pathName": "pages/qrcode/qrcode"
+        },
+        {
+          "name": "忘记密码",
+          "id": 8,
+          "pathName": "pages/forget/forget"
+        },
+        {
+          "name": "个人资料",
+          "id": 9,
+          "pathName": "pages/material/material"
+        }
+      ]
+    }
+  }
 }

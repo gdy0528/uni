@@ -15,7 +15,9 @@
 		</form>
 		<view class="screen-box">
 			<view class="screen-title">所属医院筛选</view>
-			<CommonPicker :colums="hospitalArray" :value="hospitalValue" @change="handleChangeHospital"/>
+			<view class="screen-picker">
+				<CommonPicker :colums="hospitalArray" :value="hospitalValue" @change="handleChangeHospital" />
+			</view>
 			<view class="screen-icons">
 				<LayzImage src="../../static/middle-return-black-right.png" />
 			</view>
@@ -119,6 +121,9 @@
 			.screen-title {
 				font-size: $fontSize;
 				color: $fontBlackColor;
+			}
+			.screen-picker {
+				flex: 1;
 			}
 			.screen-icons {
 				width: 38upx;

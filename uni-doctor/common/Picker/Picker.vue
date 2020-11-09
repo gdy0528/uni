@@ -1,6 +1,6 @@
 <template>
-	<picker class="PickerMain" @change="handleChangeCloums" :range="colums">
-		<view class="picker-value" :class="{'active-value' : value}">{{value || "请选择"}}</view>
+	<picker class="PickerMain" :range="colums" :range-key="columsKey" @change="handleChangeCloums">
+		<view class="picker-value" :class="{'active-value' : value}">{{value || placeholder}}</view>
 	</picker>
 </template>
 
@@ -9,11 +9,21 @@
 		props: {
 			colums: {
 				type: Array,
-				default: []
+				default: () => {
+					return []
+				}
+			},
+			columsKey: {
+				type: String,
+				default: ""
 			},
 			value: {
 				type: String,
 				default: ""
+			},
+			placeholder: {
+				type: String,
+				default: "请选择"
 			}
 		},
 		methods: {
@@ -30,10 +40,12 @@
 		padding-left: 10upx;
 		flex: 1;
 		text-align: right;
+
 		.picker-value {
 			font-size: $fontSize;
-			color: $fontGrayColor;
-			@include ellipsis; 
+			color: $uni-text-color-placeholder;
+			@include ellipsis;
+
 			&.active-value {
 				color: $fontBlackColor;
 			}

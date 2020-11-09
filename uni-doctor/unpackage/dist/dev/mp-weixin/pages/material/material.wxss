@@ -83,4 +83,95 @@
   height: 140rpx;
   overflow: hidden;
 }
+.MaterialContainer .material-box .material-field.data-v-706ec266 {
+  margin: 0 30rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  border-bottom: 2rpx solid #EFEFEF;
+}
+.MaterialContainer .material-box .material-field.data-v-706ec266:last-child {
+  border: none;
+}
+.MaterialContainer .material-box .material-field .field-name.data-v-706ec266 {
+  font-size: 28rpx;
+  color: #333333;
+}
+.MaterialContainer .material-box .material-field .field-value.data-v-706ec266 {
+  height: 85rpx;
+  line-height: 85rpx;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  font-size: 28rpx;
+  color: #333333;
+  text-align: right;
+}
+.MaterialContainer .material-box .material-field .field-icons.data-v-706ec266 {
+  width: 14rpx;
+  height: 26rpx;
+  margin-left: 20rpx;
+}
+.MaterialContainer .material-box .material-textarea.data-v-706ec266 {
+  padding: 30rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+.MaterialContainer .material-box .material-textarea .textarea-title.data-v-706ec266 {
+  font-size: 30rpx;
+  color: #333333;
+}
+.MaterialContainer .material-box .material-textarea .textarea-item.data-v-706ec266 {
+  margin-top: 30rpx;
+  padding: 30rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  border: 2rpx solid #0E92F8;
+  -webkit-border-radius: 20rpx;
+          border-radius: 20rpx;
+}
+.MaterialContainer .material-box .material-textarea .textarea-item .item-value.data-v-706ec266 {
+  width: 100%;
+  height: 150rpx;
+  line-height: 1.5;
+  font-size: 28rpx;
+  color: #333333;
+}
+.MaterialContainer .material-box .material-textarea .textarea-item .item-count.data-v-706ec266 {
+  margin-top: 30rpx;
+  font-size: 24rpx;
+  color: #0E92F8;
+  text-align: right;
+}
+.MaterialContainer .material-box .material-btns.data-v-706ec266 {
+  margin: 20rpx 30rpx 100rpx 30rpx;
+}
+.MaterialContainer .material-box .material-btns .btns.data-v-706ec266 {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  color: #FFFFFF;
+  border: none;
+  -webkit-border-radius: 40rpx;
+          border-radius: 40rpx;
+  background: #0E92F8;
+}
 

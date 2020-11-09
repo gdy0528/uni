@@ -7,7 +7,7 @@ import { getAction, postAction, fileAction } from './utils/api'
 
 Vue.config.productionTip = false
 Vue.component('LayzImage', LayzImage)
-Vue.component('Empty', Empty)
+Vue.component('CommonEmpty', Empty)
 
 Vue.prototype.$get = getAction
 Vue.prototype.$post = postAction

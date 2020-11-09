@@ -62,7 +62,7 @@
 				</view>
 			</view>
 		</view>
-		<Empty v-else />
+		<CommonEmpty v-else />
 	</scroll-view>
 </template>
 

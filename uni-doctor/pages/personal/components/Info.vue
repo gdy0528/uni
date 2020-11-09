@@ -6,11 +6,11 @@
 			</navigator>
 			<view class="info-data">
 				<view class="data-name">
-					<text class="name">{{info.userNickname}}</text>
-					<text class="title">{{info.physicianTitle}}</text>
+					<text class="name">{{info.userNickname || ''}}</text>
+					<text class="title">{{info.physicianTitle || ''}}</text>
 				</view>
 				<view class="data-user">
-					<text class="user">账号：{{info.userName}}</text>
+					<text class="user">账号：{{info.userName || ''}}</text>
 				</view>
 			</view>
 		</view>

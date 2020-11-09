@@ -42,7 +42,7 @@
 }
 .PickerMain .picker-value.data-v-18fbd1ce {
   font-size: 28rpx;
-  color: #999999;
+  color: #808080;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;

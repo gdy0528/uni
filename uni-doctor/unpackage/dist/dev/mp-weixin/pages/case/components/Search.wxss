@@ -116,6 +116,11 @@
   font-size: 28rpx;
   color: #333333;
 }
+.CaseSearch .screen-box .screen-picker.data-v-3283470a {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
 .CaseSearch .screen-box .screen-icons.data-v-3283470a {
   width: 38rpx;
   height: 38rpx;

@@ -1,0 +1,1 @@
+<picker class="PickerMain data-v-f8862032" mode="date" value="{{value}}" start="{{start}}" end="{{end}}" data-event-opts="{{[['change',[['handleChangeDate',['$event']]]]]}}" bindchange="__e"><view class="{{['picker-value data-v-f8862032',(value)?'active-value':'']}}">{{value||placeholder}}</view></picker>
