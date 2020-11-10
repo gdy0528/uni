@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var TextScroll = function TextScroll() {__webpack_require__.e(/*! require.ensure | common/TextScroll/TextScroll */ "common/TextScroll/TextScroll").then((function () {return resolve(__webpack_require__(/*! ../../common/TextScroll/TextScroll */ 297));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var ReceiptList = function ReceiptList() {Promise.all(/*! require.ensure | pages/receipt/components/List */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/receipt/components/List")]).then((function () {return resolve(__webpack_require__(/*! ./components/List */ 304));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var TextScroll = function TextScroll() {__webpack_require__.e(/*! require.ensure | common/TextScroll/TextScroll */ "common/TextScroll/TextScroll").then((function () {return resolve(__webpack_require__(/*! ../../common/TextScroll/TextScroll */ 305));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var ReceiptList = function ReceiptList() {Promise.all(/*! require.ensure | pages/receipt/components/List */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/receipt/components/List")]).then((function () {return resolve(__webpack_require__(/*! ./components/List */ 312));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

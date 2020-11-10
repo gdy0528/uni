@@ -128,7 +128,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PersonalInfo = function PersonalInfo() {__webpack_require__.e(/*! require.ensure | pages/personal/components/Info */ "pages/personal/components/Info").then((function () {return resolve(__webpack_require__(/*! ./components/Info */ 130));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var PersonalTab = function PersonalTab() {__webpack_require__.e(/*! require.ensure | pages/personal/components/Tab */ "pages/personal/components/Tab").then((function () {return resolve(__webpack_require__(/*! ./components/Tab */ 137));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PersonalInfo = function PersonalInfo() {__webpack_require__.e(/*! require.ensure | pages/personal/components/Info */ "pages/personal/components/Info").then((function () {return resolve(__webpack_require__(/*! ./components/Info */ 138));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var PersonalTab = function PersonalTab() {__webpack_require__.e(/*! require.ensure | pages/personal/components/Tab */ "pages/personal/components/Tab").then((function () {return resolve(__webpack_require__(/*! ./components/Tab */ 145));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

@@ -1,5 +1,5 @@
 <template>
-	<scroll-view class="ReceiptList" :style="{height: `${scrollH}upx`}" refresher-background="$bgColor" scroll-y="true"
+	<scroll-view class="ReceiptList" :style="{height: `${scrollH}`}" refresher-background="$bgColor" scroll-y="true"
 	 @scrolltolower="handleLower">
 		<view class="list-box" v-if="!isEmpty">
 			<view class="list-item" v-for="(item, index) in receiptList" :key="index">
@@ -93,7 +93,13 @@
 				let winWidth = sys.windowWidth;
 				let winrate = 750 / winWidth;
 				let winHeight = parseInt(sys.windowHeight * winrate - 220)
-				return winHeight
+				// #ifdef MP-WEIXIN
+				return `${winHeight}rpx`
+				// #endif
+				// #ifndef MP-WEIXIN
+				return `${winHeight}upx`
+				// #endif
+
 			}
 		},
 		methods: {

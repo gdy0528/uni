@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "病历库",
+  "usingComponents": {
+    "common-circle": "/common/Circle/Circle"
+  }
+}

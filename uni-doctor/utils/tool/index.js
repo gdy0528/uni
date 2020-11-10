@@ -65,19 +65,23 @@ export function msgTimeRule(date) {
 export function grade(conut) {
 	if (conut >= 0 && conut <= 40) {
 		return {
-			color: "#5FDC28"
+			color: "#5FDC28",
+			text: conut
 		}
 	} else if (conut > 40 && conut <= 60) {
 		return {
-			color: "#FCBC22"
+			color: "#FCBC22",
+			text: conut
 		}
 	} else if (conut > 60 && conut <= 80) {
 		return {
-			color: "#DA58FF"
+			color: "#DA58FF",
+			text: conut
 		}
 	} else if (conut > 80 && conut <= 100) {
 		return {
-			color: "#F9605E"
+			color: "#F9605E",
+			text: conut
 		}
 	}
 }

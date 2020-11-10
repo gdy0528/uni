@@ -1,7 +1,7 @@
 <template>
-	<scroll-view class="CaseList" :style="{height: `${scrollH}upx`}" refresher-background="$bgColor" scroll-y="true" @scrolltolower="handleLower">
+	<scroll-view class="CaseList" :style="{height: `${scrollH}`}" refresher-background="$bgColor" scroll-y="true" @scrolltolower="handleLower">
 		<view class="list-box" v-if="!isEmpty">
-			<view class="list-item" v-for="(item, index) in caseList" :key="index">
+			<navigator class="list-item" v-for="(item, index) in caseList" :key="index" :url="`/pages/medical/medical?id=${item.id}`">
 				<view class="item-head">
 					<LayzImage :src="item.userImg" round />
 				</view>
@@ -11,7 +11,7 @@
 						<text class="info-sex">{{item.userSex}}</text>
 						<text class="info-age">{{item.userAge}}岁</text>
 						<view class="info-score" :style="{color: item.gradeColor}">
-							<text class="score-nums">{{item.healthyFraction}}</text>
+							<text class="score-nums">{{item.gradeText}}</text>
 							<text class="score-text">分</text>
 						</view>
 					</view>
@@ -26,7 +26,7 @@
 						<text class="case-item" v-if="item.online > 0">看病病历({{item.online}})</text>
 					</view>
 				</view>
-			</view>
+			</navigator>
 		</view>
 		<CommonEmpty v-else />
 	</scroll-view>
@@ -51,7 +51,12 @@
 				let winWidth = sys.windowWidth;
 				let winrate = 750 / winWidth;
 				let winHeight = parseInt(sys.windowHeight * winrate - 180)
-				return winHeight
+				// #ifdef MP-WEIXIN
+				return `${winHeight}rpx`
+				// #endif
+				// #ifndef MP-WEIXIN
+				return `${winHeight}upx`
+				// #endif
 			}
 		},
 		methods: {
@@ -71,6 +76,7 @@
 							let pages = res.data.pages
 							let records = res.data.records.map(item => {
 								item.gradeColor = grade(item.healthyFraction).color 
+								item.gradeText = grade(item.healthyFraction).text 
 								return item
 							})
 							if (self.current < 2) {

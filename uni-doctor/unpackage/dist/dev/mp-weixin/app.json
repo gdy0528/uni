@@ -9,7 +9,8 @@
     "pages/receipt/receipt",
     "pages/qrcode/qrcode",
     "pages/forget/forget",
-    "pages/material/material"
+    "pages/material/material",
+    "pages/medical/medical"
   ],
   "subPackages": [],
   "window": {

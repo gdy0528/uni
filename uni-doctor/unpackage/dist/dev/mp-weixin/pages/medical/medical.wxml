@@ -1,0 +1,1 @@
+<view class="MedicalContainer data-v-9df28fac"><common-circle vue-id="6fd0ce1c-1" value="{{80}}" text="好的" class="data-v-9df28fac" bind:__l="__l"></common-circle></view>

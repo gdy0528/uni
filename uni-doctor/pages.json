@@ -72,6 +72,12 @@
 			"style": {
 				"navigationBarTitleText": "个人资料"
 			}
+		},
+		{
+			"path": "pages/medical/medical",
+			"style": {
+				"navigationBarTitleText": "病历库"
+			}
 		}
 	],
 	"condition": {
@@ -116,6 +122,10 @@
 			{
 				"path": "pages/material/material",
 				"name": "个人资料"
+			},
+			{
+				"path": "pages/medical/medical",
+				"name": "病历库"
 			}
 		]
 	},

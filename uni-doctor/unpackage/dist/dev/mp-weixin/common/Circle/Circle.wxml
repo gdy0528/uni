@@ -1,0 +1,1 @@
+<view class="CircleMain"><view style="{{$root.s0}}"><view style="{{$root.s1}}"><view style="{{$root.s2}}"><view style="{{$root.s3}}"></view></view></view><view style="{{$root.s4}}"><view style="{{$root.s5}}"><view style="{{$root.s6}}"></view></view></view><view style="{{$root.s7}}">{{text}}</view></view></view>
