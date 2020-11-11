@@ -13,11 +13,6 @@
 			CaseSearch,
 			CaseList
 		},
-		data() {
-			return {
-
-			}
-		},
 		methods: {
 			handleChangeSearch(value) { //监听搜索条件 
 				let search = value.search

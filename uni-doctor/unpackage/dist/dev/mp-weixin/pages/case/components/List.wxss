@@ -121,12 +121,8 @@
           justify-content: flex-end;
 }
 .CaseList .list-box .list-item .item-content .content-info .info-score .score-nums.data-v-5329e19e {
-  font-size: 44rpx;
+  font-size: 30rpx;
   font-weight: bold;
-}
-.CaseList .list-box .list-item .item-content .content-info .info-score .score-text.data-v-5329e19e {
-  margin-left: 6rpx;
-  font-size: 24rpx;
 }
 .CaseList .list-box .list-item .item-content .content-address.data-v-5329e19e {
   font-size: 24rpx;

@@ -63,25 +63,20 @@ export function msgTimeRule(date) {
 
 /* 计算分数显示的颜色 */
 export function grade(conut) {
-	if (conut >= 0 && conut <= 40) {
+	if (conut >= 0 && conut <= 54) {
 		return {
-			color: "#5FDC28",
-			text: conut
+			name: "低危",
+			color: "#2ACF91"
 		}
-	} else if (conut > 40 && conut <= 60) {
+	} else if (conut >= 55 && conut <= 74) {
 		return {
-			color: "#FCBC22",
-			text: conut
+			name: "中危",
+			color: "#FFA600"
 		}
-	} else if (conut > 60 && conut <= 80) {
+	} else if (conut >= 75 && conut <= 100) {
 		return {
-			color: "#DA58FF",
-			text: conut
-		}
-	} else if (conut > 80 && conut <= 100) {
-		return {
-			color: "#F9605E",
-			text: conut
+			name: "高危",
+			color: "#FF5957"
 		}
 	}
 }

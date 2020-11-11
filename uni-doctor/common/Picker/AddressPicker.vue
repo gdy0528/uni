@@ -1,5 +1,5 @@
 <template>
-	<picker class="PickerMain" mode="multiSelector" :value="areaValue" :range="areaArray" range-key="name" @change="handleChangeDate"
+	<picker class="PickerMain" :style="{'textAlign' : textAlign}" mode="multiSelector" :value="areaValue" :range="areaArray" range-key="name" @change="handleChangeDate"
 	 @columnchange="handleChangeColumn">
 		<view class="picker-value" :class="{'active-value' : value}">{{value || placeholder}}</view>
 	</picker>
@@ -13,6 +13,10 @@
 			value: {
 				type: String,
 				default: ""
+			},
+			textAlign: {
+				type: String,
+				default: "right"
 			},
 			placeholder: {
 				type: String,
@@ -90,13 +94,10 @@
 	.PickerMain {
 		padding-left: 10upx;
 		flex: 1;
-		text-align: right;
-
 		.picker-value {
 			font-size: $fontSize;
 			color: $uni-text-color-placeholder;
 			@include ellipsis;
-
 			&.active-value {
 				color: $fontBlackColor;
 			}

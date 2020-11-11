@@ -25,7 +25,7 @@
 			},
 			circleColor: { // 无进度条区域的颜色
 				type: String,
-				default: '#FFFFFF'
+				default: '#CCCCCC'
 			},
 			progressSize: { // 进度条的粗细
 				type: Number,
@@ -45,7 +45,7 @@
 			},
 			textSize: { // 中心文字大小
 				type: Number,
-				default: 28
+				default: 46
 			},
 			textColor: { // 中心文字颜色
 				type: String,
@@ -117,7 +117,7 @@
 					position: 'absolute',
 					width: this.progressSize + this.cssUnit,
 					height: this.progressSize + this.cssUnit,
-					borderRadius: '50%'
+					borderRadius: '50%',
 				}
 			},
 			circleBlockProgressRadiusLeft() {
@@ -155,7 +155,7 @@
 					fontWeight: 'bold',
 					textAlign: 'center',
 					lineHeight: this.circleDiam - this.progressSize * 2 + this.cssUnit,
-					zIndex: 1
+					zIndex: 1,
 				}
 			}
 		}

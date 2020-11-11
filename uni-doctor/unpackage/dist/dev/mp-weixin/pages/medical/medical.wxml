@@ -1,1 +1,1 @@
-<view class="MedicalContainer data-v-9df28fac"><common-circle vue-id="6fd0ce1c-1" value="{{80}}" text="好的" class="data-v-9df28fac" bind:__l="__l"></common-circle></view>
+<view class="MedicalContainer"><medical-details vue-id="6fd0ce1c-1" details="{{details}}" bind:__l="__l"></medical-details><block wx:if="{{calculation}}"><medical-calculate vue-id="6fd0ce1c-2" calculation="{{calculation}}" bind:__l="__l"></medical-calculate></block><medical-message class="vue-ref" vue-id="6fd0ce1c-3" data-ref="MedicalMessage" bind:__l="__l"></medical-message></view>

@@ -33,10 +33,4 @@
 /* 字体溢出 */
 /* 全局高度 */
 /* 产品规定样式 end */
-.MedicalContainer.data-v-9df28fac {
-  margin-top: 20rpx;
-}
-.MedicalContainer .CircleBox.data-v-9df28fac {
-  margin: 50rpx;
-}
 

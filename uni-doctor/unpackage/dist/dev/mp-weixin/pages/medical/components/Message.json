@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "common-picker": "/common/Picker/Picker"
+  },
+  "component": true
+}

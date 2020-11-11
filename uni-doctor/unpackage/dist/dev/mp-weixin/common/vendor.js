@@ -7882,9 +7882,9 @@ module.exports = g;
 
 /***/ }),
 /* 4 */
-/*!********************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/pages.json ***!
-  \********************************************/
+/*!***********************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/pages.json ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8025,9 +8025,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 11 */
-/*!************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/store/index.js ***!
-  \************************************************/
+/*!***************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/store/index.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9159,9 +9159,9 @@ var index = {
 
 /***/ }),
 /* 13 */
-/*!************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/store/state.js ***!
-  \************************************************/
+/*!***************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/store/state.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9176,9 +9176,9 @@ var _default =
 
 /***/ }),
 /* 14 */
-/*!**************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/store/actions.js ***!
-  \**************************************************/
+/*!*****************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/store/actions.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9186,9 +9186,9 @@ var _default =
 
 /***/ }),
 /* 15 */
-/*!****************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/store/mutations.js ***!
-  \****************************************************/
+/*!*******************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/store/mutations.js ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9206,9 +9206,9 @@ var _default =
 
 /***/ }),
 /* 16 */
-/*!****************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/utils/api/index.js ***!
-  \****************************************************/
+/*!*******************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/utils/api/index.js ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9406,9 +9406,9 @@ function fileAction(url, filePath) {var loading = arguments.length > 2 && argume
 /* 41 */,
 /* 42 */,
 /* 43 */
-/*!***********************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/utils/aesEncrypt/index.js ***!
-  \***********************************************************/
+/*!**************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/utils/aesEncrypt/index.js ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15406,9 +15406,9 @@ CryptoJS.pad.ZeroPadding = {
 
 /***/ }),
 /* 44 */
-/*!******************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/utils/check/index.js ***!
-  \******************************************************/
+/*!*********************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/utils/check/index.js ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15655,9 +15655,9 @@ function diffArr(array1, array2) {
 /* 73 */,
 /* 74 */,
 /* 75 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/static/qrcode/qr_doctor_logo.png ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/static/qrcode/qr_doctor_logo.png ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -15665,9 +15665,9 @@ module.exports = "/static/qrcode/qr_doctor_logo.png";
 
 /***/ }),
 /* 76 */
-/*!*******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/static/qrcode/qr_patient_logo.png ***!
-  \*******************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/static/qrcode/qr_patient_logo.png ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -15762,9 +15762,9 @@ module.exports = "/static/qrcode/qr_patient_logo.png";
 /* 162 */,
 /* 163 */,
 /* 164 */
-/*!*****************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/utils/tool/index.js ***!
-  \*****************************************************/
+/*!********************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/utils/tool/index.js ***!
+  \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15834,25 +15834,20 @@ function msgTimeRule(date) {
 
 /* 计算分数显示的颜色 */
 function grade(conut) {
-  if (conut >= 0 && conut <= 40) {
+  if (conut >= 0 && conut <= 54) {
     return {
-      color: "#5FDC28",
-      text: conut };
+      name: "低危",
+      color: "#2ACF91" };
 
-  } else if (conut > 40 && conut <= 60) {
+  } else if (conut >= 55 && conut <= 74) {
     return {
-      color: "#FCBC22",
-      text: conut };
+      name: "中危",
+      color: "#FFA600" };
 
-  } else if (conut > 60 && conut <= 80) {
+  } else if (conut >= 75 && conut <= 100) {
     return {
-      color: "#DA58FF",
-      text: conut };
-
-  } else if (conut > 80 && conut <= 100) {
-    return {
-      color: "#F9605E",
-      text: conut };
+      name: "高危",
+      color: "#FF5957" };
 
   }
 }
@@ -15891,9 +15886,9 @@ function inquiry(type) {
 
 /***/ }),
 /* 165 */
-/*!***************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/moment.js ***!
-  \***************************************************************/
+/*!******************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/moment.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21602,9 +21597,9 @@ module.exports = function(module) {
 
 /***/ }),
 /* 167 */
-/*!**************************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale sync ^\.\/.*$ ***!
-  \**************************************************************************/
+/*!*****************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale sync ^\.\/.*$ ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21903,9 +21898,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 168 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/af.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/af.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21992,9 +21987,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 169 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ar.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ar.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22199,9 +22194,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 170 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ar-dz.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ar-dz.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22373,9 +22368,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 171 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ar-kw.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ar-kw.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22445,9 +22440,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 172 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ar-ly.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ar-ly.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22634,9 +22629,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 173 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ar-ma.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ar-ma.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22707,9 +22702,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 174 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ar-sa.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ar-sa.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22829,9 +22824,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 175 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ar-tn.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ar-tn.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22901,9 +22896,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 176 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/az.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/az.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23020,9 +23015,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 177 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/be.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/be.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23179,9 +23174,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 178 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/bg.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/bg.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23284,9 +23279,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 179 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/bm.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/bm.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23353,9 +23348,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 180 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/bn.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/bn.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23489,9 +23484,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 181 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/bn-bd.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/bn-bd.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23635,9 +23630,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 182 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/bo.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/bo.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23775,9 +23770,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 183 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/br.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/br.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23958,9 +23953,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 184 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/bs.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/bs.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24125,9 +24120,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 185 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ca.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ca.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24240,9 +24235,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 186 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/cs.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/cs.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24429,9 +24424,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 187 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/cv.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/cv.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24509,9 +24504,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 188 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/cy.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/cy.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24624,9 +24619,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 189 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/da.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/da.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24695,9 +24690,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 190 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/de.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/de.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24791,9 +24786,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 191 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/de-at.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/de-at.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24888,9 +24883,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 192 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/de-ch.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/de-ch.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24982,9 +24977,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 193 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/dv.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/dv.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25090,9 +25085,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 194 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/el.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/el.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25212,9 +25207,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 195 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/en-au.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/en-au.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25298,9 +25293,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 196 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/en-ca.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/en-ca.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25380,9 +25375,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 197 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/en-gb.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/en-gb.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25466,9 +25461,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 198 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/en-ie.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/en-ie.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25552,9 +25547,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 199 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/en-il.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/en-il.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25634,9 +25629,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 200 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/en-in.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/en-in.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25720,9 +25715,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 201 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/en-nz.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/en-nz.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25806,9 +25801,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 202 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/en-sg.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/en-sg.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25892,9 +25887,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 203 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/eo.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/eo.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25978,9 +25973,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 204 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/es.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/es.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26102,9 +26097,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 205 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/es-do.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/es-do.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26224,9 +26219,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 206 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/es-mx.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/es-mx.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26348,9 +26343,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 207 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/es-us.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/es-us.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26472,9 +26467,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 208 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/et.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/et.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26568,9 +26563,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 209 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/eu.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/eu.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26649,9 +26644,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 210 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/fa.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/fa.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26777,9 +26772,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 211 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/fi.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/fi.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26916,9 +26911,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 212 */
-/*!*******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/fil.js ***!
-  \*******************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/fil.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26992,9 +26987,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 213 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/fo.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/fo.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27066,9 +27061,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 214 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/fr.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/fr.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27188,9 +27183,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 215 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/fr-ca.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/fr-ca.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27275,9 +27270,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 216 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/fr-ch.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/fr-ch.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27366,9 +27361,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 217 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/fy.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/fy.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27461,9 +27456,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 218 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ga.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ga.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27574,9 +27569,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 219 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/gd.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/gd.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27687,9 +27682,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 220 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/gl.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/gl.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27779,9 +27774,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 221 */
-/*!************************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/gom-deva.js ***!
-  \************************************************************************/
+/*!***************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/gom-deva.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27921,9 +27916,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 222 */
-/*!************************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/gom-latn.js ***!
-  \************************************************************************/
+/*!***************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/gom-latn.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28063,9 +28058,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 223 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/gu.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/gu.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28202,9 +28197,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 224 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/he.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/he.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28314,9 +28309,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 225 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/hi.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/hi.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28496,9 +28491,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 226 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/hr.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/hr.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28668,9 +28663,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 227 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/hu.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/hu.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28804,9 +28799,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 228 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/hy-am.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/hy-am.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28914,9 +28909,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 229 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/id.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/id.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29008,9 +29003,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 230 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/is.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/is.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29165,9 +29160,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 231 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/it.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/it.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29289,9 +29284,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 232 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/it-ch.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/it-ch.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29371,9 +29366,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 233 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ja.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ja.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29537,9 +29532,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 234 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/jv.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/jv.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29631,9 +29626,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 235 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ka.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ka.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29741,9 +29736,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 236 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/kk.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/kk.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29841,9 +29836,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 237 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/km.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/km.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29961,9 +29956,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 238 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/kn.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/kn.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30102,9 +30097,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 239 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ko.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ko.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30195,9 +30190,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 240 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ku.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ku.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30331,9 +30326,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 241 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ky.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ky.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30433,9 +30428,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 242 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/lb.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/lb.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30586,9 +30581,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 243 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/lo.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/lo.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30669,9 +30664,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 244 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/lt.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/lt.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30810,9 +30805,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 245 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/lv.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/lv.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30921,9 +30916,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 246 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/me.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/me.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31057,9 +31052,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 247 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/mi.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/mi.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31134,9 +31129,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 248 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/mk.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/mk.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31238,9 +31233,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 249 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ml.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ml.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31336,9 +31331,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 250 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/mn.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/mn.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31453,9 +31448,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 251 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/mr.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/mr.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31673,9 +31668,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 252 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ms.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ms.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31766,9 +31761,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 253 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ms-my.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ms-my.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31860,9 +31855,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 254 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/mt.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/mt.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31933,9 +31928,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 255 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/my.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/my.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32042,9 +32037,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 256 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/nb.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/nb.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32121,9 +32116,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 257 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ne.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ne.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32259,9 +32254,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 258 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/nl.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/nl.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32381,9 +32376,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 259 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/nl-be.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/nl-be.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32501,9 +32496,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 260 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/nn.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/nn.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32579,9 +32574,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 261 */
-/*!**********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/oc-lnc.js ***!
-  \**********************************************************************/
+/*!*************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/oc-lnc.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32680,9 +32675,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 262 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/pa-in.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/pa-in.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32819,9 +32814,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 263 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/pl.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/pl.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32976,9 +32971,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 264 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/pt.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/pt.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -33056,9 +33051,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 265 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/pt-br.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/pt-br.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -33131,9 +33126,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 266 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ro.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ro.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -33224,9 +33219,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 267 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ru.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ru.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -33448,9 +33443,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 268 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/sd.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/sd.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -33547,9 +33542,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 269 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/se.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/se.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -33622,9 +33617,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 270 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/si.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/si.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -33708,9 +33703,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 271 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/sk.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/sk.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -33870,9 +33865,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 272 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/sl.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/sl.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34058,9 +34053,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 273 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/sq.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/sq.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34141,9 +34136,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 274 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/sr.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/sr.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34277,9 +34272,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 275 */
-/*!***********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/sr-cyrl.js ***!
-  \***********************************************************************/
+/*!**************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/sr-cyrl.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34411,9 +34406,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 276 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ss.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ss.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34512,9 +34507,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 277 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/sv.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/sv.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34598,9 +34593,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 278 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/sw.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/sw.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34670,9 +34665,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 279 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ta.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ta.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34817,9 +34812,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 280 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/te.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/te.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34921,9 +34916,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 281 */
-/*!*******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/tet.js ***!
-  \*******************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tet.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35007,9 +35002,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 282 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/tg.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tg.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35141,9 +35136,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 283 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/th.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/th.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35223,9 +35218,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 284 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/tk.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tk.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35332,9 +35327,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 285 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/tl-ph.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tl-ph.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35407,9 +35402,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 286 */
-/*!*******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/tlh.js ***!
-  \*******************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tlh.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35550,9 +35545,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 287 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/tr.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tr.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35674,9 +35669,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 288 */
-/*!*******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/tzl.js ***!
-  \*******************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tzl.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35781,9 +35776,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 289 */
-/*!*******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/tzm.js ***!
-  \*******************************************************************/
+/*!**********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tzm.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35852,9 +35847,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 290 */
-/*!************************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/tzm-latn.js ***!
-  \************************************************************************/
+/*!***************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tzm-latn.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35923,9 +35918,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 291 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ug-cn.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ug-cn.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -36051,9 +36046,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 292 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/uk.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/uk.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -36232,9 +36227,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 293 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/ur.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ur.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -36332,9 +36327,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 294 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/uz.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/uz.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -36401,9 +36396,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 295 */
-/*!***********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/uz-latn.js ***!
-  \***********************************************************************/
+/*!**************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/uz-latn.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -36472,9 +36467,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 296 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/vi.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/vi.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -36569,9 +36564,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 297 */
-/*!************************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/x-pseudo.js ***!
-  \************************************************************************/
+/*!***************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/x-pseudo.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -36658,9 +36653,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 298 */
-/*!******************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/yo.js ***!
-  \******************************************************************/
+/*!*********************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/yo.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -36729,9 +36724,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 299 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/zh-cn.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/zh-cn.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -36867,9 +36862,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 300 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/zh-hk.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/zh-hk.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -36986,9 +36981,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 301 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/zh-mo.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/zh-mo.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -37104,9 +37099,9 @@ webpackContext.id = 167;
 
 /***/ }),
 /* 302 */
-/*!*********************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/moment/locale/zh-tw.js ***!
-  \*********************************************************************/
+/*!************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/zh-tw.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -37242,9 +37237,9 @@ webpackContext.id = 167;
 /* 322 */,
 /* 323 */,
 /* 324 */
-/*!*****************************************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/tki-qrcode/components/tki-qrcode/qrcode.js ***!
-  \*****************************************************************************************/
+/*!********************************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/tki-qrcode/components/tki-qrcode/qrcode.js ***!
+  \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -39275,9 +39270,9 @@ if (hadRuntime) {
 /* 354 */,
 /* 355 */,
 /* 356 */
-/*!*******************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/common/Picker/area.js ***!
-  \*******************************************************/
+/*!**********************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/common/Picker/area.js ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44165,15 +44160,41 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 371 */,
 /* 372 */,
 /* 373 */,
-/* 374 */
-/*!**************************************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/@dcloudio/uni-ui/lib/uni-popup/popup.js ***!
-  \**************************************************************************************/
+/* 374 */,
+/* 375 */,
+/* 376 */,
+/* 377 */,
+/* 378 */,
+/* 379 */,
+/* 380 */,
+/* 381 */
+/*!******************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/common/Echarts/components/u-charts.min.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _message = _interopRequireDefault(__webpack_require__(/*! ./message.js */ 375));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+/* WEBPACK VAR INJECTION */(function(uni) {var config = { yAxisWidth: 15, yAxisSplit: 5, xAxisHeight: 15, xAxisLineHeight: 15, legendHeight: 15, yAxisTitleWidth: 15, padding: [10, 10, 10, 10], pixelRatio: 1, rotate: !1, columePadding: 3, fontSize: 13, dataPointShape: ["circle", "circle", "circle", "circle"], colors: ["#1890ff", "#2fc25b", "#facc14", "#f04864", "#8543e0", "#90ed7d"], pieChartLinePadding: 15, pieChartTextPadding: 5, xAxisTextPadding: 3, titleColor: "#333333", titleFontSize: 20, subtitleColor: "#999999", subtitleFontSize: 15, toolTipPadding: 3, toolTipBackground: "#000000", toolTipOpacity: .7, toolTipLineHeight: 20, radarLabelTextMargin: 15, gaugeLabelTextMargin: 15 };var assign = function assign(e) {for (var _len = arguments.length, t = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {t[_key - 1] = arguments[_key];}function i(e, t) {for (var a in t) {e[a] = e[a] && "[object Object]" === e[a].toString() ? i(e[a], t[a]) : e[a] = t[a];}return e;}if (null == e) throw new TypeError("Cannot convert undefined or null to object");return !t || 0 >= t.length ? e : (t.forEach(function (t) {e = i(e, t);}), e);};var util = { toFixed: function toFixed(e, t) {return t = t || 2, this.isFloat(e) && (e = e.toFixed(t)), e;}, isFloat: function isFloat(e) {return 0 != e % 1;}, approximatelyEqual: function approximatelyEqual(e, t) {return 1e-10 > Math.abs(e - t);}, isSameSign: function isSameSign(e, t) {var i = Math.abs;return i(e) === e && i(t) === t || i(e) !== e && i(t) !== t;}, isSameXCoordinateArea: function isSameXCoordinateArea(e, t) {return this.isSameSign(e.x, t.x);}, isCollision: function isCollision(e, t) {e.end = {}, e.end.x = e.start.x + e.width, e.end.y = e.start.y - e.height, t.end = {}, t.end.x = t.start.x + t.width, t.end.y = t.start.y - t.height;var i = t.start.x > e.end.x || t.end.x < e.start.x || t.end.y > e.start.y || t.start.y < e.end.y;return !i;} };function getH5Offset(t) {return t.mp = { changedTouches: [] }, t.mp.changedTouches.push({ x: t.offsetX, y: t.offsetY }), t;}function hexToRgb(e, t) {var i = e.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, function (e, t, i, a) {return t + t + i + i + a + a;}),a = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(i),o = parseInt(a[1], 16),n = parseInt(a[2], 16),l = parseInt(a[3], 16);return "rgba(" + o + "," + n + "," + l + "," + t + ")";}function findRange(e, t, i) {if (isNaN(e)) throw new Error("[uCharts] unvalid series data!");i = i || 10, t = t ? t : "upper";for (var a = 1; 1 > i;) {i *= 10, a *= 10;}for (e = "upper" === t ? Math.ceil(e * a) : Math.floor(e * a); 0 != e % i;) {"upper" === t ? e++ : e--;}return e / a;}function calCandleMA(e, t, i, a) {var o = [];for (var n, l = 0; l < e.length; l++) {n = { data: [], name: t[l], color: i[l] };for (var _t = 0, _i = a.length; _t < _i; _t++) {if (_t < e[l]) {n.data.push(null);continue;}var _i2 = 0;for (var _o = 0; _o < e[l]; _o++) {_i2 += a[_t - _o][1];}n.data.push(+(_i2 / e[l]).toFixed(3));}o.push(n);}return o;}function calValidDistance(e, t, i, a, o) {var n = o.width - o.area[1] - o.area[3],l = i.eachSpacing * (o.chartData.xAxisData.xAxisPoints.length - 1),r = t;return 0 <= t ? (r = 0, e.event.trigger("scrollLeft")) : Math.abs(t) >= l - n && (r = n - l, e.event.trigger("scrollRight")), r;}function isInAngleRange(e, t, i) {function a(e) {for (; 0 > e;) {e += 2 * o;}for (; e > 2 * o;) {e -= 2 * o;}return e;}var o = Math.PI;return e = a(e), t = a(t), i = a(i), t > i && (i += 2 * o, e < t && (e += 2 * o)), e >= t && e <= i;}function calRotateTranslate(e, t, i) {var a = e,o = i - t,n = a + (i - o - a) / 1.4142135623730951;n *= -1;return { transX: n, transY: (i - o) * (1.4142135623730951 - 1) - (i - o - a) / 1.4142135623730951 };}function createCurveControlPoints(e, t) {function i(e, t) {return !!(e[t - 1] && e[t + 1]) && (e[t].y >= l(e[t - 1].y, e[t + 1].y) || e[t].y <= n(e[t - 1].y, e[t + 1].y));}function o(e, t) {return !!(e[t - 1] && e[t + 1]) && (e[t].x >= l(e[t - 1].x, e[t + 1].x) || e[t].x <= n(e[t - 1].x, e[t + 1].x));}var n = Math.min,l = Math.max,r = .2,a = .2,s = null,d = null,h = null,x = null;if (1 > t ? (s = e[0].x + (e[1].x - e[0].x) * r, d = e[0].y + (e[1].y - e[0].y) * r) : (s = e[t].x + (e[t + 1].x - e[t - 1].x) * r, d = e[t].y + (e[t + 1].y - e[t - 1].y) * r), t > e.length - 3) {var c = e.length - 1;h = e[c].x - (e[c].x - e[c - 1].x) * a, x = e[c].y - (e[c].y - e[c - 1].y) * a;} else h = e[t + 1].x - (e[t + 2].x - e[t].x) * a, x = e[t + 1].y - (e[t + 2].y - e[t].y) * a;return i(e, t + 1) && (x = e[t + 1].y), i(e, t) && (d = e[t].y), o(e, t + 1) && (h = e[t + 1].x), o(e, t) && (s = e[t].x), (d >= l(e[t].y, e[t + 1].y) || d <= n(e[t].y, e[t + 1].y)) && (d = e[t].y), (x >= l(e[t].y, e[t + 1].y) || x <= n(e[t].y, e[t + 1].y)) && (x = e[t + 1].y), (s >= l(e[t].x, e[t + 1].x) || s <= n(e[t].x, e[t + 1].x)) && (s = e[t].x), (h >= l(e[t].x, e[t + 1].x) || h <= n(e[t].x, e[t + 1].x)) && (h = e[t + 1].x), { ctrA: { x: s, y: d }, ctrB: { x: h, y: x } };}function convertCoordinateOrigin(e, t, i) {return { x: i.x + e, y: i.y - t };}function avoidCollision(e, t) {if (t) for (; util.isCollision(e, t);) {0 < e.start.x ? e.start.y-- : 0 > e.start.x ? e.start.y++ : 0 < e.start.y ? e.start.y++ : e.start.y--;}return e;}function fillSeries(e, t, i) {var a = 0;return e.map(function (e) {if (e.color || (e.color = i.colors[a], a = (a + 1) % i.colors.length), e.index || (e.index = 0), e.type || (e.type = t.type), "undefined" == typeof e.show && (e.show = !0), e.type || (e.type = t.type), e.pointShape || (e.pointShape = "circle"), !e.legendShape) switch (e.type) {case "line":e.legendShape = "line";break;case "column":e.legendShape = "rect";break;case "area":e.legendShape = "triangle";break;default:e.legendShape = "circle";}return e;});}function getDataRange(e, t) {var i = 0,a = t - e;return i = 1e4 <= a ? 1e3 : 1e3 <= a ? 100 : 100 <= a ? 10 : 10 <= a ? 5 : 1 <= a ? 1 : .1 <= a ? .1 : .01 <= a ? .01 : .001 <= a ? .001 : 1e-4 <= a ? 1e-4 : 1e-5 <= a ? 1e-5 : 1e-6, { minRange: findRange(e, "lower", i), maxRange: findRange(t, "upper", i) };}function measureText(e) {var t = 1 < arguments.length && arguments[1] !== void 0 ? arguments[1] : config.fontSize;e = e + "";var e = e.split(""),a = 0;for (var _t2, o = 0; o < e.length; o++) {_t2 = e[o], a += /[a-zA-Z]/.test(_t2) ? 7 : /[0-9]/.test(_t2) ? 5.5 : /\./.test(_t2) ? 2.7 : /-/.test(_t2) ? 3.25 : /[\u4e00-\u9fa5]/.test(_t2) ? 10 : /\(|\)/.test(_t2) ? 3.73 : /\s/.test(_t2) ? 2.5 : /%/.test(_t2) ? 8 : 10;}return a * t / 10;}function dataCombine(e) {return e.reduce(function (e, t) {return (e.data ? e.data : e).concat(t.data);}, []);}function dataCombineStack(e, t) {for (var o = Array(t), a = 0; a < o.length; a++) {o[a] = 0;}for (var n = 0; n < e.length; n++) {for (var a = 0; a < o.length; a++) {o[a] += e[n].data[a];}}return e.reduce(function (e, t) {return (e.data ? e.data : e).concat(t.data).concat(o);}, []);}function getTouches(t, i, a) {var e, o;return t.clientX ? i.rotate ? (o = i.height - t.clientX * i.pixelRatio, e = (t.pageY - a.currentTarget.offsetTop - i.height / i.pixelRatio / 2 * (i.pixelRatio - 1)) * i.pixelRatio) : (e = t.clientX * i.pixelRatio, o = (t.pageY - a.currentTarget.offsetTop - i.height / i.pixelRatio / 2 * (i.pixelRatio - 1)) * i.pixelRatio) : i.rotate ? (o = i.height - t.x * i.pixelRatio, e = t.y * i.pixelRatio) : (e = t.x * i.pixelRatio, o = t.y * i.pixelRatio), { x: e, y: o };}function getSeriesDataItem(e, t) {var i = [];for (var a, o = 0; o < e.length; o++) {if (a = e[o], null !== a.data[t] && "undefined" != typeof a.data[t] && a.show) {var _e = {};_e.color = a.color, _e.type = a.type, _e.style = a.style, _e.pointShape = a.pointShape, _e.disableLegend = a.disableLegend, _e.name = a.name, _e.show = a.show, _e.data = a.format ? a.format(a.data[t]) : a.data[t], i.push(_e);}}return i;}function getMaxTextListLength(e) {var t = e.map(function (e) {return measureText(e);});return Math.max.apply(null, t);}function getRadarCoordinateSeries(e) {for (var t = Math.PI, a = [], o = 0; o < e; o++) {a.push(2 * t / e * o);}return a.map(function (e) {return -1 * e + t / 2;});}function getToolTipData(e, t, a, i) {var o = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : {},n = e.map(function (e) {var t = [];return t = i ? i : e.data, { text: o.format ? o.format(e, t[a]) : e.name + ": " + e.data, color: e.color };}),l = [],r = { x: 0, y: 0 };for (var _o2, _n = 0; _n < t.length; _n++) {_o2 = t[_n], "undefined" != typeof _o2[a] && null !== _o2[a] && l.push(_o2[a]);}for (var _o3, _n2 = 0; _n2 < l.length; _n2++) {_o3 = l[_n2], r.x = Math.round(_o3.x), r.y += _o3.y;}return r.y /= l.length, { textList: n, offset: r };}function getMixToolTipData(e, t, a, i) {var o = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : {},n = e.map(function (e) {return { text: o.format ? o.format(e, i[a]) : e.name + ": " + e.data, color: e.color, disableLegend: !!e.disableLegend };});n = n.filter(function (e) {if (!0 !== e.disableLegend) return e;});var l = [],r = { x: 0, y: 0 };for (var _o4, _n3 = 0; _n3 < t.length; _n3++) {_o4 = t[_n3], "undefined" != typeof _o4[a] && null !== _o4[a] && l.push(_o4[a]);}for (var _o5, _n4 = 0; _n4 < l.length; _n4++) {_o5 = l[_n4], r.x = Math.round(_o5.x), r.y += _o5.y;}return r.y /= l.length, { textList: n, offset: r };}function getCandleToolTipData(e, t, a, o, i, n) {6 < arguments.length && void 0 !== arguments[6] ? arguments[6] : {};var l = n.color.upFill,r = n.color.downFill,s = [l, l, r, l];var d = [];var h = { text: i[o], color: null };d.push(h), t.map(function (t) {0 == o ? 0 > t.data[1] - t.data[0] ? s[1] = r : s[1] = l : (t.data[0] < e[o - 1][1] && (s[0] = r), t.data[1] < t.data[0] && (s[1] = r), t.data[2] > e[o - 1][1] && (s[2] = l), t.data[3] < e[o - 1][1] && (s[3] = r));var i = { text: "\u5F00\u76D8\uFF1A" + t.data[0], color: s[0] },a = { text: "\u6536\u76D8\uFF1A" + t.data[1], color: s[1] },n = { text: "\u6700\u4F4E\uFF1A" + t.data[2], color: s[2] },h = { text: "\u6700\u9AD8\uFF1A" + t.data[3], color: s[3] };d.push(i, a, n, h);});var x = [],c = { x: 0, y: 0 };for (var _l, _r = 0; _r < a.length; _r++) {_l = a[_r], "undefined" != typeof _l[o] && null !== _l[o] && x.push(_l[o]);}return c.x = Math.round(x[0][0].x), { textList: d, offset: c };}function filterSeries(e) {var t = [];for (var a = 0; a < e.length; a++) {!0 == e[a].show && t.push(e[a]);}return t;}function findCurrentIndex(e, t, i, a) {var o = 4 < arguments.length && arguments[4] !== void 0 ? arguments[4] : 0,n = -1,l = i.chartData.eachSpacing / 2;var r = [];if (0 < t.length) {if ("candle" == i.type) for (var _e2 = 0; _e2 < t[0].length; _e2++) {r.push(t[0][_e2][0].x);} else for (var _e3 = 0; _e3 < t[0].length; _e3++) {r.push(t[0][_e3].x);}("line" == i.type || "area" == i.type) && "justify" == i.xAxis.boundaryGap && (l = i.chartData.eachSpacing / 2), i.categories || (l = 0), isInExactChartArea(e, i, a) && r.forEach(function (t, i) {e.x + o + l > t && (n = i);});}return n;}function findLegendIndex(e, t) {var i = -1;if (isInExactLegendArea(e, t.area)) {var a = t.points,o = -1;for (var _t3, n = 0, l = a.length; n < l; n++) {_t3 = a[n];for (var _a = 0; _a < _t3.length; _a++) {o += 1;var _n5 = _t3[_a].area;if (e.x > _n5[0] && e.x < _n5[2] && e.y > _n5[1] && e.y < _n5[3]) {i = o;break;}}}return i;}return i;}function isInExactLegendArea(e, t) {return e.x > t.start.x && e.x < t.end.x && e.y > t.start.y && e.y < t.end.y;}function isInExactChartArea(e, t) {return e.x <= t.width - t.area[1] + 10 && e.x >= t.area[3] - 10 && e.y >= t.area[0] && e.y <= t.height - t.area[2];}function findRadarChartCurrentIndex(e, t, i) {var a = Math.PI,o = 2 * a / i,n = -1;if (isInExactPieChartArea(e, t.center, t.radius)) {var l = function l(e) {return 0 > e && (e += 2 * a), e > 2 * a && (e -= 2 * a), e;},r = Math.atan2(t.center.y - e.y, e.x - t.center.x);r = -1 * r, 0 > r && (r += 2 * a);var s = t.angleList.map(function (e) {return e = l(-1 * e), e;});s.forEach(function (e, t) {var i = l(e - o / 2),s = l(e + o / 2);s < i && (s += 2 * a), (r >= i && r <= s || r + 2 * a >= i && r + 2 * a <= s) && (n = t);});}return n;}function findFunnelChartCurrentIndex(e, t) {for (var a, o = -1, n = 0, l = t.series.length; n < l; n++) {if (a = t.series[n], e.x > a.funnelArea[0] && e.x < a.funnelArea[2] && e.y > a.funnelArea[1] && e.y < a.funnelArea[3]) {o = n;break;}}return o;}function findWordChartCurrentIndex(e, t) {for (var a, o = -1, n = 0, l = t.length; n < l; n++) {if (a = t[n], e.x > a.area[0] && e.x < a.area[2] && e.y > a.area[1] && e.y < a.area[3]) {o = n;break;}}return o;}function findMapChartCurrentIndex(e, t) {for (var a, o = -1, n = t.chartData.mapData, l = t.series, r = pointToCoordinate(e.y, e.x, n.bounds, n.scale, n.xoffset, n.yoffset), s = [r.x, r.y], d = 0, h = l.length; d < h; d++) {if (a = l[d].geometry.coordinates, isPoiWithinPoly(s, a)) {o = d;break;}}return o;}function findPieChartCurrentIndex(e, t) {var a = -1;if (isInExactPieChartArea(e, t.center, t.radius)) {var o = Math.atan2(t.center.y - e.y, e.x - t.center.x);o = -o;for (var n, l = 0, r = t.series.length; l < r; l++) {if (n = t.series[l], isInAngleRange(o, n._start_, n._start_ + 2 * n._proportion_ * Math.PI)) {a = l;break;}}}return a;}function isInExactPieChartArea(e, t, i) {var a = Math.pow;return a(e.x - t.x, 2) + a(e.y - t.y, 2) <= a(i, 2);}function splitPoints(e) {var t = [],i = [];return e.forEach(function (e) {null === e ? (i.length && t.push(i), i = []) : i.push(e);}), i.length && t.push(i), t;}function calLegendData(e, t, i, a) {var o = Math.max,n = Math.floor;var l = { area: { start: { x: 0, y: 0 }, end: { x: 0, y: 0 }, width: 0, height: 0, wholeWidth: 0, wholeHeight: 0 }, points: [], widthArr: [], heightArr: [] };if (!1 === t.legend.show) return a.legendData = l, l;var r = t.legend.padding,s = t.legend.margin,d = t.legend.fontSize,h = 15 * t.pixelRatio,x = 5 * t.pixelRatio,c = o(t.legend.lineHeight * t.pixelRatio, d);if ("top" == t.legend.position || "bottom" == t.legend.position) {var _a2 = [],_n6 = 0,p = [],g = [];for (var _o6 = 0; _o6 < e.length; _o6++) {var _i3 = e[_o6],_l2 = h + x + measureText(_i3.name || "undefined", d) + t.legend.itemGap;_n6 + _l2 > t.width - t.padding[1] - t.padding[3] ? (_a2.push(g), p.push(_n6 - t.legend.itemGap), _n6 = _l2, g = [_i3]) : (_n6 += _l2, g.push(_i3));}if (g.length) {_a2.push(g), p.push(_n6 - t.legend.itemGap), l.widthArr = p;var _e4 = o.apply(null, p);switch (t.legend.float) {case "left":l.area.start.x = t.padding[3], l.area.end.x = t.padding[3] + 2 * r;break;case "right":l.area.start.x = t.width - t.padding[1] - _e4 - 2 * r, l.area.end.x = t.width - t.padding[1];break;default:l.area.start.x = (t.width - _e4) / 2 - r, l.area.end.x = (t.width + _e4) / 2 + r;}l.area.width = _e4 + 2 * r, l.area.wholeWidth = _e4 + 2 * r, l.area.height = _a2.length * c + 2 * r, l.area.wholeHeight = _a2.length * c + 2 * r + 2 * s, l.points = _a2;}} else {var _i4 = e.length,_a3 = t.height - t.padding[0] - t.padding[2] - 2 * s - 2 * r,_o7 = Math.min(n(_a3 / c), _i4);switch (l.area.height = _o7 * c + 2 * r, l.area.wholeHeight = _o7 * c + 2 * r, t.legend.float) {case "top":l.area.start.y = t.padding[0] + s, l.area.end.y = t.padding[0] + s + l.area.height;break;case "bottom":l.area.start.y = t.height - t.padding[2] - s - l.area.height, l.area.end.y = t.height - t.padding[2] - s;break;default:l.area.start.y = (t.height - l.area.height) / 2, l.area.end.y = (t.height + l.area.height) / 2;}var _p = 0 == _i4 % _o7 ? _i4 / _o7 : n(_i4 / _o7 + 1),_g = [];for (var _t4, _a4 = 0; _a4 < _p; _a4++) {_t4 = e.slice(_a4 * _o7, _a4 * _o7 + _o7), _g.push(_t4);}if (l.points = _g, _g.length) {for (var _e6 = 0; _e6 < _g.length; _e6++) {var _i5 = _g[_e6],_a5 = 0;for (var _e7, _o8 = 0; _o8 < _i5.length; _o8++) {_e7 = h + x + measureText(_i5[_o8].name || "undefined", d) + t.legend.itemGap, _e7 > _a5 && (_a5 = _e7);}l.widthArr.push(_a5), l.heightArr.push(_i5.length * c + 2 * r);}var _e5 = 0;for (var _t5 = 0; _t5 < l.widthArr.length; _t5++) {_e5 += l.widthArr[_t5];}l.area.width = _e5 - t.legend.itemGap + 2 * r, l.area.wholeWidth = l.area.width + r;}}switch (t.legend.position) {case "top":l.area.start.y = t.padding[0] + s, l.area.end.y = t.padding[0] + s + l.area.height;break;case "bottom":l.area.start.y = t.height - t.padding[2] - l.area.height - s, l.area.end.y = t.height - t.padding[2] - s;break;case "left":l.area.start.x = t.padding[3], l.area.end.x = t.padding[3] + l.area.width;break;case "right":l.area.start.x = t.width - t.padding[1] - l.area.width, l.area.end.x = t.width - t.padding[1];}return a.legendData = l, l;}function calCategoriesData(e, t, i, a) {var o = { angle: 0, xAxisHeight: i.xAxisHeight },n = e.map(function (e) {return measureText(e, t.xAxis.fontSize || i.fontSize);}),l = Math.max.apply(this, n);return !0 == t.xAxis.rotateLabel && l + 2 * i.xAxisTextPadding > a && (o.angle = 45 * Math.PI / 180, o.xAxisHeight = 2 * i.xAxisTextPadding + l * Math.sin(o.angle)), o;}function getXAxisTextList(e, t) {var a = Math.min,o = Math.max,n = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : -1,l = dataCombine(e),r = [];l = l.filter(function (e) {return "object" == typeof e && null !== e ? -1 < e.constructor.toString().indexOf("Array") ? null !== e : null !== e.value : null !== e;}), l.map(function (e) {"object" == typeof e ? -1 < e.constructor.toString().indexOf("Array") ? "candle" == t.type ? e.map(function (e) {r.push(e);}) : r.push(e[0]) : r.push(e.value) : r.push(e);});var s = 0,d = 0;if (0 < r.length && (s = a.apply(this, r), d = o.apply(this, r)), -1 < n ? ("number" == typeof t.xAxis.data[n].min && (s = a(t.xAxis.data[n].min, s)), "number" == typeof t.xAxis.data[n].max && (d = o(t.xAxis.data[n].max, d))) : ("number" == typeof t.xAxis.min && (s = a(t.xAxis.min, s)), "number" == typeof t.xAxis.max && (d = o(t.xAxis.max, d))), s === d) {var h = d || 10;d += h;}for (var x = s, c = d, p = [], g = (c - x) / t.xAxis.splitNumber, y = 0; y <= t.xAxis.splitNumber; y++) {p.push(x + g * y);}return p;}function calXAxisData(e, t, i) {var a = { angle: 0, xAxisHeight: i.xAxisHeight };a.ranges = getXAxisTextList(e, t, i), a.rangesFormat = a.ranges.map(function (e) {return e = t.xAxis.format ? t.xAxis.format(e) : util.toFixed(e, 2), e;});var o = a.ranges.map(function (e) {return e = util.toFixed(e, 2), e = t.xAxis.format ? t.xAxis.format(+e) : e, e;});a = Object.assign(a, getXAxisPoints(o, t, i));var n = a.eachSpacing,l = o.map(function (e) {return measureText(e);}),r = Math.max.apply(this, l);return r + 2 * i.xAxisTextPadding > n && (a.angle = 45 * Math.PI / 180, a.xAxisHeight = 2 * i.xAxisTextPadding + r * Math.sin(a.angle)), !0 === t.xAxis.disabled && (a.xAxisHeight = 0), a;}function getRadarDataPoints(e, t, i, a, o) {var n = Math.max,l = 5 < arguments.length && void 0 !== arguments[5] ? arguments[5] : 1,r = o.extra.radar || {};r.max = r.max || 0;var s = n(r.max, n.apply(null, dataCombine(a))),d = [];var _loop = function _loop(_n7) {var o = a[_n7],r = {};r.color = o.color, r.legendShape = o.legendShape, r.pointShape = o.pointShape, r.data = [], o.data.forEach(function (a, o) {var n = {};n.angle = e[o], n.proportion = a / s, n.position = convertCoordinateOrigin(i * n.proportion * l * Math.cos(n.angle), i * n.proportion * l * Math.sin(n.angle), t), r.data.push(n);}), d.push(r);};for (var _n7 = 0; _n7 < a.length; _n7++) {_loop(_n7);}return d;}function getPieDataPoints(e, t) {var a = 2 < arguments.length && arguments[2] !== void 0 ? arguments[2] : 1,o = 0,n = 0;for (var _a6, _n8 = 0; _n8 < e.length; _n8++) {_a6 = e[_n8], _a6.data = null === _a6.data ? 0 : _a6.data, o += _a6.data;}for (var _n9, l = 0; l < e.length; l++) {_n9 = e[l], _n9.data = null === _n9.data ? 0 : _n9.data, _n9._proportion_ = 0 === o ? 1 / e.length * a : _n9.data / o * a, _n9._radius_ = t;}for (var _a7, _o9 = 0; _o9 < e.length; _o9++) {_a7 = e[_o9], _a7._start_ = n, n += 2 * _a7._proportion_ * Math.PI;}return e;}function getFunnelDataPoints(e, t) {var a = 2 < arguments.length && arguments[2] !== void 0 ? arguments[2] : 1;e = e.sort(function (e, t) {return parseInt(t.data) - parseInt(e.data);});for (var o = 0; o < e.length; o++) {e[o].radius = e[o].data / e[0].data * t * a, e[o]._proportion_ = e[o].data / e[0].data;}return e.reverse();}function getRoseDataPoints(e, t, a, o) {var n = 4 < arguments.length && arguments[4] !== void 0 ? arguments[4] : 1,l = 0,r = 0,s = [];for (var _n10, _r2 = 0; _r2 < e.length; _r2++) {_n10 = e[_r2], _n10.data = null === _n10.data ? 0 : _n10.data, l += _n10.data, s.push(_n10.data);}var d = Math.min.apply(null, s),h = Math.max.apply(null, s);for (var _r3, _s = 0; _s < e.length; _s++) {_r3 = e[_s], _r3.data = null === _r3.data ? 0 : _r3.data, 0 === l || "area" == t ? (_r3._proportion_ = _r3.data / l * n, _r3._rose_proportion_ = 1 / e.length * n) : (_r3._proportion_ = _r3.data / l * n, _r3._rose_proportion_ = _r3.data / l * n), _r3._radius_ = a + (o - a) * ((_r3.data - d) / (h - d));}for (var _n11, _l3 = 0; _l3 < e.length; _l3++) {_n11 = e[_l3], _n11._start_ = r, r += 2 * _n11._rose_proportion_ * Math.PI;}return e;}function getArcbarDataPoints(e, t) {var a = 2 < arguments.length && arguments[2] !== void 0 ? arguments[2] : 1;1 == a && (a = .999999);for (var o, n = 0; n < e.length; n++) {o = e[n], o.data = null === o.data ? 0 : o.data;var i = void 0;i = "circle" == t.type ? 2 : t.endAngle < t.startAngle ? 2 + t.endAngle - t.startAngle : t.startAngle - t.endAngle, o._proportion_ = i * o.data * a + t.startAngle, 2 <= o._proportion_ && (o._proportion_ %= 2);}return e;}function getGaugeAxisPoints(e, t, a) {var o = t;for (var n = 0; n < e.length; n++) {e[n].value = null === e[n].value ? 0 : e[n].value, e[n]._startAngle_ = o, e[n]._endAngle_ = (t - a + 1) * e[n].value + t, 2 <= e[n]._endAngle_ && (e[n]._endAngle_ %= 2), o = e[n]._endAngle_;}return e;}function getGaugeDataPoints(e, t, a) {var o = 3 < arguments.length && arguments[3] !== void 0 ? arguments[3] : 1;for (var n, l = 0; l < e.length; l++) {if (n = e[l], n.data = null === n.data ? 0 : n.data, "auto" == a.pointer.color) {for (var _e8 = 0; _e8 < t.length; _e8++) {if (n.data <= t[_e8].value) {n.color = t[_e8].color;break;}}} else n.color = a.pointer.color;var i = a.startAngle - a.endAngle + 1;n._endAngle_ = i * n.data + a.startAngle, n._oldAngle_ = a.oldAngle, a.oldAngle < a.endAngle && (n._oldAngle_ += 2), n._proportion_ = n.data >= a.oldData ? (n._endAngle_ - n._oldAngle_) * o + a.oldAngle : n._oldAngle_ - (n._oldAngle_ - n._endAngle_) * o, 2 <= n._proportion_ && (n._proportion_ %= 2);}return e;}function getPieTextMaxLength(e) {e = getPieDataPoints(e);var t = 0;for (var a = 0; a < e.length; a++) {var i = e[a],o = i.format ? i.format(+i._proportion_.toFixed(2)) : util.toFixed(100 * i._proportion_) + "%";t = Math.max(t, measureText(o));}return t;}function fixColumeData(e, t, i, a, o, n) {return e.map(function (e) {return null === e ? null : (e.width = Math.ceil((t - 2 * o.columePadding) / i), n.extra.column && n.extra.column.width && 0 < +n.extra.column.width && (e.width = Math.min(e.width, +n.extra.column.width)), 0 >= e.width && (e.width = 1), e.x += (a + .5 - i / 2) * e.width, e);});}function fixColumeMeterData(e, t, i, a, o, n, l) {return e.map(function (e) {return null === e ? null : (e.width = Math.ceil((t - 2 * o.columePadding) / 2), n.extra.column && n.extra.column.width && 0 < +n.extra.column.width && (e.width = Math.min(e.width, +n.extra.column.width)), 0 < a && (e.width -= 2 * l), e);});}function fixColumeStackData(e, t, i, a, o, n) {return e.map(function (e) {return null === e ? null : (e.width = Math.ceil((t - 2 * o.columePadding) / 2), n.extra.column && n.extra.column.width && 0 < +n.extra.column.width && (e.width = Math.min(e.width, +n.extra.column.width)), e);});}function getXAxisPoints(e, t) {var i = t.width - t.area[1] - t.area[3],a = t.enableScroll ? Math.min(t.xAxis.itemCount, e.length) : e.length;("line" == t.type || "area" == t.type) && 1 < a && "justify" == t.xAxis.boundaryGap && (a -= 1);var o = i / a,n = [],l = t.area[3],r = t.width - t.area[1];return e.forEach(function (e, t) {n.push(l + t * o);}), "justify" !== t.xAxis.boundaryGap && (!0 === t.enableScroll ? n.push(l + e.length * o) : n.push(r)), { xAxisPoints: n, startX: l, endX: r, eachSpacing: o };}function getCandleDataPoints(e, t, i, a, o, n) {var l = Math.round,r = 7 < arguments.length && void 0 !== arguments[7] ? arguments[7] : 1,s = [],d = n.height - n.area[0] - n.area[2];return e.forEach(function (e, h) {if (null === e) s.push(null);else {var x = [];e.forEach(function (e) {var s = { x: a[h] + l(o / 2) },c = e.value || e,p = d * (c - t) / (i - t);p *= r, s.y = n.height - l(p) - n.area[2], x.push(s);}), s.push(x);}}), s;}function getDataPoints(e, t, i, a, o, n) {var l = Math.round,r = 7 < arguments.length && void 0 !== arguments[7] ? arguments[7] : 1,s = "center";("line" == n.type || "area" == n.type) && (s = n.xAxis.boundaryGap);var d = [],h = n.height - n.area[0] - n.area[2],x = n.width - n.area[1] - n.area[3];return e.forEach(function (e, c) {if (null === e) d.push(null);else {var p = { color: e.color, x: a[c] },g = e;if ("object" == typeof e && null !== e) if (-1 < e.constructor.toString().indexOf("Array")) {var _t6, _i6, _a8;_t6 = [].concat(n.chartData.xAxisData.ranges), _i6 = _t6.shift(), _a8 = _t6.pop(), g = e[1], p.x = n.area[3] + x * (e[0] - _i6) / (_a8 - _i6);} else g = e.value;"center" == s && (p.x += l(o / 2));var y = h * (g - t) / (i - t);y *= r, p.y = n.height - l(y) - n.area[2], d.push(p);}}), d;}function getStackDataPoints(e, t, i, a, o, n, l, r, s) {var d = Math.round,h = 9 < arguments.length && void 0 !== arguments[9] ? arguments[9] : 1,x = [],c = n.height - n.area[0] - n.area[2];return e.forEach(function (e, l) {if (null === e) x.push(null);else {var p = { color: e.color, x: a[l] + d(o / 2) };if (0 < r) {var g = 0;for (var _e9 = 0; _e9 <= r; _e9++) {g += s[_e9].data[l];}var y = g - e,f = c * (g - t) / (i - t),u = c * (y - t) / (i - t);} else var g = e,f = c * (g - t) / (i - t),u = 0;var m = u;f *= h, m *= h, p.y = n.height - d(f) - n.area[2], p.y0 = n.height - d(m) - n.area[2], x.push(p);}}), x;}function getYAxisTextList(e, t, a, o) {var n,l = Math.min,r = Math.max,s = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : -1;n = "stack" == o ? dataCombineStack(e, t.categories.length) : dataCombine(e);var d = [];n = n.filter(function (e) {return "object" == typeof e && null !== e ? -1 < e.constructor.toString().indexOf("Array") ? null !== e : null !== e.value : null !== e;}), n.map(function (e) {"object" == typeof e ? -1 < e.constructor.toString().indexOf("Array") ? "candle" == t.type ? e.map(function (e) {d.push(e);}) : d.push(e[1]) : d.push(e.value) : d.push(e);});var h = 0,x = 0;if (0 < d.length && (h = l.apply(this, d), x = r.apply(this, d)), -1 < s ? ("number" == typeof t.yAxis.data[s].min && (h = l(t.yAxis.data[s].min, h)), "number" == typeof t.yAxis.data[s].max && (x = r(t.yAxis.data[s].max, x))) : ("number" == typeof t.yAxis.min && (h = l(t.yAxis.min, h)), "number" == typeof t.yAxis.max && (x = r(t.yAxis.max, x))), h === x) {var c = x || 10;x += c;}for (var p = getDataRange(h, x), g = p.minRange, y = p.maxRange, f = [], u = (y - g) / t.yAxis.splitNumber, m = 0; m <= t.yAxis.splitNumber; m++) {f.push(g + u * m);}return f.reverse();}function calYAxisData(e, t, a) {var o = Math.max,n = assign({}, { type: "" }, t.extra.column),l = t.yAxis.data.length,r = Array(l);if (0 < l) {for (var _t7 = 0; _t7 < l; _t7++) {r[_t7] = [];for (var _i7 = 0; _i7 < e.length; _i7++) {e[_i7].index == _t7 && r[_t7].push(e[_i7]);}}var s = Array(l),d = Array(l),h = Array(l);var _loop2 = function _loop2(x, _e11) {_e11 = t.yAxis.data[x], !0 == t.yAxis.disabled && (_e11.disabled = !0), s[x] = getYAxisTextList(r[x], t, a, n.type, x);var i = _e11.fontSize || a.fontSize;h[x] = { position: _e11.position ? _e11.position : "left", width: 0 }, d[x] = s[x].map(function (t) {_e10 = _e11;return t = util.toFixed(t, 6), t = _e11.format ? _e11.format(+t) : t, h[x].width = o(h[x].width, measureText(t, i) + 5), t;});var l = _e11.calibration ? 4 * t.pixelRatio : 0;h[x].width += l + 3 * t.pixelRatio, !0 === _e11.disabled && (h[x].width = 0);_e10 = _e11;};for (var _e10, x = 0; x < l; x++) {_loop2(x, _e10);}} else {var s = [,],d = [,],h = [,];s[0] = getYAxisTextList(e, t, a, n.type), h[0] = { position: "left", width: 0 };var i = t.yAxis.fontSize || a.fontSize;d[0] = s[0].map(function (e) {return e = util.toFixed(e, 6), e = t.yAxis.format ? t.yAxis.format(+e) : e, h[0].width = o(h[0].width, measureText(e, i) + 5), e;}), h[0].width += 3 * t.pixelRatio, !0 === t.yAxis.disabled ? (h[0] = { position: "left", width: 0 }, t.yAxis.data[0] = { disabled: !0 }) : t.yAxis.data[0] = { disabled: !1, position: "left", max: t.yAxis.max, min: t.yAxis.min, format: t.yAxis.format };}return { rangesFormat: d, ranges: s, yAxisWidth: h };}function calTooltipYAxisData(e, t, a) {var o = [].concat(a.chartData.yAxisData.ranges),n = a.height - a.area[0] - a.area[2],l = a.area[0],r = [];for (var s = 0; s < o.length; s++) {var _t8 = o[s].shift(),i = o[s].pop(),d = _t8 - (_t8 - i) * (e - l) / n;d = a.yAxis.data[s].format ? a.yAxis.data[s].format(+d) : d.toFixed(0), r.push(d + "");}return r;}function calMarkLineData(e, t) {var a,o,n = t.height - t.area[0] - t.area[2];for (var l = 0; l < e.length; l++) {e[l].yAxisIndex = e[l].yAxisIndex ? e[l].yAxisIndex : 0;var i = [].concat(t.chartData.yAxisData.ranges[e[l].yAxisIndex]);a = i.pop(), o = i.shift();var r = n * (e[l].value - a) / (o - a);e[l].y = t.height - Math.round(r) - t.area[2];}return e;}function contextRotate(e, t) {var i = Math.PI;!0 === t.rotateLock ? !0 !== t._rotate_ && (e.translate(t.height, 0), e.rotate(90 * i / 180), t._rotate_ = !0) : (e.translate(t.height, 0), e.rotate(90 * i / 180));}function drawPointShape(e, t, i, a, o) {a.beginPath(), "hollow" == o.dataPointShapeType ? (a.setStrokeStyle(t), a.setFillStyle(o.background), a.setLineWidth(2 * o.pixelRatio)) : (a.setStrokeStyle("#ffffff"), a.setFillStyle(t), a.setLineWidth(1 * o.pixelRatio)), "diamond" === i ? e.forEach(function (e) {null !== e && (a.moveTo(e.x, e.y - 4.5), a.lineTo(e.x - 4.5, e.y), a.lineTo(e.x, e.y + 4.5), a.lineTo(e.x + 4.5, e.y), a.lineTo(e.x, e.y - 4.5));}) : "circle" === i ? e.forEach(function (e) {null !== e && (a.moveTo(e.x + 2.5 * o.pixelRatio, e.y), a.arc(e.x, e.y, 3 * o.pixelRatio, 0, 2 * Math.PI, !1));}) : "rect" === i ? e.forEach(function (e) {null !== e && (a.moveTo(e.x - 3.5, e.y - 3.5), a.rect(e.x - 3.5, e.y - 3.5, 7, 7));}) : "triangle" == i && e.forEach(function (e) {null !== e && (a.moveTo(e.x, e.y - 4.5), a.lineTo(e.x - 4.5, e.y + 4.5), a.lineTo(e.x + 4.5, e.y + 4.5), a.lineTo(e.x, e.y - 4.5));}), a.closePath(), a.fill(), a.stroke();}function drawRingTitle(e, t, i, a) {var o = e.title.fontSize || t.titleFontSize,n = e.subtitle.fontSize || t.subtitleFontSize,l = e.title.name || "",r = e.subtitle.name || "",s = e.title.color || t.titleColor,d = e.subtitle.color || t.subtitleColor,h = l ? o : 0,x = r ? n : 0,c = 5;if (r) {var p = measureText(r, n),g = a.x - p / 2 + (e.subtitle.offsetX || 0),y = a.y + n / 2 + (e.subtitle.offsetY || 0);l && (y += (h + c) / 2), i.beginPath(), i.setFontSize(n), i.setFillStyle(d), i.fillText(r, g, y), i.closePath(), i.stroke();}if (l) {var f = measureText(l, o),u = a.x - f / 2 + (e.title.offsetX || 0),m = a.y + o / 2 + (e.title.offsetY || 0);r && (m -= (x + c) / 2), i.beginPath(), i.setFontSize(o), i.setFillStyle(s), i.fillText(l, u, m), i.closePath(), i.stroke();}}function drawPointText(e, t, i, a) {var o = t.data;e.forEach(function (e, n) {if (null !== e) {a.beginPath(), a.setFontSize(t.textSize || i.fontSize), a.setFillStyle(t.textColor || "#666666");var l = o[n];"object" == typeof o[n] && null !== o[n] && (o[n].constructor == Array ? l = o[n][1] : l = o[n].value);var r = t.format ? t.format(l) : l;a.fillText(r + "", e.x - measureText(r, t.textSize || i.fontSize) / 2, e.y - 4), a.closePath(), a.stroke();}});}function drawGaugeLabel(e, t, i, a, o, n) {var l = Math.PI;t -= e.width / 2 + o.gaugeLabelTextMargin;var r = e.startAngle - e.endAngle + 1,s = r / e.splitLine.splitNumber,d = e.endNumber - e.startNumber,h = d / e.splitLine.splitNumber,x = e.startAngle,c = e.startNumber;for (var _r4 = 0; _r4 < e.splitLine.splitNumber + 1; _r4++) {var p = { x: t * Math.cos(x * l), y: t * Math.sin(x * l) },g = e.labelFormat ? e.labelFormat(c) : c;p.x += i.x - measureText(g) / 2, p.y += i.y;var y = p.x,f = p.y;n.beginPath(), n.setFontSize(o.fontSize), n.setFillStyle(e.labelColor || "#666666"), n.fillText(g, y, f + o.fontSize / 2), n.closePath(), n.stroke(), x += s, 2 <= x && (x %= 2), c += h;}}function drawRadarLabel(e, t, i, a, o, n) {var l = a.extra.radar || {};t += o.radarLabelTextMargin, e.forEach(function (e, r) {var s = { x: t * Math.cos(e), y: t * Math.sin(e) },d = convertCoordinateOrigin(s.x, s.y, i),h = d.x,x = d.y;util.approximatelyEqual(s.x, 0) ? h -= measureText(a.categories[r] || "") / 2 : 0 > s.x && (h -= measureText(a.categories[r] || "")), n.beginPath(), n.setFontSize(o.fontSize), n.setFillStyle(l.labelColor || "#666666"), n.fillText(a.categories[r] || "", h, x + o.fontSize / 2), n.closePath(), n.stroke();});}function drawPieText(e, t, a, o, i, n) {var l = Math.cos,r = Math.sin,s = Math.min,d = Math.max,h = Math.PI,x = a.pieChartLinePadding,c = [],p = null,g = e.map(function (e) {var t = e.format ? e.format(+e._proportion_.toFixed(2)) : util.toFixed(100 * e._proportion_.toFixed(4)) + "%";e._rose_proportion_ && (e._proportion_ = e._rose_proportion_);var i = 2 * h - (e._start_ + 2 * h * e._proportion_ / 2),a = e.color,o = e._radius_;return { arc: i, text: t, color: a, radius: o, textColor: e.textColor, textSize: e.textSize };});for (var _h = 0; _h < g.length; _h++) {var _e12 = g[_h],_t9 = l(_e12.arc) * (_e12.radius + x),_i8 = r(_e12.arc) * (_e12.radius + x),_o10 = l(_e12.arc) * _e12.radius,_n12 = r(_e12.arc) * _e12.radius,y = 0 <= _t9 ? _t9 + a.pieChartTextPadding : _t9 - a.pieChartTextPadding,f = _i8,u = measureText(_e12.text, _e12.textSize || a.fontSize),m = f;p && util.isSameXCoordinateArea(p.start, { x: y }) && (0 < y ? m = s(f, p.start.y) : 0 > _t9 ? m = d(f, p.start.y) : 0 < f ? m = d(f, p.start.y) : m = s(f, p.start.y)), 0 > y && (y -= u);var S = { lineStart: { x: _o10, y: _n12 }, lineEnd: { x: _t9, y: _i8 }, start: { x: y, y: m }, width: u, height: a.fontSize, text: _e12.text, color: _e12.color, textColor: _e12.textColor, textSize: _e12.textSize };p = avoidCollision(S, p), c.push(p);}for (var _l4 = 0; _l4 < c.length; _l4++) {var _e13 = c[_l4],_i9 = convertCoordinateOrigin(_e13.lineStart.x, _e13.lineStart.y, n),_r5 = convertCoordinateOrigin(_e13.lineEnd.x, _e13.lineEnd.y, n),_s2 = convertCoordinateOrigin(_e13.start.x, _e13.start.y, n);o.setLineWidth(1 * t.pixelRatio), o.setFontSize(a.fontSize), o.beginPath(), o.setStrokeStyle(_e13.color), o.setFillStyle(_e13.color), o.moveTo(_i9.x, _i9.y);var _d = 0 > _e13.start.x ? _s2.x + _e13.width : _s2.x,_x = 0 > _e13.start.x ? _s2.x - 5 : _s2.x + 5;o.quadraticCurveTo(_r5.x, _r5.y, _d, _s2.y), o.moveTo(_i9.x, _i9.y), o.stroke(), o.closePath(), o.beginPath(), o.moveTo(_s2.x + _e13.width, _s2.y), o.arc(_d, _s2.y, 2, 0, 2 * h), o.closePath(), o.fill(), o.beginPath(), o.setFontSize(_e13.textSize || a.fontSize), o.setFillStyle(_e13.textColor || "#666666"), o.fillText(_e13.text, _x, _s2.y + 3), o.closePath(), o.stroke(), o.closePath();}}function drawToolTipSplitLine(e, t, i, a) {var o = t.extra.tooltip || {};o.gridType = null == o.gridType ? "solid" : o.gridType, o.dashLength = null == o.dashLength ? 4 : o.dashLength;var n = t.area[0],l = t.height - t.area[2];if ("dash" == o.gridType && a.setLineDash([o.dashLength, o.dashLength]), a.setStrokeStyle(o.gridColor || "#cccccc"), a.setLineWidth(1 * t.pixelRatio), a.beginPath(), a.moveTo(e, n), a.lineTo(e, l), a.stroke(), a.setLineDash([]), o.xAxisLabel) {var _n13 = t.categories[t.tooltip.index];a.setFontSize(i.fontSize);var r = measureText(_n13, i.fontSize),s = e - .5 * r,d = l;a.beginPath(), a.setFillStyle(hexToRgb(o.labelBgColor || i.toolTipBackground, o.labelBgOpacity || i.toolTipOpacity)), a.setStrokeStyle(o.labelBgColor || i.toolTipBackground), a.setLineWidth(1 * t.pixelRatio), a.rect(s - i.toolTipPadding, d, r + 2 * i.toolTipPadding, i.fontSize + 2 * i.toolTipPadding), a.closePath(), a.stroke(), a.fill(), a.beginPath(), a.setFontSize(i.fontSize), a.setFillStyle(o.labelFontColor || i.fontColor), a.fillText(_n13 + "", s, d + i.toolTipPadding + i.fontSize), a.closePath(), a.stroke();}}function drawMarkLine(e, t, a) {var o = assign({}, { type: "solid", dashLength: 4, data: [] }, e.extra.markLine),n = e.area[3],l = e.width - e.area[1],r = calMarkLineData(o.data, e);for (var s, d = 0; d < r.length; d++) {if (s = assign({}, { lineColor: "#DE4A42", showLabel: !1, labelFontColor: "#666666", labelBgColor: "#DFE8FF", labelBgOpacity: .8, yAxisIndex: 0 }, r[d]), "dash" == o.type && a.setLineDash([o.dashLength, o.dashLength]), a.setStrokeStyle(s.lineColor), a.setLineWidth(1 * e.pixelRatio), a.beginPath(), a.moveTo(n, s.y), a.lineTo(l, s.y), a.stroke(), a.setLineDash([]), s.showLabel) {var i = e.yAxis.format ? e.yAxis.format(+s.value) : s.value;a.setFontSize(t.fontSize);var _o11 = measureText(i, t.fontSize),_n14 = e.padding[3] + t.yAxisTitleWidth - t.toolTipPadding,_l5 = Math.max(e.area[3], _o11 + 2 * t.toolTipPadding),_r6 = _l5 - _n14,_d2 = s.y;a.setFillStyle(hexToRgb(s.labelBgColor, s.labelBgOpacity)), a.setStrokeStyle(s.labelBgColor), a.setLineWidth(1 * e.pixelRatio), a.beginPath(), a.rect(_n14, _d2 - .5 * t.fontSize - t.toolTipPadding, _r6, t.fontSize + 2 * t.toolTipPadding), a.closePath(), a.stroke(), a.fill(), a.beginPath(), a.setFontSize(t.fontSize), a.setFillStyle(s.labelFontColor), a.fillText(i + "", _n14 + (_r6 - _o11) / 2, _d2 + .5 * t.fontSize), a.stroke();}}}function drawToolTipHorizentalLine(e, t, a, i) {var o = Math.max,n = assign({}, { gridType: "solid", dashLength: 4 }, e.extra.tooltip),l = e.area[3],r = e.width - e.area[1];if ("dash" == n.gridType && a.setLineDash([n.dashLength, n.dashLength]), a.setStrokeStyle(n.gridColor || "#cccccc"), a.setLineWidth(1 * e.pixelRatio), a.beginPath(), a.moveTo(l, e.tooltip.offset.y), a.lineTo(r, e.tooltip.offset.y), a.stroke(), a.setLineDash([]), n.yAxisLabel) {var _l6 = calTooltipYAxisData(e.tooltip.offset.y, e.series, e, t, i),_r7 = e.chartData.yAxisData.yAxisWidth,s = e.area[3],d = e.width - e.area[1];for (var h = 0; h < _l6.length; h++) {a.setFontSize(t.fontSize);var _i10 = void 0,x = void 0,c = void 0,p = measureText(_l6[h], t.fontSize);"left" == _r7[h].position ? (_i10 = s - _r7[h].width, x = o(_i10, _i10 + p + 2 * t.toolTipPadding)) : (_i10 = d, x = o(_i10 + _r7[h].width, _i10 + p + 2 * t.toolTipPadding)), c = x - _i10;var g = _i10 + (c - p) / 2,y = e.tooltip.offset.y;a.beginPath(), a.setFillStyle(hexToRgb(n.labelBgColor || t.toolTipBackground, n.labelBgOpacity || t.toolTipOpacity)), a.setStrokeStyle(n.labelBgColor || t.toolTipBackground), a.setLineWidth(1 * e.pixelRatio), a.rect(_i10, y - .5 * t.fontSize - t.toolTipPadding, c, t.fontSize + 2 * t.toolTipPadding), a.closePath(), a.stroke(), a.fill(), a.beginPath(), a.setFontSize(t.fontSize), a.setFillStyle(n.labelFontColor || t.fontColor), a.fillText(_l6[h], g, y + .5 * t.fontSize), a.closePath(), a.stroke(), "left" == _r7[h].position ? s -= _r7[h].width + e.yAxis.padding : d += _r7[h].width + e.yAxis.padding;}}}function drawToolTipSplitArea(e, t, i, a, o) {var n = assign({}, { activeBgColor: "#000000", activeBgOpacity: .08 }, t.extra.tooltip),l = t.area[0],r = t.height - t.area[2];a.beginPath(), a.setFillStyle(hexToRgb(n.activeBgColor, n.activeBgOpacity)), a.rect(e - o / 2, l, o, r - l), a.closePath(), a.fill();}function drawToolTip(e, t, i, a, o) {var n = Math.round,l = assign({}, { showBox: !0, bgColor: "#000000", bgOpacity: .7, fontColor: "#FFFFFF" }, i.extra.tooltip),r = 4 * i.pixelRatio,s = 5 * i.pixelRatio,d = 8 * i.pixelRatio,h = !1;("line" == i.type || "area" == i.type || "candle" == i.type || "mix" == i.type) && drawToolTipSplitLine(i.tooltip.offset.x, i, a, o), t = assign({ x: 0, y: 0 }, t), t.y -= 8 * i.pixelRatio;var x = e.map(function (e) {return measureText(e.text, a.fontSize);}),c = r + s + 4 * a.toolTipPadding + Math.max.apply(null, x),p = 2 * a.toolTipPadding + e.length * a.toolTipLineHeight;!1 == l.showBox || (t.x - Math.abs(i._scrollDistance_) + d + c > i.width && (h = !0), p + t.y > i.height && (t.y = i.height - p), o.beginPath(), o.setFillStyle(hexToRgb(l.bgColor || a.toolTipBackground, l.bgOpacity || a.toolTipOpacity)), h ? (o.moveTo(t.x, t.y + 10 * i.pixelRatio), o.lineTo(t.x - d, t.y + 10 * i.pixelRatio - 5 * i.pixelRatio), o.lineTo(t.x - d, t.y), o.lineTo(t.x - d - n(c), t.y), o.lineTo(t.x - d - n(c), t.y + p), o.lineTo(t.x - d, t.y + p), o.lineTo(t.x - d, t.y + 10 * i.pixelRatio + 5 * i.pixelRatio), o.lineTo(t.x, t.y + 10 * i.pixelRatio)) : (o.moveTo(t.x, t.y + 10 * i.pixelRatio), o.lineTo(t.x + d, t.y + 10 * i.pixelRatio - 5 * i.pixelRatio), o.lineTo(t.x + d, t.y), o.lineTo(t.x + d + n(c), t.y), o.lineTo(t.x + d + n(c), t.y + p), o.lineTo(t.x + d, t.y + p), o.lineTo(t.x + d, t.y + 10 * i.pixelRatio + 5 * i.pixelRatio), o.lineTo(t.x, t.y + 10 * i.pixelRatio)), o.closePath(), o.fill(), e.forEach(function (e, i) {if (null !== e.color) {o.beginPath(), o.setFillStyle(e.color);var n = t.x + d + 2 * a.toolTipPadding,l = t.y + (a.toolTipLineHeight - a.fontSize) / 2 + a.toolTipLineHeight * i + a.toolTipPadding + 1;h && (n = t.x - c - d + 2 * a.toolTipPadding), o.fillRect(n, l, r, a.fontSize), o.closePath();}}), e.forEach(function (e, i) {var n = t.x + d + 2 * a.toolTipPadding + r + s;h && (n = t.x - c - d + 2 * a.toolTipPadding + +r + s);var x = t.y + (a.toolTipLineHeight - a.fontSize) / 2 + a.toolTipLineHeight * i + a.toolTipPadding;o.beginPath(), o.setFontSize(a.fontSize), o.setFillStyle(l.fontColor), o.fillText(e.text, n, x + a.fontSize), o.closePath(), o.stroke();}));}function drawYAxisTitle(e, t, i, a) {var o = i.xAxisHeight + (t.height - i.xAxisHeight - measureText(e)) / 2;a.save(), a.beginPath(), a.setFontSize(i.fontSize), a.setFillStyle(t.yAxis.titleFontColor || "#333333"), a.translate(0, t.height), a.rotate(-90 * Math.PI / 180), a.fillText(e, o, t.padding[3] + .5 * i.fontSize), a.closePath(), a.stroke(), a.restore();}function drawColumnDataPoints(e, t, i, a) {var o = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : 1,n = t.chartData.xAxisData,l = n.xAxisPoints,r = n.eachSpacing,s = assign({}, { type: "group", width: r / 2, meter: { border: 4, fillColor: "#FFFFFF" } }, t.extra.column),d = [];a.save();var h = -2,x = l.length + 2;return t._scrollDistance_ && 0 !== t._scrollDistance_ && !0 === t.enableScroll && (a.translate(t._scrollDistance_, 0), h = Math.floor(-t._scrollDistance_ / r) - 2, x = h + t.xAxis.itemCount + 4), t.tooltip && t.tooltip.textList && t.tooltip.textList.length && 1 === o && drawToolTipSplitArea(t.tooltip.offset.x, t, i, a, r), e.forEach(function (n, c) {var p, g, y;p = [].concat(t.chartData.yAxisData.ranges[n.index]), g = p.pop(), y = p.shift();var f = n.data;switch (s.type) {case "group":var u = getDataPoints(f, g, y, l, r, t, i, o),m = getStackDataPoints(f, g, y, l, r, t, i, c, e, o);d.push(m), u = fixColumeData(u, r, e.length, c, i, t);for (var _e14, _o12 = 0; _o12 < u.length; _o12++) {if (_e14 = u[_o12], null !== _e14 && _o12 > h && _o12 < x) {a.beginPath(), a.setStrokeStyle(_e14.color || n.color), a.setLineWidth(1), a.setFillStyle(_e14.color || n.color);var S = _e14.x - _e14.width / 2,A = t.height - _e14.y - t.area[2];a.moveTo(S, _e14.y), a.lineTo(S + _e14.width - 2, _e14.y), a.lineTo(S + _e14.width - 2, t.height - t.area[2]), a.lineTo(S, t.height - t.area[2]), a.lineTo(S, _e14.y), a.closePath(), a.stroke(), a.fill();}};break;case "stack":var u = getStackDataPoints(f, g, y, l, r, t, i, c, e, o);d.push(u), u = fixColumeStackData(u, r, e.length, c, i, t, e);for (var _e15, _o13 = 0; _o13 < u.length; _o13++) {if (_e15 = u[_o13], null !== _e15 && _o13 > h && _o13 < x) {a.beginPath(), a.setFillStyle(_e15.color || n.color);var S = _e15.x - _e15.width / 2 + 1,A = t.height - _e15.y - t.area[2],T = t.height - _e15.y0 - t.area[2];0 < c && (A -= T), a.moveTo(S, _e15.y), a.fillRect(S, _e15.y, _e15.width - 2, A), a.closePath(), a.fill();}};break;case "meter":var u = getDataPoints(f, g, y, l, r, t, i, o);if (d.push(u), u = fixColumeMeterData(u, r, e.length, c, i, t, s.meter.border), 0 == c) {for (var _e16, _o14 = 0; _o14 < u.length; _o14++) {if (_e16 = u[_o14], null !== _e16 && _o14 > h && _o14 < x) {a.beginPath(), a.setFillStyle(s.meter.fillColor);var S = _e16.x - _e16.width / 2,A = t.height - _e16.y - t.area[2];a.moveTo(S, _e16.y), a.fillRect(S, _e16.y, _e16.width, A), a.closePath(), a.fill(), 0 < s.meter.border && (a.beginPath(), a.setStrokeStyle(n.color), a.setLineWidth(s.meter.border * t.pixelRatio), a.moveTo(S + .5 * s.meter.border, _e16.y + A), a.lineTo(S + .5 * s.meter.border, _e16.y + .5 * s.meter.border), a.lineTo(S + _e16.width - .5 * s.meter.border, _e16.y + .5 * s.meter.border), a.lineTo(S + _e16.width - .5 * s.meter.border, _e16.y + A), a.stroke());}}} else for (var _e17, _o15 = 0; _o15 < u.length; _o15++) {if (_e17 = u[_o15], null !== _e17 && _o15 > h && _o15 < x) {a.beginPath(), a.setFillStyle(_e17.color || n.color);var S = _e17.x - _e17.width / 2,A = t.height - _e17.y - t.area[2];a.moveTo(S, _e17.y), a.fillRect(S, _e17.y, _e17.width, A), a.closePath(), a.fill();}}}}), !1 !== t.dataLabel && 1 === o && e.forEach(function (n, d) {var h, x, c;h = [].concat(t.chartData.yAxisData.ranges[n.index]), x = h.pop(), c = h.shift();var p = n.data;switch (s.type) {case "group":var g = getDataPoints(p, x, c, l, r, t, i, o);g = fixColumeData(g, r, e.length, d, i, t), drawPointText(g, n, i, a);break;case "stack":var g = getStackDataPoints(p, x, c, l, r, t, i, d, e, o);drawPointText(g, n, i, a);break;case "meter":var g = getDataPoints(p, x, c, l, r, t, i, o);drawPointText(g, n, i, a);}}), a.restore(), { xAxisPoints: l, calPoints: d, eachSpacing: r };}function drawCandleDataPoints(e, t, a, i, o) {var n = 5 < arguments.length && void 0 !== arguments[5] ? arguments[5] : 1,l = assign({}, { color: {}, average: {} }, a.extra.candle);l.color = assign({}, { upLine: "#f04864", upFill: "#f04864", downLine: "#2fc25b", downFill: "#2fc25b" }, l.color), l.average = assign({}, { show: !1, name: [], day: [], color: i.colors }, l.average), a.extra.candle = l;var r = a.chartData.xAxisData,s = r.xAxisPoints,d = r.eachSpacing,h = [];o.save();var x = -2,c = s.length + 2,p = 0,g = a.width + d;return a._scrollDistance_ && 0 !== a._scrollDistance_ && !0 === a.enableScroll && (o.translate(a._scrollDistance_, 0), x = Math.floor(-a._scrollDistance_ / d) - 2, c = x + a.xAxis.itemCount + 4, p = -a._scrollDistance_ - d + a.area[3], g = p + (a.xAxis.itemCount + 4) * d), l.average.show && t.forEach(function (e) {var t, l, r;t = [].concat(a.chartData.yAxisData.ranges[e.index]), l = t.pop(), r = t.shift();var h = e.data,x = getDataPoints(h, l, r, s, d, a, i, n),c = splitPoints(x);for (var _t10, _a9 = 0; _a9 < c.length; _a9++) {if (_t10 = c[_a9], o.beginPath(), o.setStrokeStyle(e.color), o.setLineWidth(1), 1 === _t10.length) o.moveTo(_t10[0].x, _t10[0].y), o.arc(_t10[0].x, _t10[0].y, 1, 0, 2 * Math.PI);else {o.moveTo(_t10[0].x, _t10[0].y);var _e18 = 0;for (var _i11, _a10 = 0; _a10 < _t10.length; _a10++) {if (_i11 = _t10[_a10], 0 == _e18 && _i11.x > p && (o.moveTo(_i11.x, _i11.y), _e18 = 1), 0 < _a10 && _i11.x > p && _i11.x < g) {var y = createCurveControlPoints(_t10, _a10 - 1);o.bezierCurveTo(y.ctrA.x, y.ctrA.y, y.ctrB.x, y.ctrB.y, _i11.x, _i11.y);}}o.moveTo(_t10[0].x, _t10[0].y);}o.closePath(), o.stroke();}}), e.forEach(function (e) {var t, r, p;t = [].concat(a.chartData.yAxisData.ranges[e.index]), r = t.pop(), p = t.shift();var g = e.data,y = getCandleDataPoints(g, r, p, s, d, a, i, n);h.push(y);var f = splitPoints(y);for (var _t11 = 0; _t11 < f[0].length; _t11++) {if (_t11 > x && _t11 < c) {var _e19 = f[0][_t11];o.beginPath(), 0 < g[_t11][1] - g[_t11][0] ? (o.setStrokeStyle(l.color.upLine), o.setFillStyle(l.color.upFill), o.setLineWidth(1 * a.pixelRatio), o.moveTo(_e19[3].x, _e19[3].y), o.lineTo(_e19[1].x, _e19[1].y), o.lineTo(_e19[1].x - d / 4, _e19[1].y), o.lineTo(_e19[0].x - d / 4, _e19[0].y), o.lineTo(_e19[0].x, _e19[0].y), o.lineTo(_e19[2].x, _e19[2].y), o.lineTo(_e19[0].x, _e19[0].y), o.lineTo(_e19[0].x + d / 4, _e19[0].y), o.lineTo(_e19[1].x + d / 4, _e19[1].y), o.lineTo(_e19[1].x, _e19[1].y), o.moveTo(_e19[3].x, _e19[3].y)) : (o.setStrokeStyle(l.color.downLine), o.setFillStyle(l.color.downFill), o.setLineWidth(1 * a.pixelRatio), o.moveTo(_e19[3].x, _e19[3].y), o.lineTo(_e19[0].x, _e19[0].y), o.lineTo(_e19[0].x - d / 4, _e19[0].y), o.lineTo(_e19[1].x - d / 4, _e19[1].y), o.lineTo(_e19[1].x, _e19[1].y), o.lineTo(_e19[2].x, _e19[2].y), o.lineTo(_e19[1].x, _e19[1].y), o.lineTo(_e19[1].x + d / 4, _e19[1].y), o.lineTo(_e19[0].x + d / 4, _e19[0].y), o.lineTo(_e19[0].x, _e19[0].y), o.moveTo(_e19[3].x, _e19[3].y)), o.closePath(), o.fill(), o.stroke();}}}), o.restore(), { xAxisPoints: s, calPoints: h, eachSpacing: d };}function drawAreaDataPoints(e, t, i, a) {var o = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : 1,n = assign({}, { type: "straight", opacity: .2, addLine: !1, width: 2, gradient: !1 }, t.extra.area);var l = t.chartData.xAxisData,r = l.xAxisPoints,s = l.eachSpacing,d = t.height - t.area[2],h = [];a.save();var x = 0,c = t.width + s;return t._scrollDistance_ && 0 !== t._scrollDistance_ && !0 === t.enableScroll && (a.translate(t._scrollDistance_, 0), x = -t._scrollDistance_ - s + t.area[3], c = x + (t.xAxis.itemCount + 4) * s), e.forEach(function (e) {var l, p, g;l = [].concat(t.chartData.yAxisData.ranges[e.index]), p = l.pop(), g = l.shift();var y = e.data,f = getDataPoints(y, p, g, r, s, t, i, o);h.push(f);var u = splitPoints(f);for (var _o16, _l7 = 0; _l7 < u.length; _l7++) {if (_o16 = u[_l7], a.beginPath(), a.setStrokeStyle(hexToRgb(e.color, n.opacity)), n.gradient) {var _i12 = a.createLinearGradient(0, t.area[0], 0, t.height - t.area[2]);_i12.addColorStop("0", hexToRgb(e.color, n.opacity)), _i12.addColorStop("1.0", hexToRgb("#FFFFFF", .1)), a.setFillStyle(_i12);} else a.setFillStyle(hexToRgb(e.color, n.opacity));if (a.setLineWidth(n.width * t.pixelRatio), 1 < _o16.length) {var _e20 = _o16[0],_t12 = _o16[_o16.length - 1];a.moveTo(_e20.x, _e20.y);var _i13 = 0;if ("curve" === n.type) {for (var _e21, _t13 = 0; _t13 < _o16.length; _t13++) {if (_e21 = _o16[_t13], 0 == _i13 && _e21.x > x && (a.moveTo(_e21.x, _e21.y), _i13 = 1), 0 < _t13 && _e21.x > x && _e21.x < c) {var _i14 = createCurveControlPoints(_o16, _t13 - 1);a.bezierCurveTo(_i14.ctrA.x, _i14.ctrA.y, _i14.ctrB.x, _i14.ctrB.y, _e21.x, _e21.y);}}} else for (var _e22, _t14 = 0; _t14 < _o16.length; _t14++) {_e22 = _o16[_t14], 0 == _i13 && _e22.x > x && (a.moveTo(_e22.x, _e22.y), _i13 = 1), 0 < _t14 && _e22.x > x && _e22.x < c && a.lineTo(_e22.x, _e22.y);}a.lineTo(_t12.x, d), a.lineTo(_e20.x, d), a.lineTo(_e20.x, _e20.y);} else {var _e23 = _o16[0];a.moveTo(_e23.x - s / 2, _e23.y), a.lineTo(_e23.x + s / 2, _e23.y), a.lineTo(_e23.x + s / 2, d), a.lineTo(_e23.x - s / 2, d), a.moveTo(_e23.x - s / 2, _e23.y);}if (a.closePath(), a.fill(), n.addLine) {if ("dash" == e.lineType) {var _i15 = e.dashLength ? e.dashLength : 8;_i15 *= t.pixelRatio, a.setLineDash([_i15, _i15]);}if (a.beginPath(), a.setStrokeStyle(e.color), a.setLineWidth(n.width * t.pixelRatio), 1 === _o16.length) a.moveTo(_o16[0].x, _o16[0].y), a.arc(_o16[0].x, _o16[0].y, 1, 0, 2 * Math.PI);else {a.moveTo(_o16[0].x, _o16[0].y);var _e24 = 0;if ("curve" === n.type) {for (var _t15, _i16 = 0; _i16 < _o16.length; _i16++) {if (_t15 = _o16[_i16], 0 == _e24 && _t15.x > x && (a.moveTo(_t15.x, _t15.y), _e24 = 1), 0 < _i16 && _t15.x > x && _t15.x < c) {var _e25 = createCurveControlPoints(_o16, _i16 - 1);a.bezierCurveTo(_e25.ctrA.x, _e25.ctrA.y, _e25.ctrB.x, _e25.ctrB.y, _t15.x, _t15.y);}}} else for (var _t16, _i17 = 0; _i17 < _o16.length; _i17++) {_t16 = _o16[_i17], 0 == _e24 && _t16.x > x && (a.moveTo(_t16.x, _t16.y), _e24 = 1), 0 < _i17 && _t16.x > x && _t16.x < c && a.lineTo(_t16.x, _t16.y);}a.moveTo(_o16[0].x, _o16[0].y);}a.stroke(), a.setLineDash([]);}}!1 !== t.dataPointShape && drawPointShape(f, e.color, e.pointShape, a, t);}), !1 !== t.dataLabel && 1 === o && e.forEach(function (e) {var n, l, d;n = [].concat(t.chartData.yAxisData.ranges[e.index]), l = n.pop(), d = n.shift();var h = e.data,x = getDataPoints(h, l, d, r, s, t, i, o);drawPointText(x, e, i, a);}), a.restore(), { xAxisPoints: r, calPoints: h, eachSpacing: s };}function drawLineDataPoints(e, t, i, a) {var o = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : 1,n = assign({}, { type: "straight", width: 2 }, t.extra.line);n.width *= t.pixelRatio;var l = t.chartData.xAxisData,r = l.xAxisPoints,s = l.eachSpacing;var d = [];a.save();var h = 0,x = t.width + s;return t._scrollDistance_ && 0 !== t._scrollDistance_ && !0 === t.enableScroll && (a.translate(t._scrollDistance_, 0), h = -t._scrollDistance_ - s + t.area[3], x = h + (t.xAxis.itemCount + 4) * s), e.forEach(function (e) {var l, c, p;l = [].concat(t.chartData.yAxisData.ranges[e.index]), c = l.pop(), p = l.shift();var g = e.data,y = getDataPoints(g, c, p, r, s, t, i, o);d.push(y);var f = splitPoints(y);if ("dash" == e.lineType) {var _i18 = e.dashLength ? e.dashLength : 8;_i18 *= t.pixelRatio, a.setLineDash([_i18, _i18]);}a.beginPath(), a.setStrokeStyle(e.color), a.setLineWidth(n.width), f.forEach(function (e) {if (1 === e.length) a.moveTo(e[0].x, e[0].y), a.arc(e[0].x, e[0].y, 1, 0, 2 * Math.PI);else {a.moveTo(e[0].x, e[0].y);var _i19 = 0;if ("curve" === n.type) {for (var _o17, _n15 = 0; _n15 < e.length; _n15++) {if (_o17 = e[_n15], 0 == _i19 && _o17.x > h && (a.moveTo(_o17.x, _o17.y), _i19 = 1), 0 < _n15 && _o17.x > h && _o17.x < x) {var t = createCurveControlPoints(e, _n15 - 1);a.bezierCurveTo(t.ctrA.x, t.ctrA.y, t.ctrB.x, t.ctrB.y, _o17.x, _o17.y);}}} else for (var _t17, _o18 = 0; _o18 < e.length; _o18++) {_t17 = e[_o18], 0 == _i19 && _t17.x > h && (a.moveTo(_t17.x, _t17.y), _i19 = 1), 0 < _o18 && _t17.x > h && _t17.x < x && a.lineTo(_t17.x, _t17.y);}a.moveTo(e[0].x, e[0].y);}}), a.stroke(), a.setLineDash([]), !1 !== t.dataPointShape && drawPointShape(y, e.color, e.pointShape, a, t);}), !1 !== t.dataLabel && 1 === o && e.forEach(function (e) {var n, l, d;n = [].concat(t.chartData.yAxisData.ranges[e.index]), l = n.pop(), d = n.shift();var h = e.data,x = getDataPoints(h, l, d, r, s, t, i, o);drawPointText(x, e, i, a);}), a.restore(), { xAxisPoints: r, calPoints: d, eachSpacing: s };}function drawMixDataPoints(e, t, i, a) {var o = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : 1,n = t.chartData.xAxisData,l = n.xAxisPoints,r = n.eachSpacing,s = t.height - t.area[2],d = [];var h = 0,x = 0;e.forEach(function (e) {"column" == e.type && (x += 1);}), a.save();var c = -2,p = l.length + 2,g = 0,y = t.width + r;if (t._scrollDistance_ && 0 !== t._scrollDistance_ && !0 === t.enableScroll && (a.translate(t._scrollDistance_, 0), c = Math.floor(-t._scrollDistance_ / r) - 2, p = c + t.xAxis.itemCount + 4, g = -t._scrollDistance_ - r + t.area[3], y = g + (t.xAxis.itemCount + 4) * r), e.forEach(function (e) {var n, f, u;n = [].concat(t.chartData.yAxisData.ranges[e.index]), f = n.pop(), u = n.shift();var m = e.data,S = getDataPoints(m, f, u, l, r, t, i, o);if (d.push(S), "column" == e.type) {S = fixColumeData(S, r, x, h, i, t);for (var _o19, _n16 = 0; _n16 < S.length; _n16++) {if (_o19 = S[_n16], null !== _o19 && _n16 > c && _n16 < p) {a.beginPath(), a.setStrokeStyle(_o19.color || e.color), a.setLineWidth(1), a.setFillStyle(_o19.color || e.color);var A = _o19.x - _o19.width / 2,T = t.height - _o19.y - t.area[2];a.moveTo(A, _o19.y), a.moveTo(A, _o19.y), a.lineTo(A + _o19.width - 2, _o19.y), a.lineTo(A + _o19.width - 2, t.height - t.area[2]), a.lineTo(A, t.height - t.area[2]), a.lineTo(A, _o19.y), a.closePath(), a.stroke(), a.fill(), a.closePath(), a.fill();}}h += 1;}if ("area" == e.type) {var _o20 = splitPoints(S);for (var _n17, _l8 = 0; _l8 < _o20.length; _l8++) {if (_n17 = _o20[_l8], a.beginPath(), a.setStrokeStyle(e.color), a.setFillStyle(hexToRgb(e.color, .2)), a.setLineWidth(2 * t.pixelRatio), 1 < _n17.length) {var b = _n17[0];var _t18 = _n17[_n17.length - 1];a.moveTo(b.x, b.y);var _i20 = 0;if ("curve" === e.style) {for (var _e26, _t19 = 0; _t19 < _n17.length; _t19++) {if (_e26 = _n17[_t19], 0 == _i20 && _e26.x > g && (a.moveTo(_e26.x, _e26.y), _i20 = 1), 0 < _t19 && _e26.x > g && _e26.x < y) {var P = createCurveControlPoints(_n17, _t19 - 1);a.bezierCurveTo(P.ctrA.x, P.ctrA.y, P.ctrB.x, P.ctrB.y, _e26.x, _e26.y);}}} else for (var _e27, _t20 = 0; _t20 < _n17.length; _t20++) {_e27 = _n17[_t20], 0 == _i20 && _e27.x > g && (a.moveTo(_e27.x, _e27.y), _i20 = 1), 0 < _t20 && _e27.x > g && _e27.x < y && a.lineTo(_e27.x, _e27.y);}a.lineTo(_t18.x, s), a.lineTo(b.x, s), a.lineTo(b.x, b.y);} else {var _e28 = _n17[0];a.moveTo(_e28.x - r / 2, _e28.y), a.lineTo(_e28.x + r / 2, _e28.y), a.lineTo(_e28.x + r / 2, s), a.lineTo(_e28.x - r / 2, s), a.moveTo(_e28.x - r / 2, _e28.y);}a.closePath(), a.fill();}}if ("line" == e.type) {var _ = splitPoints(S);_.forEach(function (i) {if ("dash" == e.lineType) {var _i21 = e.dashLength ? e.dashLength : 8;_i21 *= t.pixelRatio, a.setLineDash([_i21, _i21]);}if (a.beginPath(), a.setStrokeStyle(e.color), a.setLineWidth(2 * t.pixelRatio), 1 === i.length) a.moveTo(i[0].x, i[0].y), a.arc(i[0].x, i[0].y, 1, 0, 2 * Math.PI);else {a.moveTo(i[0].x, i[0].y);var _t21 = 0;if ("curve" == e.style) {for (var _e29, _n18 = 0; _n18 < i.length; _n18++) {if (_e29 = i[_n18], 0 == _t21 && _e29.x > g && (a.moveTo(_e29.x, _e29.y), _t21 = 1), 0 < _n18 && _e29.x > g && _e29.x < y) {var o = createCurveControlPoints(i, _n18 - 1);a.bezierCurveTo(o.ctrA.x, o.ctrA.y, o.ctrB.x, o.ctrB.y, _e29.x, _e29.y);}}} else for (var _e30, _o21 = 0; _o21 < i.length; _o21++) {_e30 = i[_o21], 0 == _t21 && _e30.x > g && (a.moveTo(_e30.x, _e30.y), _t21 = 1), 0 < _o21 && _e30.x > g && _e30.x < y && a.lineTo(_e30.x, _e30.y);}a.moveTo(i[0].x, i[0].y);}a.stroke(), a.setLineDash([]);});}"point" == e.type && (e.addPoint = !0), !0 == e.addPoint && "column" !== e.type && drawPointShape(S, e.color, e.pointShape, a, t);}), !1 !== t.dataLabel && 1 === o) {var h = 0;e.forEach(function (e) {var n, s, d;n = [].concat(t.chartData.yAxisData.ranges[e.index]), s = n.pop(), d = n.shift();var c = e.data,p = getDataPoints(c, s, d, l, r, t, i, o);"column" === e.type ? (p = fixColumeData(p, r, x, h, i, t), drawPointText(p, e, i, a), h += 1) : drawPointText(p, e, i, a);});}return a.restore(), { xAxisPoints: l, calPoints: d, eachSpacing: r };}function drawToolTipBridge(e, t, i, a, o, n) {var l = e.extra.tooltip || {};l.horizentalLine && e.tooltip && 1 === a && ("line" == e.type || "area" == e.type || "column" == e.type || "candle" == e.type || "mix" == e.type) && drawToolTipHorizentalLine(e, t, i, o, n), i.save(), e._scrollDistance_ && 0 !== e._scrollDistance_ && !0 === e.enableScroll && i.translate(e._scrollDistance_, 0), e.tooltip && e.tooltip.textList && e.tooltip.textList.length && 1 === a && drawToolTip(e.tooltip.textList, e.tooltip.offset, e, t, i, o, n), i.restore();}function drawXAxis(e, t, i, a) {var o = Math.ceil;var n = t.chartData.xAxisData,l = n.xAxisPoints,r = n.startX,s = n.endX,d = n.eachSpacing;var h = "center";("line" == t.type || "area" == t.type) && (h = t.xAxis.boundaryGap);var x = t.height - t.area[2],c = t.area[0];if (t.enableScroll && t.xAxis.scrollShow) {var p = t.height - t.area[2] + i.xAxisHeight,g = s - r,y = d * (l.length - 1),f = 0;t._scrollDistance_ && (f = -t._scrollDistance_ * g / y), a.beginPath(), a.setLineCap("round"), a.setLineWidth(6 * t.pixelRatio), a.setStrokeStyle(t.xAxis.scrollBackgroundColor || "#EFEBEF"), a.moveTo(r, p), a.lineTo(s, p), a.stroke(), a.closePath(), a.beginPath(), a.setLineCap("round"), a.setLineWidth(6 * t.pixelRatio), a.setStrokeStyle(t.xAxis.scrollColor || "#A6A6A6"), a.moveTo(r + f, p), a.lineTo(r + f + g * g / y, p), a.stroke(), a.closePath(), a.setLineCap("butt");}if (a.save(), t._scrollDistance_ && 0 !== t._scrollDistance_ && a.translate(t._scrollDistance_, 0), !0 === t.xAxis.calibration && (a.setStrokeStyle(t.xAxis.gridColor || "#cccccc"), a.setLineCap("butt"), a.setLineWidth(1 * t.pixelRatio), l.forEach(function (e, i) {0 < i && (a.beginPath(), a.moveTo(e - d / 2, x), a.lineTo(e - d / 2, x + 3 * t.pixelRatio), a.closePath(), a.stroke());})), !0 !== t.xAxis.disableGrid && (a.setStrokeStyle(t.xAxis.gridColor || "#cccccc"), a.setLineCap("butt"), a.setLineWidth(1 * t.pixelRatio), "dash" == t.xAxis.gridType && a.setLineDash([t.xAxis.dashLength, t.xAxis.dashLength]), t.xAxis.gridEval = t.xAxis.gridEval || 1, l.forEach(function (e, i) {0 == i % t.xAxis.gridEval && (a.beginPath(), a.moveTo(e, x), a.lineTo(e, c), a.stroke());}), a.setLineDash([])), !0 !== t.xAxis.disabled) {var _n19 = e.length;t.xAxis.labelCount && (_n19 = t.xAxis.itemCount ? o(e.length / t.xAxis.itemCount * t.xAxis.labelCount) : t.xAxis.labelCount, _n19 -= 1);var _r8 = o(e.length / _n19),_s3 = [],_c = e.length;for (var _t22 = 0; _t22 < _c; _t22++) {0 == _t22 % _r8 ? _s3.push(e[_t22]) : _s3.push("");}_s3[_c - 1] = e[_c - 1];var u = t.xAxis.fontSize || i.fontSize;0 === i._xAxisTextAngle_ ? _s3.forEach(function (e, o) {var n = -measureText(e + "", u) / 2;"center" == h && (n += d / 2);var r = 0;t.xAxis.scrollShow && (r = 6 * t.pixelRatio), a.beginPath(), a.setFontSize(u), a.setFillStyle(t.xAxis.fontColor || "#666666"), a.fillText(e + "", l[o] + n, x + u + (i.xAxisHeight - r - u) / 2), a.closePath(), a.stroke();}) : _s3.forEach(function (e, o) {a.save(), a.beginPath(), a.setFontSize(u), a.setFillStyle(t.xAxis.fontColor || "#666666");var n = measureText(e + "", u),r = -n;"center" == h && (r += d / 2);var s = calRotateTranslate(l[o] + d / 2, x + u / 2 + 5, t.height),c = s.transX,p = s.transY;a.rotate(-1 * i._xAxisTextAngle_), a.translate(c, p), a.fillText(e + "", l[o] + r, x + u + 5), a.closePath(), a.stroke(), a.restore();});}a.restore(), t.xAxis.axisLine && (a.beginPath(), a.setStrokeStyle(t.xAxis.axisLineColor), a.setLineWidth(1 * t.pixelRatio), a.moveTo(r, t.height - t.area[2]), a.lineTo(s, t.height - t.area[2]), a.stroke());}function drawYAxisGrid(e, t, i, a) {if (!0 === t.yAxis.disableGrid) return;var o = t.height - t.area[0] - t.area[2],n = o / t.yAxis.splitNumber,l = t.area[3],r = t.chartData.xAxisData.xAxisPoints,s = t.chartData.xAxisData.eachSpacing,d = s * (r.length - 1),h = [];for (var _o22 = 0; _o22 < t.yAxis.splitNumber + 1; _o22++) {h.push(t.height - t.area[2] - n * _o22);}a.save(), t._scrollDistance_ && 0 !== t._scrollDistance_ && a.translate(t._scrollDistance_, 0), "dash" == t.yAxis.gridType && a.setLineDash([t.yAxis.dashLength, t.yAxis.dashLength]), a.setStrokeStyle(t.yAxis.gridColor), a.setLineWidth(1 * t.pixelRatio), h.forEach(function (e) {a.beginPath(), a.moveTo(l, e), a.lineTo(l + d, e), a.stroke();}), a.setLineDash([]), a.restore();}function drawYAxis(e, t, a, o) {if (!0 === t.yAxis.disabled) return;var i = t.height - t.area[0] - t.area[2],n = i / t.yAxis.splitNumber,l = t.area[3],r = t.width - t.area[1],s = t.height - t.area[2],d = s + a.xAxisHeight;t.xAxis.scrollShow && (d -= 3 * t.pixelRatio), t.xAxis.rotateLabel && (d = t.height - t.area[2] + 3), o.beginPath(), o.setFillStyle(t.background || "#ffffff"), 0 > t._scrollDistance_ && o.fillRect(0, 0, l, d), !0 == t.enableScroll && o.fillRect(r, 0, t.width, d), o.closePath(), o.stroke();var h = [];for (var _l9 = 0; _l9 <= t.yAxis.splitNumber; _l9++) {h.push(t.area[0] + n * _l9);}var x = t.area[3],c = t.width - t.area[1];var _loop3 = function _loop3(_n21, _l10) {if (_n21 = t.yAxis.data[_l10], !0 !== _n21.disabled) {var _e31 = t.chartData.yAxisData.rangesFormat[_l10],_i22 = _n21.fontSize || a.fontSize,_r9 = t.chartData.yAxisData.yAxisWidth[_l10];if (_e31.forEach(function (e, a) {var l = h[a] ? h[a] : s;o.beginPath(), o.setFontSize(_i22), o.setLineWidth(1 * t.pixelRatio), o.setStrokeStyle(_n21.axisLineColor || "#cccccc"), o.setFillStyle(_n21.fontColor || "#666666"), "left" == _r9.position ? (o.fillText(e + "", x - _r9.width, l + _i22 / 2), !0 == _n21.calibration && (o.moveTo(x, l), o.lineTo(x - 3 * t.pixelRatio, l))) : (o.fillText(e + "", c + 4 * t.pixelRatio, l + _i22 / 2), !0 == _n21.calibration && (o.moveTo(c, l), o.lineTo(c + 3 * t.pixelRatio, l))), o.closePath(), o.stroke();}), !1 !== _n21.axisLine && (o.beginPath(), o.setStrokeStyle(_n21.axisLineColor || "#cccccc"), o.setLineWidth(1 * t.pixelRatio), "left" == _r9.position ? (o.moveTo(x, t.height - t.area[2]), o.lineTo(x, t.area[0])) : (o.moveTo(c, t.height - t.area[2]), o.lineTo(c, t.area[0])), o.stroke()), t.yAxis.showTitle) {var _e32 = _n21.titleFontSize || a.fontSize,_i23 = _n21.title;o.beginPath(), o.setFontSize(_e32), o.setFillStyle(_n21.titleFontColor || "#666666"), "left" == _r9.position ? o.fillText(_i23, x - measureText(_i23, _e32) / 2, t.area[0] - 10 * t.pixelRatio) : o.fillText(_i23, c - measureText(_i23, _e32) / 2, t.area[0] - 10 * t.pixelRatio), o.closePath(), o.stroke();}"left" == _r9.position ? x -= _r9.width + t.yAxis.padding : c += _r9.width + t.yAxis.padding;}_n20 = _n21;};for (var _n20, _l10 = 0; _l10 < t.yAxis.data.length; _l10++) {_loop3(_n20, _l10);}}function drawLegend(e, t, i, a, o) {if (!1 === t.legend.show) return;var n = o.legendData,l = n.points,r = n.area,s = t.legend.padding,d = t.legend.fontSize,h = 15 * t.pixelRatio,x = 5 * t.pixelRatio,c = t.legend.itemGap,p = Math.max(t.legend.lineHeight * t.pixelRatio, d);a.beginPath(), a.setLineWidth(t.legend.borderWidth), a.setStrokeStyle(t.legend.borderColor), a.setFillStyle(t.legend.backgroundColor), a.moveTo(r.start.x, r.start.y), a.rect(r.start.x, r.start.y, r.width, r.height), a.closePath(), a.fill(), a.stroke(), l.forEach(function (e, o) {var l = 0,g = 0;l = n.widthArr[o], g = n.heightArr[o];var y = 0,f = 0;"top" == t.legend.position || "bottom" == t.legend.position ? (y = r.start.x + (r.width - l) / 2, f = r.start.y + s + o * p) : (l = 0 == o ? 0 : n.widthArr[o - 1], y = r.start.x + s + l, f = r.start.y + s + (r.height - g) / 2), a.setFontSize(i.fontSize);for (var _n22, _l11 = 0; _l11 < e.length; _l11++) {switch (_n22 = e[_l11], _n22.area = [0, 0, 0, 0], _n22.area[0] = y, _n22.area[1] = f, _n22.area[3] = f + p, a.beginPath(), a.setLineWidth(1 * t.pixelRatio), a.setStrokeStyle(_n22.show ? _n22.color : t.legend.hiddenColor), a.setFillStyle(_n22.show ? _n22.color : t.legend.hiddenColor), _n22.legendShape) {case "line":a.moveTo(y, f + .5 * p - 2 * t.pixelRatio), a.fillRect(y, f + .5 * p - 2 * t.pixelRatio, 15 * t.pixelRatio, 4 * t.pixelRatio);break;case "triangle":a.moveTo(y + 7.5 * t.pixelRatio, f + .5 * p - 5 * t.pixelRatio), a.lineTo(y + 2.5 * t.pixelRatio, f + .5 * p + 5 * t.pixelRatio), a.lineTo(y + 12.5 * t.pixelRatio, f + .5 * p + 5 * t.pixelRatio), a.lineTo(y + 7.5 * t.pixelRatio, f + .5 * p - 5 * t.pixelRatio);break;case "diamond":a.moveTo(y + 7.5 * t.pixelRatio, f + .5 * p - 5 * t.pixelRatio), a.lineTo(y + 2.5 * t.pixelRatio, f + .5 * p), a.lineTo(y + 7.5 * t.pixelRatio, f + .5 * p + 5 * t.pixelRatio), a.lineTo(y + 12.5 * t.pixelRatio, f + .5 * p), a.lineTo(y + 7.5 * t.pixelRatio, f + .5 * p - 5 * t.pixelRatio);break;case "circle":a.moveTo(y + 7.5 * t.pixelRatio, f + .5 * p), a.arc(y + 7.5 * t.pixelRatio, f + .5 * p, 5 * t.pixelRatio, 0, 2 * Math.PI);break;case "rect":a.moveTo(y, f + .5 * p - 5 * t.pixelRatio), a.fillRect(y, f + .5 * p - 5 * t.pixelRatio, 15 * t.pixelRatio, 10 * t.pixelRatio);break;default:a.moveTo(y, f + .5 * p - 5 * t.pixelRatio), a.fillRect(y, f + .5 * p - 5 * t.pixelRatio, 15 * t.pixelRatio, 10 * t.pixelRatio);}a.closePath(), a.fill(), a.stroke(), y += h + x;a.beginPath(), a.setFontSize(d), a.setFillStyle(_n22.show ? t.legend.fontColor : t.legend.hiddenColor), a.fillText(_n22.name, y, f + (.5 * p + .5 * d - 2)), a.closePath(), a.stroke(), "top" == t.legend.position || "bottom" == t.legend.position ? (y += measureText(_n22.name, d) + c, _n22.area[2] = y) : (_n22.area[2] = y + measureText(_n22.name, d) + c, y -= h + x, f += p);}});}function drawPieDataPoints(e, t, a, o) {var n = Math.PI,l = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : 1,r = assign({}, { activeOpacity: .5, activeRadius: 10 * t.pixelRatio, offsetAngle: 0, labelWidth: 15 * t.pixelRatio, ringWidth: 0, border: !1, borderWidth: 2, borderColor: "#FFFFFF" }, t.extra.pie),s = { x: t.area[3] + (t.width - t.area[1] - t.area[3]) / 2, y: t.area[0] + (t.height - t.area[0] - t.area[2]) / 2 };0 == a.pieChartLinePadding && (a.pieChartLinePadding = r.activeRadius);var d = Math.min((t.width - t.area[1] - t.area[3]) / 2 - a.pieChartLinePadding - a.pieChartTextPadding - a._pieTextMaxLength_, (t.height - t.area[0] - t.area[2]) / 2 - a.pieChartLinePadding - a.pieChartTextPadding);e = getPieDataPoints(e, d, l);var h = r.activeRadius;if (e = e.map(function (e) {return e._start_ += r.offsetAngle * n / 180, e;}), e.forEach(function (e, i) {t.tooltip && t.tooltip.index == i && (o.beginPath(), o.setFillStyle(hexToRgb(e.color, t.extra.pie.activeOpacity || .5)), o.moveTo(s.x, s.y), o.arc(s.x, s.y, e._radius_ + h, e._start_, e._start_ + 2 * e._proportion_ * n), o.closePath(), o.fill()), o.beginPath(), o.setLineWidth(r.borderWidth * t.pixelRatio), o.lineJoin = "round", o.setStrokeStyle(r.borderColor), o.setFillStyle(e.color), o.moveTo(s.x, s.y), o.arc(s.x, s.y, e._radius_, e._start_, e._start_ + 2 * e._proportion_ * n), o.closePath(), o.fill(), !0 == r.border && o.stroke();}), "ring" === t.type) {var x = .6 * d;"number" == typeof t.extra.pie.ringWidth && 0 < t.extra.pie.ringWidth && (x = Math.max(0, d - t.extra.pie.ringWidth)), o.beginPath(), o.setFillStyle(t.background || "#ffffff"), o.moveTo(s.x, s.y), o.arc(s.x, s.y, x, 0, 2 * n), o.closePath(), o.fill();}if (!1 !== t.dataLabel && 1 === l) {for (var c = !1, p = 0, g = e.length; p < g; p++) {if (0 < e[p].data) {c = !0;break;}}c && drawPieText(e, t, a, o, d, s);}return 1 === l && "ring" === t.type && drawRingTitle(t, a, o, s), { center: s, radius: d, series: e };}function drawRoseDataPoints(e, t, a, o) {var n = Math.PI,l = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : 1,r = assign({}, { type: "area", activeOpacity: .5, activeRadius: 10 * t.pixelRatio, offsetAngle: 0, labelWidth: 15 * t.pixelRatio, border: !1, borderWidth: 2, borderColor: "#FFFFFF" }, t.extra.rose);0 == a.pieChartLinePadding && (a.pieChartLinePadding = r.activeRadius);var s = { x: t.area[3] + (t.width - t.area[1] - t.area[3]) / 2, y: t.area[0] + (t.height - t.area[0] - t.area[2]) / 2 },d = Math.min((t.width - t.area[1] - t.area[3]) / 2 - a.pieChartLinePadding - a.pieChartTextPadding - a._pieTextMaxLength_, (t.height - t.area[0] - t.area[2]) / 2 - a.pieChartLinePadding - a.pieChartTextPadding),h = r.minRadius || .5 * d;e = getRoseDataPoints(e, r.type, h, d, l);var x = r.activeRadius;if (e = e.map(function (e) {return e._start_ += (r.offsetAngle || 0) * n / 180, e;}), e.forEach(function (e, i) {t.tooltip && t.tooltip.index == i && (o.beginPath(), o.setFillStyle(hexToRgb(e.color, r.activeOpacity || .5)), o.moveTo(s.x, s.y), o.arc(s.x, s.y, x + e._radius_, e._start_, e._start_ + 2 * e._rose_proportion_ * n), o.closePath(), o.fill()), o.beginPath(), o.setLineWidth(r.borderWidth * t.pixelRatio), o.lineJoin = "round", o.setStrokeStyle(r.borderColor), o.setFillStyle(e.color), o.moveTo(s.x, s.y), o.arc(s.x, s.y, e._radius_, e._start_, e._start_ + 2 * e._rose_proportion_ * n), o.closePath(), o.fill(), !0 == r.border && o.stroke();}), !1 !== t.dataLabel && 1 === l) {for (var c = !1, p = 0, g = e.length; p < g; p++) {if (0 < e[p].data) {c = !0;break;}}c && drawPieText(e, t, a, o, d, s);}return { center: s, radius: d, series: e };}function drawArcbarDataPoints(e, t, i, a) {var o = Math.PI,n = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : 1,l = assign({}, { startAngle: .75, endAngle: .25, type: "default", width: 12 * t.pixelRatio, gap: 2 * t.pixelRatio }, t.extra.arcbar);e = getArcbarDataPoints(e, l, n);var r = l.center ? l.center : { x: t.width / 2, y: t.height / 2 };var s;l.radius ? s = l.radius : (s = Math.min(r.x, r.y), s -= 5 * t.pixelRatio, s -= l.width / 2);for (var _n23, d = 0; d < e.length; d++) {_n23 = e[d], a.setLineWidth(l.width), a.setStrokeStyle(l.backgroundColor || "#E9E9E9"), a.setLineCap("round"), a.beginPath(), "default" == l.type ? a.arc(r.x, r.y, s - (l.width + l.gap) * d, l.startAngle * o, l.endAngle * o, !1) : a.arc(r.x, r.y, s - (l.width + l.gap) * d, 0, 2 * o, !1), a.stroke(), a.setLineWidth(l.width), a.setStrokeStyle(_n23.color), a.setLineCap("round"), a.beginPath(), a.arc(r.x, r.y, s - (l.width + l.gap) * d, l.startAngle * o, _n23._proportion_ * o, !1), a.stroke();}return drawRingTitle(t, i, a, r), { center: r, radius: s, series: e };}function drawGaugeDataPoints(e, t, a, i, o) {var n = Math.PI,l = 5 < arguments.length && void 0 !== arguments[5] ? arguments[5] : 1,r = assign({}, { type: "default", startAngle: .75, endAngle: .25, width: 15, splitLine: { fixRadius: 0, splitNumber: 10, width: 15, color: "#FFFFFF", childNumber: 5, childWidth: 5 }, pointer: { width: 15, color: "auto" } }, a.extra.gauge);null == r.oldAngle && (r.oldAngle = r.startAngle), null == r.oldData && (r.oldData = 0), e = getGaugeAxisPoints(e, r.startAngle, r.endAngle);var s = { x: a.width / 2, y: a.height / 2 },d = Math.min(s.x, s.y);d -= 5 * a.pixelRatio, d -= r.width / 2;var h = d - r.width,x = 0;if ("progress" == r.type) {var c = d - 3 * r.width;o.beginPath();var _e33 = o.createLinearGradient(s.x, s.y - c, s.x, s.y + c);_e33.addColorStop("0", hexToRgb(t[0].color, .3)), _e33.addColorStop("1.0", hexToRgb("#FFFFFF", .1)), o.setFillStyle(_e33), o.arc(s.x, s.y, c, 0, 2 * n, !1), o.fill(), o.setLineWidth(r.width), o.setStrokeStyle(hexToRgb(t[0].color, .3)), o.setLineCap("round"), o.beginPath(), o.arc(s.x, s.y, h, r.startAngle * n, r.endAngle * n, !1), o.stroke(), x = r.startAngle - r.endAngle + 1;var _i24 = x / r.splitLine.splitNumber,p = x / r.splitLine.splitNumber / r.splitLine.childNumber,g = -d - .5 * r.width - r.splitLine.fixRadius,y = -d - r.width - r.splitLine.fixRadius + r.splitLine.width;o.save(), o.translate(s.x, s.y), o.rotate((r.startAngle - 1) * n);var f = r.splitLine.splitNumber * r.splitLine.childNumber + 1,u = t[0].data * l;for (var _e34 = 0; _e34 < f; _e34++) {o.beginPath(), u > _e34 / f ? o.setStrokeStyle(hexToRgb(t[0].color, 1)) : o.setStrokeStyle(hexToRgb(t[0].color, .3)), o.setLineWidth(3 * a.pixelRatio), o.moveTo(g, 0), o.lineTo(y, 0), o.stroke(), o.rotate(p * n);}o.restore(), t = getArcbarDataPoints(t, r, l), o.setLineWidth(r.width), o.setStrokeStyle(t[0].color), o.setLineCap("round"), o.beginPath(), o.arc(s.x, s.y, h, r.startAngle * n, t[0]._proportion_ * n, !1), o.stroke();var m = d - 2.5 * r.width;o.save(), o.translate(s.x, s.y), o.rotate((t[0]._proportion_ - 1) * n), o.beginPath(), o.setLineWidth(r.width / 3);var S = o.createLinearGradient(0, .6 * -m, 0, .6 * m);S.addColorStop("0", hexToRgb("#FFFFFF", 0)), S.addColorStop("0.5", hexToRgb(t[0].color, 1)), S.addColorStop("1.0", hexToRgb("#FFFFFF", 0)), o.setStrokeStyle(S), o.arc(0, 0, m, .85 * n, 1.15 * n, !1), o.stroke(), o.beginPath(), o.setLineWidth(1), o.setStrokeStyle(t[0].color), o.setFillStyle(t[0].color), o.moveTo(-m - r.width / 3 / 2, -4), o.lineTo(-m - r.width / 3 / 2 - 4, 0), o.lineTo(-m - r.width / 3 / 2, 4), o.lineTo(-m - r.width / 3 / 2, -4), o.stroke(), o.fill(), o.restore();} else {o.setLineWidth(r.width), o.setLineCap("butt");for (var _t23, _a11 = 0; _a11 < e.length; _a11++) {_t23 = e[_a11], o.beginPath(), o.setStrokeStyle(_t23.color), o.arc(s.x, s.y, d, _t23._startAngle_ * n, _t23._endAngle_ * n, !1), o.stroke();}o.save(), x = r.startAngle - r.endAngle + 1;var _c2 = x / r.splitLine.splitNumber,_p2 = x / r.splitLine.splitNumber / r.splitLine.childNumber,_g2 = -d - .5 * r.width - r.splitLine.fixRadius,_y = -d - .5 * r.width - r.splitLine.fixRadius + r.splitLine.width,_f = -d - .5 * r.width - r.splitLine.fixRadius + r.splitLine.childWidth;o.translate(s.x, s.y), o.rotate((r.startAngle - 1) * n);for (var _e35 = 0; _e35 < r.splitLine.splitNumber + 1; _e35++) {o.beginPath(), o.setStrokeStyle(r.splitLine.color), o.setLineWidth(2 * a.pixelRatio), o.moveTo(_g2, 0), o.lineTo(_y, 0), o.stroke(), o.rotate(_c2 * n);}o.restore(), o.save(), o.translate(s.x, s.y), o.rotate((r.startAngle - 1) * n);for (var _e36 = 0; _e36 < r.splitLine.splitNumber * r.splitLine.childNumber + 1; _e36++) {o.beginPath(), o.setStrokeStyle(r.splitLine.color), o.setLineWidth(1 * a.pixelRatio), o.moveTo(_g2, 0), o.lineTo(_f, 0), o.stroke(), o.rotate(_p2 * n);}o.restore(), t = getGaugeDataPoints(t, e, r, l);for (var _e37, _a12 = 0; _a12 < t.length; _a12++) {_e37 = t[_a12], o.save(), o.translate(s.x, s.y), o.rotate((_e37._proportion_ - 1) * n), o.beginPath(), o.setFillStyle(_e37.color), o.moveTo(r.pointer.width, 0), o.lineTo(0, -r.pointer.width / 2), o.lineTo(-h, 0), o.lineTo(0, r.pointer.width / 2), o.lineTo(r.pointer.width, 0), o.closePath(), o.fill(), o.beginPath(), o.setFillStyle("#FFFFFF"), o.arc(0, 0, r.pointer.width / 6, 0, 2 * n, !1), o.fill(), o.restore();}!1 !== a.dataLabel && drawGaugeLabel(r, d, s, a, i, o);}return drawRingTitle(a, i, o, s), 1 === l && "gauge" === a.type && (a.extra.gauge.oldAngle = t[0]._proportion_, a.extra.gauge.oldData = t[0].data), { center: s, radius: d, innerRadius: h, categories: e, totalAngle: x };}function drawRadarDataPoints(e, t, a, o) {var n = Math.cos,l = Math.sin,r = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : 1,s = assign({}, { gridColor: "#cccccc", labelColor: "#666666", opacity: .2, gridCount: 3 }, t.extra.radar),d = getRadarCoordinateSeries(t.categories.length),h = { x: t.area[3] + (t.width - t.area[1] - t.area[3]) / 2, y: t.area[0] + (t.height - t.area[0] - t.area[2]) / 2 },x = Math.min(h.x - (getMaxTextListLength(t.categories) + a.radarLabelTextMargin), h.y - a.radarLabelTextMargin);x -= t.padding[1], o.beginPath(), o.setLineWidth(1 * t.pixelRatio), o.setStrokeStyle(s.gridColor), d.forEach(function (e) {var t = convertCoordinateOrigin(x * n(e), x * l(e), h);o.moveTo(h.x, h.y), o.lineTo(t.x, t.y);}), o.stroke(), o.closePath();for (var c = function c(e) {var i = {};o.beginPath(), o.setLineWidth(1 * t.pixelRatio), o.setStrokeStyle(s.gridColor), d.forEach(function (t, a) {var r = convertCoordinateOrigin(x / s.gridCount * e * n(t), x / s.gridCount * e * l(t), h);0 === a ? (i = r, o.moveTo(r.x, r.y)) : o.lineTo(r.x, r.y);}), o.lineTo(i.x, i.y), o.stroke(), o.closePath();}, p = 1; p <= s.gridCount; p++) {c(p);}var g = getRadarDataPoints(d, h, x, e, t, r);return g.forEach(function (e) {if (o.beginPath(), o.setFillStyle(hexToRgb(e.color, s.opacity)), e.data.forEach(function (e, t) {0 === t ? o.moveTo(e.position.x, e.position.y) : o.lineTo(e.position.x, e.position.y);}), o.closePath(), o.fill(), !1 !== t.dataPointShape) {var i = e.data.map(function (e) {return e.position;});drawPointShape(i, e.color, e.pointShape, o, t);}}), drawRadarLabel(d, x, h, t, a, o), { center: h, radius: x, angleList: d };}function normalInt(e, t, a) {a = 0 == a ? 1 : a;for (var o = [], n = 0; n < a; n++) {o[n] = Math.random();}return Math.floor(o.reduce(function (e, t) {return e + t;}) / a * (t - e)) + e;}function collisionNew(e, t, a, o) {var n = !1;for (var l = 0; l < t.length; l++) {if (t[l].area) if (!(e[3] < t[l].area[1] || e[0] > t[l].area[2] || e[1] > t[l].area[3] || e[2] < t[l].area[0])) {n = !0;break;} else if (0 > e[0] || 0 > e[1] || e[2] > a || e[3] > o) {n = !0;break;} else n = !1;}return n;}function getBoundingBox(e) {var t,a = {};a.xMin = 180, a.xMax = 0, a.yMin = 90, a.yMax = 0;for (var o, n = 0; n < e.length; n++) {o = e[n].geometry.coordinates;for (var l = 0; l < o.length; l++) {t = o[l], 1 == t.length && (t = t[0]);for (var r = 0; r < t.length; r++) {var s = t[r][0],d = t[r][1],h = { x: s, y: d };a.xMin = a.xMin < h.x ? a.xMin : h.x, a.xMax = a.xMax > h.x ? a.xMax : h.x, a.yMin = a.yMin < h.y ? a.yMin : h.y, a.yMax = a.yMax > h.y ? a.yMax : h.y;}}}return a;}function coordinateToPoint(e, t, i, a, o, n) {return { x: (t - i.xMin) * a + o, y: (i.yMax - e) * a + n };}function pointToCoordinate(e, t, i, a, o, n) {return { x: (t - o) / a + i.xMin, y: i.yMax - (e - n) / a };}function isRayIntersectsSegment(e, t, i) {if (t[1] == i[1]) return !1;if (t[1] > e[1] && i[1] > e[1]) return !1;if (t[1] < e[1] && i[1] < e[1]) return !1;if (t[1] == e[1] && i[1] > e[1]) return !1;if (i[1] == e[1] && t[1] > e[1]) return !1;if (t[0] < e[0] && i[1] < e[1]) return !1;var a = i[0] - (i[0] - t[0]) * (i[1] - e[1]) / (i[1] - t[1]);return !(a < e[0]);}function isPoiWithinPoly(e, t) {var i = 0;for (var a, o = 0; o < t.length; o++) {a = t[o][0], 1 == t.length && (a = t[o][0]);for (var _t24 = 0; _t24 < a.length - 1; _t24++) {var _o23 = a[_t24],n = a[_t24 + 1];isRayIntersectsSegment(e, _o23, n) && (i += 1);}}return !(1 != i % 2);}function drawMapDataPoints(e, t, a, o) {var n,l,r = Math.abs,s = assign({}, { border: !0, borderWidth: 1, borderColor: "#666666", fillOpacity: .6, activeBorderColor: "#f04864", activeFillColor: "#facc14", activeFillOpacity: 1 }, t.extra.map),d = e,h = getBoundingBox(d),x = t.width / r(h.xMax - h.xMin),c = t.height / r(h.yMax - h.yMin),p = x < c ? x : c,g = t.width / 2 - r(h.xMax - h.xMin) / 2 * p,y = t.height / 2 - r(h.yMax - h.yMin) / 2 * p;o.beginPath(), o.clearRect(0, 0, t.width, t.height), o.setFillStyle(t.background || "#FFFFFF"), o.rect(0, 0, t.width, t.height), o.fill();for (var f = 0; f < d.length; f++) {o.beginPath(), o.setLineWidth(s.borderWidth * t.pixelRatio), o.setStrokeStyle(s.borderColor), o.setFillStyle(hexToRgb(e[f].color, s.fillOpacity)), t.tooltip && t.tooltip.index == f && (o.setStrokeStyle(s.activeBorderColor), o.setFillStyle(hexToRgb(s.activeFillColor, s.activeFillOpacity)));for (var u = d[f].geometry.coordinates, m = 0; m < u.length; m++) {n = u[m], 1 == n.length && (n = n[0]);for (var S = 0; S < n.length; S++) {l = coordinateToPoint(n[S][1], n[S][0], h, p, g, y), 0 == S ? (o.beginPath(), o.moveTo(l.x, l.y)) : o.lineTo(l.x, l.y);}o.fill(), !0 == s.border && o.stroke();}if (!0 == t.dataLabel) {var A = d[f].properties.centroid;if (A) {l = coordinateToPoint(A[1], A[0], h, p, g, y);var _e38 = d[f].textSize || a.fontSize,_t25 = d[f].properties.name;o.beginPath(), o.setFontSize(_e38), o.setFillStyle(d[f].textColor || "#666666"), o.fillText(_t25, l.x - measureText(_t25, _e38) / 2, l.y + _e38 / 2), o.closePath(), o.stroke();}}}t.chartData.mapData = { bounds: h, scale: p, xoffset: g, yoffset: y }, drawToolTipBridge(t, a, o, 1), o.draw();}function getWordCloudPoint(e, t) {var a = e.series.sort(function (e, t) {return parseInt(t.textSize) - parseInt(e.textSize);});switch (t) {case "normal":for (var _t26 = 0; _t26 < a.length; _t26++) {var i = void 0,_o24 = void 0,n = void 0,l = a[_t26].name,r = a[_t26].textSize,s = measureText(l, r),d = 0;for (;;) {d++, i = normalInt(-e.width / 2, e.width / 2, 5) - s / 2, _o24 = normalInt(-e.height / 2, e.height / 2, 5) + r / 2, n = [i - 5 + e.width / 2, _o24 - 5 - r + e.height / 2, i + s + 5 + e.width / 2, _o24 + 5 + e.height / 2];var _t27 = collisionNew(n, a, e.width, e.height);if (!_t27) break;if (1e3 == d) {n = [-100, -100, -100, -100];break;}}a[_t26].area = n;}break;case "vertical":var o = function o() {return !!(.7 < Math.random());};;for (var _t28 = 0; _t28 < a.length; _t28++) {var _i25 = void 0,_n24 = void 0,_l12 = void 0,_r10 = void 0,_s4 = a[_t28].name,_d3 = a[_t28].textSize,h = measureText(_s4, _d3),x = o(),c = 0;for (;;) {c++;var _t29 = void 0;if (x ? (_i25 = normalInt(-e.width / 2, e.width / 2, 5) - h / 2, _n24 = normalInt(-e.height / 2, e.height / 2, 5) + _d3 / 2, _l12 = [_n24 - 5 - h + e.width / 2, -_i25 - 5 + e.height / 2, _n24 + 5 + e.width / 2, -_i25 + _d3 + 5 + e.height / 2], _r10 = [e.width - (e.width / 2 - e.height / 2) - (-_i25 + _d3 + 5 + e.height / 2) - 5, e.height / 2 - e.width / 2 + (_n24 - 5 - h + e.width / 2) - 5, e.width - (e.width / 2 - e.height / 2) - (-_i25 + _d3 + 5 + e.height / 2) + _d3, e.height / 2 - e.width / 2 + (_n24 - 5 - h + e.width / 2) + h + 5], _t29 = collisionNew(_r10, a, e.height, e.width)) : (_i25 = normalInt(-e.width / 2, e.width / 2, 5) - h / 2, _n24 = normalInt(-e.height / 2, e.height / 2, 5) + _d3 / 2, _l12 = [_i25 - 5 + e.width / 2, _n24 - 5 - _d3 + e.height / 2, _i25 + h + 5 + e.width / 2, _n24 + 5 + e.height / 2], _t29 = collisionNew(_l12, a, e.width, e.height)), !_t29) break;if (1e3 == c) {_l12 = [-1e3, -1e3, -1e3, -1e3];break;}}x ? (a[_t28].area = _r10, a[_t28].areav = _l12) : a[_t28].area = _l12, a[_t28].rotate = x;};}return a;}function drawWordCloudDataPoints(e, t, i, a) {var o = 4 < arguments.length && arguments[4] !== void 0 ? arguments[4] : 1,n = assign({}, { type: "normal", autoColors: !0 }, t.extra.word);a.beginPath(), a.setFillStyle(t.background || "#FFFFFF"), a.rect(0, 0, t.width, t.height), a.fill(), a.save();var l = t.chartData.wordCloudData;a.translate(t.width / 2, t.height / 2);for (var _n25 = 0; _n25 < l.length; _n25++) {a.save(), l[_n25].rotate && a.rotate(90 * Math.PI / 180);var _e39 = l[_n25].name,_i26 = l[_n25].textSize,r = measureText(_e39, _i26);a.beginPath(), a.setStrokeStyle(l[_n25].color), a.setFillStyle(l[_n25].color), a.setFontSize(_i26), l[_n25].rotate ? 0 < l[_n25].areav[0] && (t.tooltip ? t.tooltip.index == _n25 ? a.strokeText(_e39, (l[_n25].areav[0] + 5 - t.width / 2) * o - r * (1 - o) / 2, (l[_n25].areav[1] + 5 + _i26 - t.height / 2) * o) : a.fillText(_e39, (l[_n25].areav[0] + 5 - t.width / 2) * o - r * (1 - o) / 2, (l[_n25].areav[1] + 5 + _i26 - t.height / 2) * o) : a.fillText(_e39, (l[_n25].areav[0] + 5 - t.width / 2) * o - r * (1 - o) / 2, (l[_n25].areav[1] + 5 + _i26 - t.height / 2) * o)) : 0 < l[_n25].area[0] && (t.tooltip ? t.tooltip.index == _n25 ? a.strokeText(_e39, (l[_n25].area[0] + 5 - t.width / 2) * o - r * (1 - o) / 2, (l[_n25].area[1] + 5 + _i26 - t.height / 2) * o) : a.fillText(_e39, (l[_n25].area[0] + 5 - t.width / 2) * o - r * (1 - o) / 2, (l[_n25].area[1] + 5 + _i26 - t.height / 2) * o) : a.fillText(_e39, (l[_n25].area[0] + 5 - t.width / 2) * o - r * (1 - o) / 2, (l[_n25].area[1] + 5 + _i26 - t.height / 2) * o)), a.stroke(), a.restore();}a.restore();}function drawFunnelDataPoints(e, t, i, a) {var o = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : 1,n = assign({}, { activeWidth: 10, activeOpacity: .3, border: !1, borderWidth: 2, borderColor: "#FFFFFF", fillOpacity: 1, labelAlign: "right" }, t.extra.funnel),l = (t.height - t.area[0] - t.area[2]) / e.length,r = { x: t.area[3] + (t.width - t.area[1] - t.area[3]) / 2, y: t.height - t.area[2] },s = n.activeWidth,d = Math.min((t.width - t.area[1] - t.area[3]) / 2 - s, (t.height - t.area[0] - t.area[2]) / 2 - s);e = getFunnelDataPoints(e, d, o), a.save(), a.translate(r.x, r.y);for (var _o25 = 0; _o25 < e.length; _o25++) {0 == _o25 ? (t.tooltip && t.tooltip.index == _o25 && (a.beginPath(), a.setFillStyle(hexToRgb(e[_o25].color, n.activeOpacity)), a.moveTo(-s, 0), a.lineTo(-e[_o25].radius - s, -l), a.lineTo(e[_o25].radius + s, -l), a.lineTo(s, 0), a.lineTo(-s, 0), a.closePath(), a.fill()), e[_o25].funnelArea = [r.x - e[_o25].radius, r.y - l, r.x + e[_o25].radius, r.y], a.beginPath(), a.setLineWidth(n.borderWidth * t.pixelRatio), a.setStrokeStyle(n.borderColor), a.setFillStyle(hexToRgb(e[_o25].color, n.fillOpacity)), a.moveTo(0, 0), a.lineTo(-e[_o25].radius, -l), a.lineTo(e[_o25].radius, -l), a.lineTo(0, 0), a.closePath(), a.fill(), !0 == n.border && a.stroke()) : (t.tooltip && t.tooltip.index == _o25 && (a.beginPath(), a.setFillStyle(hexToRgb(e[_o25].color, n.activeOpacity)), a.moveTo(0, 0), a.lineTo(-e[_o25 - 1].radius - s, 0), a.lineTo(-e[_o25].radius - s, -l), a.lineTo(e[_o25].radius + s, -l), a.lineTo(e[_o25 - 1].radius + s, 0), a.lineTo(0, 0), a.closePath(), a.fill()), e[_o25].funnelArea = [r.x - e[_o25].radius, r.y - l * (_o25 + 1), r.x + e[_o25].radius, r.y - l * _o25], a.beginPath(), a.setLineWidth(n.borderWidth * t.pixelRatio), a.setStrokeStyle(n.borderColor), a.setFillStyle(hexToRgb(e[_o25].color, n.fillOpacity)), a.moveTo(0, 0), a.lineTo(-e[_o25 - 1].radius, 0), a.lineTo(-e[_o25].radius, -l), a.lineTo(e[_o25].radius, -l), a.lineTo(e[_o25 - 1].radius, 0), a.lineTo(0, 0), a.closePath(), a.fill(), !0 == n.border && a.stroke()), a.translate(0, -l);}return a.restore(), !1 !== t.dataLabel && 1 === o && drawFunnelText(e, t, a, l, n.labelAlign, s, r), { center: r, radius: d, series: e };}function drawFunnelText(e, t, a, o, n, l, r) {var s = Math.PI;for (var d = 0; d < e.length; d++) {var i = void 0,h = void 0,x = void 0,c = void 0,p = e[d],g = p.format ? p.format(+p._proportion_.toFixed(2)) : util.toFixed(100 * p._proportion_) + "%";"right" == n ? (i = 0 == d ? (p.funnelArea[2] + r.x) / 2 : (p.funnelArea[2] + e[d - 1].funnelArea[2]) / 2, h = i + 2 * l, x = p.funnelArea[1] + o / 2, c = p.textSize || t.fontSize, a.setLineWidth(1 * t.pixelRatio), a.setStrokeStyle(p.color), a.setFillStyle(p.color), a.beginPath(), a.moveTo(i, x), a.lineTo(h, x), a.stroke(), a.closePath(), a.beginPath(), a.moveTo(h, x), a.arc(h, x, 2, 0, 2 * s), a.closePath(), a.fill(), a.beginPath(), a.setFontSize(c), a.setFillStyle(p.textColor || "#666666"), a.fillText(g, h + 5, x + c / 2 - 2), a.closePath(), a.stroke(), a.closePath()) : (i = 0 == d ? (p.funnelArea[0] + r.x) / 2 : (p.funnelArea[0] + e[d - 1].funnelArea[0]) / 2, h = i - 2 * l, x = p.funnelArea[1] + o / 2, c = p.textSize || t.fontSize, a.setLineWidth(1 * t.pixelRatio), a.setStrokeStyle(p.color), a.setFillStyle(p.color), a.beginPath(), a.moveTo(i, x), a.lineTo(h, x), a.stroke(), a.closePath(), a.beginPath(), a.moveTo(h, x), a.arc(h, x, 2, 0, 2 * s), a.closePath(), a.fill(), a.beginPath(), a.setFontSize(c), a.setFillStyle(p.textColor || "#666666"), a.fillText(g, h - 5 - measureText(g), x + c / 2 - 2), a.closePath(), a.stroke(), a.closePath());}}function drawCanvas(e, t) {t.draw();}var Timing = { easeIn: function easeIn(e) {return Math.pow(e, 3);}, easeOut: function easeOut(e) {return Math.pow(e - 1, 3) + 1;}, easeInOut: function easeInOut(e) {var t = Math.pow;return 1 > (e /= .5) ? .5 * t(e, 3) : .5 * (t(e - 2, 3) + 2);}, linear: function linear(e) {return e;} };function Animation(e) {this.isStop = !1, e.duration = "undefined" == typeof e.duration ? 1e3 : e.duration, e.timing = e.timing || "linear";var t = function () {return "undefined" == typeof setTimeout ? "undefined" == typeof requestAnimationFrame ? function (e) {e(null);} : requestAnimationFrame : function (e, t) {setTimeout(function () {var t = +new Date();e(t);}, t);};}(),i = null,_a13 = function a(o) {if (null === o || !0 === this.isStop) return e.onProcess && e.onProcess(1), void (e.onAnimationFinish && e.onAnimationFinish());if (null === i && (i = o), o - i < e.duration) {var n = (o - i) / e.duration,l = Timing[e.timing];n = l(n), e.onProcess && e.onProcess(n), t(_a13, 17);} else e.onProcess && e.onProcess(1), e.onAnimationFinish && e.onAnimationFinish();};_a13 = _a13.bind(this), t(_a13, 17);}Animation.prototype.stop = function () {this.isStop = !0;};function drawCharts(e, t, a, i) {var o = this,n = t.series,l = t.categories;n = fillSeries(n, t, a);var r = t.animation ? t.duration : 0;o.animationInstance && o.animationInstance.stop();var s = null;if ("candle" == e) {var _e40 = assign({}, t.extra.candle.average);_e40.show ? (s = calCandleMA(_e40.day, _e40.name, _e40.color, n[0].data), s = fillSeries(s, t, a), t.seriesMA = s) : t.seriesMA ? s = t.seriesMA = fillSeries(t.seriesMA, t, a) : s = n;} else s = n;t._series_ = n = filterSeries(n), t.area = [,,,,];for (var _o26 = 0; 4 > _o26; _o26++) {t.area[_o26] = t.padding[_o26];}var d = calLegendData(s, t, a, t.chartData),h = d.area.wholeHeight,x = d.area.wholeWidth;switch (t.legend.position) {case "top":t.area[0] += h;break;case "bottom":t.area[2] += h;break;case "left":t.area[3] += x;break;case "right":t.area[1] += x;}var c = {},p = 0;if ("line" === t.type || "column" === t.type || "area" === t.type || "mix" === t.type || "candle" === t.type) {if (c = calYAxisData(n, t, a), p = c.yAxisWidth, t.yAxis.showTitle) {var _e42 = 0;for (var _o28 = 0; _o28 < t.yAxis.data.length; _o28++) {_e42 = Math.max(_e42, t.yAxis.data[_o28].titleFontSize ? t.yAxis.data[_o28].titleFontSize : a.fontSize);}t.area[0] += (_e42 + 6) * t.pixelRatio;}var _e41 = 0,_o27 = 0;for (var _a14 = 0; _a14 < p.length; _a14++) {"left" == p[_a14].position ? (t.area[3] += 0 < _o27 ? p[_a14].width + t.yAxis.padding : p[_a14].width, _o27 += 1) : (t.area[1] += 0 < _e41 ? p[_a14].width + t.yAxis.padding : p[_a14].width, _e41 += 1);}} else a.yAxisWidth = p;if (t.chartData.yAxisData = c, t.categories && t.categories.length) {t.chartData.xAxisData = getXAxisPoints(t.categories, t, a);var _e43 = calCategoriesData(t.categories, t, a, t.chartData.xAxisData.eachSpacing),_i27 = _e43.xAxisHeight,_o29 = _e43.angle;a.xAxisHeight = _i27, a._xAxisTextAngle_ = _o29, t.area[2] += _i27, t.chartData.categoriesData = _e43;} else if ("line" === t.type || "area" === t.type || "points" === t.type) {t.chartData.xAxisData = calXAxisData(n, t, a), l = t.chartData.xAxisData.rangesFormat;var _e44 = calCategoriesData(l, t, a, t.chartData.xAxisData.eachSpacing),_i28 = _e44.xAxisHeight,_o30 = _e44.angle;a.xAxisHeight = _i28, a._xAxisTextAngle_ = _o30, t.area[2] += _i28, t.chartData.categoriesData = _e44;} else t.chartData.xAxisData = { xAxisPoints: [] };if (t.enableScroll && "right" == t.xAxis.scrollAlign && void 0 === t._scrollDistance_) {var _e45 = 0,_i29 = t.chartData.xAxisData.xAxisPoints,_a15 = t.chartData.xAxisData.startX,_n26 = t.chartData.xAxisData.endX,_l13 = t.chartData.xAxisData.eachSpacing,_r11 = _l13 * (_i29.length - 1);_e45 = _n26 - _a15 - _r11, o.scrollOption = { currentOffset: _e45, startTouchX: _e45, distance: 0, lastMoveTime: 0 }, t._scrollDistance_ = _e45;}switch (("pie" === e || "ring" === e || "rose" === e) && (a._pieTextMaxLength_ = !1 === t.dataLabel ? 0 : getPieTextMaxLength(s)), e) {case "word":var _d4 = assign({}, { type: "normal", autoColors: !0 }, t.extra.word);(!0 == t.updateData || null == t.updateData) && (t.chartData.wordCloudData = getWordCloudPoint(t, _d4.type)), this.animationInstance = new Animation({ timing: "easeInOut", duration: r, onProcess: function onProcess(e) {i.clearRect(0, 0, t.width, t.height), t.rotate && contextRotate(i, t), drawWordCloudDataPoints(n, t, a, i, e), drawCanvas(t, i);}, onAnimationFinish: function onAnimationFinish() {o.event.trigger("renderComplete");} });break;case "map":i.clearRect(0, 0, t.width, t.height), drawMapDataPoints(n, t, a, i);break;case "funnel":this.animationInstance = new Animation({ timing: "easeInOut", duration: r, onProcess: function onProcess(e) {i.clearRect(0, 0, t.width, t.height), t.rotate && contextRotate(i, t), t.chartData.funnelData = drawFunnelDataPoints(n, t, a, i, e), drawLegend(t.series, t, a, i, t.chartData), drawToolTipBridge(t, a, i, e), drawCanvas(t, i);}, onAnimationFinish: function onAnimationFinish() {o.event.trigger("renderComplete");} });break;case "line":this.animationInstance = new Animation({ timing: "easeIn", duration: r, onProcess: function onProcess(e) {i.clearRect(0, 0, t.width, t.height), t.rotate && contextRotate(i, t), drawYAxisGrid(l, t, a, i), drawXAxis(l, t, a, i);var o = drawLineDataPoints(n, t, a, i, e),r = o.xAxisPoints,s = o.calPoints,d = o.eachSpacing;t.chartData.xAxisPoints = r, t.chartData.calPoints = s, t.chartData.eachSpacing = d, drawYAxis(n, t, a, i), !1 !== t.enableMarkLine && 1 === e && drawMarkLine(t, a, i), drawLegend(t.series, t, a, i, t.chartData), drawToolTipBridge(t, a, i, e, d, r), drawCanvas(t, i);}, onAnimationFinish: function onAnimationFinish() {o.event.trigger("renderComplete");} });break;case "mix":this.animationInstance = new Animation({ timing: "easeIn", duration: r, onProcess: function onProcess(e) {i.clearRect(0, 0, t.width, t.height), t.rotate && contextRotate(i, t), drawYAxisGrid(l, t, a, i), drawXAxis(l, t, a, i);var o = drawMixDataPoints(n, t, a, i, e),r = o.xAxisPoints,s = o.calPoints,d = o.eachSpacing;t.chartData.xAxisPoints = r, t.chartData.calPoints = s, t.chartData.eachSpacing = d, drawYAxis(n, t, a, i), !1 !== t.enableMarkLine && 1 === e && drawMarkLine(t, a, i), drawLegend(t.series, t, a, i, t.chartData), drawToolTipBridge(t, a, i, e, d, r), drawCanvas(t, i);}, onAnimationFinish: function onAnimationFinish() {o.event.trigger("renderComplete");} });break;case "column":this.animationInstance = new Animation({ timing: "easeIn", duration: r, onProcess: function onProcess(e) {i.clearRect(0, 0, t.width, t.height), t.rotate && contextRotate(i, t), drawYAxisGrid(l, t, a, i), drawXAxis(l, t, a, i);var o = drawColumnDataPoints(n, t, a, i, e),r = o.xAxisPoints,s = o.calPoints,d = o.eachSpacing;t.chartData.xAxisPoints = r, t.chartData.calPoints = s, t.chartData.eachSpacing = d, drawYAxis(n, t, a, i), !1 !== t.enableMarkLine && 1 === e && drawMarkLine(t, a, i), drawLegend(t.series, t, a, i, t.chartData), drawToolTipBridge(t, a, i, e, d, r), drawCanvas(t, i);}, onAnimationFinish: function onAnimationFinish() {o.event.trigger("renderComplete");} });break;case "area":this.animationInstance = new Animation({ timing: "easeIn", duration: r, onProcess: function onProcess(e) {i.clearRect(0, 0, t.width, t.height), t.rotate && contextRotate(i, t), drawYAxisGrid(l, t, a, i), drawXAxis(l, t, a, i);var o = drawAreaDataPoints(n, t, a, i, e),r = o.xAxisPoints,s = o.calPoints,d = o.eachSpacing;t.chartData.xAxisPoints = r, t.chartData.calPoints = s, t.chartData.eachSpacing = d, drawYAxis(n, t, a, i), !1 !== t.enableMarkLine && 1 === e && drawMarkLine(t, a, i), drawLegend(t.series, t, a, i, t.chartData), drawToolTipBridge(t, a, i, e, d, r), drawCanvas(t, i);}, onAnimationFinish: function onAnimationFinish() {o.event.trigger("renderComplete");} });break;case "ring":case "pie":this.animationInstance = new Animation({ timing: "easeInOut", duration: r, onProcess: function onProcess(e) {i.clearRect(0, 0, t.width, t.height), t.rotate && contextRotate(i, t), t.chartData.pieData = drawPieDataPoints(n, t, a, i, e), drawLegend(t.series, t, a, i, t.chartData), drawToolTipBridge(t, a, i, e), drawCanvas(t, i);}, onAnimationFinish: function onAnimationFinish() {o.event.trigger("renderComplete");} });break;case "rose":this.animationInstance = new Animation({ timing: "easeInOut", duration: r, onProcess: function onProcess(e) {i.clearRect(0, 0, t.width, t.height), t.rotate && contextRotate(i, t), t.chartData.pieData = drawRoseDataPoints(n, t, a, i, e), drawLegend(t.series, t, a, i, t.chartData), drawToolTipBridge(t, a, i, e), drawCanvas(t, i);}, onAnimationFinish: function onAnimationFinish() {o.event.trigger("renderComplete");} });break;case "radar":this.animationInstance = new Animation({ timing: "easeInOut", duration: r, onProcess: function onProcess(e) {i.clearRect(0, 0, t.width, t.height), t.rotate && contextRotate(i, t), t.chartData.radarData = drawRadarDataPoints(n, t, a, i, e), drawLegend(t.series, t, a, i, t.chartData), drawToolTipBridge(t, a, i, e), drawCanvas(t, i);}, onAnimationFinish: function onAnimationFinish() {o.event.trigger("renderComplete");} });break;case "arcbar":this.animationInstance = new Animation({ timing: "easeInOut", duration: r, onProcess: function onProcess(e) {i.clearRect(0, 0, t.width, t.height), t.rotate && contextRotate(i, t), t.chartData.arcbarData = drawArcbarDataPoints(n, t, a, i, e), drawCanvas(t, i);}, onAnimationFinish: function onAnimationFinish() {o.event.trigger("renderComplete");} });break;case "gauge":this.animationInstance = new Animation({ timing: "easeInOut", duration: r, onProcess: function onProcess(e) {i.clearRect(0, 0, t.width, t.height), t.rotate && contextRotate(i, t), t.chartData.gaugeData = drawGaugeDataPoints(l, n, t, a, i, e), drawCanvas(t, i);}, onAnimationFinish: function onAnimationFinish() {o.event.trigger("renderComplete");} });break;case "candle":this.animationInstance = new Animation({ timing: "easeIn", duration: r, onProcess: function onProcess(e) {i.clearRect(0, 0, t.width, t.height), t.rotate && contextRotate(i, t), drawYAxisGrid(l, t, a, i), drawXAxis(l, t, a, i);var o = drawCandleDataPoints(n, s, t, a, i, e),r = o.xAxisPoints,d = o.calPoints,h = o.eachSpacing;t.chartData.xAxisPoints = r, t.chartData.calPoints = d, t.chartData.eachSpacing = h, drawYAxis(n, t, a, i), !1 !== t.enableMarkLine && 1 === e && drawMarkLine(t, a, i), s ? drawLegend(s, t, a, i, t.chartData) : drawLegend(t.series, t, a, i, t.chartData), drawToolTipBridge(t, a, i, e, h, r), drawCanvas(t, i);}, onAnimationFinish: function onAnimationFinish() {o.event.trigger("renderComplete");} });}}function Event() {this.events = {};}Event.prototype.addEventListener = function (e, t) {this.events[e] = this.events[e] || [], this.events[e].push(t);}, Event.prototype.trigger = function () {for (var e = arguments.length, t = Array(e), i = 0; i < e; i++) {t[i] = arguments[i];}var a = t[0],o = t.slice(1);!this.events[a] || this.events[a].forEach(function (e) {try {e.apply(null, o);} catch (t) {console.error(t);}});};var Charts = function Charts(e) {e.pixelRatio = e.pixelRatio ? e.pixelRatio : 1, e.fontSize = e.fontSize ? e.fontSize * e.pixelRatio : 13 * e.pixelRatio, e.title = assign({}, e.title), e.subtitle = assign({}, e.subtitle), e.duration = e.duration ? e.duration : 1e3, e.yAxis = assign({}, { data: [], showTitle: !1, disabled: !1, disableGrid: !1, splitNumber: 5, gridType: "solid", dashLength: 4 * e.pixelRatio, gridColor: "#cccccc", padding: 10, fontColor: "#666666" }, e.yAxis), e.yAxis.dashLength *= e.pixelRatio, e.yAxis.padding *= e.pixelRatio, e.xAxis = assign({}, { rotateLabel: !1, type: "calibration", gridType: "solid", dashLength: 4, scrollAlign: "left", boundaryGap: "center", axisLine: !0, axisLineColor: "#cccccc" }, e.xAxis), e.xAxis.dashLength *= e.pixelRatio, e.legend = assign({}, { show: !0, position: "bottom", float: "center", backgroundColor: "rgba(0,0,0,0)", borderColor: "rgba(0,0,0,0)", borderWidth: 0, padding: 5, margin: 5, itemGap: 10, fontSize: e.fontSize, lineHeight: e.fontSize, fontColor: "#333333", format: {}, hiddenColor: "#CECECE" }, e.legend), e.legend.borderWidth *= e.pixelRatio, e.legend.itemGap *= e.pixelRatio, e.legend.padding *= e.pixelRatio, e.legend.margin *= e.pixelRatio, e.extra = assign({}, e.extra), e.rotate = !!e.rotate, e.animation = !!e.animation, e.rotate = !!e.rotate;var t = JSON.parse(JSON.stringify(config));if (t.colors = e.colors ? e.colors : t.colors, t.yAxisTitleWidth = !0 !== e.yAxis.disabled && e.yAxis.title ? t.yAxisTitleWidth : 0, ("pie" == e.type || "ring" == e.type) && (t.pieChartLinePadding = !1 === e.dataLabel ? 0 : e.extra.pie.labelWidth * e.pixelRatio || t.pieChartLinePadding * e.pixelRatio), "rose" == e.type && (t.pieChartLinePadding = !1 === e.dataLabel ? 0 : e.extra.rose.labelWidth * e.pixelRatio || t.pieChartLinePadding * e.pixelRatio), t.pieChartTextPadding = !1 === e.dataLabel ? 0 : t.pieChartTextPadding * e.pixelRatio, t.yAxisSplit = e.yAxis.splitNumber ? e.yAxis.splitNumber : config.yAxisSplit, t.rotate = e.rotate, e.rotate) {var _t30 = e.width,i = e.height;e.width = i, e.height = _t30;}e.padding = e.padding ? e.padding : t.padding;for (var _t31 = 0; 4 > _t31; _t31++) {e.padding[_t31] *= e.pixelRatio;}t.yAxisWidth = config.yAxisWidth * e.pixelRatio, t.xAxisHeight = config.xAxisHeight * e.pixelRatio, e.enableScroll && e.xAxis.scrollShow && (t.xAxisHeight += 6 * e.pixelRatio), t.xAxisLineHeight = config.xAxisLineHeight * e.pixelRatio, t.fontSize = e.fontSize, t.titleFontSize = config.titleFontSize * e.pixelRatio, t.subtitleFontSize = config.subtitleFontSize * e.pixelRatio, t.toolTipPadding = config.toolTipPadding * e.pixelRatio, t.toolTipLineHeight = config.toolTipLineHeight * e.pixelRatio, t.columePadding = config.columePadding * e.pixelRatio, e.$this = e.$this ? e.$this : this, this.context = uni.createCanvasContext(e.canvasId, e.$this), e.chartData = {}, this.event = new Event(), this.scrollOption = { currentOffset: 0, startTouchX: 0, distance: 0, lastMoveTime: 0 }, this.opts = e, this.config = t, drawCharts.call(this, e.type, e, t, this.context);};Charts.prototype.updateData = function () {var e = 0 < arguments.length && arguments[0] !== void 0 ? arguments[0] : {};this.opts = assign({}, this.opts, e), this.opts.updateData = !0;var t = e.scrollPosition || "current";switch (t) {case "current":this.opts._scrollDistance_ = this.scrollOption.currentOffset;break;case "left":this.opts._scrollDistance_ = 0, this.scrollOption = { currentOffset: 0, startTouchX: 0, distance: 0, lastMoveTime: 0 };break;case "right":var _e46 = calYAxisData(this.opts.series, this.opts, this.config),i = _e46.yAxisWidth;this.config.yAxisWidth = i;var a = 0,o = getXAxisPoints(this.opts.categories, this.opts, this.config),n = o.xAxisPoints,l = o.startX,r = o.endX,s = o.eachSpacing,d = s * (n.length - 1);a = r - l - d, this.scrollOption = { currentOffset: a, startTouchX: a, distance: 0, lastMoveTime: 0 }, this.opts._scrollDistance_ = a;}drawCharts.call(this, this.opts.type, this.opts, this.config, this.context);}, Charts.prototype.zoom = function () {var e = Math.round,t = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : this.opts.xAxis.itemCount;if (!0 !== this.opts.enableScroll) return void console.log("\u8BF7\u542F\u7528\u6EDA\u52A8\u6761\u540E\u4F7F\u7528\uFF01");var i = e(Math.abs(this.scrollOption.currentOffset) / this.opts.chartData.eachSpacing) + e(this.opts.xAxis.itemCount / 2);this.opts.animation = !1, this.opts.xAxis.itemCount = t.itemCount;var a = calYAxisData(this.opts.series, this.opts, this.config),o = a.yAxisWidth;this.config.yAxisWidth = o;var n = 0,l = getXAxisPoints(this.opts.categories, this.opts, this.config),r = l.xAxisPoints,s = l.startX,d = l.endX,h = l.eachSpacing,x = d - s,c = x - h * (r.length - 1);n = x / 2 - h * i, 0 < n && (n = 0), n < c && (n = c), this.scrollOption = { currentOffset: n, startTouchX: n, distance: 0, lastMoveTime: 0 }, this.opts._scrollDistance_ = n, drawCharts.call(this, this.opts.type, this.opts, this.config, this.context);}, Charts.prototype.stopAnimation = function () {this.animationInstance && this.animationInstance.stop();}, Charts.prototype.addEventListener = function (e, t) {this.event.addEventListener(e, t);}, Charts.prototype.getCurrentDataIndex = function (t) {var e = null;if (e = t.changedTouches ? t.changedTouches[0] : t.mp.changedTouches[0], e) {var i = getTouches(e, this.opts, t);return "pie" === this.opts.type || "ring" === this.opts.type || "rose" === this.opts.type ? findPieChartCurrentIndex({ x: i.x, y: i.y }, this.opts.chartData.pieData) : "radar" === this.opts.type ? findRadarChartCurrentIndex({ x: i.x, y: i.y }, this.opts.chartData.radarData, this.opts.categories.length) : "funnel" === this.opts.type ? findFunnelChartCurrentIndex({ x: i.x, y: i.y }, this.opts.chartData.funnelData) : "map" === this.opts.type ? findMapChartCurrentIndex({ x: i.x, y: i.y }, this.opts) : "word" === this.opts.type ? findWordChartCurrentIndex({ x: i.x, y: i.y }, this.opts.chartData.wordCloudData) : findCurrentIndex({ x: i.x, y: i.y }, this.opts.chartData.calPoints, this.opts, this.config, Math.abs(this.scrollOption.currentOffset));}return -1;}, Charts.prototype.getLegendDataIndex = function (t) {var e = null;if (e = t.changedTouches ? t.changedTouches[0] : t.mp.changedTouches[0], e) {var i = getTouches(e, this.opts, t);return findLegendIndex({ x: i.x, y: i.y }, this.opts.chartData.legendData);}return -1;}, Charts.prototype.touchLegend = function (t) {var e = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : {},i = null;if (i = t.changedTouches ? t.changedTouches[0] : t.mp.changedTouches[0], i) {var a = getTouches(i, this.opts, t),o = this.getLegendDataIndex(t);0 <= o && (this.opts.series[o].show = !this.opts.series[o].show, this.opts.animation = !!e.animation, this.opts._scrollDistance_ = this.scrollOption.currentOffset, drawCharts.call(this, this.opts.type, this.opts, this.config, this.context));}}, Charts.prototype.showToolTip = function (t) {var e = 1 < arguments.length && arguments[1] !== void 0 ? arguments[1] : {},i = null;i = t.changedTouches ? t.changedTouches[0] : t.mp.changedTouches[0], i || console.log("touchError");var a = getTouches(i, this.opts, t),o = this.scrollOption.currentOffset,n = assign({}, this.opts, { _scrollDistance_: o, animation: !1 });if ("line" === this.opts.type || "area" === this.opts.type || "column" === this.opts.type) {var l = e.index == null ? this.getCurrentDataIndex(t) : e.index;if (-1 < l) {var r = getSeriesDataItem(this.opts.series, l);if (0 !== r.length) {var s = getToolTipData(r, this.opts.chartData.calPoints, l, this.opts.categories, e),d = s.textList,h = s.offset;h.y = a.y, n.tooltip = { textList: e.textList ? e.textList : d, offset: h, option: e, index: l };}}drawCharts.call(this, n.type, n, this.config, this.context);}if ("mix" === this.opts.type) {var l = null == e.index ? this.getCurrentDataIndex(t) : e.index;if (-1 < l) {var o = this.scrollOption.currentOffset,n = assign({}, this.opts, { _scrollDistance_: o, animation: !1 }),r = getSeriesDataItem(this.opts.series, l);if (0 !== r.length) {var x = getMixToolTipData(r, this.opts.chartData.calPoints, l, this.opts.categories, e),d = x.textList,h = x.offset;h.y = a.y, n.tooltip = { textList: e.textList ? e.textList : d, offset: h, option: e, index: l };}}drawCharts.call(this, n.type, n, this.config, this.context);}if ("candle" === this.opts.type) {var l = null == e.index ? this.getCurrentDataIndex(t) : e.index;if (-1 < l) {var o = this.scrollOption.currentOffset,n = assign({}, this.opts, { _scrollDistance_: o, animation: !1 }),r = getSeriesDataItem(this.opts.series, l);if (0 !== r.length) {var s = getCandleToolTipData(this.opts.series[0].data, r, this.opts.chartData.calPoints, l, this.opts.categories, this.opts.extra.candle, e),d = s.textList,h = s.offset;h.y = a.y, n.tooltip = { textList: e.textList ? e.textList : d, offset: h, option: e, index: l };}}drawCharts.call(this, n.type, n, this.config, this.context);}if ("pie" === this.opts.type || "ring" === this.opts.type || "rose" === this.opts.type || "funnel" === this.opts.type) {var l = null == e.index ? this.getCurrentDataIndex(t) : e.index;if (-1 < l) {var o = this.scrollOption.currentOffset,n = assign({}, this.opts, { _scrollDistance_: o, animation: !1 }),r = this.opts._series_[l],d = [{ text: e.format ? e.format(r) : r.name + ": " + r.data, color: r.color }],h = { x: a.x, y: a.y };n.tooltip = { textList: e.textList ? e.textList : d, offset: h, option: e, index: l };}drawCharts.call(this, n.type, n, this.config, this.context);}if ("map" === this.opts.type || "word" === this.opts.type) {var l = null == e.index ? this.getCurrentDataIndex(t) : e.index;if (-1 < l) {var o = this.scrollOption.currentOffset,n = assign({}, this.opts, { _scrollDistance_: o, animation: !1 }),r = this.opts._series_[l],d = [{ text: e.format ? e.format(r) : r.properties.name, color: r.color }],h = { x: a.x, y: a.y };n.tooltip = { textList: e.textList ? e.textList : d, offset: h, option: e, index: l };}n.updateData = !1, drawCharts.call(this, n.type, n, this.config, this.context);}if ("radar" === this.opts.type) {var l = null == e.index ? this.getCurrentDataIndex(t) : e.index;if (-1 < l) {var o = this.scrollOption.currentOffset,n = assign({}, this.opts, { _scrollDistance_: o, animation: !1 }),r = getSeriesDataItem(this.opts.series, l);if (0 !== r.length) {var d = r.map(function (t) {return { text: e.format ? e.format(t) : t.name + ": " + t.data, color: t.color };}),h = { x: a.x, y: a.y };n.tooltip = { textList: e.textList ? e.textList : d, offset: h, option: e, index: l };}}drawCharts.call(this, n.type, n, this.config, this.context);}}, Charts.prototype.translate = function (e) {this.scrollOption = { currentOffset: e, startTouchX: e, distance: 0, lastMoveTime: 0 };var t = assign({}, this.opts, { _scrollDistance_: e, animation: !1 });drawCharts.call(this, this.opts.type, t, this.config, this.context);}, Charts.prototype.scrollStart = function (t) {var e = null;e = t.changedTouches ? t.changedTouches[0] : t.mp.changedTouches[0];var i = getTouches(e, this.opts, t);e && !0 === this.opts.enableScroll && (this.scrollOption.startTouchX = i.x);}, Charts.prototype.scroll = function (t) {0 === this.scrollOption.lastMoveTime && (this.scrollOption.lastMoveTime = Date.now());var e = this.opts.extra.touchMoveLimit || 20,i = Date.now(),a = i - this.scrollOption.lastMoveTime;if (!(a < Math.floor(1e3 / e))) {this.scrollOption.lastMoveTime = i;var o = null;if (o = t.changedTouches ? t.changedTouches[0] : t.mp.changedTouches[0], o && !0 === this.opts.enableScroll) {var n,l = getTouches(o, this.opts, t);n = l.x - this.scrollOption.startTouchX;var r = this.scrollOption.currentOffset,s = calValidDistance(this, r + n, this.opts.chartData, this.config, this.opts);this.scrollOption.distance = n = s - r;var d = assign({}, this.opts, { _scrollDistance_: r + n, animation: !1 });return drawCharts.call(this, d.type, d, this.config, this.context), r + n;}}}, Charts.prototype.scrollEnd = function () {if (!0 === this.opts.enableScroll) {var e = this.scrollOption,t = e.currentOffset,i = e.distance;this.scrollOption.currentOffset = t + i, this.scrollOption.distance = 0;}},  true && "object" == typeof module.exports && (module.exports = Charts);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 382 */,
+/* 383 */,
+/* 384 */,
+/* 385 */,
+/* 386 */,
+/* 387 */,
+/* 388 */,
+/* 389 */
+/*!*****************************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/@dcloudio/uni-ui/lib/uni-popup/popup.js ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _message = _interopRequireDefault(__webpack_require__(/*! ./message.js */ 390));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 // 定义 type 类型:弹出类型：top/bottom/center
 var config = {
   // 顶部弹出
@@ -44199,10 +44220,10 @@ var config = {
   mixins: [_message.default] };exports.default = _default;
 
 /***/ }),
-/* 375 */
-/*!****************************************************************************************!*\
-  !*** E:/uni-app/uni/uni-doctor/node_modules/@dcloudio/uni-ui/lib/uni-popup/message.js ***!
-  \****************************************************************************************/
+/* 390 */
+/*!*******************************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/@dcloudio/uni-ui/lib/uni-popup/message.js ***!
+  \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

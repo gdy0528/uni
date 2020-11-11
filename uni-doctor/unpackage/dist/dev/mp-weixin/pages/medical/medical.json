@@ -1,6 +1,8 @@
 {
   "navigationBarTitleText": "病历库",
   "usingComponents": {
-    "common-circle": "/common/Circle/Circle"
+    "medical-calculate": "/pages/medical/components/Calculate",
+    "medical-details": "/pages/medical/components/Details",
+    "medical-message": "/pages/medical/components/Message"
   }
 }

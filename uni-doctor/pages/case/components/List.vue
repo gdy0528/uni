@@ -12,7 +12,6 @@
 						<text class="info-age">{{item.userAge}}岁</text>
 						<view class="info-score" :style="{color: item.gradeColor}">
 							<text class="score-nums">{{item.gradeText}}</text>
-							<text class="score-text">分</text>
 						</view>
 					</view>
 					<text class="content-address">地址: {{item.userArea || "暂无地址信息"}}</text>
@@ -76,7 +75,7 @@
 							let pages = res.data.pages
 							let records = res.data.records.map(item => {
 								item.gradeColor = grade(item.healthyFraction).color 
-								item.gradeText = grade(item.healthyFraction).text 
+								item.gradeText = grade(item.healthyFraction).name 
 								return item
 							})
 							if (self.current < 2) {
@@ -168,7 +167,7 @@
 							color: $fontLightBlackColor;
 						}
 						.info-age {
-							@extend .info-sex
+							@extend .info-sex;
 						}
 						.info-score {
 							flex: 1;
@@ -177,12 +176,8 @@
 							align-items: baseline;
 							justify-content: flex-end;
 							.score-nums {
-								font-size: 44upx;
+								font-size: $fontSmallSize;
 								font-weight: bold;
-							}
-							.score-text {
-								margin-left: 6upx;
-								font-size: $fontMinSize;
 							}
 						}
 					}
