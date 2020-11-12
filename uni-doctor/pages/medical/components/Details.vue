@@ -29,8 +29,10 @@
 
 <style lang="scss" scoped>
 	.MedicalDetails {
-		margin: 10upx 10upx 0upx 10upx;
+		margin: 0 10upx;
 		padding: 20upx;
+		display: flex;
+		flex-direction: column;
 		border-radius: 10upx;
 		background: $bgWhiteColor;
 		.detail-box {

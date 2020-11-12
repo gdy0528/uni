@@ -134,7 +134,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _tool = __webpack_require__(/*! ../../../utils/tool */ 164);var CommonCircle = function CommonCircle() {__webpack_require__.e(/*! require.ensure | common/Circle/Circle */ "common/Circle/Circle").then((function () {return resolve(__webpack_require__(/*! ../../../common/Circle/Circle */ 371));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var CommonEcharts = function CommonEcharts() {Promise.all(/*! require.ensure | common/Echarts/Echarts */[__webpack_require__.e("common/vendor"), __webpack_require__.e("common/Echarts/Echarts")]).then((function () {return resolve(__webpack_require__(/*! ../../../common/Echarts/Echarts */ 376));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _tool = __webpack_require__(/*! ../../../utils/tool */ 164);var CommonCircle = function CommonCircle() {__webpack_require__.e(/*! require.ensure | common/Circle/Circle */ "common/Circle/Circle").then((function () {return resolve(__webpack_require__(/*! ../../../common/Circle/Circle */ 385));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var CommonEcharts = function CommonEcharts() {Promise.all(/*! require.ensure | common/Echarts/Echarts */[__webpack_require__.e("common/vendor"), __webpack_require__.e("common/Echarts/Echarts")]).then((function () {return resolve(__webpack_require__(/*! ../../../common/Echarts/Echarts */ 390));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   props: {
     calculation: Object },

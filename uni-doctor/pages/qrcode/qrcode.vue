@@ -4,7 +4,7 @@
 			<view class="qrcode-info">
 				<view class="info-head"><LayzImage :src="userInfo.userImg" round /></view>
 				<text class="info-name">{{ userInfo.userNickname }}</text>
-				<text class="info-desc">{{ userInfo.userType == 3 ? '邀请你成为我的助手' : '我为脑科专家代言' }}</text>
+				<text class="info-desc">我为脑科专家代言<!-- {{ !qrIndex ? '邀请你成为我的助手' : '我为脑科专家代言' }} --></text>
 			</view>
 			<view class="qrcode-border"></view>
 			<view class="qrcode-ewm">
@@ -13,7 +13,7 @@
 						<tki-qrcode :cid="item.cid" ref="qrcode" :val="qrUrl(item.val)" :size="300" :icon="item.icon" :iconSize="25" onval :showLoading="false" />
 					</view>
 				</view>
-				<text class="ewm-desc">（点击图片切换{{ qrPort(qrIndex, 'image') }}端）</text>
+				<text class="ewm-desc" v-if="userInfo.userType != 3">（点击图片切换{{ qrPort(qrIndex, 'image') }}端）</text>
 				<button class="ewm-btns" plain>分享{{ qrPort(qrIndex, 'share') }}端二维码</button>
 			</view>
 		</view>
@@ -29,8 +29,7 @@ export default {
 	data() {
 		return {
 			qrIndex: false, //当前展示二维码
-			qrConfig: [
-				//二维码列表
+			qrConfig: [	//二维码列表
 				{
 					cid: 'qr_doctor',
 					val: 'https://www.baidu.com',
@@ -46,38 +45,39 @@ export default {
 		};
 	},
 	computed: {
-		qrPort(qrIndex, type) {
-			//计算二维码端区分
+		qrPort(qrIndex, type) {	//计算二维码端区分
 			return (qrIndex, type) => {
 				if (type == 'image') return qrIndex ? '医生' : '患者';
 				if (type == 'share') return qrIndex ? '患者' : '医生';
 			};
 		},
-		qrUrl(url) {
-			//计算二维码地址
+		qrUrl(url) {	//计算二维码地址
 			return url => {
 				return `${url}/?i=${this.userInfo.id}`;
 			}
 		}
 	},
 	methods: {
-		handleClickRotateY() {
-			//切换翻转二维码
-			this.qrIndex = !this.qrIndex;
+		handleClickRotateY() {	//切换翻转二维码
+			let { userInfo } = this
+			if (userInfo.userType != 3) {
+				this.qrIndex = !this.qrIndex
+			}
 		},
-		getUserInfo() {
-			//获取个人信息
+		getUserInfo() { //获取个人信息
 			let self = this;
 			this.$get('/api/common/wx/getUserInfo').then(data => {
 				let res = data.data;
 				if (res.code == 200) {
-					self.userInfo = res.data;
+					let datas = res.data
+					self.userInfo = datas
+					self.qrIndex = datas.userType == 3	//判断是否为助手
 				}
-			});
+			})
 		}
 	},
 	mounted() {
-		this.getUserInfo(); //获取个人信息
+		this.getUserInfo() //获取个人信息
 	}
 };
 </script>

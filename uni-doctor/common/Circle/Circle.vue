@@ -152,7 +152,7 @@
 					borderRadius: '50%',
 					color: this.textColor,
 					fontSize: this.textSize + this.cssUnit,
-					fontWeight: 'bold',
+					fontWeight: '500',
 					textAlign: 'center',
 					lineHeight: this.circleDiam - this.progressSize * 2 + this.cssUnit,
 					zIndex: 1,

@@ -189,9 +189,10 @@ var _default = { data: function data() {return { disabled: false, //是否禁用
       caseList: [] //病历数据
     };}, computed: { scrollH: function scrollH() {//计算高度
       var sys = uni.getSystemInfoSync();var winWidth = sys.windowWidth;var winrate = 750 / winWidth;var winHeight = parseInt(sys.windowHeight * winrate - 180);return "".concat(winHeight, "rpx");} }, methods: { postCaseData: function postCaseData(loading) {var _this = this; //请求病历库数据
-      var self = this;return new Promise(function (resolve) {_this.$post('/api/doctor/medical/index', { condition: self.condition, hospital: self.hospital, page: { current: self.current, size: 20 } }, loading).then(function (data) {var res = data.data;if (res.code == 200) {var pages = res.data.pages;var records = res.data.records.map(function (item) {
-              item.gradeColor = (0, _tool.grade)(item.healthyFraction).color;
-              item.gradeText = (0, _tool.grade)(item.healthyFraction).name;
+      var self = this;return new Promise(function (resolve) {_this.$post('/api/doctor/medical/index', { condition: self.condition, hospital: self.hospital, page: { current: self.current, size: 20 } }, loading).then(function (data) {var res = data.data;if (res.code == 200) {var pages = res.data.pages;var records = res.data.records.map(function (item) {var _grade =
+              (0, _tool.grade)(item.healthyFraction),color = _grade.color,name = _grade.name;
+              item.gradeColor = color;
+              item.gradeText = name;
               return item;
             });
             if (self.current < 2) {

@@ -107,7 +107,7 @@ var render = function() {
     }
   })
 
-  var m1 = _vm.qrPort(_vm.qrIndex, "image")
+  var m1 = _vm.userInfo.userType != 3 ? _vm.qrPort(_vm.qrIndex, "image") : null
   var m2 = _vm.qrPort(_vm.qrIndex, "share")
   _vm.$mp.data = Object.assign(
     {},
@@ -183,8 +183,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   data: function data() {
     return {
       qrIndex: false, //当前展示二维码
-      qrConfig: [
-      //二维码列表
+      qrConfig: [//二维码列表
       {
         cid: 'qr_doctor',
         val: 'https://www.baidu.com',
@@ -200,32 +199,33 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     };
   },
   computed: {
-    qrPort: function qrPort(qrIndex, type) {
-      //计算二维码端区分
+    qrPort: function qrPort(qrIndex, type) {//计算二维码端区分
       return function (qrIndex, type) {
         if (type == 'image') return qrIndex ? '医生' : '患者';
         if (type == 'share') return qrIndex ? '患者' : '医生';
       };
     },
-    qrUrl: function qrUrl(url) {var _this = this;
-      //计算二维码地址
+    qrUrl: function qrUrl(url) {var _this = this; //计算二维码地址
       return function (url) {
         return "".concat(url, "/?i=").concat(_this.userInfo.id);
       };
     } },
 
   methods: {
-    handleClickRotateY: function handleClickRotateY() {
-      //切换翻转二维码
-      this.qrIndex = !this.qrIndex;
+    handleClickRotateY: function handleClickRotateY() {//切换翻转二维码
+      var userInfo = this.userInfo;
+      if (userInfo.userType != 3) {
+        this.qrIndex = !this.qrIndex;
+      }
     },
-    getUserInfo: function getUserInfo() {
-      //获取个人信息
+    getUserInfo: function getUserInfo() {//获取个人信息
       var self = this;
       this.$get('/api/common/wx/getUserInfo').then(function (data) {
         var res = data.data;
         if (res.code == 200) {
-          self.userInfo = res.data;
+          var datas = res.data;
+          self.userInfo = datas;
+          self.qrIndex = datas.userType == 3; //判断是否为助手
         }
       });
     } },

@@ -74,8 +74,9 @@
 						if (res.code == 200) {
 							let pages = res.data.pages
 							let records = res.data.records.map(item => {
-								item.gradeColor = grade(item.healthyFraction).color 
-								item.gradeText = grade(item.healthyFraction).name 
+								let { color, name } =  grade(item.healthyFraction)
+								item.gradeColor = color
+								item.gradeText = name
 								return item
 							})
 							if (self.current < 2) {

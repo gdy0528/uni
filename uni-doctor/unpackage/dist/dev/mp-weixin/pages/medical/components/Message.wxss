@@ -126,4 +126,93 @@
           border-radius: 1rpx;
   background: #0E92F8;
 }
+.MedicalMessage .message-tab.data-v-0cbcc765 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+.MedicalMessage .message-tab .tab-items.data-v-0cbcc765 {
+  padding: 34rpx 0;
+  margin-bottom: 10rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-border-radius: 10rpx;
+          border-radius: 10rpx;
+  background: #FFFFFF;
+}
+.MedicalMessage .message-tab .tab-items .items-score.data-v-0cbcc765 {
+  padding: 0 30rpx;
+  font-size: 36rpx;
+  font-weight: 500;
+}
+.MedicalMessage .message-tab .tab-items .items-content.data-v-0cbcc765 {
+  padding: 0 20rpx;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  border-left: 2rpx solid #EFEFEF;
+  overflow: hidden;
+}
+.MedicalMessage .message-tab .tab-items .items-content .content-date.data-v-0cbcc765 {
+  font-size: 22rpx;
+  color: #999999;
+  -webkit-align-self: flex-end;
+          align-self: flex-end;
+}
+.MedicalMessage .message-tab .tab-items .items-content .content-msg.data-v-0cbcc765 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.MedicalMessage .message-tab .tab-items .items-content .content-msg .msg-title.data-v-0cbcc765 {
+  margin-right: 20rpx;
+  font-size: 28rpx;
+  color: #333333;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.MedicalMessage .message-tab .tab-items .items-content .content-msg .msg-system.data-v-0cbcc765 {
+  width: 100rpx;
+  height: 27rpx;
+}
+.MedicalMessage .message-tab .tab-items .items-content .content-desc.data-v-0cbcc765 {
+  font-size: 24rpx;
+  color: #666666;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  word-break: break-word;
+}
 

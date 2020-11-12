@@ -78,6 +78,23 @@
 			"style": {
 				"navigationBarTitleText": "病历库"
 			}
+		},
+		{
+			"path": "pages/assistant/assistant",
+			"style": {
+				"navigationBarTitleText": "我的助手",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"width": "65px",
+							"float": "right",
+							"text": "助手订单",
+							"fontSize": "28upx",
+							"color": "#FFFFFF"
+						}]
+					}
+				}
+			}
 		}
 	],
 	"condition": {

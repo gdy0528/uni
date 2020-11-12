@@ -81,6 +81,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 = _vm.__map(_vm.tabBar, function(item, index) {
+    var $orig = _vm.__get_orig(item)
+
+    var m0 = _vm.tabShow(item.show)
+    return {
+      $orig: $orig,
+      m0: m0
+    }
+  })
+
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -114,42 +132,43 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 {
   data: function data() {
     return {
       tabBar: [
       {
-        show: true,
+        show: false,
         link: "",
         name: "钱包中心",
         icon: "../../static/personal/wallet.png" },
 
       {
-        show: true,
+        show: false,
         link: "",
         name: "我的资讯",
         icon: "../../static/personal/news.png" },
 
       {
-        show: true,
-        link: "",
+        show: false,
+        link: "/pages/assistant/assistant",
         name: "我的助手",
         icon: "../../static/personal/assistant.png" },
 
@@ -167,7 +186,16 @@ var _default =
 
 
 
-  } };exports.default = _default;
+  },
+  computed: _objectSpread(_objectSpread({},
+  (0, _vuex.mapState)({
+    userType: function userType(state) {return state.info.userType;} })), {}, {
+
+    tabShow: function tabShow(show) {var _this = this; //计算是否显示标签
+      return function (show) {
+        return show ? true : _this.userType != 3;
+      };
+    } }) };exports.default = _default;
 
 /***/ }),
 

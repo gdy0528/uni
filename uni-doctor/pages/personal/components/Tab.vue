@@ -1,7 +1,7 @@
 <template>
 	<view class="PersonalTab">
 		<view class="tab-box">
-			<navigator class="tab-item" v-for="(item, index) in tabBar" :key="index" v-if="item.show" :url="item.link">
+			<navigator class="tab-item" v-for="(item, index) in tabBar" :key="index" v-if="tabShow(item.show)" :url="item.link">
 				<view class="item-icons">
 					<LayzImage :src="item.icon" />
 				</view>
@@ -15,25 +15,26 @@
 </template>
 
 <script>
+	import { mapState } from 'vuex'
 	export default {
 		data() {
 			return {
 				tabBar: [
 					{
-						show: true,
+						show: false,
 						link: "",
 						name: "钱包中心",
 						icon: "../../static/personal/wallet.png"
 					},
 					{
-						show: true,
+						show: false,
 						link: "",
 						name: "我的资讯",
 						icon: "../../static/personal/news.png"
 					},
 					{
-						show: true,
-						link: "",
+						show: false,
+						link: "/pages/assistant/assistant",
 						name: "我的助手",
 						icon: "../../static/personal/assistant.png"
 					},
@@ -50,6 +51,16 @@
 						icon: "../../static/personal/set.png"
 					}
 				]
+			}
+		},
+		computed: {
+			...mapState({
+				userType: state => state.info.userType
+			}),
+			tabShow(show) {	//计算是否显示标签
+				return (show) => {
+					return show ? true : this.userType != 3
+				}
 			}
 		}
 	}

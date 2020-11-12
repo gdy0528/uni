@@ -10,7 +10,8 @@
     "pages/qrcode/qrcode",
     "pages/forget/forget",
     "pages/material/material",
-    "pages/medical/medical"
+    "pages/medical/medical",
+    "pages/assistant/assistant"
   ],
   "subPackages": [],
   "window": {
