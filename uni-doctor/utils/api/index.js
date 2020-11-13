@@ -1,4 +1,5 @@
 import store from '@/store'
+import { showModal } from '../commonJs/'
 
 const PROD_SERVICE = '' //线上环境
 // const DEV_SERVICE = 'http://www.nkzj999.com/wx/serve/test-doctor' //测试环境
@@ -42,18 +43,15 @@ function handleSuceesState(data, loading, toast) { //处理后台成功返回状
 	return new Promise(resolve => {
 		if (state != 200 && toast && data.statusCode == 200) {
 			if (state == 901 || state == 902 || state == 903 || state == 702 || state == 703 || state == 706) { //登录情况
-				uni.showModal({
-					title: "友情提示",
-					content: datas.msg,
-					showCancel: false,
-					confirmText: "去登录",
-					confirmColor: "#0E92F8",
-					success: () => {
-						uni.redirectTo({
-							url: "/pages/login/login"
-						})
-					}
+			showModal({
+				content: datas.msg,
+				showCancel: false,
+				confirmText: "去登录",
+			}).then(() => {
+				uni.redirectTo({
+					url: "/pages/login/login"
 				})
+			})
 			} else {
 				uni.showToast({
 					title: datas.msg,
@@ -151,7 +149,7 @@ export function fileAction(url, filePath, loading = true, toast = true) { //FILE
 				"source": getSource()
 			},
 			success: res => {
-				res.data = JSON.parse(res.data)	//处理返回json字符
+				res.data = JSON.parse(res.data) //处理返回json字符
 				handleSuceesState(res, loading, toast).then(state => {
 					resolve(res)
 				})

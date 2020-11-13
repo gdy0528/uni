@@ -7,7 +7,7 @@
 					<CommonPicker textAlign="left" :colums="date" :value="dateValue" @change="handleChangeDate" />
 				</view>
 				<view class="item-icons">
-					<LayzImage src="../../static/medical/d_medicallibrary_icon_link.png" />
+					<LayzImage src="@medical/d_medicallibrary_icon_link.png" />
 				</view>
 			</view>
 			<view class="screen-tab">
@@ -26,7 +26,7 @@
 					<view class="content-msg">
 						<text class="msg-title">{{typesDetails(tabId, item).title}}</text>
 						<view class="msg-system" v-if="tabId == 'A'">
-							<LayzImage src="../../static/medical/la_record_system.png" />
+							<LayzImage src="@medical/la_record_system.png" />
 						</view>
 					</view>
 					<view class="content-desc">{{item.mlDescribe}}</view>

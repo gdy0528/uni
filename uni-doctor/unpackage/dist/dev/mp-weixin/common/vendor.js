@@ -9213,7 +9213,8 @@ var _default =
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.getAction = getAction;exports.postAction = postAction;exports.fileAction = fileAction;var _store = _interopRequireDefault(__webpack_require__(/*! @/store */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.getAction = getAction;exports.postAction = postAction;exports.fileAction = fileAction;var _store = _interopRequireDefault(__webpack_require__(/*! @/store */ 11));
+var _commonJs = __webpack_require__(/*! ../commonJs/ */ 17);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 var PROD_SERVICE = ''; //线上环境
 // const DEV_SERVICE = 'http://www.nkzj999.com/wx/serve/test-doctor' //测试环境
@@ -9255,18 +9256,15 @@ function handleSuceesState(data, loading, toast) {//处理后台成功返回状�
   return new Promise(function (resolve) {
     if (state != 200 && toast && data.statusCode == 200) {
       if (state == 901 || state == 902 || state == 903 || state == 702 || state == 703 || state == 706) {//登录情况
-        uni.showModal({
-          title: "友情提示",
+        (0, _commonJs.showModal)({
           content: datas.msg,
           showCancel: false,
-          confirmText: "去登录",
-          confirmColor: "#0E92F8",
-          success: function success() {
-            uni.redirectTo({
-              url: "/pages/login/login" });
+          confirmText: "去登录" }).
+        then(function () {
+          uni.redirectTo({
+            url: "/pages/login/login" });
 
-          } });
-
+        });
       } else {
         uni.showToast({
           title: datas.msg,
@@ -9379,7 +9377,38 @@ function fileAction(url, filePath) {var loading = arguments.length > 2 && argume
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 17 */,
+/* 17 */
+/*!************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/utils/commonJs/index.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.showModal = showModal; /* 二次处理模态框交互 */
+function showModal(showModalObj) {
+  return new Promise(function (resolve, reject) {
+    uni.showModal({
+      title: showModalObj.title || "友情提示",
+      content: showModalObj.content,
+      cancelText: showModalObj.cancelText || "取消",
+      cancelColor: showModalObj.cancelColor || "#000000",
+      confirmText: showModalObj.confirmText || "确认",
+      confirmColor: showModalObj.confirmColor || "#0E92F8",
+      showCancel: typeof showModalObj.showCancel == 'boolean' ? showModalObj.showCancel : true,
+      success: function success(res) {
+        if (res.confirm) {
+          resolve(res);
+        } else if (res.cancel) {
+          reject(res);
+        }
+      } });
+
+  });
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
 /* 18 */,
 /* 19 */,
 /* 20 */,
@@ -9405,7 +9434,8 @@ function fileAction(url, filePath) {var loading = arguments.length > 2 && argume
 /* 40 */,
 /* 41 */,
 /* 42 */,
-/* 43 */
+/* 43 */,
+/* 44 */
 /*!**************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/utils/aesEncrypt/index.js ***!
   \**************************************************************/
@@ -15405,7 +15435,7 @@ CryptoJS.pad.ZeroPadding = {
   encryption: encryption };exports.default = _default;
 
 /***/ }),
-/* 44 */
+/* 45 */
 /*!*********************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/utils/check/index.js ***!
   \*********************************************************/
@@ -15624,7 +15654,6 @@ function diffArr(array1, array2) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 45 */,
 /* 46 */,
 /* 47 */,
 /* 48 */,
@@ -15654,7 +15683,8 @@ function diffArr(array1, array2) {
 /* 72 */,
 /* 73 */,
 /* 74 */,
-/* 75 */
+/* 75 */,
+/* 76 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/static/qrcode/qr_doctor_logo.png ***!
   \*********************************************************************/
@@ -15664,7 +15694,7 @@ function diffArr(array1, array2) {
 module.exports = "/static/qrcode/qr_doctor_logo.png";
 
 /***/ }),
-/* 76 */
+/* 77 */
 /*!**********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/static/qrcode/qr_patient_logo.png ***!
   \**********************************************************************/
@@ -15674,7 +15704,6 @@ module.exports = "/static/qrcode/qr_doctor_logo.png";
 module.exports = "/static/qrcode/qr_patient_logo.png";
 
 /***/ }),
-/* 77 */,
 /* 78 */,
 /* 79 */,
 /* 80 */,
@@ -15761,7 +15790,16 @@ module.exports = "/static/qrcode/qr_patient_logo.png";
 /* 161 */,
 /* 162 */,
 /* 163 */,
-/* 164 */
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */
 /*!********************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/utils/tool/index.js ***!
   \********************************************************/
@@ -15771,7 +15809,7 @@ module.exports = "/static/qrcode/qr_patient_logo.png";
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.timeRule = timeRule;exports.sendTimeRule = sendTimeRule;exports.computedNewMsgTime = computedNewMsgTime;exports.msgTimeRule = msgTimeRule;exports.grade = grade;exports.inquiry = inquiry; /* 咨询消息列表时间规则 */
 function timeRule(date) {
-  var moment = __webpack_require__(/*! moment */ 165);
+  var moment = __webpack_require__(/*! moment */ 174);
   // let date = '2019-08-15 09:48:05'  //模拟后台返回时间
   var dateVal = moment(date).format('YYYY-MM-DD'); //得出后台时间年月日
   var currentDate = moment().format('YYYY-MM-DD'); //获取当天年月日
@@ -15790,7 +15828,7 @@ function timeRule(date) {
 
 /* 拿上一条消息的时间与新的消息时间做对比 */
 function sendTimeRule(lastTime, newTime) {
-  var moment = __webpack_require__(/*! moment */ 165);
+  var moment = __webpack_require__(/*! moment */ 174);
   var timeOut = 5 * 60 * 1000; //5分钟的毫秒
   // let lastTime = '2019-08-15 11:22:05'  //模拟消息发送时间
   // let newTime = '2019-08-15 11:26:05'  //模拟消息发送时间
@@ -15803,7 +15841,7 @@ function sendTimeRule(lastTime, newTime) {
 
 /* 计算消息前后时间(上一条时间，下一条时间) */
 function computedNewMsgTime(last, next) {
-  var moment = __webpack_require__(/*! moment */ 165);
+  var moment = __webpack_require__(/*! moment */ 174);
   var lastTime = moment(last);
   var nextTime = moment(next);
   if (nextTime.diff(lastTime, 'minute') >= 5) {
@@ -15815,7 +15853,7 @@ function computedNewMsgTime(last, next) {
 
 /* 聊天消息时间规则 */
 function msgTimeRule(date) {
-  var moment = __webpack_require__(/*! moment */ 165);
+  var moment = __webpack_require__(/*! moment */ 174);
   var dateVal = moment(date).format('YYYY-MM-DD'); //得出后台时间年月日
   var currentDate = moment().format('YYYY-MM-DD'); //获取当天年月日
   var yearVal = moment(date).format('YYYY'); //得出后台的年份
@@ -15885,7 +15923,7 @@ function inquiry(type) {
 }
 
 /***/ }),
-/* 165 */
+/* 174 */
 /*!******************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/moment.js ***!
   \******************************************************************/
@@ -17982,7 +18020,7 @@ function inquiry(type) {
       try {
         oldLocale = globalLocale._abbr;
         aliasedRequire = require;
-        __webpack_require__(167)("./" + name);
+        __webpack_require__(176)("./" + name);
         getSetGlobalLocale(oldLocale);
       } catch (e) {
         // mark as not found to avoid repeating expensive file require call causing high CPU
@@ -21561,10 +21599,10 @@ function inquiry(type) {
   return hooks;
 
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! (webpack)/buildin/module.js */ 166)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! (webpack)/buildin/module.js */ 175)(module)))
 
 /***/ }),
-/* 166 */
+/* 175 */
 /*!***********************************!*\
   !*** (webpack)/buildin/module.js ***!
   \***********************************/
@@ -21596,7 +21634,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 167 */
+/* 176 */
 /*!*****************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale sync ^\.\/.*$ ***!
   \*****************************************************************************/
@@ -21604,276 +21642,276 @@ module.exports = function(module) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 168,
-	"./af.js": 168,
-	"./ar": 169,
-	"./ar-dz": 170,
-	"./ar-dz.js": 170,
-	"./ar-kw": 171,
-	"./ar-kw.js": 171,
-	"./ar-ly": 172,
-	"./ar-ly.js": 172,
-	"./ar-ma": 173,
-	"./ar-ma.js": 173,
-	"./ar-sa": 174,
-	"./ar-sa.js": 174,
-	"./ar-tn": 175,
-	"./ar-tn.js": 175,
-	"./ar.js": 169,
-	"./az": 176,
-	"./az.js": 176,
-	"./be": 177,
-	"./be.js": 177,
-	"./bg": 178,
-	"./bg.js": 178,
-	"./bm": 179,
-	"./bm.js": 179,
-	"./bn": 180,
-	"./bn-bd": 181,
-	"./bn-bd.js": 181,
-	"./bn.js": 180,
-	"./bo": 182,
-	"./bo.js": 182,
-	"./br": 183,
-	"./br.js": 183,
-	"./bs": 184,
-	"./bs.js": 184,
-	"./ca": 185,
-	"./ca.js": 185,
-	"./cs": 186,
-	"./cs.js": 186,
-	"./cv": 187,
-	"./cv.js": 187,
-	"./cy": 188,
-	"./cy.js": 188,
-	"./da": 189,
-	"./da.js": 189,
-	"./de": 190,
-	"./de-at": 191,
-	"./de-at.js": 191,
-	"./de-ch": 192,
-	"./de-ch.js": 192,
-	"./de.js": 190,
-	"./dv": 193,
-	"./dv.js": 193,
-	"./el": 194,
-	"./el.js": 194,
-	"./en-au": 195,
-	"./en-au.js": 195,
-	"./en-ca": 196,
-	"./en-ca.js": 196,
-	"./en-gb": 197,
-	"./en-gb.js": 197,
-	"./en-ie": 198,
-	"./en-ie.js": 198,
-	"./en-il": 199,
-	"./en-il.js": 199,
-	"./en-in": 200,
-	"./en-in.js": 200,
-	"./en-nz": 201,
-	"./en-nz.js": 201,
-	"./en-sg": 202,
-	"./en-sg.js": 202,
-	"./eo": 203,
-	"./eo.js": 203,
-	"./es": 204,
-	"./es-do": 205,
-	"./es-do.js": 205,
-	"./es-mx": 206,
-	"./es-mx.js": 206,
-	"./es-us": 207,
-	"./es-us.js": 207,
-	"./es.js": 204,
-	"./et": 208,
-	"./et.js": 208,
-	"./eu": 209,
-	"./eu.js": 209,
-	"./fa": 210,
-	"./fa.js": 210,
-	"./fi": 211,
-	"./fi.js": 211,
-	"./fil": 212,
-	"./fil.js": 212,
-	"./fo": 213,
-	"./fo.js": 213,
-	"./fr": 214,
-	"./fr-ca": 215,
-	"./fr-ca.js": 215,
-	"./fr-ch": 216,
-	"./fr-ch.js": 216,
-	"./fr.js": 214,
-	"./fy": 217,
-	"./fy.js": 217,
-	"./ga": 218,
-	"./ga.js": 218,
-	"./gd": 219,
-	"./gd.js": 219,
-	"./gl": 220,
-	"./gl.js": 220,
-	"./gom-deva": 221,
-	"./gom-deva.js": 221,
-	"./gom-latn": 222,
-	"./gom-latn.js": 222,
-	"./gu": 223,
-	"./gu.js": 223,
-	"./he": 224,
-	"./he.js": 224,
-	"./hi": 225,
-	"./hi.js": 225,
-	"./hr": 226,
-	"./hr.js": 226,
-	"./hu": 227,
-	"./hu.js": 227,
-	"./hy-am": 228,
-	"./hy-am.js": 228,
-	"./id": 229,
-	"./id.js": 229,
-	"./is": 230,
-	"./is.js": 230,
-	"./it": 231,
-	"./it-ch": 232,
-	"./it-ch.js": 232,
-	"./it.js": 231,
-	"./ja": 233,
-	"./ja.js": 233,
-	"./jv": 234,
-	"./jv.js": 234,
-	"./ka": 235,
-	"./ka.js": 235,
-	"./kk": 236,
-	"./kk.js": 236,
-	"./km": 237,
-	"./km.js": 237,
-	"./kn": 238,
-	"./kn.js": 238,
-	"./ko": 239,
-	"./ko.js": 239,
-	"./ku": 240,
-	"./ku.js": 240,
-	"./ky": 241,
-	"./ky.js": 241,
-	"./lb": 242,
-	"./lb.js": 242,
-	"./lo": 243,
-	"./lo.js": 243,
-	"./lt": 244,
-	"./lt.js": 244,
-	"./lv": 245,
-	"./lv.js": 245,
-	"./me": 246,
-	"./me.js": 246,
-	"./mi": 247,
-	"./mi.js": 247,
-	"./mk": 248,
-	"./mk.js": 248,
-	"./ml": 249,
-	"./ml.js": 249,
-	"./mn": 250,
-	"./mn.js": 250,
-	"./mr": 251,
-	"./mr.js": 251,
-	"./ms": 252,
-	"./ms-my": 253,
-	"./ms-my.js": 253,
-	"./ms.js": 252,
-	"./mt": 254,
-	"./mt.js": 254,
-	"./my": 255,
-	"./my.js": 255,
-	"./nb": 256,
-	"./nb.js": 256,
-	"./ne": 257,
-	"./ne.js": 257,
-	"./nl": 258,
-	"./nl-be": 259,
-	"./nl-be.js": 259,
-	"./nl.js": 258,
-	"./nn": 260,
-	"./nn.js": 260,
-	"./oc-lnc": 261,
-	"./oc-lnc.js": 261,
-	"./pa-in": 262,
-	"./pa-in.js": 262,
-	"./pl": 263,
-	"./pl.js": 263,
-	"./pt": 264,
-	"./pt-br": 265,
-	"./pt-br.js": 265,
-	"./pt.js": 264,
-	"./ro": 266,
-	"./ro.js": 266,
-	"./ru": 267,
-	"./ru.js": 267,
-	"./sd": 268,
-	"./sd.js": 268,
-	"./se": 269,
-	"./se.js": 269,
-	"./si": 270,
-	"./si.js": 270,
-	"./sk": 271,
-	"./sk.js": 271,
-	"./sl": 272,
-	"./sl.js": 272,
-	"./sq": 273,
-	"./sq.js": 273,
-	"./sr": 274,
-	"./sr-cyrl": 275,
-	"./sr-cyrl.js": 275,
-	"./sr.js": 274,
-	"./ss": 276,
-	"./ss.js": 276,
-	"./sv": 277,
-	"./sv.js": 277,
-	"./sw": 278,
-	"./sw.js": 278,
-	"./ta": 279,
-	"./ta.js": 279,
-	"./te": 280,
-	"./te.js": 280,
-	"./tet": 281,
-	"./tet.js": 281,
-	"./tg": 282,
-	"./tg.js": 282,
-	"./th": 283,
-	"./th.js": 283,
-	"./tk": 284,
-	"./tk.js": 284,
-	"./tl-ph": 285,
-	"./tl-ph.js": 285,
-	"./tlh": 286,
-	"./tlh.js": 286,
-	"./tr": 287,
-	"./tr.js": 287,
-	"./tzl": 288,
-	"./tzl.js": 288,
-	"./tzm": 289,
-	"./tzm-latn": 290,
-	"./tzm-latn.js": 290,
-	"./tzm.js": 289,
-	"./ug-cn": 291,
-	"./ug-cn.js": 291,
-	"./uk": 292,
-	"./uk.js": 292,
-	"./ur": 293,
-	"./ur.js": 293,
-	"./uz": 294,
-	"./uz-latn": 295,
-	"./uz-latn.js": 295,
-	"./uz.js": 294,
-	"./vi": 296,
-	"./vi.js": 296,
-	"./x-pseudo": 297,
-	"./x-pseudo.js": 297,
-	"./yo": 298,
-	"./yo.js": 298,
-	"./zh-cn": 299,
-	"./zh-cn.js": 299,
-	"./zh-hk": 300,
-	"./zh-hk.js": 300,
-	"./zh-mo": 301,
-	"./zh-mo.js": 301,
-	"./zh-tw": 302,
-	"./zh-tw.js": 302
+	"./af": 177,
+	"./af.js": 177,
+	"./ar": 178,
+	"./ar-dz": 179,
+	"./ar-dz.js": 179,
+	"./ar-kw": 180,
+	"./ar-kw.js": 180,
+	"./ar-ly": 181,
+	"./ar-ly.js": 181,
+	"./ar-ma": 182,
+	"./ar-ma.js": 182,
+	"./ar-sa": 183,
+	"./ar-sa.js": 183,
+	"./ar-tn": 184,
+	"./ar-tn.js": 184,
+	"./ar.js": 178,
+	"./az": 185,
+	"./az.js": 185,
+	"./be": 186,
+	"./be.js": 186,
+	"./bg": 187,
+	"./bg.js": 187,
+	"./bm": 188,
+	"./bm.js": 188,
+	"./bn": 189,
+	"./bn-bd": 190,
+	"./bn-bd.js": 190,
+	"./bn.js": 189,
+	"./bo": 191,
+	"./bo.js": 191,
+	"./br": 192,
+	"./br.js": 192,
+	"./bs": 193,
+	"./bs.js": 193,
+	"./ca": 194,
+	"./ca.js": 194,
+	"./cs": 195,
+	"./cs.js": 195,
+	"./cv": 196,
+	"./cv.js": 196,
+	"./cy": 197,
+	"./cy.js": 197,
+	"./da": 198,
+	"./da.js": 198,
+	"./de": 199,
+	"./de-at": 200,
+	"./de-at.js": 200,
+	"./de-ch": 201,
+	"./de-ch.js": 201,
+	"./de.js": 199,
+	"./dv": 202,
+	"./dv.js": 202,
+	"./el": 203,
+	"./el.js": 203,
+	"./en-au": 204,
+	"./en-au.js": 204,
+	"./en-ca": 205,
+	"./en-ca.js": 205,
+	"./en-gb": 206,
+	"./en-gb.js": 206,
+	"./en-ie": 207,
+	"./en-ie.js": 207,
+	"./en-il": 208,
+	"./en-il.js": 208,
+	"./en-in": 209,
+	"./en-in.js": 209,
+	"./en-nz": 210,
+	"./en-nz.js": 210,
+	"./en-sg": 211,
+	"./en-sg.js": 211,
+	"./eo": 212,
+	"./eo.js": 212,
+	"./es": 213,
+	"./es-do": 214,
+	"./es-do.js": 214,
+	"./es-mx": 215,
+	"./es-mx.js": 215,
+	"./es-us": 216,
+	"./es-us.js": 216,
+	"./es.js": 213,
+	"./et": 217,
+	"./et.js": 217,
+	"./eu": 218,
+	"./eu.js": 218,
+	"./fa": 219,
+	"./fa.js": 219,
+	"./fi": 220,
+	"./fi.js": 220,
+	"./fil": 221,
+	"./fil.js": 221,
+	"./fo": 222,
+	"./fo.js": 222,
+	"./fr": 223,
+	"./fr-ca": 224,
+	"./fr-ca.js": 224,
+	"./fr-ch": 225,
+	"./fr-ch.js": 225,
+	"./fr.js": 223,
+	"./fy": 226,
+	"./fy.js": 226,
+	"./ga": 227,
+	"./ga.js": 227,
+	"./gd": 228,
+	"./gd.js": 228,
+	"./gl": 229,
+	"./gl.js": 229,
+	"./gom-deva": 230,
+	"./gom-deva.js": 230,
+	"./gom-latn": 231,
+	"./gom-latn.js": 231,
+	"./gu": 232,
+	"./gu.js": 232,
+	"./he": 233,
+	"./he.js": 233,
+	"./hi": 234,
+	"./hi.js": 234,
+	"./hr": 235,
+	"./hr.js": 235,
+	"./hu": 236,
+	"./hu.js": 236,
+	"./hy-am": 237,
+	"./hy-am.js": 237,
+	"./id": 238,
+	"./id.js": 238,
+	"./is": 239,
+	"./is.js": 239,
+	"./it": 240,
+	"./it-ch": 241,
+	"./it-ch.js": 241,
+	"./it.js": 240,
+	"./ja": 242,
+	"./ja.js": 242,
+	"./jv": 243,
+	"./jv.js": 243,
+	"./ka": 244,
+	"./ka.js": 244,
+	"./kk": 245,
+	"./kk.js": 245,
+	"./km": 246,
+	"./km.js": 246,
+	"./kn": 247,
+	"./kn.js": 247,
+	"./ko": 248,
+	"./ko.js": 248,
+	"./ku": 249,
+	"./ku.js": 249,
+	"./ky": 250,
+	"./ky.js": 250,
+	"./lb": 251,
+	"./lb.js": 251,
+	"./lo": 252,
+	"./lo.js": 252,
+	"./lt": 253,
+	"./lt.js": 253,
+	"./lv": 254,
+	"./lv.js": 254,
+	"./me": 255,
+	"./me.js": 255,
+	"./mi": 256,
+	"./mi.js": 256,
+	"./mk": 257,
+	"./mk.js": 257,
+	"./ml": 258,
+	"./ml.js": 258,
+	"./mn": 259,
+	"./mn.js": 259,
+	"./mr": 260,
+	"./mr.js": 260,
+	"./ms": 261,
+	"./ms-my": 262,
+	"./ms-my.js": 262,
+	"./ms.js": 261,
+	"./mt": 263,
+	"./mt.js": 263,
+	"./my": 264,
+	"./my.js": 264,
+	"./nb": 265,
+	"./nb.js": 265,
+	"./ne": 266,
+	"./ne.js": 266,
+	"./nl": 267,
+	"./nl-be": 268,
+	"./nl-be.js": 268,
+	"./nl.js": 267,
+	"./nn": 269,
+	"./nn.js": 269,
+	"./oc-lnc": 270,
+	"./oc-lnc.js": 270,
+	"./pa-in": 271,
+	"./pa-in.js": 271,
+	"./pl": 272,
+	"./pl.js": 272,
+	"./pt": 273,
+	"./pt-br": 274,
+	"./pt-br.js": 274,
+	"./pt.js": 273,
+	"./ro": 275,
+	"./ro.js": 275,
+	"./ru": 276,
+	"./ru.js": 276,
+	"./sd": 277,
+	"./sd.js": 277,
+	"./se": 278,
+	"./se.js": 278,
+	"./si": 279,
+	"./si.js": 279,
+	"./sk": 280,
+	"./sk.js": 280,
+	"./sl": 281,
+	"./sl.js": 281,
+	"./sq": 282,
+	"./sq.js": 282,
+	"./sr": 283,
+	"./sr-cyrl": 284,
+	"./sr-cyrl.js": 284,
+	"./sr.js": 283,
+	"./ss": 285,
+	"./ss.js": 285,
+	"./sv": 286,
+	"./sv.js": 286,
+	"./sw": 287,
+	"./sw.js": 287,
+	"./ta": 288,
+	"./ta.js": 288,
+	"./te": 289,
+	"./te.js": 289,
+	"./tet": 290,
+	"./tet.js": 290,
+	"./tg": 291,
+	"./tg.js": 291,
+	"./th": 292,
+	"./th.js": 292,
+	"./tk": 293,
+	"./tk.js": 293,
+	"./tl-ph": 294,
+	"./tl-ph.js": 294,
+	"./tlh": 295,
+	"./tlh.js": 295,
+	"./tr": 296,
+	"./tr.js": 296,
+	"./tzl": 297,
+	"./tzl.js": 297,
+	"./tzm": 298,
+	"./tzm-latn": 299,
+	"./tzm-latn.js": 299,
+	"./tzm.js": 298,
+	"./ug-cn": 300,
+	"./ug-cn.js": 300,
+	"./uk": 301,
+	"./uk.js": 301,
+	"./ur": 302,
+	"./ur.js": 302,
+	"./uz": 303,
+	"./uz-latn": 304,
+	"./uz-latn.js": 304,
+	"./uz.js": 303,
+	"./vi": 305,
+	"./vi.js": 305,
+	"./x-pseudo": 306,
+	"./x-pseudo.js": 306,
+	"./yo": 307,
+	"./yo.js": 307,
+	"./zh-cn": 308,
+	"./zh-cn.js": 308,
+	"./zh-hk": 309,
+	"./zh-hk.js": 309,
+	"./zh-mo": 310,
+	"./zh-mo.js": 310,
+	"./zh-tw": 311,
+	"./zh-tw.js": 311
 };
 
 
@@ -21894,10 +21932,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 167;
+webpackContext.id = 176;
 
 /***/ }),
-/* 168 */
+/* 177 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/af.js ***!
   \*********************************************************************/
@@ -21909,7 +21947,7 @@ webpackContext.id = 167;
 //! author : Werner Mollentze : https://github.com/wernerm
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -21986,7 +22024,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 169 */
+/* 178 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ar.js ***!
   \*********************************************************************/
@@ -22000,7 +22038,7 @@ webpackContext.id = 167;
 //! author : forabi https://github.com/forabi
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -22193,7 +22231,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 170 */
+/* 179 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ar-dz.js ***!
   \************************************************************************/
@@ -22209,7 +22247,7 @@ webpackContext.id = 167;
 //! author : Noureddine LOUAHEDJ : https://github.com/noureddinem
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -22367,7 +22405,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 171 */
+/* 180 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ar-kw.js ***!
   \************************************************************************/
@@ -22379,7 +22417,7 @@ webpackContext.id = 167;
 //! author : Nusret Parlak: https://github.com/nusretparlak
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -22439,7 +22477,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 172 */
+/* 181 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ar-ly.js ***!
   \************************************************************************/
@@ -22451,7 +22489,7 @@ webpackContext.id = 167;
 //! author : Ali Hmer: https://github.com/kikoanis
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -22628,7 +22666,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 173 */
+/* 182 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ar-ma.js ***!
   \************************************************************************/
@@ -22641,7 +22679,7 @@ webpackContext.id = 167;
 //! author : Abdel Said : https://github.com/abdelsaid
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -22701,7 +22739,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 174 */
+/* 183 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ar-sa.js ***!
   \************************************************************************/
@@ -22713,7 +22751,7 @@ webpackContext.id = 167;
 //! author : Suhail Alkowaileet : https://github.com/xsoh
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -22823,7 +22861,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 175 */
+/* 184 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ar-tn.js ***!
   \************************************************************************/
@@ -22835,7 +22873,7 @@ webpackContext.id = 167;
 //! author : Nader Toukabri : https://github.com/naderio
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -22895,7 +22933,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 176 */
+/* 185 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/az.js ***!
   \*********************************************************************/
@@ -22907,7 +22945,7 @@ webpackContext.id = 167;
 //! author : topchiyev : https://github.com/topchiyev
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -23014,7 +23052,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 177 */
+/* 186 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/be.js ***!
   \*********************************************************************/
@@ -23028,7 +23066,7 @@ webpackContext.id = 167;
 //! Author : Menelion Elensúle : https://github.com/Oire
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -23173,7 +23211,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 178 */
+/* 187 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/bg.js ***!
   \*********************************************************************/
@@ -23185,7 +23223,7 @@ webpackContext.id = 167;
 //! author : Krasen Borisov : https://github.com/kraz
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -23278,7 +23316,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 179 */
+/* 188 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/bm.js ***!
   \*********************************************************************/
@@ -23290,7 +23328,7 @@ webpackContext.id = 167;
 //! author : Estelle Comment : https://github.com/estellecomment
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -23347,7 +23385,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 180 */
+/* 189 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/bn.js ***!
   \*********************************************************************/
@@ -23359,7 +23397,7 @@ webpackContext.id = 167;
 //! author : Kaushik Gandhi : https://github.com/kaushikgandhi
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -23483,7 +23521,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 181 */
+/* 190 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/bn-bd.js ***!
   \************************************************************************/
@@ -23495,7 +23533,7 @@ webpackContext.id = 167;
 //! author : Asraf Hossain Patoary : https://github.com/ashwoolford
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -23629,7 +23667,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 182 */
+/* 191 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/bo.js ***!
   \*********************************************************************/
@@ -23641,7 +23679,7 @@ webpackContext.id = 167;
 //! author : Thupten N. Chakrishar : https://github.com/vajradog
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -23769,7 +23807,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 183 */
+/* 192 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/br.js ***!
   \*********************************************************************/
@@ -23781,7 +23819,7 @@ webpackContext.id = 167;
 //! author : Jean-Baptiste Le Duigou : https://github.com/jbleduigou
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -23952,7 +23990,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 184 */
+/* 193 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/bs.js ***!
   \*********************************************************************/
@@ -23965,7 +24003,7 @@ webpackContext.id = 167;
 //! based on (hr) translation by Bojan Marković
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -24119,7 +24157,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 185 */
+/* 194 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ca.js ***!
   \*********************************************************************/
@@ -24131,7 +24169,7 @@ webpackContext.id = 167;
 //! author : Juan G. Hurtado : https://github.com/juanghurtado
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -24234,7 +24272,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 186 */
+/* 195 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/cs.js ***!
   \*********************************************************************/
@@ -24246,7 +24284,7 @@ webpackContext.id = 167;
 //! author : petrbela : https://github.com/petrbela
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -24423,7 +24461,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 187 */
+/* 196 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/cv.js ***!
   \*********************************************************************/
@@ -24435,7 +24473,7 @@ webpackContext.id = 167;
 //! author : Anatoly Mironov : https://github.com/mirontoli
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -24503,7 +24541,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 188 */
+/* 197 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/cy.js ***!
   \*********************************************************************/
@@ -24516,7 +24554,7 @@ webpackContext.id = 167;
 //! author : https://github.com/ryangreaves
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -24618,7 +24656,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 189 */
+/* 198 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/da.js ***!
   \*********************************************************************/
@@ -24630,7 +24668,7 @@ webpackContext.id = 167;
 //! author : Ulrik Nielsen : https://github.com/mrbase
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -24689,7 +24727,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 190 */
+/* 199 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/de.js ***!
   \*********************************************************************/
@@ -24703,7 +24741,7 @@ webpackContext.id = 167;
 //! author : Mikolaj Dadela : https://github.com/mik01aj
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -24785,7 +24823,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 191 */
+/* 200 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/de-at.js ***!
   \************************************************************************/
@@ -24800,7 +24838,7 @@ webpackContext.id = 167;
 //! author : Mikolaj Dadela : https://github.com/mik01aj
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -24882,7 +24920,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 192 */
+/* 201 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/de-ch.js ***!
   \************************************************************************/
@@ -24894,7 +24932,7 @@ webpackContext.id = 167;
 //! author : sschueller : https://github.com/sschueller
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -24976,7 +25014,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 193 */
+/* 202 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/dv.js ***!
   \*********************************************************************/
@@ -24988,7 +25026,7 @@ webpackContext.id = 167;
 //! author : Jawish Hameed : https://github.com/jawish
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -25084,7 +25122,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 194 */
+/* 203 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/el.js ***!
   \*********************************************************************/
@@ -25096,7 +25134,7 @@ webpackContext.id = 167;
 //! author : Aggelos Karalias : https://github.com/mehiel
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -25206,7 +25244,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 195 */
+/* 204 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/en-au.js ***!
   \************************************************************************/
@@ -25218,7 +25256,7 @@ webpackContext.id = 167;
 //! author : Jared Morse : https://github.com/jarcoal
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -25292,7 +25330,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 196 */
+/* 205 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/en-ca.js ***!
   \************************************************************************/
@@ -25304,7 +25342,7 @@ webpackContext.id = 167;
 //! author : Jonathan Abourbih : https://github.com/jonbca
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -25374,7 +25412,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 197 */
+/* 206 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/en-gb.js ***!
   \************************************************************************/
@@ -25386,7 +25424,7 @@ webpackContext.id = 167;
 //! author : Chris Gedrim : https://github.com/chrisgedrim
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -25460,7 +25498,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 198 */
+/* 207 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/en-ie.js ***!
   \************************************************************************/
@@ -25472,7 +25510,7 @@ webpackContext.id = 167;
 //! author : Chris Cartlidge : https://github.com/chriscartlidge
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -25546,7 +25584,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 199 */
+/* 208 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/en-il.js ***!
   \************************************************************************/
@@ -25558,7 +25596,7 @@ webpackContext.id = 167;
 //! author : Chris Gedrim : https://github.com/chrisgedrim
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -25628,7 +25666,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 200 */
+/* 209 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/en-in.js ***!
   \************************************************************************/
@@ -25640,7 +25678,7 @@ webpackContext.id = 167;
 //! author : Jatin Agrawal : https://github.com/jatinag22
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -25714,7 +25752,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 201 */
+/* 210 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/en-nz.js ***!
   \************************************************************************/
@@ -25726,7 +25764,7 @@ webpackContext.id = 167;
 //! author : Luke McGregor : https://github.com/lukemcgregor
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -25800,7 +25838,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 202 */
+/* 211 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/en-sg.js ***!
   \************************************************************************/
@@ -25812,7 +25850,7 @@ webpackContext.id = 167;
 //! author : Matthew Castrillon-Madrigal : https://github.com/techdimension
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -25886,7 +25924,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 203 */
+/* 212 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/eo.js ***!
   \*********************************************************************/
@@ -25901,7 +25939,7 @@ webpackContext.id = 167;
 //! comment : Vivakvo corrected the translation by colindean and miestasmia
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -25972,7 +26010,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 204 */
+/* 213 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/es.js ***!
   \*********************************************************************/
@@ -25984,7 +26022,7 @@ webpackContext.id = 167;
 //! author : Julio Napurí : https://github.com/julionc
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -26096,7 +26134,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 205 */
+/* 214 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/es-do.js ***!
   \************************************************************************/
@@ -26107,7 +26145,7 @@ webpackContext.id = 167;
 //! locale : Spanish (Dominican Republic) [es-do]
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -26218,7 +26256,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 206 */
+/* 215 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/es-mx.js ***!
   \************************************************************************/
@@ -26230,7 +26268,7 @@ webpackContext.id = 167;
 //! author : JC Franco : https://github.com/jcfranco
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -26342,7 +26380,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 207 */
+/* 216 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/es-us.js ***!
   \************************************************************************/
@@ -26355,7 +26393,7 @@ webpackContext.id = 167;
 //! author : chrisrodz : https://github.com/chrisrodz
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -26466,7 +26504,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 208 */
+/* 217 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/et.js ***!
   \*********************************************************************/
@@ -26479,7 +26517,7 @@ webpackContext.id = 167;
 //! improvements : Illimar Tambek : https://github.com/ragulka
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -26562,7 +26600,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 209 */
+/* 218 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/eu.js ***!
   \*********************************************************************/
@@ -26574,7 +26612,7 @@ webpackContext.id = 167;
 //! author : Eneko Illarramendi : https://github.com/eillarra
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -26643,7 +26681,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 210 */
+/* 219 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/fa.js ***!
   \*********************************************************************/
@@ -26655,7 +26693,7 @@ webpackContext.id = 167;
 //! author : Ebrahim Byagowi : https://github.com/ebraminio
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -26771,7 +26809,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 211 */
+/* 220 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/fi.js ***!
   \*********************************************************************/
@@ -26783,7 +26821,7 @@ webpackContext.id = 167;
 //! author : Tarmo Aidantausta : https://github.com/bleadof
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -26910,7 +26948,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 212 */
+/* 221 */
 /*!**********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/fil.js ***!
   \**********************************************************************/
@@ -26923,7 +26961,7 @@ webpackContext.id = 167;
 //! author : Matthew Co : https://github.com/matthewdeeco
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -26986,7 +27024,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 213 */
+/* 222 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/fo.js ***!
   \*********************************************************************/
@@ -26999,7 +27037,7 @@ webpackContext.id = 167;
 //! author : Kristian Sakarisson : https://github.com/sakarisson
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -27060,7 +27098,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 214 */
+/* 223 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/fr.js ***!
   \*********************************************************************/
@@ -27072,7 +27110,7 @@ webpackContext.id = 167;
 //! author : John Fischer : https://github.com/jfroffice
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -27182,7 +27220,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 215 */
+/* 224 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/fr-ca.js ***!
   \************************************************************************/
@@ -27194,7 +27232,7 @@ webpackContext.id = 167;
 //! author : Jonathan Abourbih : https://github.com/jonbca
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -27269,7 +27307,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 216 */
+/* 225 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/fr-ch.js ***!
   \************************************************************************/
@@ -27281,7 +27319,7 @@ webpackContext.id = 167;
 //! author : Gaspard Bucher : https://github.com/gaspard
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -27360,7 +27398,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 217 */
+/* 226 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/fy.js ***!
   \*********************************************************************/
@@ -27372,7 +27410,7 @@ webpackContext.id = 167;
 //! author : Robin van der Vliet : https://github.com/robin0van0der0v
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -27455,7 +27493,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 218 */
+/* 227 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ga.js ***!
   \*********************************************************************/
@@ -27467,7 +27505,7 @@ webpackContext.id = 167;
 //! author : André Silva : https://github.com/askpt
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -27568,7 +27606,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 219 */
+/* 228 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/gd.js ***!
   \*********************************************************************/
@@ -27580,7 +27618,7 @@ webpackContext.id = 167;
 //! author : Jon Ashdown : https://github.com/jonashdown
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -27681,7 +27719,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 220 */
+/* 229 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/gl.js ***!
   \*********************************************************************/
@@ -27693,7 +27731,7 @@ webpackContext.id = 167;
 //! author : Juan G. Hurtado : https://github.com/juanghurtado
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -27773,7 +27811,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 221 */
+/* 230 */
 /*!***************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/gom-deva.js ***!
   \***************************************************************************/
@@ -27785,7 +27823,7 @@ webpackContext.id = 167;
 //! author : The Discoverer : https://github.com/WikiDiscoverer
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -27915,7 +27953,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 222 */
+/* 231 */
 /*!***************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/gom-latn.js ***!
   \***************************************************************************/
@@ -27927,7 +27965,7 @@ webpackContext.id = 167;
 //! author : The Discoverer : https://github.com/WikiDiscoverer
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -28057,7 +28095,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 223 */
+/* 232 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/gu.js ***!
   \*********************************************************************/
@@ -28069,7 +28107,7 @@ webpackContext.id = 167;
 //! author : Kaushik Thanki : https://github.com/Kaushik1987
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -28196,7 +28234,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 224 */
+/* 233 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/he.js ***!
   \*********************************************************************/
@@ -28210,7 +28248,7 @@ webpackContext.id = 167;
 //! author : Tal Ater : https://github.com/TalAter
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -28308,7 +28346,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 225 */
+/* 234 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/hi.js ***!
   \*********************************************************************/
@@ -28320,7 +28358,7 @@ webpackContext.id = 167;
 //! author : Mayank Singhal : https://github.com/mayanksinghal
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -28490,7 +28528,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 226 */
+/* 235 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/hr.js ***!
   \*********************************************************************/
@@ -28502,7 +28540,7 @@ webpackContext.id = 167;
 //! author : Bojan Marković : https://github.com/bmarkovic
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -28662,7 +28700,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 227 */
+/* 236 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/hu.js ***!
   \*********************************************************************/
@@ -28675,7 +28713,7 @@ webpackContext.id = 167;
 //! author : Peter Viszt  : https://github.com/passatgt
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -28798,7 +28836,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 228 */
+/* 237 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/hy-am.js ***!
   \************************************************************************/
@@ -28810,7 +28848,7 @@ webpackContext.id = 167;
 //! author : Armendarabyan : https://github.com/armendarabyan
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -28908,7 +28946,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 229 */
+/* 238 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/id.js ***!
   \*********************************************************************/
@@ -28921,7 +28959,7 @@ webpackContext.id = 167;
 //! reference: http://id.wikisource.org/wiki/Pedoman_Umum_Ejaan_Bahasa_Indonesia_yang_Disempurnakan
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -29002,7 +29040,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 230 */
+/* 239 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/is.js ***!
   \*********************************************************************/
@@ -29014,7 +29052,7 @@ webpackContext.id = 167;
 //! author : Hinrik Örn Sigurðsson : https://github.com/hinrik
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -29159,7 +29197,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 231 */
+/* 240 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/it.js ***!
   \*********************************************************************/
@@ -29173,7 +29211,7 @@ webpackContext.id = 167;
 //! author: Marco : https://github.com/Manfre98
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -29283,7 +29321,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 232 */
+/* 241 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/it-ch.js ***!
   \************************************************************************/
@@ -29295,7 +29333,7 @@ webpackContext.id = 167;
 //! author : xfh : https://github.com/xfh
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -29365,7 +29403,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 233 */
+/* 242 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ja.js ***!
   \*********************************************************************/
@@ -29377,7 +29415,7 @@ webpackContext.id = 167;
 //! author : LI Long : https://github.com/baryon
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -29531,7 +29569,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 234 */
+/* 243 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/jv.js ***!
   \*********************************************************************/
@@ -29544,7 +29582,7 @@ webpackContext.id = 167;
 //! reference: http://jv.wikipedia.org/wiki/Basa_Jawa
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -29625,7 +29663,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 235 */
+/* 244 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ka.js ***!
   \*********************************************************************/
@@ -29637,7 +29675,7 @@ webpackContext.id = 167;
 //! author : Irakli Janiashvili : https://github.com/IrakliJani
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -29735,7 +29773,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 236 */
+/* 245 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/kk.js ***!
   \*********************************************************************/
@@ -29747,7 +29785,7 @@ webpackContext.id = 167;
 //! authors : Nurlan Rakhimzhanov : https://github.com/nurlan
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -29835,7 +29873,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 237 */
+/* 246 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/km.js ***!
   \*********************************************************************/
@@ -29847,7 +29885,7 @@ webpackContext.id = 167;
 //! author : Kruy Vanna : https://github.com/kruyvanna
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -29955,7 +29993,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 238 */
+/* 247 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/kn.js ***!
   \*********************************************************************/
@@ -29967,7 +30005,7 @@ webpackContext.id = 167;
 //! author : Rajeev Naik : https://github.com/rajeevnaikte
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -30096,7 +30134,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 239 */
+/* 248 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ko.js ***!
   \*********************************************************************/
@@ -30109,7 +30147,7 @@ webpackContext.id = 167;
 //! author : Jeeeyul Lee <jeeeyul@gmail.com>
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -30189,7 +30227,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 240 */
+/* 249 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ku.js ***!
   \*********************************************************************/
@@ -30201,7 +30239,7 @@ webpackContext.id = 167;
 //! author : Shahram Mebashar : https://github.com/ShahramMebashar
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -30325,7 +30363,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 241 */
+/* 250 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ky.js ***!
   \*********************************************************************/
@@ -30337,7 +30375,7 @@ webpackContext.id = 167;
 //! author : Chyngyz Arystan uulu : https://github.com/chyngyz
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -30427,7 +30465,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 242 */
+/* 251 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/lb.js ***!
   \*********************************************************************/
@@ -30440,7 +30478,7 @@ webpackContext.id = 167;
 //! author : David Raison : https://github.com/kwisatz
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -30580,7 +30618,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 243 */
+/* 252 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/lo.js ***!
   \*********************************************************************/
@@ -30592,7 +30630,7 @@ webpackContext.id = 167;
 //! author : Ryan Hart : https://github.com/ryanhart2
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -30663,7 +30701,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 244 */
+/* 253 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/lt.js ***!
   \*********************************************************************/
@@ -30675,7 +30713,7 @@ webpackContext.id = 167;
 //! author : Mindaugas Mozūras : https://github.com/mmozuras
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -30804,7 +30842,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 245 */
+/* 254 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/lv.js ***!
   \*********************************************************************/
@@ -30817,7 +30855,7 @@ webpackContext.id = 167;
 //! author : Jānis Elmeris : https://github.com/JanisE
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -30915,7 +30953,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 246 */
+/* 255 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/me.js ***!
   \*********************************************************************/
@@ -30927,7 +30965,7 @@ webpackContext.id = 167;
 //! author : Miodrag Nikač <miodrag@restartit.me> : https://github.com/miodragnikac
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -31051,7 +31089,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 247 */
+/* 256 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/mi.js ***!
   \*********************************************************************/
@@ -31063,7 +31101,7 @@ webpackContext.id = 167;
 //! author : John Corrigan <robbiecloset@gmail.com> : https://github.com/johnideal
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -31128,7 +31166,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 248 */
+/* 257 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/mk.js ***!
   \*********************************************************************/
@@ -31141,7 +31179,7 @@ webpackContext.id = 167;
 //! author : Sashko Todorov : https://github.com/bkyceh
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -31232,7 +31270,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 249 */
+/* 258 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ml.js ***!
   \*********************************************************************/
@@ -31244,7 +31282,7 @@ webpackContext.id = 167;
 //! author : Floyd Pink : https://github.com/floydpink
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -31330,7 +31368,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 250 */
+/* 259 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/mn.js ***!
   \*********************************************************************/
@@ -31342,7 +31380,7 @@ webpackContext.id = 167;
 //! author : Javkhlantugs Nyamdorj : https://github.com/javkhaanj7
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -31447,7 +31485,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 251 */
+/* 260 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/mr.js ***!
   \*********************************************************************/
@@ -31460,7 +31498,7 @@ webpackContext.id = 167;
 //! author : Vivek Athalye : https://github.com/vnathalye
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -31667,7 +31705,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 252 */
+/* 261 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ms.js ***!
   \*********************************************************************/
@@ -31679,7 +31717,7 @@ webpackContext.id = 167;
 //! author : Weldan Jamili : https://github.com/weldan
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -31760,7 +31798,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 253 */
+/* 262 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ms-my.js ***!
   \************************************************************************/
@@ -31773,7 +31811,7 @@ webpackContext.id = 167;
 //! author : Weldan Jamili : https://github.com/weldan
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -31854,7 +31892,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 254 */
+/* 263 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/mt.js ***!
   \*********************************************************************/
@@ -31866,7 +31904,7 @@ webpackContext.id = 167;
 //! author : Alessandro Maruccia : https://github.com/alesma
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -31927,7 +31965,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 255 */
+/* 264 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/my.js ***!
   \*********************************************************************/
@@ -31941,7 +31979,7 @@ webpackContext.id = 167;
 //! author : Tin Aung Lin : https://github.com/thanyawzinmin
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -32036,7 +32074,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 256 */
+/* 265 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/nb.js ***!
   \*********************************************************************/
@@ -32050,7 +32088,7 @@ webpackContext.id = 167;
 //!           Stephen Ramthun : https://github.com/stephenramthun
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -32115,7 +32153,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 257 */
+/* 266 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ne.js ***!
   \*********************************************************************/
@@ -32127,7 +32165,7 @@ webpackContext.id = 167;
 //! author : suvash : https://github.com/suvash
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -32253,7 +32291,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 258 */
+/* 267 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/nl.js ***!
   \*********************************************************************/
@@ -32266,7 +32304,7 @@ webpackContext.id = 167;
 //! author : Jacob Middag : https://github.com/middagj
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -32375,7 +32413,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 259 */
+/* 268 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/nl-be.js ***!
   \************************************************************************/
@@ -32388,7 +32426,7 @@ webpackContext.id = 167;
 //! author : Jacob Middag : https://github.com/middagj
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -32495,7 +32533,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 260 */
+/* 269 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/nn.js ***!
   \*********************************************************************/
@@ -32508,7 +32546,7 @@ webpackContext.id = 167;
 //!           Stephen Ramthun : https://github.com/stephenramthun
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -32573,7 +32611,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 261 */
+/* 270 */
 /*!*************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/oc-lnc.js ***!
   \*************************************************************************/
@@ -32585,7 +32623,7 @@ webpackContext.id = 167;
 //! author : Quentin PAGÈS : https://github.com/Quenty31
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -32674,7 +32712,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 262 */
+/* 271 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/pa-in.js ***!
   \************************************************************************/
@@ -32686,7 +32724,7 @@ webpackContext.id = 167;
 //! author : Harpreet Singh : https://github.com/harpreetkhalsagtbit
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -32813,7 +32851,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 263 */
+/* 272 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/pl.js ***!
   \*********************************************************************/
@@ -32825,7 +32863,7 @@ webpackContext.id = 167;
 //! author : Rafal Hirsz : https://github.com/evoL
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -32970,7 +33008,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 264 */
+/* 273 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/pt.js ***!
   \*********************************************************************/
@@ -32982,7 +33020,7 @@ webpackContext.id = 167;
 //! author : Jefferson : https://github.com/jalex79
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -33050,7 +33088,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 265 */
+/* 274 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/pt-br.js ***!
   \************************************************************************/
@@ -33062,7 +33100,7 @@ webpackContext.id = 167;
 //! author : Caio Ribeiro Pereira : https://github.com/caio-ribeiro-pereira
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -33125,7 +33163,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 266 */
+/* 275 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ro.js ***!
   \*********************************************************************/
@@ -33139,7 +33177,7 @@ webpackContext.id = 167;
 //! author : Emanuel Cepoi : https://github.com/cepem
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -33218,7 +33256,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 267 */
+/* 276 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ru.js ***!
   \*********************************************************************/
@@ -33232,7 +33270,7 @@ webpackContext.id = 167;
 //! author : Коренберг Марк : https://github.com/socketpair
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -33442,7 +33480,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 268 */
+/* 277 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/sd.js ***!
   \*********************************************************************/
@@ -33454,7 +33492,7 @@ webpackContext.id = 167;
 //! author : Narain Sagar : https://github.com/narainsagar
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -33541,7 +33579,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 269 */
+/* 278 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/se.js ***!
   \*********************************************************************/
@@ -33553,7 +33591,7 @@ webpackContext.id = 167;
 //! authors : Bård Rolstad Henriksen : https://github.com/karamell
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -33616,7 +33654,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 270 */
+/* 279 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/si.js ***!
   \*********************************************************************/
@@ -33628,7 +33666,7 @@ webpackContext.id = 167;
 //! author : Sampath Sitinamaluwa : https://github.com/sampathsris
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -33702,7 +33740,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 271 */
+/* 280 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/sk.js ***!
   \*********************************************************************/
@@ -33715,7 +33753,7 @@ webpackContext.id = 167;
 //! based on work of petrbela : https://github.com/petrbela
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -33864,7 +33902,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 272 */
+/* 281 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/sl.js ***!
   \*********************************************************************/
@@ -33876,7 +33914,7 @@ webpackContext.id = 167;
 //! author : Robert Sedovšek : https://github.com/sedovsek
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -34052,7 +34090,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 273 */
+/* 282 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/sq.js ***!
   \*********************************************************************/
@@ -34066,7 +34104,7 @@ webpackContext.id = 167;
 //! author : Oerd Cukalla : https://github.com/oerd
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -34135,7 +34173,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 274 */
+/* 283 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/sr.js ***!
   \*********************************************************************/
@@ -34148,7 +34186,7 @@ webpackContext.id = 167;
 //! author : Stefan Crnjaković <stefan@hotmail.rs> : https://github.com/crnjakovic
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -34271,7 +34309,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 275 */
+/* 284 */
 /*!**************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/sr-cyrl.js ***!
   \**************************************************************************/
@@ -34284,7 +34322,7 @@ webpackContext.id = 167;
 //! author : Stefan Crnjaković <stefan@hotmail.rs> : https://github.com/crnjakovic
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -34405,7 +34443,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 276 */
+/* 285 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ss.js ***!
   \*********************************************************************/
@@ -34417,7 +34455,7 @@ webpackContext.id = 167;
 //! author : Nicolai Davies<mail@nicolai.io> : https://github.com/nicolaidavies
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -34506,7 +34544,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 277 */
+/* 286 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/sv.js ***!
   \*********************************************************************/
@@ -34518,7 +34556,7 @@ webpackContext.id = 167;
 //! author : Jens Alm : https://github.com/ulmus
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -34592,7 +34630,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 278 */
+/* 287 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/sw.js ***!
   \*********************************************************************/
@@ -34604,7 +34642,7 @@ webpackContext.id = 167;
 //! author : Fahad Kassim : https://github.com/fadsel
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -34664,7 +34702,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 279 */
+/* 288 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ta.js ***!
   \*********************************************************************/
@@ -34676,7 +34714,7 @@ webpackContext.id = 167;
 //! author : Arjunkumar Krishnamoorthy : https://github.com/tk120404
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -34811,7 +34849,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 280 */
+/* 289 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/te.js ***!
   \*********************************************************************/
@@ -34823,7 +34861,7 @@ webpackContext.id = 167;
 //! author : Krishna Chaitanya Thota : https://github.com/kcthota
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -34915,7 +34953,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 281 */
+/* 290 */
 /*!**********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tet.js ***!
   \**********************************************************************/
@@ -34929,7 +34967,7 @@ webpackContext.id = 167;
 //! author : Sonia Simoes : https://github.com/soniasimoes
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -35001,7 +35039,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 282 */
+/* 291 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tg.js ***!
   \*********************************************************************/
@@ -35013,7 +35051,7 @@ webpackContext.id = 167;
 //! author : Orif N. Jr. : https://github.com/orif-jr
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -35135,7 +35173,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 283 */
+/* 292 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/th.js ***!
   \*********************************************************************/
@@ -35147,7 +35185,7 @@ webpackContext.id = 167;
 //! author : Kridsada Thanabulpong : https://github.com/sirn
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -35217,7 +35255,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 284 */
+/* 293 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tk.js ***!
   \*********************************************************************/
@@ -35229,7 +35267,7 @@ webpackContext.id = 167;
 //! author : Atamyrat Abdyrahmanov : https://github.com/atamyratabdy
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -35326,7 +35364,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 285 */
+/* 294 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tl-ph.js ***!
   \************************************************************************/
@@ -35338,7 +35376,7 @@ webpackContext.id = 167;
 //! author : Dan Hagman : https://github.com/hagmandan
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -35401,7 +35439,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 286 */
+/* 295 */
 /*!**********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tlh.js ***!
   \**********************************************************************/
@@ -35413,7 +35451,7 @@ webpackContext.id = 167;
 //! author : Dominika Kruk : https://github.com/amaranthrose
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -35544,7 +35582,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 287 */
+/* 296 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tr.js ***!
   \*********************************************************************/
@@ -35557,7 +35595,7 @@ webpackContext.id = 167;
 //!           Burak Yiğit Kaya: https://github.com/BYK
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -35668,7 +35706,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 288 */
+/* 297 */
 /*!**********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tzl.js ***!
   \**********************************************************************/
@@ -35681,7 +35719,7 @@ webpackContext.id = 167;
 //! author : Iustì Canun
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -35775,7 +35813,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 289 */
+/* 298 */
 /*!**********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tzm.js ***!
   \**********************************************************************/
@@ -35787,7 +35825,7 @@ webpackContext.id = 167;
 //! author : Abdel Said : https://github.com/abdelsaid
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -35846,7 +35884,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 290 */
+/* 299 */
 /*!***************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/tzm-latn.js ***!
   \***************************************************************************/
@@ -35858,7 +35896,7 @@ webpackContext.id = 167;
 //! author : Abdel Said : https://github.com/abdelsaid
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -35917,7 +35955,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 291 */
+/* 300 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ug-cn.js ***!
   \************************************************************************/
@@ -35929,7 +35967,7 @@ webpackContext.id = 167;
 //! author: boyaq : https://github.com/boyaq
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -36045,7 +36083,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 292 */
+/* 301 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/uk.js ***!
   \*********************************************************************/
@@ -36058,7 +36096,7 @@ webpackContext.id = 167;
 //! Author : Menelion Elensúle : https://github.com/Oire
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -36226,7 +36264,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 293 */
+/* 302 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/ur.js ***!
   \*********************************************************************/
@@ -36239,7 +36277,7 @@ webpackContext.id = 167;
 //! author : Zack : https://github.com/ZackVision
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -36326,7 +36364,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 294 */
+/* 303 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/uz.js ***!
   \*********************************************************************/
@@ -36338,7 +36376,7 @@ webpackContext.id = 167;
 //! author : Sardor Muminov : https://github.com/muminoff
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -36395,7 +36433,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 295 */
+/* 304 */
 /*!**************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/uz-latn.js ***!
   \**************************************************************************/
@@ -36407,7 +36445,7 @@ webpackContext.id = 167;
 //! author : Rasulbek Mirzayev : github.com/Rasulbeeek
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -36466,7 +36504,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 296 */
+/* 305 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/vi.js ***!
   \*********************************************************************/
@@ -36479,7 +36517,7 @@ webpackContext.id = 167;
 //! author : Chien Kira : https://github.com/chienkira
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -36563,7 +36601,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 297 */
+/* 306 */
 /*!***************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/x-pseudo.js ***!
   \***************************************************************************/
@@ -36575,7 +36613,7 @@ webpackContext.id = 167;
 //! author : Andrew Hood : https://github.com/andrewhood125
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -36652,7 +36690,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 298 */
+/* 307 */
 /*!*********************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/yo.js ***!
   \*********************************************************************/
@@ -36664,7 +36702,7 @@ webpackContext.id = 167;
 //! author : Atolagbe Abisoye : https://github.com/andela-batolagbe
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -36723,7 +36761,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 299 */
+/* 308 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/zh-cn.js ***!
   \************************************************************************/
@@ -36737,7 +36775,7 @@ webpackContext.id = 167;
 //! author : uu109 : https://github.com/uu109
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -36861,7 +36899,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 300 */
+/* 309 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/zh-hk.js ***!
   \************************************************************************/
@@ -36876,7 +36914,7 @@ webpackContext.id = 167;
 //! author : Anthony : https://github.com/anthonylau
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -36980,7 +37018,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 301 */
+/* 310 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/zh-mo.js ***!
   \************************************************************************/
@@ -36994,7 +37032,7 @@ webpackContext.id = 167;
 //! author : Tan Yuanhong : https://github.com/le0tan
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -37098,7 +37136,7 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 302 */
+/* 311 */
 /*!************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/moment/locale/zh-tw.js ***!
   \************************************************************************/
@@ -37111,7 +37149,7 @@ webpackContext.id = 167;
 //! author : Chris Lam : https://github.com/hehachris
 
 ;(function (global, factory) {
-   true ? factory(__webpack_require__(/*! ../moment */ 165)) :
+   true ? factory(__webpack_require__(/*! ../moment */ 174)) :
   undefined;
 })(this, function (moment) {'use strict';
 
@@ -37215,15 +37253,6 @@ webpackContext.id = 167;
 });
 
 /***/ }),
-/* 303 */,
-/* 304 */,
-/* 305 */,
-/* 306 */,
-/* 307 */,
-/* 308 */,
-/* 309 */,
-/* 310 */,
-/* 311 */,
 /* 312 */,
 /* 313 */,
 /* 314 */,
@@ -37236,7 +37265,16 @@ webpackContext.id = 167;
 /* 321 */,
 /* 322 */,
 /* 323 */,
-/* 324 */
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */,
+/* 332 */,
+/* 333 */
 /*!********************************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/tki-qrcode/components/tki-qrcode/qrcode.js ***!
   \********************************************************************************************/
@@ -38453,24 +38491,24 @@ QRCode;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 325 */,
-/* 326 */,
-/* 327 */,
-/* 328 */,
-/* 329 */,
-/* 330 */,
-/* 331 */,
-/* 332 */
+/* 334 */,
+/* 335 */,
+/* 336 */,
+/* 337 */,
+/* 338 */,
+/* 339 */,
+/* 340 */,
+/* 341 */
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ 333);
+module.exports = __webpack_require__(/*! regenerator-runtime */ 342);
 
 /***/ }),
-/* 333 */
+/* 342 */
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -38501,7 +38539,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 334);
+module.exports = __webpack_require__(/*! ./runtime */ 343);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -38517,7 +38555,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 334 */
+/* 343 */
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -39248,15 +39286,6 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 335 */,
-/* 336 */,
-/* 337 */,
-/* 338 */,
-/* 339 */,
-/* 340 */,
-/* 341 */,
-/* 342 */,
-/* 343 */,
 /* 344 */,
 /* 345 */,
 /* 346 */,
@@ -39269,7 +39298,16 @@ if (hadRuntime) {
 /* 353 */,
 /* 354 */,
 /* 355 */,
-/* 356 */
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */,
+/* 363 */,
+/* 364 */,
+/* 365 */
 /*!**********************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/common/Picker/area.js ***!
   \**********************************************************/
@@ -44143,15 +44181,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     "南区"] }] }];exports.default = _default;
 
 /***/ }),
-/* 357 */,
-/* 358 */,
-/* 359 */,
-/* 360 */,
-/* 361 */,
-/* 362 */,
-/* 363 */,
-/* 364 */,
-/* 365 */,
 /* 366 */,
 /* 367 */,
 /* 368 */,
@@ -44181,7 +44210,30 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 392 */,
 /* 393 */,
 /* 394 */,
-/* 395 */
+/* 395 */,
+/* 396 */,
+/* 397 */,
+/* 398 */,
+/* 399 */,
+/* 400 */,
+/* 401 */,
+/* 402 */,
+/* 403 */,
+/* 404 */,
+/* 405 */,
+/* 406 */,
+/* 407 */,
+/* 408 */,
+/* 409 */,
+/* 410 */,
+/* 411 */,
+/* 412 */,
+/* 413 */,
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */,
+/* 418 */
 /*!******************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/common/Echarts/components/u-charts.min.js ***!
   \******************************************************************************/
@@ -44193,14 +44245,160 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 396 */,
-/* 397 */,
-/* 398 */,
-/* 399 */,
-/* 400 */,
-/* 401 */,
-/* 402 */,
-/* 403 */
+/* 419 */,
+/* 420 */,
+/* 421 */,
+/* 422 */,
+/* 423 */,
+/* 424 */,
+/* 425 */,
+/* 426 */,
+/* 427 */,
+/* 428 */,
+/* 429 */,
+/* 430 */,
+/* 431 */,
+/* 432 */,
+/* 433 */
+/*!*****************************************************************************************************!*\
+  !*** E:/uni_doctor_app/uni-doctor/node_modules/@dcloudio/uni-ui/lib/uni-swipe-action-item/mpwxs.js ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  data: function data() {
+    return {
+      position: [],
+      button: {},
+      btn: "[]" };
+
+  },
+  // computed: {
+  // 	pos() {
+  // 		return JSON.stringify(this.position)
+  // 	},
+  // 	btn() {
+  // 		return JSON.stringify(this.button)
+  // 	}
+  // },
+  watch: {
+    button: {
+      handler: function handler(newVal) {
+        this.btn = JSON.stringify(newVal);
+      },
+      deep: true },
+
+    show: function show(newVal) {
+      if (this.autoClose) return;
+      if (!this.button) {
+        this.init();
+        return;
+      }
+      this.button.show = newVal;
+    },
+    leftOptions: function leftOptions() {
+      this.init();
+    },
+    rightOptions: function rightOptions() {
+      this.init();
+    } },
+
+  created: function created() {
+    if (this.swipeaction.children !== undefined) {
+      this.swipeaction.children.push(this);
+    }
+  },
+  mounted: function mounted() {
+    this.init();
+  },
+  beforeDestroy: function beforeDestroy() {var _this = this;
+    this.swipeaction.children.forEach(function (item, index) {
+      if (item === _this) {
+        _this.swipeaction.children.splice(index, 1);
+      }
+    });
+  },
+  methods: {
+    init: function init() {var _this2 = this;
+      clearTimeout(this.swipetimer);
+      this.swipetimer = setTimeout(function () {
+        _this2.getButtonSize();
+      }, 50);
+    },
+    closeSwipe: function closeSwipe(e) {
+      if (!this.autoClose) return;
+      this.swipeaction.closeOther(this);
+    },
+
+    change: function change(e) {
+      this.$emit('change', e.open);
+      var show = this.button.show;
+      if (show !== e.open) {
+        this.button.show = e.open;
+      }
+
+    },
+
+    appTouchStart: function appTouchStart(e) {var
+
+      clientX =
+      e.changedTouches[0].clientX;
+      this.clientX = clientX;
+      this.timestamp = new Date().getTime();
+    },
+    appTouchEnd: function appTouchEnd(e, index, item, position) {var
+
+      clientX =
+      e.changedTouches[0].clientX;
+      // fixed by xxxx 模拟点击事件，解决 ios 13 点击区域错位的问题
+      var diff = Math.abs(this.clientX - clientX);
+      var time = new Date().getTime() - this.timestamp;
+      if (diff < 40 && time < 300) {
+        this.$emit('click', {
+          content: item,
+          index: index,
+          position: position });
+
+      }
+    },
+    getButtonSize: function getButtonSize() {var _this3 = this;
+      var views = uni.createSelectorQuery().in(this);
+      views.
+      selectAll('.uni-swipe_button-group').
+      boundingClientRect(function (data) {
+        var show = 'none';
+        if (_this3.autoClose) {
+          show = 'none';
+        } else {
+          show = _this3.show;
+        }
+        _this3.button = {
+          data: data,
+          show: show };
+
+      }).
+      exec();
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 434 */,
+/* 435 */,
+/* 436 */,
+/* 437 */,
+/* 438 */,
+/* 439 */,
+/* 440 */,
+/* 441 */,
+/* 442 */,
+/* 443 */,
+/* 444 */,
+/* 445 */,
+/* 446 */,
+/* 447 */,
+/* 448 */
 /*!*****************************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/@dcloudio/uni-ui/lib/uni-popup/popup.js ***!
   \*****************************************************************************************/
@@ -44208,7 +44406,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _message = _interopRequireDefault(__webpack_require__(/*! ./message.js */ 404));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _message = _interopRequireDefault(__webpack_require__(/*! ./message.js */ 449));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 // 定义 type 类型:弹出类型：top/bottom/center
 var config = {
   // 顶部弹出
@@ -44234,7 +44432,7 @@ var config = {
   mixins: [_message.default] };exports.default = _default;
 
 /***/ }),
-/* 404 */
+/* 449 */
 /*!*******************************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/@dcloudio/uni-ui/lib/uni-popup/message.js ***!
   \*******************************************************************************************/

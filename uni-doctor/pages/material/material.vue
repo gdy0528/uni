@@ -18,7 +18,7 @@
 					<CommonPicker :colums="sexColums" :value="sex" columsKey="text" placeholder="请选择您的性别" @change="handleChangPicker($event, 'sex')" />
 				</view>
 				<view class="field-icons">
-					<LayzImage src="../../static/material/link_gray.png" />
+					<LayzImage src="@material/link_gray.png" />
 				</view>
 			</view>
 			<view class="material-field">
@@ -27,7 +27,7 @@
 					<CommonDatePicker :value="birthday" placeholder="请选择您的出生日期" @change="handleChangPicker($event, 'birthday')" />
 				</view>
 				<view class="field-icons">
-					<LayzImage src="../../static/material/link_gray.png" />
+					<LayzImage src="@material/link_gray.png" />
 				</view>
 			</view>
 			<view class="material-field">
@@ -36,7 +36,7 @@
 					<CommonAddressPicker :value="address" placeholder="请选择您的所在区域" @change="handleChangPicker($event, 'address')" />
 				</view>
 				<view class="field-icons">
-					<LayzImage src="../../static/material/link_gray.png" />
+					<LayzImage src="@material/link_gray.png" />
 				</view>
 			</view>
 			<view class="material-field">
@@ -45,7 +45,7 @@
 					<CommonPicker :colums="hospitalColums" :value="hospital" columsKey="text" placeholder="请选择您的所属医院" @change="handleChangPicker($event, 'hospital')" />
 				</view>
 				<view class="field-icons">
-					<LayzImage src="../../static/material/link_gray.png" />
+					<LayzImage src="@material/link_gray.png" />
 				</view>
 			</view>
 			<view class="material-field">
@@ -54,7 +54,7 @@
 					<CommonPicker :colums="departmentsColums" :value="departments" columsKey="text" placeholder="请选择您的所属科室" @change="handleChangPicker($event, 'departments')" />
 				</view>
 				<view class="field-icons">
-					<LayzImage src="../../static/material/link_gray.png" />
+					<LayzImage src="@material/link_gray.png" />
 				</view>
 			</view>
 			<view class="material-field">
@@ -63,7 +63,7 @@
 					<CommonPicker :colums="obligationColums" :value="obligation" columsKey="text" placeholder="请选择您的职称" @change="handleChangPicker($event, 'obligation')" />
 				</view>
 				<view class="field-icons">
-					<LayzImage src="../../static/material/link_gray.png" />
+					<LayzImage src="@material/link_gray.png" />
 				</view>
 			</view>
 			<view class="material-field">

@@ -4,7 +4,7 @@
 			<view class="setting-item">
 				<text class="item-desc">修改密码</text>
 				<view class="item-arrow">
-					<LayzImage src="../../static/middle-return-light_gray-right.png" />
+					<LayzImage src="@middle-return-light_gray-right.png" />
 				</view>
 			</view>
 		</view>
@@ -16,6 +16,7 @@
 
 <script>
 	import { mapMutations } from 'vuex'
+	import { showModal } from '../../utils/commonJs'
 	export default {
 		methods: {
 			...mapMutations([
@@ -23,22 +24,16 @@
 				'SET_INFO'
 			]),
 			handleClickLoginOut() {	//退出登录
-				uni.showModal({
-					title: "友情提示",
+				showModal({
 					content: "确认是否退出登录?",
-					cancelText: "取消",
 					confirmText: "退出",
-					confirmColor: "#0E92F8",
-					success: (res) => {
-						if (res.confirm) {
-							this.SET_TOKEN('')
-							this.SET_INFO('')
-							uni.reLaunch({
-								url: "/pages/login/login"
-							})
-						} 
-					}
-				})
+				}).then(() => {
+					this.SET_TOKEN('')
+					this.SET_INFO('')
+					uni.reLaunch({
+						url: "/pages/login/login"
+					})
+				}).catch(() => {})
 			}
 		}
 	}

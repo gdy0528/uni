@@ -1,1 +1,1 @@
-<view class="AssistantContainer">hello</view>
+<view class="AssistantContainer data-v-51fcff84"><assistant-serve vue-id="24b91bfc-1" data-ref="AssistantServe" class="data-v-51fcff84 vue-ref" bind:__l="__l"></assistant-serve><assistant-list vue-id="24b91bfc-2" data-ref="AssistantList" class="data-v-51fcff84 vue-ref" bind:__l="__l"></assistant-list></view>

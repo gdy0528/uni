@@ -3,14 +3,14 @@
 		<view class="studio-box">
 			<view class="studio-item">
 				<view class="item-icons">
-					<LayzImage src="../../static/studio/d_studio_icon_interrogationnews.png" />
+					<LayzImage src="@studio/d_studio_icon_interrogationnews.png" />
 					<!-- <text class="bage">1</text> -->
 				</view>
 				<view class="item-name">您有新订单请查看</view>
 			</view>
 			<view class="studio-item">
 				<view class="item-icons">
-					<LayzImage src="../../static/studio/d_studio_icon_orderhistory.png" />
+					<LayzImage src="@studio/d_studio_icon_orderhistory.png" />
 					<!-- <text class="bage">1</text> -->
 				</view>
 				<view class="item-name">点击查看</view>
@@ -19,14 +19,14 @@
 		<view class="studio-box">
 			<navigator class="studio-item" hover-class="none" url="../case/case">
 				<view class="item-icons">
-					<LayzImage src="../../static/studio/d_studio_icon_wardnews.png" />
+					<LayzImage src="@studio/d_studio_icon_wardnews.png" />
 					<!-- <text class="bage">1</text> -->
 				</view>
 				<view class="item-name">查看患者病历</view>
 			</navigator>
 			<view class="studio-item">
 				<view class="item-icons">
-					<LayzImage src="../../static/studio/d_studio_icon_wardround.png" />
+					<LayzImage src="@studio/d_studio_icon_wardround.png" />
 					<!-- <text class="bage">1</text> -->
 				</view>
 				<view class="item-name">管理您的病人</view>
@@ -34,11 +34,11 @@
 		</view>
 		<view class="service-box" v-if="routerType != 3">
 			<view class="service-icons">
-				<LayzImage src="../../static/studio/d_studio_icon_serve.png" />
+				<LayzImage src="@studio/d_studio_icon_serve.png" />
 			</view>
 			<view class="service-name">服务设置</view>
 			<view class="service-arrow">
-				<LayzImage src="../../static/studio/link.png" />
+				<LayzImage src="@studio/link.png" />
 			</view>
 		</view>
 	</view>

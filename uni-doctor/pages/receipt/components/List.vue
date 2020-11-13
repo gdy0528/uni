@@ -24,7 +24,7 @@
 					</view>
 					<view class="content-skip" v-if="item.orderTypes == 'C' && item.orderState !='B'">
 						<view class="skip-icons">
-							<LayzImage src="../../static/receipt/link.png" />
+							<LayzImage src="@receipt/link.png" />
 						</view>
 					</view>
 				</view>
@@ -55,7 +55,7 @@
 				</view>
 				<view class="item-type">
 					<view class="type-vip" v-if="item.orderGenre == '4'">
-						<LayzImage src="../../static/receipt/tip_dingdan_vip.png" />
+						<LayzImage src="@receipt/tip_dingdan_vip.png" />
 					</view>
 					<view class="type-poverty" v-else-if="item.orderGenre == '2'">爱心贫困用户</view>
 					<view class="type-gratis" v-else-if="item.orderGenre != '2' && item.orderMoney == 0">免费问诊</view>

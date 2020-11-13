@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "我的助手",
-  "usingComponents": {}
+  "usingComponents": {
+    "assistant-serve": "/pages/assistant/components/Serve",
+    "assistant-list": "/pages/assistant/components/List"
+  }
 }

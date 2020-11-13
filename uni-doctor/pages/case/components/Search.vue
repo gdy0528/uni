@@ -4,7 +4,7 @@
 			<view class="search-box">
 					<view class="search-item">
 						<view class="item-icons">
-							<LayzImage src="../../static/case/d_doctorlist_icon_search.png" />
+							<LayzImage src="@case/d_doctorlist_icon_search.png" />
 						</view>
 						<view class="item-input">
 							<input class="input-search" type="text" name="search" placeholder="搜索想查看的患者">
@@ -19,7 +19,7 @@
 				<CommonPicker :colums="hospitalArray" :value="hospitalValue" @change="handleChangeHospital" />
 			</view>
 			<view class="screen-icons">
-				<LayzImage src="../../static/middle-return-black-right.png" />
+				<LayzImage src="@middle-return-black-right.png" />
 			</view>
 		</view>
 	</view>

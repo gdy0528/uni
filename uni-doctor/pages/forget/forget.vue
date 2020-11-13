@@ -2,7 +2,7 @@
 	<view class="ForgetContainer">
 		<view class="logo-box">
 			<view class="logo-icons">
-				<LayzImage src="../../static/logo.png" />
+				<LayzImage src="@logo.png" />
 			</view>
 			<text class="logo-name" space="ensp">专业 权威 脑科专家</text>
 		</view>
@@ -19,16 +19,16 @@
 				<text class="input-name">密码</text>
 				<input class="input-value" type="text" :value="password" :password="isPassword" placeholder="请输入您的账号密码" @input="handleChangPassword">
 				<view class="input-icons" @click="handleClickTogglePassword('password')">
-					<LayzImage v-if="isPassword" src="../../static/login/ic_login_password-see.png" />
-					<LayzImage v-else src="../../static/login/ic_login_password-nosee.png" />
+					<LayzImage v-if="isPassword" src="@login/ic_login_password-see.png" />
+					<LayzImage v-else src="@login/ic_login_password-nosee.png" />
 				</view>
 			</view>
 			<view class="forget-input">
 				<text class="input-name">确认密码</text>
 				<input class="input-value" type="text" :value="passwords" :password="isPasswords" placeholder="请再次确认密码" @input="handleChangPasswords">
 				<view class="input-icons" @click="handleClickTogglePassword('passwords')">
-					<LayzImage v-if="isPasswords" src="../../static/login/ic_login_password-see.png" />
-					<LayzImage v-else src="../../static/login/ic_login_password-nosee.png" />
+					<LayzImage v-if="isPasswords" src="@login/ic_login_password-see.png" />
+					<LayzImage v-else src="@login/ic_login_password-nosee.png" />
 				</view>
 			</view>
 		</view>

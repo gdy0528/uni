@@ -81,6 +81,11 @@
           "name": "病历库",
           "id": 10,
           "pathName": "pages/medical/medical"
+        },
+        {
+          "name": "我的助手",
+          "id": 11,
+          "pathName": "pages/assistant/assistant"
         }
       ]
     }
