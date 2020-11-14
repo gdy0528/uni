@@ -13,8 +13,8 @@
 							<view class="serve-item" v-for="(items, indexs) in item.authority" :key="indexs">
 								<text class="item-text">{{items}}</text>
 								<view class="item-icons">
-									<LayzImage v-if="item.userState == 'N'" src="@assistant/assistant _icon_off.png" />
-									<LayzImage v-else src="@assistant/assistant _icon_on.png" />
+									<LayzImage v-if="item.userState == 'N'" src="@assistant/assistant_icon_off.png" />
+									<LayzImage v-else src="@assistant/assistant_icon_on.png" />
 								</view>
 							</view>
 						</view>
