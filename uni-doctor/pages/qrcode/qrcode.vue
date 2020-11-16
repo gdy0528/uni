@@ -10,7 +10,7 @@
 			<view class="qrcode-ewm">
 				<view class="ewm-box" :class="{ 'ewm-rotate': qrIndex }" @click="handleClickRotateY">
 					<view class="ewm-qrcode" v-for="(item, index) in qrConfig" :key="index">
-						<tki-qrcode :cid="item.cid" ref="qrcode" :val="qrUrl(item.val)" :size="300" :icon="item.icon" :iconSize="25" onval :showLoading="false" />
+						<tki-qrcode ref="qrcode" :cid="item.cid" :val="qrUrl(item.val)" :size="300" :icon="item.icon" :iconSize="25" onval :showLoading="false" />
 					</view>
 				</view>
 				<text class="ewm-desc" v-if="userInfo.userType != 3">{{ qrPort(qrIndex, 'image', routerObj.type) }}</text>
@@ -78,7 +78,7 @@ export default {
 			})
 		}
 	},
-	mounted() {
+	onShow() {
 		this.getUserInfo() //获取个人信息
 	},
 	onLoad(option) {
