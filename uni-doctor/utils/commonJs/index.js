@@ -19,3 +19,21 @@ export function showModal(showModalObj) {
 		})
 	})
 }
+
+/* 二次处理提示交互 */
+export function showToast(showToastObj) {
+	return new Promise((resolve) => {
+		uni.showToast({
+			title: showToastObj.title || "提示内容",
+			icon: showToastObj.icon || "success",
+			image: showToastObj.image || "",
+			mask: showToastObj.mask || true,
+			duration: showToastObj.duration || 1500,
+			success: res => {
+				setTimeout(() => {
+					resolve()
+				},showToastObj.duration || 1500)
+			}
+		})
+	})
+}

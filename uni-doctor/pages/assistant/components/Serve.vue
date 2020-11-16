@@ -7,8 +7,8 @@
 			</view>
 		</view>
 		<view class="serve-btns">
-			<view class="btns">添加助手</view>
-			<view class="btns">邀请TA为助手</view>
+			<navigator class="btns" url="/pages/addAssistant/addAssistant">添加助手</navigator>
+			<navigator class="btns" url="/pages/qrcode/qrcode?type=assistant">邀请TA为助手</navigator>
 		</view>
 	</view>
 </template>

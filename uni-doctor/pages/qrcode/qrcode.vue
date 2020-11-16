@@ -4,7 +4,7 @@
 			<view class="qrcode-info">
 				<view class="info-head"><LayzImage :src="userInfo.userImg" round /></view>
 				<text class="info-name">{{ userInfo.userNickname }}</text>
-				<text class="info-desc">我为脑科专家代言<!-- {{ !qrIndex ? '邀请你成为我的助手' : '我为脑科专家代言' }} --></text>
+				<text class="info-desc">{{ qrPort(qrIndex, 'title', routerObj.type) }}</text>
 			</view>
 			<view class="qrcode-border"></view>
 			<view class="qrcode-ewm">
@@ -13,8 +13,8 @@
 						<tki-qrcode :cid="item.cid" ref="qrcode" :val="qrUrl(item.val)" :size="300" :icon="item.icon" :iconSize="25" onval :showLoading="false" />
 					</view>
 				</view>
-				<text class="ewm-desc" v-if="userInfo.userType != 3">（点击图片切换{{ qrPort(qrIndex, 'image') }}端）</text>
-				<button class="ewm-btns" plain>分享{{ qrPort(qrIndex, 'share') }}端二维码</button>
+				<text class="ewm-desc" v-if="userInfo.userType != 3">{{ qrPort(qrIndex, 'image', routerObj.type) }}</text>
+				<button class="ewm-btns" plain>{{ qrPort(qrIndex, 'share', routerObj.type) }}</button>
 			</view>
 		</view>
 	</view>
@@ -28,6 +28,7 @@ export default {
 	},
 	data() {
 		return {
+			routerObj: {},	//路由信息
 			qrIndex: false, //当前展示二维码
 			qrConfig: [	//二维码列表
 				{
@@ -45,10 +46,11 @@ export default {
 		};
 	},
 	computed: {
-		qrPort(qrIndex, type) {	//计算二维码端区分
-			return (qrIndex, type) => {
-				if (type == 'image') return qrIndex ? '医生' : '患者';
-				if (type == 'share') return qrIndex ? '患者' : '医生';
+		qrPort(qrIndex, type, routerType) {	//计算二维码端区分
+			return (qrIndex, type, routerType) => {
+				if (type == 'title') return routerType == "assistant" ? '邀请你成为我的助手' : '我为脑科专家代言'
+				if (type == 'image') return routerType == "assistant" ? 'TA扫一扫此码进行注册' : `（点击图片切换${qrIndex ? '医生' : '患者'}端）`;
+				if (type == 'share') return routerType == "assistant" ? '分享给TA' : `分享${qrIndex ? '患者' : '医生'}端二维码`;
 			};
 		},
 		qrUrl(url) {	//计算二维码地址
@@ -59,8 +61,8 @@ export default {
 	},
 	methods: {
 		handleClickRotateY() {	//切换翻转二维码
-			let { userInfo } = this
-			if (userInfo.userType != 3) {
+			let { userInfo, routerObj } = this
+			if (userInfo.userType != 3 && routerObj.type != "assistant") {
 				this.qrIndex = !this.qrIndex
 			}
 		},
@@ -78,8 +80,11 @@ export default {
 	},
 	mounted() {
 		this.getUserInfo() //获取个人信息
+	},
+	onLoad(option) {
+		this.routerObj = option
 	}
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -19,16 +19,16 @@
 				<text class="input-name">密码</text>
 				<input class="input-value" type="text" :value="password" :password="isPassword" placeholder="请输入您的账号密码" @input="handleChangPassword">
 				<view class="input-icons" @click="handleClickTogglePassword('password')">
-					<LayzImage v-if="isPassword" src="@login/ic_login_password-see.png" />
-					<LayzImage v-else src="@login/ic_login_password-nosee.png" />
+					<LayzImage v-if="isPassword" src="@ic_login_password-see.png" />
+					<LayzImage v-else src="@ic_login_password-nosee.png" />
 				</view>
 			</view>
 			<view class="forget-input">
 				<text class="input-name">确认密码</text>
 				<input class="input-value" type="text" :value="passwords" :password="isPasswords" placeholder="请再次确认密码" @input="handleChangPasswords">
 				<view class="input-icons" @click="handleClickTogglePassword('passwords')">
-					<LayzImage v-if="isPasswords" src="@login/ic_login_password-see.png" />
-					<LayzImage v-else src="@login/ic_login_password-nosee.png" />
+					<LayzImage v-if="isPasswords" src="@ic_login_password-see.png" />
+					<LayzImage v-else src="@ic_login_password-nosee.png" />
 				</view>
 			</view>
 		</view>
@@ -40,6 +40,7 @@
 
 <script>
 	import { insPhone, insEmpty, insPwd } from '../../utils/check'
+	import { showToast } from '../../utils/commonJs'
 	export default {
 		data() {
 			return {
@@ -84,7 +85,7 @@
 						}).then(data => {
 							let res = data.data
 							if (res.code == 200) {
-								uni.showToast({
+								showToast({
 									title: '发送成功，请留意您的短信',
 									icon: "none",
 									duration: 2000
@@ -114,7 +115,7 @@
 					insPwd(password) &&
 					insPwd(passwords, "确认密码")) {
 					if (password != passwords) { //判断密码与确认密码是否一致
-						uni.showToast({
+						showToast({
 							title: "两次密码不一致",
 							icon: "none",
 							duration: 2000

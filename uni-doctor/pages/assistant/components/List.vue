@@ -3,7 +3,7 @@
 		<template v-if="assistantList.length > 0">
 			<uni-swipe-action class="list-action">
 				<uni-swipe-action-item class="action-item" v-for="(item, index) in assistantList" :key="index" :disabled="item.userState == 'N'">
-					<view class="item-content" :class="{'item-active-content' : item.userState == 'N'}">
+					<view class="item-content" :class="{'item-active-content' : item.userState == 'N'}" @click="handleClickItem(item)">
 						<view class="content-info">
 							<text class="info-name">{{item.userNickname}}</text>
 							<text class="info-phone">{{item.userName}}</text>
@@ -18,12 +18,12 @@
 								</view>
 							</view>
 						</view>
-						<view v-if="item.userState == 'N'" class="content-freeze">
-							<view class="relieve-btns" @click="handleClickRelieve(item.id, index)">解除冻结</view>
+						<view v-if="item.userState == 'N'" class="content-freeze" @click.stop>
+							<view class="relieve-btns" @click.stop="handleClickRelieve(item.id, index)">解除冻结</view>
 						</view>
 					</view>
 					<template v-slot:right>
-						<view class="freeze-btns" @click="handleClcikFreeze(item.id, index)">冻结</view>
+						<view class="freeze-btns" @click.stop="handleClcikFreeze(item.id, index)">冻结</view>
 					</template>
 				</uni-swipe-action-item>
 			</uni-swipe-action>
@@ -46,6 +46,11 @@
 			}
 		},
 		methods: {
+			handleClickItem(item) {	//点击跳转
+				uni.navigateTo({
+					url: `/pages/editAssistant/editAssistant?id=${item.id}`
+				})
+			},
 			handleClcikFreeze(id, index) {	//点击冻结
 				let self = this
 				showModal({

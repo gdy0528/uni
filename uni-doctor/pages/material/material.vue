@@ -101,6 +101,7 @@
 	import CommonDatePicker from '../../common/Picker/DatePicker'
 	import CommonAddressPicker from '../../common/Picker/AddressPicker'
 	import { insEmpty, insName } from '../../utils/check'
+	import { showToast } from '../../utils/commonJs'
 	import { mapState, mapMutations } from 'vuex'
 	export default {
 		components: {
@@ -242,15 +243,12 @@
 								let info = self.info
 								info.userImg = self.avatarSrc
 								info.userName = self.name
-								uni.showToast({ 
-									title: '提交成功', 
-									duration: 1000, 
-									mask: true
-								})
-								setTimeout(() => {
+								showToast({ 
+									title: '提交成功',
+								}).then(() => {
 									self.SET_INFO(info)
 									uni.navigateBack()
-								}, 1000)
+								})
 							} else {
 								self.isBtns = false 
 							}

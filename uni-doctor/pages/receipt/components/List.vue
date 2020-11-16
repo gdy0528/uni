@@ -68,6 +68,7 @@
 
 <script>
 	import { inquiry } from '../../../utils/tool'
+	import { showToast } from '../../../utils/commonJs'
 	import { mapState } from 'vuex'
 	export default {
 		props: {
@@ -116,7 +117,7 @@
 				self.receiptList = []	//清空接单数据
 				self.postReceivingOrderList().then(res => {
 					uni.stopPullDownRefresh()
-					uni.showToast({
+					showToast({
 						title: "刷新成功",
 						duration: 1000
 					})

@@ -84,7 +84,7 @@
 			"style": {
 				"navigationBarTitleText": "我的助手",
 				"app-plus": {
-					"bounce":"none",
+					"bounce": "none",
 					"titleNView": {
 						"buttons": [{
 							"width": "65px",
@@ -95,6 +95,18 @@
 						}]
 					}
 				}
+			}
+		},
+		{
+			"path": "pages/addAssistant/addAssistant",
+			"style": {
+				"navigationBarTitleText": "添加助手"
+			}
+		},
+		{
+			"path": "pages/editAssistant/editAssistant",
+			"style": {
+				"navigationBarTitleText": "修改助手"
 			}
 		}
 	],
@@ -148,6 +160,14 @@
 			{
 				"path": "pages/assistant/assistant",
 				"name": "我的助手"
+			},
+			{
+				"path": "pages/addAssistant/addAssistant",
+				"name": "添加助手"
+			},
+			{
+				"path": "pages/editAssistant/editAssistant",
+				"name": "修改助手"
 			}
 		]
 	},

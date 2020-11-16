@@ -29,6 +29,7 @@
 <script>
 	"use strict";
 	const tH = 50;
+	import { showToast } from '../../utils/commonJs'
 	export default {
 		name: "yq-avatar",
 		data() {
@@ -239,7 +240,7 @@
 								}
 							},
 							fail: () => {
-								uni.showToast({
+								showToast({
 									title: "请选择正确图片",
 									duration: 2000,
 								})
@@ -301,7 +302,7 @@
 						});
 					},
 					fail: (res) => {
-						uni.showToast({
+						showToast({
 							title: "error1",
 							duration: 2000,
 						})
@@ -349,7 +350,7 @@
 						// #endif
 					},
 					fail: (res) => {
-						uni.showToast({
+						showToast({
 							title: "error1",
 							duration: 2000,
 						})
@@ -414,7 +415,7 @@
 						});
 					},
 					fail: () => {
-						uni.showToast({
+						showToast({
 							title: "error_prv",
 							duration: 2000,
 						})
@@ -461,7 +462,7 @@
 						// #endif
 					},
 					fail: () => {
-						uni.showToast({
+						showToast({
 							title: "error_prv",
 							duration: 2000,
 						})
@@ -739,7 +740,7 @@
 						this.pT = '0';
 					},
 					fail: () => {
-						uni.showToast({
+						showToast({
 							title: "error2",
 							duration: 2000,
 						})
@@ -812,7 +813,7 @@
 						this.pT = this.drawTop + 'px';
 					},
 					fail: () => {
-						uni.showToast({
+						showToast({
 							title: "error2",
 							duration: 2000,
 						})
@@ -1094,7 +1095,7 @@
 
 				if (!this.prvImgData) {
 					if (!(this.prvImgData = await this.fGetImgData().catch(() => {
-							uni.showToast({
+							showToast({
 								title: "error_read",
 								duration: 2000,
 							})
@@ -1204,7 +1205,7 @@
 					height: prvHeight,
 					data: target,
 					fail() {
-						uni.showToast({
+						showToast({
 							title: 'error_put',
 							duration: 2000
 						})
@@ -1224,7 +1225,7 @@
 					height: prvHeight,
 					data: target,
 					fail() {
-						uni.showToast({
+						showToast({
 							title: 'error_put',
 							duration: 2000
 						})

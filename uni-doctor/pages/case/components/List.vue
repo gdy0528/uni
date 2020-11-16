@@ -33,6 +33,7 @@
 
 <script>
 	import { grade } from '../../../utils/tool'
+	import { showToast } from '../../../utils/commonJs'
 	export default {
 		data() {
 			return {
@@ -104,7 +105,7 @@
 				self.caseList = []	//清空接单数据
 				self.postCaseData(false).then(res => {
 					uni.stopPullDownRefresh()
-					uni.showToast({
+					showToast({
 						title: "刷新成功",
 						duration: 1000
 					})

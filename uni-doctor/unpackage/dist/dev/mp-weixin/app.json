@@ -11,7 +11,9 @@
     "pages/forget/forget",
     "pages/material/material",
     "pages/medical/medical",
-    "pages/assistant/assistant"
+    "pages/assistant/assistant",
+    "pages/addAssistant/addAssistant",
+    "pages/editAssistant/editAssistant"
   ],
   "subPackages": [],
   "window": {

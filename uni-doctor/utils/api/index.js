@@ -1,5 +1,5 @@
 import store from '@/store'
-import { showModal } from '../commonJs/'
+import { showModal, showToast } from '../commonJs'
 
 const PROD_SERVICE = '' //线上环境
 // const DEV_SERVICE = 'http://www.nkzj999.com/wx/serve/test-doctor' //测试环境
@@ -53,7 +53,7 @@ function handleSuceesState(data, loading, toast) { //处理后台成功返回状
 				})
 			})
 			} else {
-				uni.showToast({
+				showToast({
 					title: datas.msg,
 					icon: "none",
 					duration: 2000

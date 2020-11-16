@@ -1,22 +1,23 @@
+import { showToast } from '../commonJs'
+
 /* 提示弹窗 */
-function showToast(title) {
-	uni.showToast({
+function insShowToast(title) {
+	showToast({
 		title,
-		icon: "none",
-		duration: 2000
+		icon: "none"
 	})
 }
 
 /* 判断姓名 */
 export function insName(name) { 
 	if (name.length < 0 || name == "") {
-		showToast('姓名不能为空')
+		insShowToast('姓名不能为空')
 		return
 	} else if (/[^\u4E00-\u9FA5|\d|\a-zA-Z|\r\n\s,.?!，。？！…—&$=()-+/*{}[\]]|\s/g.test(name)) {
-		showToast('姓名格式存在特殊符号')
+		insShowToast('姓名格式存在特殊符号')
 		return
 	} else if (name.length > 6) {
-		showToast('姓名最多为6位')
+		insShowToast('姓名最多为6位')
 		return
 	} else {
 		return true
@@ -27,10 +28,10 @@ export function insName(name) {
 export function insText(val, desc) { 
 	//为空或全部为空格
 	if (val.length < 1 || val.match(/^[ ]*$/)) {
-		showToast(desc)
+		insShowToast(desc)
 		return
 	} else if (!/^[\u4e00-\u9fa5]+$/.test(val)) {
-		showToast('输入内容必须为中文汉字')
+		insShowToast('输入内容必须为中文汉字')
 		return
 	}
 	return true
@@ -39,10 +40,10 @@ export function insText(val, desc) {
 /* 判断密码 */
 export function insPwd(pwd, desc = "密码") { 
 	if (pwd.length < 0 || pwd == "") {
-		showToast(`${desc}不能为空`)
+		insShowToast(`${desc}不能为空`)
 		return
 	} else if (!/^[0-9A-Za-z]{6,12}$/.test(pwd)) {
-		showToast(`${desc}必须为6-12字母数字组合`)
+		insShowToast(`${desc}必须为6-12字母数字组合`)
 		return
 	} else {
 		return true
@@ -56,7 +57,7 @@ export function isEmail(email) {
 		"eyou.com", "gmail.com", "hotmail.com", "42du.cn"
 	]
 	if (email.length < 0 || email == "") {
-		showToast('邮箱账号不能为空')
+		insShowToast('邮箱账号不能为空')
 		return
 	} else if (pattern.test(email)) {
 		let domain = email.substring(email.indexOf("@") + 1);
@@ -66,7 +67,7 @@ export function isEmail(email) {
 			}
 		}
 	} else {
-		showToast('邮箱账号格式有误')
+		insShowToast('邮箱账号格式有误')
 		return
 	}
 }
@@ -77,7 +78,7 @@ export function isAlphanumeric(value, desc) {
 	if (alphanumeric.test(value)) {
 		return true
 	} else {
-		showToast(desc)
+		insShowToast(desc)
 		return
 	}
 }
@@ -85,10 +86,10 @@ export function isAlphanumeric(value, desc) {
 /* 判断手机号码 */
 export function insPhone(phone) {
 	if (phone.length < 0 || phone == "") {
-		showToast('手机号不能为空')
+		insShowToast('手机号不能为空')
 		return
 	} else if (!/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/.test(phone)) {
-		showToast('手机号码格式有误')
+		insShowToast('手机号码格式有误')
 		return
 	} else {
 		return true
@@ -98,7 +99,7 @@ export function insPhone(phone) {
 /* 判断银行卡号 */
 export function insBankCard(bank) {
 	if (!/^([1-9]{1})(\d{15}|\d{18})$/.test(bank)) {
-		showToast('请输入正确的银行卡号')
+		insShowToast('请输入正确的银行卡号')
 		return
 	} else {
 		return true
@@ -108,13 +109,13 @@ export function insBankCard(bank) {
 /* 判断银行卡开户支行 */
 export function insBranch(branch) { 
 	if (branch.length < 0 || branch == "") {
-		showToast('开户支行不能为空')
+		insShowToast('开户支行不能为空')
 		return
 	} else if (!/^[\u4e00-\u9fa5]+$/.test(branch)) {
-		showToast('开户支行必须为中文汉字')
+		insShowToast('开户支行必须为中文汉字')
 		return
 	} else if (branch.length > 20) {
-		showToast('开户支行上限为21位')
+		insShowToast('开户支行上限为21位')
 		return
 	} else {
 		return true
@@ -125,7 +126,7 @@ export function insBranch(branch) {
 export function insEmpty(val, desc) {
 	//为空或全部为空格
 	if (val.length < 1 || val.match(/^[ ]*$/)) {
-		showToast(desc)
+		insShowToast(desc)
 		return
 	}
 	return true
@@ -157,7 +158,7 @@ export function keyIntegerNumber(val, max) {
 	let content = val
 	content = content.replace(/[^\.\d]/g, '').replace(/^0{1,}/g, '').replace('.', '')
 	if (content > max) { //最后只能输入5位
-		showToast('输入值不能大于' + max)
+		insShowToast('输入值不能大于' + max)
 		return ""
 	} else {
 		return content
