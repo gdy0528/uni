@@ -102,7 +102,6 @@
 						@include ellipsis;
 					}
 					.content-desc {
-						margin-top: 20upx;
 						font-size: $fontSize;
 						color: $fontGrayColor;
 						@include ellipsis;
