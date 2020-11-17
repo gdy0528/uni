@@ -14,7 +14,7 @@
 </template>
 
 <script>
-	import CommonPopup from '../../../common/Popup/Popup'
+	import CommonPopup from '@/common/Popup/Popup'
 	export default {
 		components: {
 			CommonPopup

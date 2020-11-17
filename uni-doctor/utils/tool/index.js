@@ -81,7 +81,6 @@ export function grade(conut) {
 	}
 }
 
-
 /* 咨询类型背景 */
 export function inquiry(type) {
 	switch (type) {

@@ -39,8 +39,8 @@
 </template>
 
 <script>
-	import { insPhone, insEmpty, insPwd } from '../../utils/check'
-	import { showToast } from '../../utils/commonJs'
+	import { insPhone, insEmpty, insPwd } from '@/utils/check'
+	import { showToast } from '@/utils/commonJs'
 	export default {
 		data() {
 			return {

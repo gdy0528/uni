@@ -14,7 +14,7 @@
 </template>
 
 <script>
-	import TextScroll from '../../common/TextScroll/TextScroll'
+	import TextScroll from '@/common/TextScroll/TextScroll'
 	import ReceiptList from './components/List'
 	export default {
 		components: {

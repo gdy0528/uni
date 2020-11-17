@@ -1,33 +1,30 @@
 <template>
 	<view class="StudioContainer">
 		<view class="studio-box">
-			<view class="studio-item">
+			<navigator class="studio-item" hover-class="none" url="/pages/advisory/advisory">
 				<view class="item-icons">
 					<LayzImage src="@studio/d_studio_icon_interrogationnews.png" />
-					<!-- <text class="bage">1</text> -->
+					<text class="bage" v-if="orderCount > 0"></text>
 				</view>
-				<view class="item-name">您有新订单请查看</view>
-			</view>
+				<view class="item-name">{{orderCount > 0 ? "您有新订单请查看" : '暂无消息'}}</view>
+			</navigator>
 			<view class="studio-item">
 				<view class="item-icons">
 					<LayzImage src="@studio/d_studio_icon_orderhistory.png" />
-					<!-- <text class="bage">1</text> -->
 				</view>
 				<view class="item-name">点击查看</view>
 			</view>
 		</view>
 		<view class="studio-box">
-			<navigator class="studio-item" hover-class="none" url="../case/case">
+			<navigator class="studio-item" hover-class="none" url="/pages/case/case">
 				<view class="item-icons">
 					<LayzImage src="@studio/d_studio_icon_wardnews.png" />
-					<!-- <text class="bage">1</text> -->
 				</view>
 				<view class="item-name">查看患者病历</view>
 			</navigator>
 			<view class="studio-item">
 				<view class="item-icons">
 					<LayzImage src="@studio/d_studio_icon_wardround.png" />
-					<!-- <text class="bage">1</text> -->
 				</view>
 				<view class="item-name">管理您的病人</view>
 			</view>
@@ -45,18 +42,17 @@
 </template>
 
 <script>
-	import {
-		mapState
-	} from "vuex"
+	import { mapState } from "vuex"
 	export default {
 		data() {
 			return {
-				studio: {}
+				studio: {}	//医生信息
 			}
 		},
 		computed: {
 			...mapState({
-				routerType: state => state.info.userType //助手类型
+				routerType: state => state.info.userType, //助手类型
+				orderCount: state => state.imRong.totalUnreadCount	//获取未读总数
 			})
 		},
 		methods: {
@@ -71,7 +67,7 @@
 			}
 		},
 		onShow() {
-			// this.postStudio() //请求工作室数据
+			this.postStudio() //请求工作室数据
 		}
 	}
 </script>
@@ -95,9 +91,20 @@
 					border: none;
 				}
 				.item-icons {
+					position: relative;
 					width: 200upx;
 					height: 180upx;
 					margin-bottom: 28upx;
+					.bage {
+						position: absolute;
+						top: 8upx;
+						left: 122upx;
+						right: 50upx;
+						width: 30upx;
+						height: 30upx;
+						border-radius: 100%;
+						background: #F9605E;
+					}
 				}
 				.item-name {
 					margin-left: 40upx;

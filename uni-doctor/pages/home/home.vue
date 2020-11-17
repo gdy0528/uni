@@ -91,7 +91,7 @@
 		onShow() {
 			this.postHome() //请求首页数据
 			this.postHomeSign()	//获取首页角标
-		},
+		}
 	}
 </script>
 

@@ -31,6 +31,7 @@
 <script>
 	import aesEncrypt from '@/utils/aesEncrypt'
 	import { insEmpty } from '@/utils/check'
+	import { imLogin } from '@/utils/imRong'
 	import { mapMutations } from 'vuex'
 	export default {
 		data() {
@@ -51,10 +52,10 @@
 				let self = this
 				if (isUser) {
 					if (insEmpty(self.phone,"手机号码不能为空") && insEmpty(self.password,"密码不能为空")) {
+						uni.showLoading({title: '登录中', mask: true})
 						self.$get('/api/common/wx/getEncryptedString', {}, false, false).then(res => {
 							let ase = res.data.data
 							let password = aesEncrypt.encryption(self.password, ase.key, ase.iv)
-							uni.showLoading({title: '登录中', mask: true})
 							self.$post('/api/common/wx/accountLogin', {
 								userName: self.phone,
 								userPass: password,
@@ -64,11 +65,13 @@
 								if(datas.code == 200) {
 									let user = datas.data.userVo
 									let info = {  //个人信息
+										"imTokens": user.imTokens,
 										"userType": user.userType,
 										"userName": user.userNickname,
 										"userId": user.id,
 										"userImg": user.userImg
 									}
+									imLogin(user.imTokens)
 									self.SET_TOKEN(datas.data.token)
 									self.SET_INFO(info)
 									uni.reLaunch({

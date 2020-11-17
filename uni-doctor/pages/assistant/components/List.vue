@@ -34,7 +34,7 @@
 
 <script>
 	import { uniSwipeAction, uniSwipeActionItem } from '@dcloudio/uni-ui'
-	import { showModal } from '../../../utils/commonJs'
+	import { showModal } from '@/utils/commonJs'
 	export default {
 		components: {
 			uniSwipeAction,

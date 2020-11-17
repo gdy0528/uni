@@ -14,8 +14,8 @@
 </template>
 
 <script>
-	import CommonSwitch from '../../../common/Switch/Switch'
-	import { showModal } from '../../../utils/commonJs'
+	import CommonSwitch from '@/common/Switch/Switch'
+	import { showModal } from '@/utils/commonJs'
 	export default {
 		components: {
 			CommonSwitch

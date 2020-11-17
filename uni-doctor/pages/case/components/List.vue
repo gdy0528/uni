@@ -32,8 +32,8 @@
 </template>
 
 <script>
-	import { grade } from '../../../utils/tool'
-	import { showToast } from '../../../utils/commonJs'
+	import { grade } from '@/utils/tool'
+	import { showToast } from '@/utils/commonJs'
 	export default {
 		data() {
 			return {

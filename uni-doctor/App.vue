@@ -1,12 +1,23 @@
 <script>
+	import { mapState } from 'vuex'
+	import { imLogin } from 'utils/imRong'
 	export default {
-		onLaunch: function() {
+		computed: {
+			...mapState([
+				'info',
+				'token'
+			]),
+		},
+		onLaunch() {
+			if (this.info && this.token) {	//重新注册IM
+				imLogin(this.info.imTokens)	
+			}
 			console.log('App Launch')
 		},
-		onShow: function() {
+		onShow() {
 			console.log('App Show')
 		},
-		onHide: function() {
+		onHide() {
 			console.log('App Hide')
 		}
 	}

@@ -16,9 +16,9 @@
 </template>
 
 <script>
-	import CommonCircle from '../../../common/Circle/Circle'
-	import CommonEcharts from '../../../common/Echarts/Echarts'
-	import { grade } from '../../../utils/tool'
+	import CommonCircle from '@/common/Circle/Circle'
+	import CommonEcharts from '@/common/Echarts/Echarts'
+	import { grade } from '@/utils/tool'
 	export default {
 		props: {
 			calculation: Object

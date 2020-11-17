@@ -96,12 +96,12 @@
 </template>
 
 <script>
-	import CommonAvatar from '../../common/Avatar/Avatar'
-	import CommonPicker from '../../common/Picker/Picker'
-	import CommonDatePicker from '../../common/Picker/DatePicker'
-	import CommonAddressPicker from '../../common/Picker/AddressPicker'
-	import { insEmpty, insName } from '../../utils/check'
-	import { showToast } from '../../utils/commonJs'
+	import CommonAvatar from '@/common/Avatar/Avatar'
+	import CommonPicker from '@/common/Picker/Picker'
+	import CommonDatePicker from '@/common/Picker/DatePicker'
+	import CommonAddressPicker from '@/common/Picker/AddressPicker'
+	import { insEmpty, insName } from '@/utils/check'
+	import { showToast } from '@/utils/commonJs'
 	import { mapState, mapMutations } from 'vuex'
 	export default {
 		components: {

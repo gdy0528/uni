@@ -13,7 +13,8 @@
     "pages/medical/medical",
     "pages/assistant/assistant",
     "pages/addAssistant/addAssistant",
-    "pages/editAssistant/editAssistant"
+    "pages/editAssistant/editAssistant",
+    "pages/advisory/advisory"
   ],
   "subPackages": [],
   "window": {

@@ -44,9 +44,9 @@
 </template>
 
 <script>
-	import CommonSwitch from '../../common/Switch/Switch'
-	import { insName, insPwd, insPhone } from '../../utils/check'
-	import { showToast } from '../../utils/commonJs'
+	import CommonSwitch from '@/common/Switch/Switch'
+	import { insName, insPwd, insPhone } from '@/utils/check'
+	import { showToast } from '@/utils/commonJs'
 	export default {
 		components: {
 			CommonSwitch

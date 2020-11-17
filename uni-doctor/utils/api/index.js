@@ -43,15 +43,17 @@ function handleSuceesState(data, loading, toast) { //处理后台成功返回状
 	return new Promise(resolve => {
 		if (state != 200 && toast && data.statusCode == 200) {
 			if (state == 901 || state == 902 || state == 903 || state == 702 || state == 703 || state == 706) { //登录情况
-			showModal({
-				content: datas.msg,
-				showCancel: false,
-				confirmText: "去登录",
-			}).then(() => {
-				uni.redirectTo({
-					url: "/pages/login/login"
+				store.commit("SET_TOKEN", '')
+				store.commit("SET_INFO", '')
+				showModal({
+					content: datas.msg,
+					showCancel: false,
+					confirmText: "去登录",
+				}).then(() => {
+					uni.redirectTo({
+						url: "/pages/login/login"
+					})
 				})
-			})
 			} else {
 				showToast({
 					title: datas.msg,

@@ -16,7 +16,8 @@
 
 <script>
 	import { mapMutations } from 'vuex'
-	import { showModal } from '../../utils/commonJs'
+	import { imDisconnect } from '@/utils/imRong'
+	import { showModal } from '@/utils/commonJs'
 	export default {
 		methods: {
 			...mapMutations([

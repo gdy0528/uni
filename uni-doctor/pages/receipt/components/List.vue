@@ -67,8 +67,8 @@
 </template>
 
 <script>
-	import { inquiry } from '../../../utils/tool'
-	import { showToast } from '../../../utils/commonJs'
+	import { inquiry } from '@/utils/tool'
+	import { showToast } from '@/utils/commonJs'
 	import { mapState } from 'vuex'
 	export default {
 		props: {

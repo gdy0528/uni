@@ -38,8 +38,8 @@
 </template>
 
 <script>
-	import CommonPicker from '../../../common/Picker/Picker'
-	import { grade } from '../../../utils/tool'
+	import CommonPicker from '@/common/Picker/Picker'
+	import { grade } from '@/utils/tool'
 	export default {
 		props: {
 			date: {	//日期数据

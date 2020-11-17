@@ -26,7 +26,7 @@
 </template>
 
 <script>
-	import CommonPicker from '../../../common/Picker/Picker'
+	import CommonPicker from '@/common/Picker/Picker'
 	export default {
 		components: {
 			CommonPicker
