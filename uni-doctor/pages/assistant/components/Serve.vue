@@ -15,7 +15,6 @@
 
 <script>
 	import CommonSwitch from '@/common/Switch/Switch'
-	import { showModal } from '@/utils/commonJs'
 	export default {
 		components: {
 			CommonSwitch
@@ -27,20 +26,22 @@
 		},
 		methods: {
 			handleChangeSwitch(nextStatus, extraData) { //监听开关按钮状态
-				let self = this
-				let subsidiaryOnOff = nextStatus ? '1' : '2'
-				showModal({
-					content: '是否切换开关吗?',
-				}).then(() => {
-					self.$post('/api/doctor/su/setSubsidiaryOnOff',{
-						subsidiaryOnOff
-					}).then(data => {
-						let res = data.data
-						if(res.code == 200) {
-							self.serve = nextStatus
-						}
-					})
-				}).catch(() => {})
+			console.log(nextStatus)
+			// this.serve = nextStatus
+				// let self = this
+				// let subsidiaryOnOff = nextStatus ? '1' : '2'
+				// this.$showModal({
+				// 	content: '是否切换开关吗?',
+				// }).then(() => {
+				// 	self.$post('/api/doctor/su/setSubsidiaryOnOff',{
+				// 		subsidiaryOnOff
+				// 	}).then(data => {
+				// 		let res = data.data
+				// 		if(res.code == 200) {
+				// 			self.serve = nextStatus
+				// 		}
+				// 	})
+				// }).catch(() => {})
 			}
 		}
 	}

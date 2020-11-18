@@ -9023,7 +9023,9 @@ var DEV_IM_APP_KEY = '8luwapkv8jotl'; //测试IM环境
 
 var imRongInfo = { //定义全局存放字段
   totalUnreadCount: 0, //未读总数
-  conversationList: [] //会话列表
+  conversationList: [], //会话列表
+  takeMsg: {}, //收到消息
+  takeUpdatedConversation: {} //收到更新会话列表
 };
 var isStatus = false; //记录未登录操作状态（防止重复触发）
 
@@ -9056,19 +9058,26 @@ function imLogin(imTokens) {
 /* IM设置监听 */
 function imWatch() {
   im.watch({
-    conversation: function conversation(event) {
+    conversation: function conversation(event) {//监听会话列表
       var updatedConversationList = event.updatedConversationList; // 更新的会话列表
-      console.log(updatedConversationList);
+      imRongInfo.takeUpdatedConversation = updatedConversationList[0];
+      _store.default.commit('SET_IM_RONG', imRongInfo);
+      console.log('收到最新会话列表:', updatedConversationList);
     },
-    message: function message(event) {
-      var message = event.message;
-      console.log('收到新消息:', message);
+    message: function message(event) {//监听收到消息
+      var takeMsg = event.message;
+      imRongInfo.takeMsg = takeMsg;
+      imGetTotalUnreadCount(); //获取单聊的我未读数
+      _store.default.commit('SET_IM_RONG', imRongInfo);
+      console.log('收到新消息:', takeMsg);
     },
-    status: function status(event) {
+    status: function status(event) {//监听状态码
       var status = event.status;
       switch (status) {
         case 0:
           console.log('连接状态:链接成功');
+          imGetTotalUnreadCount(); //获取单聊的我未读数
+          imGetConversationList(); //获取会话列表 
           break;
         case 1:
           console.log('连接状态:正在连接中');
@@ -9088,6 +9097,7 @@ function imWatch() {
             isStatus = true;
             _store.default.commit("SET_TOKEN", '');
             _store.default.commit("SET_INFO", '');
+            imDisconnect();
             (0, _commonJs.showModal)({
               content: "该账号在别处登录~",
               showCancel: false,
@@ -9122,28 +9132,35 @@ function imWatch() {
 
 /* IM断开链接 */
 function imDisconnect() {
-  _store.default.commit('SET_IM_RONG', imRongInfo);
-  im.disconnect().then(function () {
-    console.log('断开链接成功');
+  return new Promise(function (resolve) {
+    _store.default.commit('SET_IM_RONG', imRongInfo);
+    im.disconnect().then(function () {
+      console.log('断开链接成功');
+    });
   });
 }
 
 /* 获取单聊的我未读数 */
 function imGetTotalUnreadCount() {
-  im.Conversation.getTotalUnreadCount().then(function (totalUnreadCount) {
-    // console.log('获取未读总数成功', totalUnreadCount)
-    imRongInfo.totalUnreadCount = totalUnreadCount;
-    _store.default.commit('SET_IM_RONG', imRongInfo);
+  return new Promise(function (resolve) {
+    im.Conversation.getTotalUnreadCount().then(function (totalUnreadCount) {
+      // console.log('获取未读总数成功', totalUnreadCount)
+      imRongInfo.totalUnreadCount = totalUnreadCount;
+      _store.default.commit('SET_IM_RONG', imRongInfo);
+    });
   });
 }
 
 
 /* 获取会话列表 */
 function imGetConversationList() {
-  im.Conversation.getList().then(function (conversationList) {
-    // console.log('获取会话列表成功', conversationList)
-    imRongInfo.conversationList = conversationList;
-    _store.default.commit('SET_IM_RONG', imRongInfo);
+  return new Promise(function (resolve) {
+    im.Conversation.getList().then(function (conversationList) {
+      // console.log('获取会话列表成功', conversationList)
+      imRongInfo.conversationList = conversationList;
+      _store.default.commit('SET_IM_RONG', imRongInfo);
+      resolve();
+    });
   });
 }
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
@@ -9694,7 +9711,7 @@ var imRong = uni.getStorageSync('imRong') || '';var _default =
   var NAVI_URL_TPL = '{url}/{type}.js?appId={appkey}&token={token}&callBack=' + NAVI_CALLBACK_NAME + '&r={random}&v=' + SDK_VERSION;
   var CMP_URL_TPL = '{protocol}//{domain}/websocket?appId={appkey}&token={token}&apiVer={apiVer}&sdkVer=' + SDK_VERSION;
   var CMP_URL_TPL_POLLING = '{protocol}//{domain}/websocket?appId={appkey}&token={token}&apiVer={apiVer}&sdkVer=' + SDK_VERSION + '&pid={pid}';
-  var MINI_CMP_URL_TPL = '{protocol}//{domain}/websocket?appId={appkey}&token={token}&apiVer={apiVer}&sdkVer=' + SDK_VERSION + '&platform=WEB';
+  var MINI_CMP_URL_TPL = '{protocol}//{domain}/websocket?appId={appkey}&token={token}&apiVer={apiVer}&sdkVer=' + SDK_VERSION;
   var COMET_REQ_HAS_TOPIC_URL_TPL = '{protocol}//{domain}/websocket?messageid={messageId}&header={headerCode}&sessionid={sessionId}&topic={topic}&targetid={targetId}&pid={pid}';
   var COMET_REQ_NO_TOPIC_URL_TPL = '{protocol}//{domain}/websocket?messageid={messageId}&header={headerCode}&sessionid={sessionId}&pid={pid}';
   var COMET_PULL_URL_TPL = '{protocol}//{domain}/pullmsg.js?sessionid={sessionId}&timestrap={timestamp}&pid={pid}';
@@ -21426,7 +21443,8 @@ function normalizeComponent (
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.getAction = getAction;exports.postAction = postAction;exports.fileAction = fileAction;var _store = _interopRequireDefault(__webpack_require__(/*! @/store */ 10));
-var _commonJs = __webpack_require__(/*! ../commonJs */ 17);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _commonJs = __webpack_require__(/*! @/utils/commonJs */ 17);
+var _imRong = __webpack_require__(/*! @/utils/imRong */ 9);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 var PROD_SERVICE = ''; //线上环境
 // const DEV_SERVICE = 'http://www.nkzj999.com/wx/serve/test-doctor' //测试环境
@@ -27625,7 +27643,7 @@ CryptoJS.pad.ZeroPadding = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.insName = insName;exports.insText = insText;exports.insPwd = insPwd;exports.isEmail = isEmail;exports.isAlphanumeric = isAlphanumeric;exports.insPhone = insPhone;exports.insBankCard = insBankCard;exports.insBranch = insBranch;exports.insEmpty = insEmpty;exports.keyLength = keyLength;exports.keyNumber = keyNumber;exports.keyIntegerNumber = keyIntegerNumber;exports.keyChinese = keyChinese;exports.diffObj = diffObj;exports.diffArr = diffArr;var _commonJs = __webpack_require__(/*! ../commonJs */ 17);
+Object.defineProperty(exports, "__esModule", { value: true });exports.insName = insName;exports.insText = insText;exports.insPwd = insPwd;exports.isEmail = isEmail;exports.isAlphanumeric = isAlphanumeric;exports.insPhone = insPhone;exports.insBankCard = insBankCard;exports.insBranch = insBranch;exports.insEmpty = insEmpty;exports.insInrNumber = insInrNumber;exports.diffObj = diffObj;exports.diffArr = diffArr;var _commonJs = __webpack_require__(/*! ../commonJs */ 17);
 
 /* 提示弹窗 */
 function insShowToast(title) {
@@ -27759,49 +27777,13 @@ function insEmpty(val, desc) {
   return true;
 }
 
-/* 监听输入长度 */
-function keyLength(val, length) {
-  var content = val;
-  if (content.length > length) {//最后只能输入5位
-    return content.substr(0, length);
+/* 判断正整数 */
+function insInrNumber(val, desc) {
+  if (!/(^[1-9]\d*$)/.test(val)) {
+    insShowToast(desc);
+    return;
   } else {
-    return content;
-  }
-}
-
-/* 监听输入数字 */
-function keyNumber(val, length) {
-  var content = val;
-  content = content.replace(/[^\.\d]/g, '').replace('.', '');
-  if (content.length > length) {//最后只能输入5位
-    return content.substr(0, length);
-  } else {
-    return content;
-  }
-}
-
-/* 监听输入数字(不能为0开头||不能大于输入值) */
-function keyIntegerNumber(val, max) {
-  var content = val;
-  content = content.replace(/[^\.\d]/g, '').replace(/^0{1,}/g, '').replace('.', '');
-  if (content > max) {//最后只能输入5位
-    insShowToast('输入值不能大于' + max);
-    return "";
-  } else {
-    return content;
-  }
-}
-
-/* 监听输入输入中文 */
-function keyChinese(val, length) {
-  var content = val;
-  // 必须为中文 (ue规则)
-  if (content.length > length) {
-    return content.substr(0, length);
-  } else if (!/^[\u4e00-\u9fa5]+$/.test(content)) {
-    return content.slice(0, content.length - 1);
-  } else {
-    return content;
+    return true;
   }
 }
 
@@ -49479,7 +49461,15 @@ webpackContext.id = 141;
 /* 358 */,
 /* 359 */,
 /* 360 */,
-/* 361 */
+/* 361 */,
+/* 362 */,
+/* 363 */,
+/* 364 */,
+/* 365 */,
+/* 366 */,
+/* 367 */,
+/* 368 */,
+/* 369 */
 /*!********************************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/tki-qrcode/components/tki-qrcode/qrcode.js ***!
   \********************************************************************************************/
@@ -50696,24 +50686,24 @@ QRCode;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 362 */,
-/* 363 */,
-/* 364 */,
-/* 365 */,
-/* 366 */,
-/* 367 */,
-/* 368 */,
-/* 369 */
+/* 370 */,
+/* 371 */,
+/* 372 */,
+/* 373 */,
+/* 374 */,
+/* 375 */,
+/* 376 */,
+/* 377 */
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ 370);
+module.exports = __webpack_require__(/*! regenerator-runtime */ 378);
 
 /***/ }),
-/* 370 */
+/* 378 */
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -50744,7 +50734,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 371);
+module.exports = __webpack_require__(/*! ./runtime */ 379);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -50760,7 +50750,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 371 */
+/* 379 */
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -51491,14 +51481,6 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 372 */,
-/* 373 */,
-/* 374 */,
-/* 375 */,
-/* 376 */,
-/* 377 */,
-/* 378 */,
-/* 379 */,
 /* 380 */,
 /* 381 */,
 /* 382 */,
@@ -51512,7 +51494,15 @@ if (hadRuntime) {
 /* 390 */,
 /* 391 */,
 /* 392 */,
-/* 393 */
+/* 393 */,
+/* 394 */,
+/* 395 */,
+/* 396 */,
+/* 397 */,
+/* 398 */,
+/* 399 */,
+/* 400 */,
+/* 401 */
 /*!**********************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/common/Picker/area.js ***!
   \**********************************************************/
@@ -56386,14 +56376,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     "南区"] }] }];exports.default = _default;
 
 /***/ }),
-/* 394 */,
-/* 395 */,
-/* 396 */,
-/* 397 */,
-/* 398 */,
-/* 399 */,
-/* 400 */,
-/* 401 */,
 /* 402 */,
 /* 403 */,
 /* 404 */,
@@ -56445,7 +56427,15 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 450 */,
 /* 451 */,
 /* 452 */,
-/* 453 */
+/* 453 */,
+/* 454 */,
+/* 455 */,
+/* 456 */,
+/* 457 */,
+/* 458 */,
+/* 459 */,
+/* 460 */,
+/* 461 */
 /*!******************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/common/Echarts/components/u-charts.min.js ***!
   \******************************************************************************/
@@ -56457,14 +56447,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 454 */,
-/* 455 */,
-/* 456 */,
-/* 457 */,
-/* 458 */,
-/* 459 */,
-/* 460 */,
-/* 461 */
+/* 462 */,
+/* 463 */,
+/* 464 */,
+/* 465 */,
+/* 466 */,
+/* 467 */,
+/* 468 */,
+/* 469 */
 /*!*****************************************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/@dcloudio/uni-ui/lib/uni-swipe-action-item/mpwxs.js ***!
   \*****************************************************************************************************/
@@ -56589,21 +56579,21 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 462 */,
-/* 463 */,
-/* 464 */,
-/* 465 */,
-/* 466 */,
-/* 467 */,
-/* 468 */,
-/* 469 */,
 /* 470 */,
 /* 471 */,
 /* 472 */,
 /* 473 */,
 /* 474 */,
 /* 475 */,
-/* 476 */
+/* 476 */,
+/* 477 */,
+/* 478 */,
+/* 479 */,
+/* 480 */,
+/* 481 */,
+/* 482 */,
+/* 483 */,
+/* 484 */
 /*!*****************************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/@dcloudio/uni-ui/lib/uni-popup/popup.js ***!
   \*****************************************************************************************/
@@ -56611,7 +56601,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _message = _interopRequireDefault(__webpack_require__(/*! ./message.js */ 477));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _message = _interopRequireDefault(__webpack_require__(/*! ./message.js */ 485));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 // 定义 type 类型:弹出类型：top/bottom/center
 var config = {
   // 顶部弹出
@@ -56637,7 +56627,7 @@ var config = {
   mixins: [_message.default] };exports.default = _default;
 
 /***/ }),
-/* 477 */
+/* 485 */
 /*!*******************************************************************************************!*\
   !*** E:/uni_doctor_app/uni-doctor/node_modules/@dcloudio/uni-ui/lib/uni-popup/message.js ***!
   \*******************************************************************************************/

@@ -21,7 +21,6 @@
 			}
 		},
 		onPullDownRefresh() {	//监听下拉刷新
-			console.log(1111)
 			this.$refs.CaseList.handleRefresh()	
 		}
 	}

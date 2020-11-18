@@ -29,7 +29,7 @@
 				<view class="item-name">管理您的病人</view>
 			</view>
 		</view>
-		<view class="service-box" v-if="routerType != 3">
+		<navigator class="service-box" v-if="routerType != 3" hover-class="none" url="/pages/service/service">
 			<view class="service-icons">
 				<LayzImage src="@studio/d_studio_icon_serve.png" />
 			</view>
@@ -37,7 +37,7 @@
 			<view class="service-arrow">
 				<LayzImage src="@studio/link.png" />
 			</view>
-		</view>
+		</navigator>
 	</view>
 </template>
 

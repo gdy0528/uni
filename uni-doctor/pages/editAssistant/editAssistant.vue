@@ -51,7 +51,6 @@
 <script>
 	import CommonSwitch from '@/common/Switch/Switch'
 	import { insName, insPwd, insPhone } from '@/utils/check'
-	import { showToast } from '@/utils/commonJs'
 	export default {
 		components: {
 			CommonSwitch
@@ -112,7 +111,7 @@
 					if (self.isToggle) {	//判断是否修改密码
 						if (insPwd(password) && insPwd(passwords)) {
 							if (password != passwords) {
-								showToast({
+								this.$showToast({
 									title: "两次密码不一致",
 									icon: "none",
 									duration: 1000
@@ -142,7 +141,7 @@
 					self.$post('/api/doctor/su/updateSubsidiary', dto).then(data => {
 						let res = data.data
 						if (res.code == 200) {
-							showToast({
+							this.$showToast({
 								title: '修改成功'
 							}).then(() => {
 								uni.navigateBack() //返回上一个页面

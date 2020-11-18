@@ -108,11 +108,18 @@
 			"style": {
 				"navigationBarTitleText": "修改助手"
 			}
-		}, 
+		},
 		{
 			"path": "pages/advisory/advisory",
 			"style": {
-				"navigationBarTitleText": "咨询消息"
+				"navigationBarTitleText": "咨询消息",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/service/service",
+			"style": {
+				"navigationBarTitleText": "服务管理"
 			}
 		}
 	],
@@ -178,6 +185,10 @@
 			{
 				"path": "pages/advisory/advisory",
 				"name": "咨询消息"
+			},
+			{
+				"path": "pages/service/service",
+				"name": "服务管理"
 			}
 		]
 	},

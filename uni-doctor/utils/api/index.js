@@ -1,5 +1,6 @@
 import store from '@/store'
-import { showModal, showToast } from '../commonJs'
+import { showModal, showToast } from '@/utils/commonJs'
+import { imDisconnect } from '@/utils/imRong'
 
 const PROD_SERVICE = '' //线上环境
 // const DEV_SERVICE = 'http://www.nkzj999.com/wx/serve/test-doctor' //测试环境

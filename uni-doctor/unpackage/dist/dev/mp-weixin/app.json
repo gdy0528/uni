@@ -14,7 +14,8 @@
     "pages/assistant/assistant",
     "pages/addAssistant/addAssistant",
     "pages/editAssistant/editAssistant",
-    "pages/advisory/advisory"
+    "pages/advisory/advisory",
+    "pages/service/service"
   ],
   "subPackages": [],
   "window": {

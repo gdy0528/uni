@@ -51,6 +51,8 @@
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
           flex-direction: column;
+  -webkit-transition: all .1s;
+  transition: all .1s;
 }
 .AdvisoryContainer .advisory-box .advisory-item.data-v-b2a2f2b4 {
   padding: 20rpx;
@@ -122,7 +124,7 @@
   white-space: nowrap;
 }
 .AdvisoryContainer .advisory-box .advisory-item .item-content .content-desc.data-v-b2a2f2b4 {
-  margin-top: 20rpx;
+  margin-bottom: 5rpx;
   font-size: 28rpx;
   color: #999999;
   text-overflow: ellipsis;

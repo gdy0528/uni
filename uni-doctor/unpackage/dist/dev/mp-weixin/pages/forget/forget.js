@@ -171,8 +171,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _check = __webpack_require__(/*! @/utils/check */ 49);
-var _commonJs = __webpack_require__(/*! @/utils/commonJs */ 17); //
+var _check = __webpack_require__(/*! @/utils/check */ 49); //
 //
 //
 //
@@ -225,10 +224,10 @@ var _default = { data: function data() {return { phone: '', //账号
       this.phone = e.target.value;}, handleChangVerify: function handleChangVerify(e) {//实时监听验证码
       this.verify = e.target.value;}, handleChangPassword: function handleChangPassword(e) {//实时监听密码输入
       this.password = e.target.value;}, handleChangPasswords: function handleChangPasswords(e) {//实时监听确认密码输入
-      this.passwords = e.target.value;}, handleClickGetVerify: function handleClickGetVerify() {//获取验证码
+      this.passwords = e.target.value;}, handleClickGetVerify: function handleClickGetVerify() {var _this = this; //获取验证码
       var self = this;var phone = this.phone,isVerifyBtn = this.isVerifyBtn;if ((0, _check.insPhone)(phone) && !isVerifyBtn) {//判断手机是否填写并且是否重复点击
         self.isVerifyBtn = true;if (!self.verifyTime) {//如果没有启动定时器
-          self.$post('/api/common/sms/sendSms', { phone: phone }).then(function (data) {var res = data.data;if (res.code == 200) {(0, _commonJs.showToast)({ title: '发送成功，请留意您的短信', icon: "none", duration: 2000 }); //启动定时器
+          self.$post('/api/common/sms/sendSms', { phone: phone }).then(function (data) {var res = data.data;if (res.code == 200) {_this.$showToast({ title: '发送成功，请留意您的短信', icon: "none", duration: 2000 }); //启动定时器
               self.verifyTime = 120;var intervalId = setInterval(function () {self.verifyTime--;if (self.verifyTime <= 0) {// 停止计时
                   self.isVerifyBtn = false;clearInterval(intervalId);}
               }, 1000);
@@ -247,7 +246,7 @@ var _default = { data: function data() {return { phone: '', //账号
       (0, _check.insPwd)(password) &&
       (0, _check.insPwd)(passwords, "确认密码")) {
         if (password != passwords) {//判断密码与确认密码是否一致
-          (0, _commonJs.showToast)({
+          this.$showToast({
             title: "两次密码不一致",
             icon: "none",
             duration: 2000 });

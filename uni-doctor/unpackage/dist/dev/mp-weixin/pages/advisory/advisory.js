@@ -130,7 +130,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
 
 
 
@@ -151,40 +152,77 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 var _vuex = __webpack_require__(/*! vuex */ 8);
-var _tool = __webpack_require__(/*! @/utils/tool */ 138);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+var _tool = __webpack_require__(/*! @/utils/tool */ 138);
+var _imRong = __webpack_require__(/*! @/utils/imRong */ 9);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 {
   computed: _objectSpread(_objectSpread({},
   (0, _vuex.mapState)({
-    conversationList: function conversationList(state) {return state.imRong.conversationList;} //获取会话列表
+    conversationList: function conversationList(state) {return state.imRong.conversationList;}, //获取会话列表
+    takeUpdatedConversation: function takeUpdatedConversation(state) {return state.imRong.takeUpdatedConversation;} //获取接受到最新会话列表
   })), {}, {
-    newConversationList: function newConversationList() {
+    newConversationList: function newConversationList() {var _this = this;
       var list = this.conversationList.filter(function (item) {return item.latestMessage.messageType == "app:RCOrderMsg";}); //过滤是否订单自定义消息
       return list.map(function (item, index) {
         var content = item.latestMessage.content;
-        content.date = (0, _tool.timeRule)(content.sentTime); //修改时间规则 
-        content.unread = item.unreadMessageCount; //未读信息
-        content.id = item.targetId == content.user.id ? content.user.id : content.target.targetId; //当前发送人id
-        content.head = item.targetId == content.user.id ? content.user.portrait : content.target.targetImg; //头像
-        content.title = item.targetId == content.user.id ? content.user.name : content.target.targetName; //标题
-        content.conversationType = item.latestMessage.conversationType; //聊天类型 （区分群聊）
-        if (content.msgType == "imgMsg") {//判断是否为图片
-          content.desc = "【图片】";
-        } else if (content.msgType == "amapMsg") {//判断是否为位置
-          content.desc = "【位置】";
-        } else if (content.msgType == "vcMsg") {//判断是否为语音
-          content.desc = "【语音】";
-        } else if (content.msgType == "cancelMsg") {//判断是否为取消原因
-          content.desc = "订单已取消";
-        } else if (content.msgType == "giveGiftMsg") {//判断是否为礼物
-          content.desc = "您的礼物已赠送到医生，感谢您的支持";
-        } else if (content.msgType == "toCommentMsg" || content.msgType == "endMsg") {//判断是否订单完结
-          content.desc = "订单已完结";
-        } else {
-          content.desc = content.content;
-        }
-        return content;
+        return _this.handleMsgData(content, item.unreadMessageCount, item.targetId);
       });
-    } }) };exports.default = _default;
+    } }),
+
+  methods: {
+    handleMsgData: function handleMsgData(content, unread, targetId) {//处理消息数据结构
+      var datas = {}; //定义对象
+      datas.date = (0, _tool.timeRule)(content.sentTime); //修改时间规则
+      datas.unread = unread; //未读信息
+      datas.id = targetId == content.user.id ? content.user.id : content.target.targetId; //当前发送人id
+      datas.head = targetId == content.user.id ? content.user.portrait : content.target.targetImg; //头像
+      datas.title = targetId == content.user.id ? content.user.name : content.target.targetName; //标题
+      if (content.msgType == "imgMsg") {//判断是否为图片
+        datas.desc = "【图片】";
+      } else if (content.msgType == "amapMsg") {//判断是否为位置
+        datas.desc = "【位置】";
+      } else if (content.msgType == "vcMsg") {//判断是否为语音
+        datas.desc = "【语音】";
+      } else if (content.msgType == "cancelMsg") {//判断是否为取消原因
+        datas.desc = "订单已取消";
+      } else if (content.msgType == "giveGiftMsg") {//判断是否为礼物
+        datas.desc = "患者赠送了您一份礼物,请注意查收";
+      } else if (content.msgType == "toCommentMsg" || content.msgType == "endMsg") {//判断是否订单完结
+        datas.desc = "订单已完结";
+      } else {
+        datas.desc = content.content;
+      }
+      return datas;
+    },
+    handleMsgAnimation: function handleMsgAnimation(content, index) {//处理接受消息后的动画
+      if (index == 0) {
+        this.conversationList.splice(index, 1, content);
+      } else if (index < 0) {
+        this.conversationList.unshift(content);
+      } else {
+        this.conversationList.splice(index, 1);
+        this.conversationList.unshift(content);
+      }
+    } },
+
+  onPullDownRefresh: function onPullDownRefresh() {var _this2 = this; //监听下拉刷新
+    (0, _imRong.imGetConversationList)().then(function () {//获取最新会话列表
+      uni.stopPullDownRefresh();
+      _this2.$showToast({
+        title: "刷新成功",
+        duration: 1000 });
+
+    });
+  },
+  watch: {
+    takeUpdatedConversation: { //监听是否有最新会话列表
+      deep: true,
+      handler: function handler(newMsg) {
+        if (newMsg.latestMessage.messageType == "app:RCOrderMsg") {//判断接受到会话列表是不是问诊数据
+          var index = this.conversationList.findIndex(function (item) {return newMsg.targetId == item.targetId;}); //获取该数据索引
+          this.handleMsgAnimation(newMsg, index);
+        }
+      } } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

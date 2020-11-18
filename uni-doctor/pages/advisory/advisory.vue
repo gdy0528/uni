@@ -1,7 +1,8 @@
 <template>
 	<view class="AdvisoryContainer">
 		<view class="advisory-box" v-if="newConversationList.length > 0">
-			<view class="advisory-item" v-for="(item, index) in newConversationList" :key="index">
+			<view class="advisory-item" v-for="(item, index) in newConversationList"
+			 :key="index">
 				<view class="item-head">
 					<LayzImage :src="item.head" round />
 					<text class="bage" v-if="item.unread > 0">{{item.unread}}</text>
@@ -20,38 +21,75 @@
 <script>
 	import { mapState } from "vuex"
 	import { timeRule } from "@/utils/tool"
+	import { imGetConversationList } from '@/utils/imRong'
 	export default {
 		computed: {
 			...mapState({
-				conversationList: state => state.imRong.conversationList //获取会话列表
+				conversationList: state => state.imRong.conversationList, //获取会话列表
+				takeUpdatedConversation: state => state.imRong.takeUpdatedConversation //获取接受到最新会话列表
 			}),
 			newConversationList() {
 				let list = this.conversationList.filter(item => item.latestMessage.messageType == "app:RCOrderMsg") //过滤是否订单自定义消息
 				return list.map((item, index) => {
 					let content = item.latestMessage.content
-					content.date = timeRule(content.sentTime) //修改时间规则 
-					content.unread = item.unreadMessageCount //未读信息
-					content.id = item.targetId == content.user.id ? content.user.id : content.target.targetId	//当前发送人id
-					content.head = item.targetId == content.user.id ? content.user.portrait : content.target.targetImg	//头像
-					content.title = item.targetId == content.user.id ? content.user.name : content.target.targetName	//标题
-					content.conversationType = item.latestMessage.conversationType //聊天类型 （区分群聊）
-					if (content.msgType == "imgMsg") { //判断是否为图片
-						content.desc = "【图片】"
-					} else if (content.msgType == "amapMsg") { //判断是否为位置
-						content.desc = "【位置】"
-					} else if (content.msgType == "vcMsg") { //判断是否为语音
-						content.desc = "【语音】"
-					} else if (content.msgType == "cancelMsg") { //判断是否为取消原因
-						content.desc = "订单已取消"
-					} else if (content.msgType == "giveGiftMsg") { //判断是否为礼物
-						content.desc = "您的礼物已赠送到医生，感谢您的支持"
-					} else if (content.msgType == "toCommentMsg" || content.msgType == "endMsg") { //判断是否订单完结
-						content.desc = "订单已完结"
-					} else {	
-						content.desc = content.content
-					}
-					return content
+					return this.handleMsgData(content, item.unreadMessageCount, item.targetId)
 				})
+			}
+		},
+		methods: {
+			handleMsgData(content, unread, targetId) { //处理消息数据结构
+				let datas = {} //定义对象
+				datas.date = timeRule(content.sentTime) //修改时间规则
+				datas.unread = unread //未读信息
+				datas.id = targetId == content.user.id ? content.user.id : content.target.targetId //当前发送人id
+				datas.head = targetId == content.user.id ? content.user.portrait : content.target.targetImg //头像
+				datas.title = targetId == content.user.id ? content.user.name : content.target.targetName //标题
+				if (content.msgType == "imgMsg") { //判断是否为图片
+					datas.desc = "【图片】"
+				} else if (content.msgType == "amapMsg") { //判断是否为位置
+					datas.desc = "【位置】"
+				} else if (content.msgType == "vcMsg") { //判断是否为语音
+					datas.desc = "【语音】"
+				} else if (content.msgType == "cancelMsg") { //判断是否为取消原因
+					datas.desc = "订单已取消"
+				} else if (content.msgType == "giveGiftMsg") { //判断是否为礼物
+					datas.desc = "患者赠送了您一份礼物,请注意查收"
+				} else if (content.msgType == "toCommentMsg" || content.msgType == "endMsg") { //判断是否订单完结
+					datas.desc = "订单已完结"
+				} else {
+					datas.desc = content.content
+				}
+				return datas
+			},
+			handleMsgAnimation(content, index) {	//处理接受消息后的动画
+				if (index == 0) {
+					this.conversationList.splice(index, 1, content)
+				} else if (index < 0) {	
+					this.conversationList.unshift(content)
+				} else {
+					this.conversationList.splice(index, 1)
+					this.conversationList.unshift(content)
+				}
+			}
+		},
+		onPullDownRefresh() {	//监听下拉刷新
+			imGetConversationList().then(() => {	//获取最新会话列表
+				uni.stopPullDownRefresh()
+				this.$showToast({
+					title: "刷新成功",
+					duration: 1000
+				})
+			})	
+		},
+		watch: {
+			takeUpdatedConversation: { //监听是否有最新会话列表
+				deep: true,
+				handler(newMsg) {
+					if (newMsg.latestMessage.messageType == "app:RCOrderMsg") {	//判断接受到会话列表是不是问诊数据
+						let index = this.conversationList.findIndex(item => newMsg.targetId == item.targetId) //获取该数据索引
+						this.handleMsgAnimation(newMsg, index)
+					}
+				}
 			}
 		}
 	}
@@ -65,6 +103,7 @@
 			padding: 10upx;
 			display: flex;
 			flex-direction: column;
+			transition: all .1s;
 			.advisory-item {
 				padding: 20upx;
 				margin-bottom: 10upx;
@@ -102,6 +141,7 @@
 						@include ellipsis;
 					}
 					.content-desc {
+						margin-bottom: 5upx;
 						font-size: $fontSize;
 						color: $fontGrayColor;
 						@include ellipsis;

@@ -7,7 +7,7 @@
 							<LayzImage src="@case/d_doctorlist_icon_search.png" />
 						</view>
 						<view class="item-input">
-							<input class="input-search" type="text" name="search" placeholder="搜索想查看的患者">
+							<input class="input-search" type="text" name="search" confirm-type="send" placeholder="搜索想查看的患者">
 						</view>
 					</view>
 					<button class="search-btns" form-type="submit" plain="true">搜索</button>

@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var AssistantServe = function AssistantServe() {Promise.all(/*! require.ensure | pages/assistant/components/Serve */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/assistant/components/Serve")]).then((function () {return resolve(__webpack_require__(/*! ./components/Serve */ 417));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var AssistantList = function AssistantList() {Promise.all(/*! require.ensure | pages/assistant/components/List */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/assistant/components/List")]).then((function () {return resolve(__webpack_require__(/*! ./components/List */ 424));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var AssistantServe = function AssistantServe() {__webpack_require__.e(/*! require.ensure | pages/assistant/components/Serve */ "pages/assistant/components/Serve").then((function () {return resolve(__webpack_require__(/*! ./components/Serve */ 425));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var AssistantList = function AssistantList() {__webpack_require__.e(/*! require.ensure | pages/assistant/components/List */ "pages/assistant/components/List").then((function () {return resolve(__webpack_require__(/*! ./components/List */ 432));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

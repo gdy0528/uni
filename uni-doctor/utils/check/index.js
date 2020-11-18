@@ -132,49 +132,13 @@ export function insEmpty(val, desc) {
 	return true
 }
 
-/* 监听输入长度 */
-export function keyLength(val, length) {
-	let content = val
-	if (content.length > length) { //最后只能输入5位
-		return content.substr(0, length)
+/* 判断正整数 */
+export function insInrNumber(val, desc) {
+	if(!(/(^[1-9]\d*$)/.test(val))) {
+		insShowToast(desc)
+		return
 	} else {
-		return content
-	}
-}
-
-/* 监听输入数字 */
-export function keyNumber(val, length) {
-	let content = val
-	content = content.replace(/[^\.\d]/g, '').replace('.', '')
-	if (content.length > length) { //最后只能输入5位
-		return content.substr(0, length)
-	} else {
-		return content
-	}
-}
-
-/* 监听输入数字(不能为0开头||不能大于输入值) */
-export function keyIntegerNumber(val, max) {
-	let content = val
-	content = content.replace(/[^\.\d]/g, '').replace(/^0{1,}/g, '').replace('.', '')
-	if (content > max) { //最后只能输入5位
-		insShowToast('输入值不能大于' + max)
-		return ""
-	} else {
-		return content
-	}
-}
-
-/* 监听输入输入中文 */
-export function keyChinese(val, length) { 
-	let content = val
-	// 必须为中文 (ue规则)
-	if (content.length > length) {
-		return content.substr(0, length)
-	} else if (!/^[\u4e00-\u9fa5]+$/.test(content)) {
-		return content.slice(0, content.length - 1)
-	} else {
-		return content
+		return true
 	}
 }
 

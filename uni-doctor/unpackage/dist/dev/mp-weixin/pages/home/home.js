@@ -128,7 +128,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var HomeInfo = function HomeInfo() {Promise.all(/*! require.ensure | pages/home/components/Info */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/home/components/Info")]).then((function () {return resolve(__webpack_require__(/*! ./components/Info */ 293));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var HomeNews = function HomeNews() {__webpack_require__.e(/*! require.ensure | pages/home/components/News */ "pages/home/components/News").then((function () {return resolve(__webpack_require__(/*! ./components/News */ 300));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var HomePerfect = function HomePerfect() {__webpack_require__.e(/*! require.ensure | pages/home/components/Perfect */ "pages/home/components/Perfect").then((function () {return resolve(__webpack_require__(/*! ./components/Perfect */ 307));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -140,6 +140,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+var _vuex = __webpack_require__(/*! vuex */ 8);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var HomeInfo = function HomeInfo() {__webpack_require__.e(/*! require.ensure | pages/home/components/Info */ "pages/home/components/Info").then((function () {return resolve(__webpack_require__(/*! ./components/Info */ 301));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var HomeNews = function HomeNews() {__webpack_require__.e(/*! require.ensure | pages/home/components/News */ "pages/home/components/News").then((function () {return resolve(__webpack_require__(/*! ./components/News */ 308));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var HomePerfect = function HomePerfect() {__webpack_require__.e(/*! require.ensure | pages/home/components/Perfect */ "pages/home/components/Perfect").then((function () {return resolve(__webpack_require__(/*! ./components/Perfect */ 315));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: {
     HomeInfo: HomeInfo,
@@ -172,6 +173,11 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       verify: true //是否展示个人资料补全
     };
   },
+  computed: _objectSpread({},
+  (0, _vuex.mapState)({
+    takeMsg: function takeMsg(state) {return state.imRong.takeMsg;} //获取接受到最新一条消息
+  })),
+
   methods: {
     postHome: function postHome() {//请求首页数据
       var self = this;
@@ -216,7 +222,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   watch: {
     verify: function verify(newValue) {//监听个人资料缺失状态
       if (!newValue) this.$refs.HomePerfect.handleClickPopup(true); //展示个人资料缺失
-    } },
+    },
+    takeMsg: { //监听接受到最新一条信息
+      deep: true,
+      handler: function handler(newMsg) {
+        var content = newMsg.content;
+        if (newMsg.messageType == "Ec:CustomMsg" && (content.customType == "pay" || content.customType == "order")) {//判断消息是否为后台自定义消息&下单状态||订单目前状态
+          this.postHomeSign(); //获取首页角标
+        }
+      } } },
+
 
   onShow: function onShow() {
     this.postHome(); //请求首页数据

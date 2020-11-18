@@ -182,8 +182,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _check = __webpack_require__(/*! @/utils/check */ 49);
-var _commonJs = __webpack_require__(/*! @/utils/commonJs */ 17);var CommonSwitch = function CommonSwitch() {__webpack_require__.e(/*! require.ensure | common/Switch/Switch */ "common/Switch/Switch").then((function () {return resolve(__webpack_require__(/*! @/common/Switch/Switch */ 431));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _check = __webpack_require__(/*! @/utils/check */ 49);var CommonSwitch = function CommonSwitch() {__webpack_require__.e(/*! require.ensure | common/Switch/Switch */ "common/Switch/Switch").then((function () {return resolve(__webpack_require__(/*! @/common/Switch/Switch */ 439));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   components: {
     CommonSwitch: CommonSwitch },
@@ -237,14 +236,14 @@ var _commonJs = __webpack_require__(/*! @/utils/commonJs */ 17);var CommonSwitch
     handleClickToggle: function handleClickToggle() {//点击切换修改密码显示隐藏
       this.isToggle = !this.isToggle;
     },
-    handleClickConfirmEdit: function handleClickConfirmEdit() {//点击确认修改助手
+    handleClickConfirmEdit: function handleClickConfirmEdit() {var _this = this; //点击确认修改助手
       var self = this;var
       name = this.name,phone = this.phone,password = this.password,passwords = this.passwords,settingList = this.settingList;
       if ((0, _check.insName)(name) && (0, _check.insPhone)(phone)) {
         if (self.isToggle) {//判断是否修改密码
           if ((0, _check.insPwd)(password) && (0, _check.insPwd)(passwords)) {
             if (password != passwords) {
-              (0, _commonJs.showToast)({
+              this.$showToast({
                 title: "两次密码不一致",
                 icon: "none",
                 duration: 1000 });
@@ -274,7 +273,7 @@ var _commonJs = __webpack_require__(/*! @/utils/commonJs */ 17);var CommonSwitch
         self.$post('/api/doctor/su/updateSubsidiary', dto).then(function (data) {
           var res = data.data;
           if (res.code == 200) {
-            (0, _commonJs.showToast)({
+            _this.$showToast({
               title: '修改成功' }).
             then(function () {
               uni.navigateBack(); //返回上一个页面

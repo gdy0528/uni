@@ -54,12 +54,14 @@
 				// #ifndef APP-NVUE
 				return this.size - 4 + 'px'
 				// #endif
-			}
+			},
 		},
 		watch: {
 			value: {
 				immediate: true,
 				handler(value) {
+					console.log("value",value)
+					console.log("activeValue",this.activeValue)
 					this.currentValue = value
 				}
 			}
@@ -123,7 +125,7 @@
 		background-color: #fff;
 		border-radius: 50%;
 		/* #ifndef APP-NVUE */
-		box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.05), 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 3px 0 rgba(0, 0, 0, 0.05);
+		box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.05), 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.05);
 		/* #endif */
 		/* #ifdef APP-NVUE */
 		box-shadow: 1px 0 0px 0 rgba(0, 0, 0, 0.05);

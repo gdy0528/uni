@@ -8,6 +8,8 @@ const DEV_IM_APP_KEY = '8luwapkv8jotl' //测试IM环境
 let imRongInfo = {	//定义全局存放字段
 	totalUnreadCount: 0,	//未读总数
 	conversationList: [],	//会话列表
+	takeMsg: {},	//收到消息
+	takeUpdatedConversation: {},	//收到更新会话列表
 }
 let isStatus = false	//记录未登录操作状态（防止重复触发）
 
@@ -42,19 +44,26 @@ export function imLogin(imTokens) {
 /* IM设置监听 */
 export function imWatch() {
 	im.watch({
-	  conversation(event) {
+	  conversation(event) { //监听会话列表
 	    let updatedConversationList = event.updatedConversationList // 更新的会话列表
-			console.log(updatedConversationList)
+			imRongInfo.takeUpdatedConversation = updatedConversationList[0]
+			store.commit('SET_IM_RONG',imRongInfo)
+			console.log('收到最新会话列表:',updatedConversationList)
 	  },
-	  message(event) {
-	    let message = event.message;
-	    console.log('收到新消息:', message);
+	  message(event) {	//监听收到消息
+	    let takeMsg = event.message
+			imRongInfo.takeMsg = takeMsg
+			imGetTotalUnreadCount()	//获取单聊的我未读数
+			store.commit('SET_IM_RONG',imRongInfo)
+	    console.log('收到新消息:', takeMsg);
 	  },
-	  status(event){
+	  status(event) {	//监听状态码
 	    let status = event.status;
 			switch (status) {
 				case 0:
 					console.log('连接状态:链接成功')
+					imGetTotalUnreadCount()	//获取单聊的我未读数
+					imGetConversationList()	//获取会话列表 
 				break;
 				case 1:
 					console.log('连接状态:正在连接中')
@@ -74,6 +83,7 @@ export function imWatch() {
 						isStatus = true
 						store.commit("SET_TOKEN", '')
 						store.commit("SET_INFO", '')
+						imDisconnect()
 						showModal({
 							content: "该账号在别处登录~",
 							showCancel: false,
@@ -108,28 +118,35 @@ export function imWatch() {
 
 /* IM断开链接 */
 export function imDisconnect() { 
-	store.commit('SET_IM_RONG',imRongInfo)
-	im.disconnect().then(() => {
-		console.log('断开链接成功')
+	return new Promise(resolve => {
+		store.commit('SET_IM_RONG',imRongInfo)
+		im.disconnect().then(() => {
+			console.log('断开链接成功')
+		})
 	})
 }
 
 /* 获取单聊的我未读数 */
 export function imGetTotalUnreadCount() {
-	im.Conversation.getTotalUnreadCount().then((totalUnreadCount) => {
-		// console.log('获取未读总数成功', totalUnreadCount)
-		imRongInfo.totalUnreadCount = totalUnreadCount
-		store.commit('SET_IM_RONG',imRongInfo)
+	return new Promise(resolve => {
+		im.Conversation.getTotalUnreadCount().then((totalUnreadCount) => {
+			// console.log('获取未读总数成功', totalUnreadCount)
+			imRongInfo.totalUnreadCount = totalUnreadCount
+			store.commit('SET_IM_RONG',imRongInfo)
+		})
 	})
 }
 
 
 /* 获取会话列表 */
 export function imGetConversationList() {
-	im.Conversation.getList().then(function(conversationList) {
-	  // console.log('获取会话列表成功', conversationList)
-		imRongInfo.conversationList = conversationList
-		store.commit('SET_IM_RONG',imRongInfo)
+	return new Promise(resolve => {
+		im.Conversation.getList().then(function(conversationList) {
+			// console.log('获取会话列表成功', conversationList)
+			imRongInfo.conversationList = conversationList
+			store.commit('SET_IM_RONG',imRongInfo)
+			resolve()
+		})
 	})
 }
 

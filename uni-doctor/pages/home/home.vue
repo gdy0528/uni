@@ -10,6 +10,7 @@
 	import HomeInfo from './components/Info'
 	import HomeNews from './components/News'
 	import HomePerfect from './components/Perfect'
+	import { mapState } from "vuex"
 	export default {
 		components: {
 			HomeInfo,
@@ -41,6 +42,11 @@
 				},
 				verify: true	//是否展示个人资料补全
 			}
+		},
+		computed: {
+			...mapState({
+				takeMsg: state => state.imRong.takeMsg //获取接受到最新一条消息
+			}),
 		},
 		methods: {
 			postHome() { //请求首页数据
@@ -86,6 +92,15 @@
 		watch: {
 			verify(newValue) {	//监听个人资料缺失状态
 				if (!newValue) this.$refs.HomePerfect.handleClickPopup(true)	//展示个人资料缺失
+			},
+			takeMsg: {	//监听接受到最新一条信息
+				deep: true,
+				handler(newMsg) {
+					let content = newMsg.content
+					if (newMsg.messageType == "Ec:CustomMsg" && (content.customType == "pay" || content.customType == "order")) {	//判断消息是否为后台自定义消息&下单状态||订单目前状态
+						this.postHomeSign()	//获取首页角标
+					}
+				}
 			}
 		},
 		onShow() {

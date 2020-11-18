@@ -40,7 +40,6 @@
 
 <script>
 	import { insPhone, insEmpty, insPwd } from '@/utils/check'
-	import { showToast } from '@/utils/commonJs'
 	export default {
 		data() {
 			return {
@@ -85,7 +84,7 @@
 						}).then(data => {
 							let res = data.data
 							if (res.code == 200) {
-								showToast({
+								this.$showToast({
 									title: '发送成功，请留意您的短信',
 									icon: "none",
 									duration: 2000
@@ -115,7 +114,7 @@
 					insPwd(password) &&
 					insPwd(passwords, "确认密码")) {
 					if (password != passwords) { //判断密码与确认密码是否一致
-						showToast({
+						this.$showToast({
 							title: "两次密码不一致",
 							icon: "none",
 							duration: 2000

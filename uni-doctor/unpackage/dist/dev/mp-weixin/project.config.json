@@ -101,6 +101,11 @@
           "name": "咨询消息",
           "id": 14,
           "pathName": "pages/advisory/advisory"
+        },
+        {
+          "name": "服务管理",
+          "id": 15,
+          "pathName": "pages/service/service"
         }
       ]
     }

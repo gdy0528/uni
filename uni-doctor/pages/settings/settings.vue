@@ -17,7 +17,6 @@
 <script>
 	import { mapMutations } from 'vuex'
 	import { imDisconnect } from '@/utils/imRong'
-	import { showModal } from '@/utils/commonJs'
 	export default {
 		methods: {
 			...mapMutations([
@@ -25,7 +24,7 @@
 				'SET_INFO'
 			]),
 			handleClickLoginOut() {	//退出登录
-				showModal({
+				this.$showModal({
 					content: "确认是否退出登录?",
 					confirmText: "退出",
 				}).then(() => {

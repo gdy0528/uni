@@ -34,7 +34,6 @@
 
 <script>
 	import { uniSwipeAction, uniSwipeActionItem } from '@dcloudio/uni-ui'
-	import { showModal } from '@/utils/commonJs'
 	export default {
 		components: {
 			uniSwipeAction,
@@ -53,7 +52,7 @@
 			},
 			handleClcikFreeze(id, index) {	//点击冻结
 				let self = this
-				showModal({
+				this.$showModal({
 					content: "确认是否冻结吗?"
 				}).then(() => {
 					self.postFreezeSubsidiary(id, index, "N")
@@ -61,7 +60,7 @@
 			},
 			handleClickRelieve(id, index) {	//点击解冻
 				let self = this
-				showModal({
+				this.$showModal({
 					content: "确认是否解冻吗?"
 				}).then(() => {
 					self.postFreezeSubsidiary(id, index, "Y")

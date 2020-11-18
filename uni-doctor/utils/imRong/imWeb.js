@@ -462,7 +462,7 @@
   var NAVI_URL_TPL = '{url}/{type}.js?appId={appkey}&token={token}&callBack=' + NAVI_CALLBACK_NAME + '&r={random}&v=' + SDK_VERSION;
   var CMP_URL_TPL = '{protocol}//{domain}/websocket?appId={appkey}&token={token}&apiVer={apiVer}&sdkVer=' + SDK_VERSION;
   var CMP_URL_TPL_POLLING = '{protocol}//{domain}/websocket?appId={appkey}&token={token}&apiVer={apiVer}&sdkVer=' + SDK_VERSION + '&pid={pid}';
-  var MINI_CMP_URL_TPL = '{protocol}//{domain}/websocket?appId={appkey}&token={token}&apiVer={apiVer}&sdkVer=' + SDK_VERSION + '&platform=WEB';
+  var MINI_CMP_URL_TPL = '{protocol}//{domain}/websocket?appId={appkey}&token={token}&apiVer={apiVer}&sdkVer=' + SDK_VERSION;
   var COMET_REQ_HAS_TOPIC_URL_TPL = '{protocol}//{domain}/websocket?messageid={messageId}&header={headerCode}&sessionid={sessionId}&topic={topic}&targetid={targetId}&pid={pid}';
   var COMET_REQ_NO_TOPIC_URL_TPL = '{protocol}//{domain}/websocket?messageid={messageId}&header={headerCode}&sessionid={sessionId}&pid={pid}';
   var COMET_PULL_URL_TPL = '{protocol}//{domain}/pullmsg.js?sessionid={sessionId}&timestrap={timestamp}&pid={pid}';
