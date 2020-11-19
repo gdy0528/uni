@@ -36,6 +36,7 @@
 						let datas = res.data
 						datas.dateList.unshift('不限') //处理病历选择时间数据
 						self.details = datas.medicalPatientVO //患者信息
+						self.details.userAge += "岁" //处理患者年龄
 						self.details.isNotout = datas.isNotout //是否未自己出院患者
 						self.calculation = datas.healthyAssessmentCurve //分数
 						self.dateList = datas.dateList //病历选择时间筛选数据

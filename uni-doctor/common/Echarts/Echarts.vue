@@ -117,14 +117,14 @@
 					},
 					yAxis: {
 						data: [{
-							axisLineColor: "#333333"
+							axisLineColor: "#333333",
+							min: 0,
+							max: 100
 						}],
 						gridType: 'solid',
 						gridColor: '#CCCCCC',
 						dashLength: 1,
 						splitNumber: 5,
-						min: 10,
-						max: 100,
 						format: (val) => {
 							return val.toFixed(0)
 						}

@@ -8,7 +8,7 @@
 				<view class="content-info">
 					<text class="info-name">{{details.userNickname}}</text>
 					<text class="info-sex">{{details.userSex}}</text>
-					<text class="info-age">{{details.userAge}}岁</text>
+					<text class="info-age">{{details.userAge}}</text>
 				</view>
 				<view class="content-address">{{details.userArea}}</view>
 			</view>
@@ -23,7 +23,7 @@
 	export default {
 		props: {
 			details: Object
-		},
+		}
 	}
 </script>
 
