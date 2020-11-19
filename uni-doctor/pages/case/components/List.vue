@@ -67,7 +67,7 @@
 						hospital: self.hospital,
 						page: {
 							current: self.current,
-							size: 20
+							size: 10
 						}
 					}, loading).then(data => {
 						let res = data.data
