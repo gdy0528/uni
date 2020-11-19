@@ -7,7 +7,7 @@
 							<LayzImage src="@case/d_doctorlist_icon_search.png" />
 						</view>
 						<view class="item-input">
-							<input class="input-search" type="text" name="search" confirm-type="search" placeholder="搜索想查看的患者" @confirm="handleSearch">
+							<input class="input-search" type="text" name="search" confirm-type="search" placeholder="搜索想查看的患者" @confirm="handleConfirm">
 						</view>
 					</view>
 					<button class="search-btns" form-type="submit" plain="true">搜索</button>
@@ -51,6 +51,10 @@
 			},
 			handleSearch(e) {	//点击搜索
 				this.search = e.target.value.search
+				this.handleEmitValue()
+			},
+			handleConfirm(e) {	//点击原生键盘搜搜索
+				this.search = e.target.value
 				this.handleEmitValue()
 			},
 			handleChangeHospital(value) { //监听选择所属医院
