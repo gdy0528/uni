@@ -54,14 +54,12 @@
 				// #ifndef APP-NVUE
 				return this.size - 4 + 'px'
 				// #endif
-			},
+			}
 		},
 		watch: {
 			value: {
 				immediate: true,
 				handler(value) {
-					console.log("value",value)
-					console.log("activeValue",this.activeValue)
 					this.currentValue = value
 				}
 			}
@@ -87,7 +85,7 @@
 							}).catch(() => {})
 						} else if (typeof result === 'boolean' && result) {
 							this.toggleValue()
-						}
+						} 
 					} else {
 						this.toggleValue()
 					}

@@ -9,6 +9,9 @@
 		<view class="serve-btns">
 			<navigator class="btns" url="/pages/addAssistant/addAssistant">添加助手</navigator>
 			<navigator class="btns" url="/pages/qrcode/qrcode?type=assistant">邀请TA为助手</navigator>
+			<!-- #ifdef MP-WEIXIN -->
+			<navigator class="btns order-btns" url="/pages/qrcode/qrcode?type=assistant">助手订单</navigator>
+			<!-- #endif -->
 		</view>
 	</view>
 </template>
@@ -21,21 +24,23 @@
 		},
 		data() {
 			return {
-				serve: false	//服务开启
+				serve: false //服务开启
 			}
 		},
 		methods: {
-			handleChangeSwitch(nextStatus, extraData) { //监听开关按钮状态
-				let self = this
+			handleChangeSwitch(nextStatus, extraData, self) { //监听开关按钮状态
+				// #ifndef MP-WEIXIN
+				self = this
+				// #endif
 				let subsidiaryOnOff = nextStatus ? '1' : '2'
-				this.$showModal({
+				self.$showModal({
 					content: '是否切换开关吗?',
 				}).then(() => {
-					self.$post('/api/doctor/su/setSubsidiaryOnOff',{
+					self.$post('/api/doctor/su/setSubsidiaryOnOff', {
 						subsidiaryOnOff
 					}).then(data => {
 						let res = data.data
-						if(res.code == 200) {
+						if (res.code == 200) {
 							self.serve = nextStatus
 						}
 					})
@@ -72,14 +77,27 @@
 			flex-direction: row;
 			justify-content: space-between;
 			.btns {
-				width: 320upx;
+				/* #ifndef MP-WEIXIN */
+				width: 240upx;
+				/* #endif */
 				height: 80upx;
+				padding: 0 40upx;
 				line-height: 80upx;
 				font-size: $fontSmallSize;
 				color: $fontWhiteColor;
 				text-align: center;
+				border: 2upx solid $bgMainColor;
 				border-radius: 10upx;
 				background: $bgMainColor;
+				&:last-child {
+					margin: 0;
+				}
+				&.order-btns {
+					font-size: $fontSize;
+					color: $fontBlueColor;
+					border-color: $bgMainColor;
+					background: $bgWhiteColor;
+				}
 			}
 		}
 	}
