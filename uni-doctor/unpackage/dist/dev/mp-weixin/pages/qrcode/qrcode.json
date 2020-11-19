@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "邀请二维码",
-  "usingComponents": {
-    "tki-qrcode": "/node-modules/tki-qrcode/components/tki-qrcode/tki-qrcode"
-  }
-}

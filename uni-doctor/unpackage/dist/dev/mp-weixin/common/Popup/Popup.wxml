@@ -1,1 +1,0 @@
-<uni-popup vue-id="059cf69a-1" type="{{type}}" maskClick="{{mask}}" animation="{{animation}}" maskShow="{{maskShow}}" data-ref="CommonPopup" class="data-v-41f952b3 vue-ref" bind:__l="__l" vue-slots="{{['default']}}"><slot name="box"></slot></uni-popup>

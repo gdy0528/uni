@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "common-circle": "/common/Circle/Circle",
-    "common-echarts": "/common/Echarts/Echarts"
-  }
-}

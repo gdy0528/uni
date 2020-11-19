@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "病历总库",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "case-search": "/pages/case/components/Search",
-    "case-list": "/pages/case/components/List"
-  }
-}

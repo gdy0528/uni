@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "我的",
-  "usingComponents": {
-    "personal-info": "/pages/personal/components/Info",
-    "personal-tab": "/pages/personal/components/Tab"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "个人资料",
-  "usingComponents": {
-    "common-avatar": "/common/Avatar/Avatar",
-    "common-picker": "/common/Picker/Picker",
-    "common-date-picker": "/common/Picker/DatePicker",
-    "common-address-picker": "/common/Picker/AddressPicker"
-  }
-}

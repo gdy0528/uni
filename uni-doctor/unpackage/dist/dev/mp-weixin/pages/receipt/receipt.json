@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "咨询接单",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "text-scroll": "/common/TextScroll/TextScroll",
-    "receipt-list": "/pages/receipt/components/List"
-  }
-}

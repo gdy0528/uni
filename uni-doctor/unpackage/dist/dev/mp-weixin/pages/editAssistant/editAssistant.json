@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "修改助手",
-  "usingComponents": {
-    "common-switch": "/common/Switch/Switch"
-  }
-}
