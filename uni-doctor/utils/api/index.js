@@ -3,7 +3,7 @@ import { showModal, showToast } from '@/utils/commonJs'
 import { imDisconnect } from '@/utils/imRong'
 
 const PROD_SERVICE = '' //线上环境
-const DEV_SERVICE = 'http://www.nkzj999.com/wx/serve/test-doctor' //测试环境
+const DEV_SERVICE = 'https://www.nkzj999.com/wx/serve/test-doctor' //测试环境
 // const DEV_SERVICE = 'http://192.168.0.183:8502' //测试环境
 
 function getSerive() { //获取请求地址

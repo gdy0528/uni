@@ -43,9 +43,21 @@
 				"navigationBarTitleText": "咨询接单",
 				"enablePullDownRefresh": true,
 				"app-plus": {
+					"bounce": "none",
 					"titleNView": {
 						"buttons": [{
-							"width": "65px",
+							"width": "160upx",
+							"float": "right",
+							"text": "接单记录",
+							"fontSize": "28upx",
+							"color": "#FFFFFF"
+						}]
+					}
+				},
+				"h5": {
+					"titleNView": {
+						"buttons": [{
+							"width": "130upx",
 							"float": "right",
 							"text": "接单记录",
 							"fontSize": "28upx",
@@ -87,7 +99,18 @@
 					"bounce": "none",
 					"titleNView": {
 						"buttons": [{
-							"width": "65px",
+							"width": "160upx",
+							"float": "right",
+							"text": "助手订单",
+							"fontSize": "28upx",
+							"color": "#FFFFFF"
+						}]
+					}
+				},
+				"h5": {
+					"titleNView": {
+						"buttons": [{
+							"width": "130upx",
 							"float": "right",
 							"text": "助手订单",
 							"fontSize": "28upx",
