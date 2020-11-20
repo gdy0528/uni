@@ -1,6 +1,6 @@
 <template>
 	<picker class="PickerMain" :style="{'textAlign' : textAlign}" mode="date" :value="value" :start="start" :end="end" @change="handleChangeDate">
-		<view class="picker-value" :class="{'active-value' : value}">{{value || placeholder}}</view>
+		<view class="picker-value" :class="{'active-value' : value}" :style="{'fontSize' : `${fontSize}rpx`}">{{value || placeholder}}</view>
 	</picker>
 </template>
 
@@ -27,6 +27,10 @@
 			placeholder: {
 				type: String,
 				default: "请选择日期"
+			},
+			fontSize: {
+				type: Number,
+				default: 28
 			}
 		},
 		methods: {
@@ -43,7 +47,6 @@
 		padding-left: 10upx;
 		flex: 1;
 		.picker-value {
-			font-size: $fontSize;
 			color: $uni-text-color-placeholder;
 			@include ellipsis;
 			&.active-value {

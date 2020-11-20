@@ -91,6 +91,9 @@
 					}
 				}
 			}
+		},
+		mounted() {
+			imGetConversationList()	//获取最新会话列表
 		}
 	}
 </script>

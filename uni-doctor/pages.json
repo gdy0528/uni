@@ -121,6 +121,20 @@
 			"style": {
 				"navigationBarTitleText": "服务管理"
 			}
+		},
+		{
+			"path": "pages/assistantHistory/assistantHistory",
+			"style": {
+				"navigationBarTitleText": "助手订单历史",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/order/order",
+			"style": {
+				"navigationBarTitleText": "订单记录",
+				"enablePullDownRefresh": true
+			}
 		}
 	],
 	"condition": {
@@ -189,6 +203,14 @@
 			{
 				"path": "pages/service/service",
 				"name": "服务管理"
+			},
+			{
+				"path": "pages/assistantHistory/assistantHistory",
+				"name": "助手订单历史"
+			},
+			{
+				"path": "pages/order/order",
+				"name": "订单记录"
 			}
 		]
 	},

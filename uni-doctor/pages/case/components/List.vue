@@ -67,7 +67,7 @@
 						hospital: self.hospital,
 						page: {
 							current: self.current,
-							size: 10
+							size: 5
 						}
 					}, loading).then(data => {
 						let res = data.data
@@ -99,10 +99,11 @@
 			},
 			handleRefresh() { //下拉刷新
 				let self = this
+				self.isEmpty = false	
 				self.disabled = false
 				self.current = 1 
 				self.caseList = []	//清空接单数据
-				self.postCaseData(false).then(res => {
+				self.postCaseData(false).then(res => {	
 					uni.stopPullDownRefresh()
 					this.$showToast({
 						title: "刷新成功",
@@ -113,11 +114,12 @@
 			handleSearchData(condition, hospital) {	//查询数据
 				this.condition = condition //搜索内容
 				this.hospital = hospital	//搜索医院
-				this.isEmpty = false	//判断是否请求数据为空
-				this.current = 1 //默认请求当前页数
-				this.caseList = [] //病历数据
+				this.isEmpty = false	
+				this.disabled = false	
+				this.current = 1 
+				this.caseList = [] //清空接单数据
 				this.$nextTick(() => {
-					this.postCaseData(true) //请求病历库数据
+					this.postCaseData(true) 
 				})
 			}
 		},

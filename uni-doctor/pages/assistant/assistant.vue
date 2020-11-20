@@ -14,6 +14,11 @@
 			AssistantList
 		},
 		methods: {
+			handleChangRouterSkip() {	//路由跳转(助手订单历史)
+				uni.navigateTo({
+					url: "/pages/assistantHistory/assistantHistory"
+				})
+			},
 			psotSubsidiaryHome() {	//获取助手列表
 				let self = this
 				this.$post('/api/doctor/su/getSubsidiaryHome').then(data => {
@@ -50,6 +55,9 @@
 		},
 		onShow() {
 			this.psotSubsidiaryHome()	//获取助手列表
+		},
+		onNavigationBarButtonTap(e) {	//监听顶部右侧按钮
+			this.handleChangRouterSkip()	//路由跳转(助手订单历史)
 		}
 	}
 </script>

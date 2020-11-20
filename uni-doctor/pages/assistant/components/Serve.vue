@@ -10,7 +10,7 @@
 			<navigator class="btns" url="/pages/addAssistant/addAssistant">添加助手</navigator>
 			<navigator class="btns" url="/pages/qrcode/qrcode?type=assistant">邀请TA为助手</navigator>
 			<!-- #ifdef MP-WEIXIN -->
-			<navigator class="btns order-btns" url="/pages/qrcode/qrcode?type=assistant">助手订单</navigator>
+			<navigator class="btns order-btns" url="/pages/assistantHistory/assistantHistory">助手订单</navigator>
 			<!-- #endif -->
 		</view>
 	</view>

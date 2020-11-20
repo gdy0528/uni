@@ -8,12 +8,12 @@
 				</view>
 				<view class="item-name">{{orderCount > 0 ? "您有新订单请查看" : '暂无消息'}}</view>
 			</navigator>
-			<view class="studio-item">
+			<navigator class="studio-item" hover-class="none" url="/pages/order/order">
 				<view class="item-icons">
 					<LayzImage src="@studio/d_studio_icon_orderhistory.png" />
 				</view>
 				<view class="item-name">点击查看</view>
-			</view>
+			</navigator>
 		</view>
 		<view class="studio-box">
 			<navigator class="studio-item" hover-class="none" url="/pages/case/case">

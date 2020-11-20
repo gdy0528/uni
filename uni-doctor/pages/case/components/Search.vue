@@ -1,18 +1,16 @@
 <template>
 	<view class="CaseSearch">
-		<form @submit="handleSearch">
-			<view class="search-box">
-					<view class="search-item">
-						<view class="item-icons">
-							<LayzImage src="@case/d_doctorlist_icon_search.png" />
-						</view>
-						<view class="item-input">
-							<input class="input-search" type="text" name="search" confirm-type="search" placeholder="搜索想查看的患者" @confirm="handleConfirm">
-						</view>
-					</view>
-					<button class="search-btns" form-type="submit" plain="true">搜索</button>
+		<view class="search-box">
+			<view class="search-item">
+				<view class="item-icons">
+					<LayzImage src="@case/d_doctorlist_icon_search.png" />
+				</view>
+				<view class="item-input">
+					<input class="input-search" type="text" name="search" confirm-type="search" placeholder="搜索想查看的患者" @input="handleInput" @confirm="handleSearch">
+				</view>
 			</view>
-		</form>
+			<button class="search-btns" plain="true" @click="handleSearch">搜索</button>
+		</view>
 		<view class="screen-box">
 			<view class="screen-title">所属医院筛选</view>
 			<view class="screen-picker">
@@ -49,12 +47,10 @@
 					}
 				})
 			},
-			handleSearch(e) {	//点击搜索
-				this.search = e.target.value.search
-				this.handleEmitValue()
-			},
-			handleConfirm(e) {	//点击原生键盘搜搜索
+			handleInput(e) {	//监听输入
 				this.search = e.target.value
+			},
+			handleSearch(e) {	//点击搜索
 				this.handleEmitValue()
 			},
 			handleChangeHospital(value) { //监听选择所属医院

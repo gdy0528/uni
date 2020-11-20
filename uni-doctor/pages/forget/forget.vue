@@ -33,7 +33,7 @@
 			</view>
 		</view>
 		<view class="btns-box">
-			<button class="forget-btns" type="default" @click="handleClickForget">确定修改</button>
+			<button class="forget-btns" type="default" plain @click="handleClickForget">确定修改</button>
 		</view>
 	</view>
 </template>
@@ -199,9 +199,6 @@
 				box-sizing: border-box;
 				border-radius: 40upx;
 				background: $bgMainColor;
-				&:after {
-					border: none;
-				}
 			}
 		}
 	}

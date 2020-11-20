@@ -111,6 +111,7 @@
 			},
 			handleRefresh() { //下拉刷新
 				let self = this
+				self.isEmpty = false
 				self.disabled = false
 				self.current = 1 
 				self.receiptList = []	//清空接单数据
@@ -182,6 +183,7 @@
 			tabId() {	//监听是否发生变化
 				this.disabled = false
 				this.current = 1 
+				this.isEmpty = false
 				this.receiptList = []	//清空接单数据
 				this.postReceivingOrderList()	//获取订单信息
 			}

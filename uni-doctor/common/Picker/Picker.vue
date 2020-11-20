@@ -1,6 +1,6 @@
 <template>
 	<picker class="PickerMain" :style="{'textAlign' : textAlign}" :range="colums" :range-key="columsKey" @change="handleChangeCloums">
-		<view class="picker-value" :class="{'active-value' : value}">{{value || placeholder}}</view>
+		<view class="picker-value" :class="{'active-value' : value}" :style="{'fontSize' : `${fontSize}rpx`}">{{value || placeholder}}</view>
 	</picker>
 </template>
 
@@ -28,6 +28,10 @@
 			placeholder: {
 				type: String,
 				default: "请选择"
+			},
+			fontSize: {
+				type: Number,
+				default: 28
 			}
 		},
 		methods: {
@@ -44,7 +48,6 @@
 		padding-left: 10upx;
 		flex: 1;
 		.picker-value {
-			font-size: $fontSize;
 			color: $uni-text-color-placeholder;
 			@include ellipsis;
 			&.active-value {

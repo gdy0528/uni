@@ -111,3 +111,45 @@ export function inquiry(type) {
 			}
 	}
 }
+
+
+/* 订单状态 */
+export function orderStatus(status) {
+	switch (status) { //处理订单状态返回文案
+		case "A":
+			return { 
+				name: "未支付",
+				color: "#999999"
+			} 
+		case "B": case "DT":
+			return { 
+				name: "候诊中",
+				color: "#999999"
+			} 
+		case "C":
+			return { 
+				name: "已结束",
+				color: "#999999"
+			} 
+		case "D":
+			return { 
+				name: "已退款",
+				color: "#999999"
+			} 
+		case "J":
+			return { 
+				name: "就诊中",
+				color: "#0E92F8"
+			} 
+		case "Q":
+			return { 
+				name: "已取消",
+				color: "#999999"
+			} 
+		case "QP": case "QD":
+			return { 
+				name: "已拒绝",
+				color: "#999999"
+			} 
+	}
+}

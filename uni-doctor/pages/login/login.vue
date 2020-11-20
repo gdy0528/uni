@@ -22,8 +22,8 @@
 			<navigator class="login-link" hover-class="none" url="/pages/forget/forget">忘记密码</navigator>
 		</view>
 		<view class="btns-box">
-			<button class="wx-btns" type="default" @click="handleClickWxLogin">{{ isUser ? '切换到微信登录' : '微信快速登录/注册' }}</button>
-			<button class="user-btns" type="default" @click="handleClickUserLogin">{{ isUser ? '登录' : '切换到账号登录' }}</button>
+			<button class="wx-btns" type="default" plain @click="handleClickWxLogin">{{ isUser ? '切换到微信登录' : '微信快速登录/注册' }}</button>
+			<button class="user-btns" type="default" plain @click="handleClickUserLogin">{{ isUser ? '登录' : '切换到账号登录' }}</button>
 		</view>
 	</view>
 </template>
@@ -181,9 +181,6 @@
 				border-radius: 40upx;
 				transform: translateY(0px);
 				transition: all 0.8s;
-				&:after {
-					border: none;
-				}
 			}
 			.wx-btns {
 				@extend .btns;
