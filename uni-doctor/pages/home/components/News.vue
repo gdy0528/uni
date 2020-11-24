@@ -47,7 +47,7 @@
 			service() {
 				return [
 					{
-						path: "",
+						path: "/pages/warning/warning",
 						name: "患者预警",
 						icons: "@home/d_home_icon_warn.png",
 						bage: this.serveObj.patientPush

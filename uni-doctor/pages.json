@@ -158,6 +158,36 @@
 				"navigationBarTitleText": "订单记录",
 				"enablePullDownRefresh": true
 			}
+		},
+		{
+			"path": "pages/warning/warning",
+			"style": {
+				"navigationBarTitleText": "患者预警提醒",
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"bounce": "none",
+					"titleNView": {
+						"buttons": [{
+							"width": "110upx",
+							"float": "right",
+							"text": "清理",
+							"fontSize": "28upx",
+							"color": "#FFFFFF"
+						}]
+					}
+				},
+				"h5": {
+					"titleNView": {
+						"buttons": [{
+							"width": "80upx",
+							"float": "right",
+							"text": "清理",
+							"fontSize": "28upx",
+							"color": "#FFFFFF"
+						}]
+					}
+				}
+			}
 		}
 	],
 	"condition": {
@@ -234,6 +264,10 @@
 			{
 				"path": "pages/order/order",
 				"name": "订单记录"
+			},
+			{
+				"path": "pages/warning/warning",
+				"name": "患者预警提醒"
 			}
 		]
 	},
