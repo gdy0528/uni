@@ -61,6 +61,7 @@
 				dom.innerHTML = this.clearText
 				// #endif
 				// #ifdef APP-PLUS
+				let webView = this.$mp.page.$getAppWebview()
 				webView.setTitleNViewButtonStyle(0, {
 					text: this.clearText
 				})
