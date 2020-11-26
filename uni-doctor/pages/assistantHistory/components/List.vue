@@ -18,9 +18,7 @@
 						<text class="info_name">{{item.suUserName}}</text>
 					</view>
 					<view class="content-state">
-						<view class="state-border" :style="{'background' : item.OrderStateColor}"></view>
-						<view class="state-box" :style="{'color' : item.OrderStateColor, 'borderColor' : item.OrderStateColor}">{{item.OrderStateText}}</view>
-						<view class="state-border" :style="{'background' : item.OrderStateColor}"></view>
+						<view class="state-box" :style="{'--orderstatecolor' : item.OrderStateColor}">{{item.OrderStateText}}</view>
 					</view>
 					<view class="content-head">
 						<view class="patient_head">
@@ -238,15 +236,33 @@
 						flex-direction: row;
 						justify-content: center;
 						align-items: center;
-						.state-border {
-							width: 20%;
-							height: 1upx;
-						}
 						.state-box {
+							position: relative;
 							padding: 0 15upx;
 							font-size: $fontMinSize;
-							border: 2upx solid transparent;
+							color: var(--orderstatecolor);
+							border: 2upx solid var(--orderstatecolor);
 							border-radius: 50upx;
+							&:after {
+								content: "";
+								position: absolute;
+								left: 100%;
+								bottom: 50%;
+								width: 50%;
+								height: 2upx;
+								border-radius: 1upx;
+								background: var(--orderstatecolor);
+							}
+							&:before {
+								content: "";
+								position: absolute;
+								right: 100%;
+								bottom: 50%;
+								width: 50%;
+								height: 2upx;
+								border-radius: 1upx;
+								background: var(--orderstatecolor);
+							}
 						}
 					}
 				}

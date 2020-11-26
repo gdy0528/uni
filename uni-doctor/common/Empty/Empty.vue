@@ -6,6 +6,7 @@
 		<view class="empty-content">
 			<text class="content-desc">{{desc}}</text>
 		</view>
+		<slot name="btns"></slot>
 	</view>
 </template>
 

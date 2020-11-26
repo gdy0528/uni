@@ -8,10 +8,16 @@
 				'token'
 			]),
 		},
-		onLaunch() {
+		onLaunch(option) {
 			if (this.info && this.token) {	//重新注册IM
 				imLogin(this.info.imTokens)	
 			}
+			if (option.path == undefined) {	//判断当前界面是否存在
+				uni.reLaunch({
+					url: '/pages/error/error'
+				})
+			}
+			console.log(option)
 			console.log('App Launch')
 		},
 		onShow() {

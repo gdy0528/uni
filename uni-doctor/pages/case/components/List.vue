@@ -72,9 +72,10 @@
 					}, loading).then(data => {
 						let res = data.data
 						if (res.code == 200) {
-							let pages = res.data.pages
-							let records = res.data.records.map(item => {
-								let { color, name } =  grade(item.healthyFraction)
+							let datas = res.data
+							let pages = datas.pages
+							let records = datas.records.map(item => {
+								let { color, name } = grade(item.healthyFraction)
 								item.gradeColor = color
 								item.gradeText = name
 								return item
@@ -86,7 +87,7 @@
 								self.caseList = self.caseList.concat(records)
 							}
 							if (pages <= self.current) self.disabled = true
-							resolve(res.data)
+							resolve(datas)
 						}
 					})
 				})

@@ -135,9 +135,10 @@
 					}).then(data => {
 						let res = data.data
 						if (res.code == 200) {
-							let pages = res.data.pages
+							let datas = res.data
+							let pages = datas.pages
 							let moment = require('moment')
-							let records = res.data.records.map(item => {
+							let records = datas.records.map(item => {
 								let orderState = item.orderState  //订单状态
 								let info = self.info	//获取用户信息
 								let { color, name } = inquiry(item.orderTypes)	//获取问诊类型
@@ -173,7 +174,7 @@
 								self.receiptList = self.receiptList.concat(records)
 							}
 							if (pages <= self.current) self.disabled = true
-							resolve(res.data)
+							resolve(datas)
 						}
 					})
 				})

@@ -7,6 +7,13 @@
 			}
 		},
 		{
+			"path": "pages/error/error",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationBarBackgroundColor": "#F8F8F8"
+			}
+		},
+		{
 			"path": "pages/studio/studio",
 			"style": {
 				"navigationBarTitleText": "工作室"
@@ -163,7 +170,7 @@
 			"path": "pages/warning/warning",
 			"style": {
 				"navigationBarTitleText": "患者预警提醒",
-				"enablePullDownRefresh": false,
+				"enablePullDownRefresh": true,
 				"app-plus": {
 					"bounce": "none",
 					"titleNView": {

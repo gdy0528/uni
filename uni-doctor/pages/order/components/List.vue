@@ -8,9 +8,9 @@
 						<text class="top-title">{{item.inquiryText}}</text>
 						<text class="top-money">¥{{item.money}}</text>
 						<text class="top-ward" v-if="item.title && item.orderTypes == 'D' || item.orderTypes == 'E'">{{item.title}}</text>
-						<view class="top-state">
-							<view class="state_icons" :style="{'background' : item.OrderStateColor}"></view>
-							<text class="state_text" :style="{'color' : item.OrderStateColor}">{{item.OrderStateText}}</text>
+						 <view class="top-state" :style="{'--orderstatecolor' : item.OrderStateColor}">
+							<view class="state_icons"></view>
+							<text class="state_text">{{item.OrderStateText}}</text>
 						</view>
 					</view>
 					<view class="item-content">
@@ -213,9 +213,11 @@
 								height: 8upx;
 								margin-right: 10upx;
 								border-radius: 50%;
+								background: var(--orderstatecolor);
 							}
 							.state_text {
 								font-size: $fontSize;
+								color: var(--orderstatecolor);
 								font-weight: 500
 							}
 						}
