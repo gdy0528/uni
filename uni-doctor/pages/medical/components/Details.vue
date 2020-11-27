@@ -12,18 +12,59 @@
 				</view>
 				<view class="content-address">{{details.userArea}}</view>
 			</view>
-			<view class="detail-contact" v-if="details.isNotout">
-				<button class="contact-btns">联系TA</button>
+			<view class="detail-contact" v-if="isContact">
+				<button class="contact-btns" @click="handleClickCall">联系TA</button>
 			</view>
 		</view>
+		<CommonPopup ref="WarningContact">
+			<Contact :contact="contact" @cancel="handleChangeCancelContact"/>
+		</CommonPopup>
 	</view>
 </template>
 
 <script>
+	import CommonPopup from '@/common/Popup/Popup'
+	import Contact from '@/common/Business/contact'
 	export default {
 		props: {
-			details: Object
-		}
+			details: Object,
+			router: Object
+		},
+		components: {
+			CommonPopup,
+			Contact
+		},
+		data() {
+			return {
+				contact: {} //联系信息
+			}
+		},
+		computed: {
+			isContact() {	//是否显示联系
+				let { details, router } = this
+				return router.order || details.isNotout 
+			}
+		},
+		methods: {
+			handleClickCall() {	//点击联系他
+				let { details, router } = this
+				let contact = {
+					id: details.id,
+					head: details.userImg,
+					order: router.order,
+					type: details.userType,
+					isNotout: details.isNotout
+				}
+				this.contact = contact
+				this.$nextTick(() => {
+					this.$refs.WarningContact.handlePopupOpen(true)
+				})
+			},
+			handleChangeCancelContact(val) {	//取消弹窗
+				this.contact = {}
+				this.$refs.WarningContact.handlePopupOpen(false)
+			}
+		},
 	}
 </script>
 
@@ -45,6 +86,7 @@
 				margin-right: 20upx;
 			}
 			.detail-content {
+				margin-right: 10upx;
 				flex: 1;
 				display: flex;
 				flex-direction: column;
@@ -73,7 +115,6 @@
 					margin-top: 10upx;
 					font-size: $fontSize;
 					color: $fontBlackColor;
-					@include ellipsis;
 				}
 			}
 			.detail-contact {

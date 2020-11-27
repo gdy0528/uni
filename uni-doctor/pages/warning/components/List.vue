@@ -5,10 +5,10 @@
 			<view class="warning-box" v-if="!isEmpty">
 				<view class="warning-item" v-for="(item, index) in warningList" :key="index">
 					<view class="item-info">
-						<navigator class="info_left" hover-class="none" :url="`/pages/medical/medical?id=${item.id}`">
+						<navigator class="info_left" hover-class="none" :url="`/pages/medical/medical?id=${item.id}&order=${item.orderCode}`">
 							<view class="info_left_score">
-								<CommonCircle :circleDiam="136" :textSize="42" :value="item.healthyFraction" :text="item.gradeText"
-								 :progressColor="item.gradeColor" :textColor="item.gradeColor" />
+								<CommonCircle :circleDiam="138" :textSize="42" :value="item.healthyFraction" :text="item.gradeText"
+								 :progressColor="item.gradeColor" :textColor="item.gradeColor" :progressSize="4" />
 							</view>
 							<view class="info_left_head">
 								<LayzImage :src="item.userImg" round />
@@ -34,7 +34,7 @@
 					</view>
 					<view class="item-content">
 						<text class="content-time">{{item.createDate}}评测</text>
-						<view class="content-contact">联系TA</view>
+						<view class="content-contact" @click="handleClickContact(item, true)">联系TA</view>
 					</view>
 				</view>
 			</view>
@@ -49,21 +49,26 @@
 			</view>
 			<view class="all-btns" @click="handleClickAllCheck">{{ allCheck ? '全不选' : '全选'}}</view>
 		</view>
+		<CommonPopup ref="WarningContact">
+			<Contact :contact="contact" @cancel="handleChangeCancelContact"/>
+		</CommonPopup>
 	</view>
 </template>
 
 <script>
 	import CommonCircle from '@/common/Circle/Circle.vue'
-	import {
-		grade
-	} from '@/utils/tool'
+	import CommonPopup from '@/common/Popup/Popup'
+	import Contact from '@/common/Business/contact'
+	import { grade } from '@/utils/tool'
 	export default {
 		props: {
 			type: String,
 			clear: Boolean
 		},
 		components: {
-			CommonCircle
+			CommonCircle,
+			CommonPopup,
+			Contact
 		},
 		data() {
 			return {
@@ -72,6 +77,7 @@
 				isEmpty: false, //判断是否请求数据为空
 				current: 1, //当前页数
 				clearArr: [], //存放清理数据
+				contact: {}	//联系信息
 			}
 		},
 		computed: {
@@ -219,6 +225,27 @@
 						icon: 'none'
 					})
 				}
+			},
+			handleClickContact(info, flag) {	//点击联系他
+				let contact = {	
+					id: info.id,
+					head: info.userImg,
+					order: info.orderCode,
+					type: info.type
+				}
+				this.contact = contact
+				this.$nextTick(() => {
+					this.$refs.WarningContact.handlePopupOpen(flag)
+				})
+			},
+			handleChangeCancelContact(val) {	//取消弹窗
+				this.contact = {}
+				this.$refs.WarningContact.handlePopupOpen(false)
+				if (val == "reload") {	//刷新数据
+					this.handleRestData().then(() => {
+						this.postPatientWarningList(true)
+					})
+				}
 			}
 		},
 		watch: {
@@ -230,6 +257,7 @@
 		},
 		mounted() {
 			this.postPatientWarningList(true) //请求病历库数据
+			// this.$refs.WarningContact.handlePopupOpen(true)
 		}
 	}
 </script>

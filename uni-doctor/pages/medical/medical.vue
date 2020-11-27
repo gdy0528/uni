@@ -1,6 +1,6 @@
 <template>
 	<view class="MedicalContainer">
-		<MedicalDetails :details="details" />
+		<MedicalDetails :details="details" :router="routerObj" />
 		<MedicalCalculate v-if="calculation" :calculation="calculation" />
 		<MedicalMessage ref="MedicalMessage" :date="dateList" :router="routerObj" />
 	</view>

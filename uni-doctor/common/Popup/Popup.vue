@@ -1,6 +1,6 @@
 <template>
 	<uni-popup :class="" ref="CommonPopup" :type="type" :maskClick="mask" :animation="animation" :maskShow="maskShow">
-		<slot name="box"></slot>
+		<slot />
 	</uni-popup>
 </template>
 
