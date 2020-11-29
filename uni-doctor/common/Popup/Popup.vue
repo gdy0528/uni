@@ -1,5 +1,5 @@
 <template>
-	<uni-popup :class="" ref="CommonPopup" :type="type" :maskClick="mask" :animation="animation" :maskShow="maskShow">
+	<uni-popup ref="CommonPopup" :type="type" :maskClick="mask" :animation="animation" :maskShow="maskShow">
 		<slot />
 	</uni-popup>
 </template>

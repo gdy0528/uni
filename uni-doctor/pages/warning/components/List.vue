@@ -234,9 +234,7 @@
 					type: info.type
 				}
 				this.contact = contact
-				this.$nextTick(() => {
-					this.$refs.WarningContact.handlePopupOpen(flag)
-				})
+				this.$refs.WarningContact.handlePopupOpen(flag)
 			},
 			handleChangeCancelContact(val) {	//取消弹窗
 				this.contact = {}
@@ -257,7 +255,6 @@
 		},
 		mounted() {
 			this.postPatientWarningList(true) //请求病历库数据
-			// this.$refs.WarningContact.handlePopupOpen(true)
 		}
 	}
 </script>

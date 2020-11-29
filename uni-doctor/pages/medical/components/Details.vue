@@ -56,9 +56,7 @@
 					isNotout: details.isNotout
 				}
 				this.contact = contact
-				this.$nextTick(() => {
-					this.$refs.WarningContact.handlePopupOpen(true)
-				})
+				this.$refs.WarningContact.handlePopupOpen(true)
 			},
 			handleChangeCancelContact(val) {	//取消弹窗
 				this.contact = {}
