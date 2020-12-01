@@ -4,17 +4,17 @@
 			<view class="qrcode-info">
 				<view class="info-head"><LayzImage :src="userInfo.userImg" round /></view>
 				<text class="info-name">{{ userInfo.userNickname }}</text>
-				<text class="info-desc">{{ qrPort(qrIndex, 'title', routerObj.type) }}</text>
+				<text class="info-desc">{{ qrPort(isQrCode, 'title', routerObj.type) }}</text>
 			</view>
 			<view class="qrcode-border"></view>
 			<view class="qrcode-ewm">
-				<view class="ewm-box" :class="{ 'ewm-rotate': qrIndex }" @click="handleClickRotateY">
-					<view class="ewm-qrcode" v-for="(item, index) in qrConfig" :key="index">
+				<view class="ewm-box" :class="{ 'ewm-rotate': isQrCode }" @click="handleClickRotateY">
+					<view class="ewm-qrcode" v-for="(item, index) in qrConfig" :key="item.cid">
 						<tki-qrcode ref="qrcode" :cid="item.cid" :val="qrUrl(item.val)" :size="300" :icon="item.icon" :iconSize="25" onval :showLoading="false" />
 					</view>
 				</view>
-				<text class="ewm-desc" v-if="userInfo.userType != 3">{{ qrPort(qrIndex, 'image', routerObj.type) }}</text>
-				<button class="ewm-btns" plain>{{ qrPort(qrIndex, 'share', routerObj.type) }}</button>
+				<text class="ewm-desc" v-if="userInfo.userType != 3">{{ qrPort(isQrCode, 'image', routerObj.type) }}</text>
+				<button class="ewm-btns" plain>{{ qrPort(isQrCode, 'share', routerObj.type) }}</button>
 			</view>
 		</view>
 	</view>
@@ -29,7 +29,7 @@ export default {
 	data() {
 		return {
 			routerObj: {},	//路由信息
-			qrIndex: false, //当前展示二维码
+			isQrCode: false, //当前展示二维码
 			qrConfig: [	//二维码列表
 				{
 					cid: 'qr_doctor',
@@ -46,11 +46,11 @@ export default {
 		};
 	},
 	computed: {
-		qrPort(qrIndex, type, routerType) {	//计算二维码端区分
-			return (qrIndex, type, routerType) => {
+		qrPort(isQrCode, type, routerType) {	//计算二维码端区分
+			return (isQrCode, type, routerType) => {
 				if (type == 'title') return routerType == "assistant" ? '邀请你成为我的助手' : '我为脑科专家代言'
-				if (type == 'image') return routerType == "assistant" ? 'TA扫一扫此码进行注册' : `（点击图片切换${qrIndex ? '医生' : '患者'}端）`;
-				if (type == 'share') return routerType == "assistant" ? '分享给TA' : `分享${qrIndex ? '患者' : '医生'}端二维码`;
+				if (type == 'image') return routerType == "assistant" ? 'TA扫一扫此码进行注册' : `（点击图片切换${isQrCode ? '医生' : '患者'}端）`;
+				if (type == 'share') return routerType == "assistant" ? '分享给TA' : `分享${isQrCode ? '患者' : '医生'}端二维码`;
 			};
 		},
 		qrUrl(url) {	//计算二维码地址
@@ -63,7 +63,7 @@ export default {
 		handleClickRotateY() {	//切换翻转二维码
 			let { userInfo, routerObj } = this
 			if (userInfo.userType != 3 && routerObj.type != "assistant") {
-				this.qrIndex = !this.qrIndex
+				this.isQrCode = !this.isQrCode
 			}
 		},
 		getUserInfo() { //获取个人信息
@@ -73,7 +73,7 @@ export default {
 				if (res.code == 200) {
 					let datas = res.data
 					self.userInfo = datas
-					self.qrIndex = datas.userType == 3	//判断是否为助手
+					self.isQrCode = datas.userType == 3	//判断是否为助手
 				}
 			})
 		}
@@ -142,17 +142,30 @@ export default {
 					border: 6upx solid $bgMainColor;
 					border-radius: 10upx;
 					transition: all 1s;
+					/* #ifdef APP-PLUS */
 					transform-style: preserve-3d;
+					/* #endif */
 					.ewm-qrcode {
 						position: absolute;
 						top: 10upx;
 						left: 10upx;
+						width: 300upx;
+						height: 300upx;
+						&:first-child {
+							z-index: 9;
+							backface-visibility: hidden;
+						}
 						&:last-child {
-							transform: rotateY(-180deg);
+							transform: rotateY(180deg);
 						}
 					}
 					&.ewm-rotate {
 						transform: rotateY(180deg);
+						.ewm-qrcode {
+							&:first-child {
+								z-index: -1;
+							}
+						}
 					}
 				}
 				.ewm-desc {

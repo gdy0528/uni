@@ -2,7 +2,7 @@
 	<view class="AdvisoryContainer">
 		<view class="advisory-box" v-if="newConversationList.length > 0">
 			<view class="advisory-item" v-for="(item, index) in newConversationList"
-			 :key="index">
+			 :key="index" @click="handleClickAdvisory(item)">
 				<view class="item-head">
 					<LayzImage :src="item.head" round />
 					<text class="bage" v-if="item.unread > 0">{{item.unread}}</text>
@@ -21,7 +21,7 @@
 <script>
 	import { mapState } from "vuex"
 	import { timeRule } from "@/utils/tool"
-	import { imGetConversationList } from '@/utils/imRong'
+	import { imGetConversationList, imConversationRead } from '@/utils/imRong'
 	export default {
 		computed: {
 			...mapState({
@@ -31,19 +31,22 @@
 			newConversationList() {
 				let list = this.conversationList.filter(item => item.latestMessage.messageType == "app:RCOrderMsg") //过滤是否订单自定义消息
 				return list.map((item, index) => {
-					let content = item.latestMessage.content
+					let content = item.latestMessage
 					return this.handleMsgData(content, item.unreadMessageCount, item.targetId)
 				})
 			}
 		},
 		methods: {
-			handleMsgData(content, unread, targetId) { //处理消息数据结构
+			handleMsgData(data, unread, targetId) { //处理消息数据结构
 				let datas = {} //定义对象
+				let content = data.content
 				datas.date = timeRule(content.sentTime) //修改时间规则
 				datas.unread = unread //未读信息
 				datas.id = targetId == content.user.id ? content.user.id : content.target.targetId //当前发送人id
 				datas.head = targetId == content.user.id ? content.user.portrait : content.target.targetImg //头像
 				datas.title = targetId == content.user.id ? content.user.name : content.target.targetName //标题
+				datas.orderCode = content.orderCode	//订单编号
+				datas.conversationType = data.type	//区分消息类型（单聊||群聊）
 				if (content.msgType == "imgMsg") { //判断是否为图片
 					datas.desc = "【图片】"
 				} else if (content.msgType == "amapMsg") { //判断是否为位置
@@ -70,6 +73,13 @@
 					this.conversationList.splice(index, 1)
 					this.conversationList.unshift(content)
 				}
+			},
+			handleClickAdvisory(item, index) {	//点击跳转消息列表
+				imConversationRead(item.id, item.conversationType).then(() => {
+					uni.navigateTo({
+						url: `/pages/advisoryChat/advisoryChat?id=${item.orderCode}`
+					})
+				})
 			}
 		},
 		onPullDownRefresh() {	//监听下拉刷新
@@ -85,15 +95,12 @@
 			takeUpdatedConversation: { //监听是否有最新会话列表
 				deep: true,
 				handler(newMsg) {
-					if (newMsg.latestMessage.messageType == "app:RCOrderMsg") {	//判断接受到会话列表是不是问诊数据
+					if (newMsg.latestMessage && newMsg.latestMessage.messageType == "app:RCOrderMsg") {	//判断接受到会话列表是不是问诊数据
 						let index = this.conversationList.findIndex(item => newMsg.targetId == item.targetId) //获取该数据索引
 						this.handleMsgAnimation(newMsg, index)
 					}
 				}
 			}
-		},
-		mounted() {
-			imGetConversationList()	//获取最新会话列表
 		}
 	}
 </script>

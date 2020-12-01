@@ -196,7 +196,15 @@
 				}
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/advisoryChat/advisoryChat",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": ""
+            }
+            
+        }
+    ],
 	"condition": {
 		"current": 0,
 		"list": [ //启动设置

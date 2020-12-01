@@ -137,7 +137,6 @@ export function imGetTotalUnreadCount() {
 	})
 }
 
-
 /* 获取会话列表 */
 export function imGetConversationList() {
 	return new Promise(resolve => {
@@ -150,3 +149,19 @@ export function imGetConversationList() {
 	})
 }
 
+/* 清除未读数角标 */
+export function imConversationRead(id, type) {
+	return new Promise(resolve => {
+		let conversation = im.Conversation.get({
+		  targetId: id,
+		  type: type
+		})
+		conversation.read().then(() => {
+			// console.log('清除未读数成功') // im.watch conversation 将被触发
+			let imIndex = imRongInfo.conversationList.findIndex(item => item.targetId == id && type == item.type)
+			imRongInfo.conversationList[imIndex].unreadMessageCount = 0
+			store.commit('SET_IM_RONG',imRongInfo)
+			resolve()
+		})
+	})
+}
