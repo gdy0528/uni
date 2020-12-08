@@ -36,11 +36,11 @@
 	export default {
 		data() {
 			return {
-				disabled: false, //是否禁用底部加载
 				condition: "",	//搜索内容
 				hospital: "",	//搜索医院
 				isEmpty: false,	//判断是否请求数据为空
 				current: 1, //默认请求当前页数
+				disabled: false, //是否禁用底部加载
 				caseList: [] //病历数据
 			}
 		},
@@ -99,28 +99,30 @@
 				}
 			},
 			handleRefresh() { //下拉刷新
-				let self = this
-				self.isEmpty = false	
-				self.disabled = false
-				self.current = 1 
-				self.caseList = []	//清空接单数据
-				self.postCaseData(false).then(res => {	
-					uni.stopPullDownRefresh()
-					this.$showToast({
-						title: "刷新成功",
-						duration: 1000
+				this.handleChangRestData().then(() => {
+					this.postCaseData(false).then(res => {
+						uni.stopPullDownRefresh()
+						this.$showToast({
+							title: "刷新成功",
+							duration: 1000
+						})
 					})
 				})
 			},
 			handleSearchData(condition, hospital) {	//查询数据
 				this.condition = condition //搜索内容
 				this.hospital = hospital	//搜索医院
-				this.isEmpty = false	
-				this.disabled = false	
-				this.current = 1 
-				this.caseList = [] //清空接单数据
-				this.$nextTick(() => {
+				this.handleChangRestData().then(() => {
 					this.postCaseData(true) 
+				})
+			},
+			handleChangRestData() {	//重置数据
+				return new Promise(resolve => {
+					this.caseList = [] //病历数据
+					this.isEmpty = false	//判断是否请求数据为空
+					this.current = 1 //默认请求当前页数
+					this.disabled = false //是否禁用底部加载
+					resolve()
 				})
 			}
 		},

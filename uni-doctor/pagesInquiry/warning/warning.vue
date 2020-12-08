@@ -10,7 +10,7 @@
 			<!-- #ifdef MP-WEIXIN -->
 			<view v-if="tabId == 'whzPush'" class="tabbar-clear" :class="{ 'tabbar-cancel' : isTitleView }" @click="handleClickClear">
 				<view class="clear-icons" v-if="!isTitleView">
-					<LayzImage src="@warning/ic_list_cancel.png" />
+					<LayzImage src="@pagesInquiry/warning/ic_list_cancel.png" />
 				</view>
 				<text class="clear-text">{{clearText}}</text>
 			</view>

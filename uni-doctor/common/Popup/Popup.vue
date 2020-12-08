@@ -1,5 +1,5 @@
 <template>
-	<uni-popup ref="CommonPopup" :type="type" :maskClick="mask" :animation="animation" :maskShow="maskShow">
+	<uni-popup ref="CommonPopup" :type="type" :maskClick="mask" :animation="animation">
 		<slot />
 	</uni-popup>
 </template>
@@ -43,6 +43,9 @@
 					this.$refs.CommonPopup.close() //关闭
 				}
 			}
+		},
+		mounted() {
+			this.$refs.CommonPopup.maskShow = this.maskShow
 		}
 	}
 </script>

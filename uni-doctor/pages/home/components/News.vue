@@ -47,19 +47,19 @@
 			service() {
 				return [
 					{
-						path: "/pages/warning/warning",
+						path: "/pagesInquiry/warning/warning",
 						name: "患者预警",
 						icons: "@home/d_home_icon_warn.png",
 						bage: this.serveObj.patientPush
 					},
 					{
-						path: "/pages/receipt/receipt",
+						path: "/pagesInquiry/receipt/receipt",
 						name: "咨询接单",
 						icons: "@home/d_home_icon_orders.png",
 						bage: this.serveObj.orderPush
 					},
 					{
-						path: "",
+						path: "/pagesWard/wardList/wardList",
 						name: "院外病房",
 						icons: "@home/d_home_icon_medicallibrary.png",
 						bage: this.serveObj.cfPushCount > 0 ? -1 : 0,

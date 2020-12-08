@@ -24,7 +24,7 @@
 					</view>
 					<view class="content-skip" v-if="item.orderTypes == 'C' && item.orderState !='B'">
 						<view class="skip-icons">
-							<LayzImage src="@receipt/link.png" />
+							<LayzImage src="@pagesInquiry/receipt/link.png" />
 						</view>
 					</view>
 				</view>
@@ -41,21 +41,25 @@
 							v-if="item.orderState =='J'" 
 							class="status-btns" 
 							:class="{'lose-btns' : !item.isType}"
+							@click="handleClickLose(item)"
 							plain>{{item.isType ? '继续聊天' : '已接单'}}</button>
 						<!-- 为有效订单 且（不为上门且且满足金额大于0 补丁或者为贫困订单的情况下显示）-->
 						<button 
 							v-if="item.orderState == 'B' && (item.orderTypes != 'C' &&  item.orderMoney > 0 || item.orderGenre != '1')"
 							class="status-btns"
+							:disabled="isReceiving"
+							@click="handleClickReceiving(item, index)"
 							plain>立即接单</button>
-						<button
+						<navigator
 							v-if="item.orderTypes == 'C' && item.orderState =='B'"
 							class="status-btns btns-blues"
-							plain>查看详情</button>
+							:url="`/pagesInquiry/advisoryChat/advisoryChat?id=${item.orderCode}`"
+							plain>查看详情</navigator>
 					</view>
 				</view>
 				<view class="item-type">
 					<view class="type-vip" v-if="item.orderGenre == '4'">
-						<LayzImage src="@receipt/tip_dingdan_vip.png" />
+						<LayzImage src="@pagesInquiry/receipt/tip_dingdan_vip.png" />
 					</view>
 					<view class="type-poverty" v-else-if="item.orderGenre == '2'">爱心贫困用户</view>
 					<view class="type-gratis" v-else-if="item.orderGenre != '2' && item.orderMoney == 0">免费问诊</view>
@@ -82,6 +86,7 @@
 				disabled: false, //是否禁用底部加载
 				isEmpty: false,	//判断是否请求数据为空
 				current: 1, //默认请求当前页数
+				isReceiving: false	//防止立即接单重复点击
 			}
 		},
 		computed: {
@@ -110,17 +115,23 @@
 				}
 			},
 			handleRefresh() { //下拉刷新
-				let self = this
-				self.isEmpty = false
-				self.disabled = false
-				self.current = 1 
-				self.receiptList = []	//清空接单数据
-				self.postReceivingOrderList().then(res => {
-					uni.stopPullDownRefresh()
-					this.$showToast({
-						title: "刷新成功",
-						duration: 1000
+				this.handleChangRestData().then(() => {
+					this.postReceivingOrderList().then(res => {
+						uni.stopPullDownRefresh()
+						this.$showToast({
+							title: "刷新成功",
+							duration: 1000
+						})
 					})
+				})
+			},
+			handleChangRestData() {	//重置数据
+				return new Promise(resolve => {
+					this.receiptList = [] //接单数据
+					this.isEmpty = false	//判断是否请求数据为空
+					this.current = 1 //默认请求当前页数
+					this.disabled = false //是否禁用底部加载
+					resolve()
 				})
 			},
 			postReceivingOrderList() {	//获取订单信息
@@ -178,15 +189,44 @@
 						}
 					})
 				})
+			},
+			handleClickReceiving(order, index) {	//立即接单
+				let self = this
+				self.isReceiving = true
+				self.$post('/api/doctor/order/receivingOrder', {
+					orderCode: order.orderCode
+				}).then(data => {
+					let res = data.data
+					if (res.code == 200) {
+						let datas = res.data
+						self.$showToast({
+							title: "接单成功",
+							duration: 500
+						}).then(() => {
+							self.receiptList[index].orderState = "J"  //修改成已接单
+							uni.navigateTo({
+								url: `/pagesInquiry/advisoryChat/advisoryChat?id=${datas.receivingOrderVo.orderCode}`
+							})
+							self.isReceiving = false
+						})
+					} else {
+						self.isReceiving = false
+					}
+				})
+			},
+			handleClickLose(order) {	//继续聊天｜已接单
+				if (order.isType) {
+					uni.navigateTo({
+						url: `/pagesInquiry/advisoryChat/advisoryChat?id=${order.orderCode}`
+					})
+				}
 			}
 		},
 		watch: {
 			tabId() {	//监听是否发生变化
-				this.disabled = false
-				this.current = 1 
-				this.isEmpty = false
-				this.receiptList = []	//清空接单数据
-				this.postReceivingOrderList()	//获取订单信息
+				this.handleChangRestData().then(() => {
+					this.postReceivingOrderList()	//获取订单信息
+				})
 			}
 		},
 		mounted() {

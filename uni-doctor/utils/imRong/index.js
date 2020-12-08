@@ -153,15 +153,19 @@ export function imGetConversationList() {
 export function imConversationRead(id, type) {
 	return new Promise(resolve => {
 		let conversation = im.Conversation.get({
-		  targetId: id,
+		  targetId: id,               
 		  type: type
 		})
 		conversation.read().then(() => {
 			// console.log('清除未读数成功') // im.watch conversation 将被触发
-			let imIndex = imRongInfo.conversationList.findIndex(item => item.targetId == id && type == item.type)
-			imRongInfo.conversationList[imIndex].unreadMessageCount = 0
-			store.commit('SET_IM_RONG',imRongInfo)
+			let imIndex = imRongInfo.conversationList.findIndex(item => item.targetId == id && item.type == type)
+			if (imIndex >= 0) {	//如果列表没有的话，则不整理列表
+				imRongInfo.conversationList[imIndex].unreadMessageCount = 0
+				store.commit('SET_IM_RONG',imRongInfo)
+			}
+			imGetTotalUnreadCount()	//获取单聊的我未读数
 			resolve()
 		})
 	})
 }
+

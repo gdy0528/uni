@@ -195,7 +195,9 @@
 			},
 			handleChangUpload(rsp) { //监听是否生成头像
 				let self = this
-				this.$file('/api/common/file/imageUpload', rsp.path).then(data => {
+				this.$file('/api/common/file/imageUpload', rsp.path, {
+					fileType: "tx"
+				}).then(data => {
 					let res = data.data
 					if (res.code == 200) {
 						self.avatarSrc = res.data.fileUrl

@@ -10,7 +10,7 @@
 			<!-- #ifdef MP-WEIXIN -->
 			<navigator class="tabbar-record" url="/pages/order/order">
 				<view class="record-icons">
-					<LayzImage src="@receipt/ic_list_history.png" />
+					<LayzImage src="@pagesInquiry/receipt/ic_list_history.png" />
 				</view>
 				<text class="record-text">记录</text>
 			</navigator>

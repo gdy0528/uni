@@ -9,7 +9,7 @@
 				</view>
 				<view class="item-content">
 					<text class="content-title">{{item.title}}</text>
-					<text class="content-desc">{{item.desc}}</text>
+					<view class="content-desc">{{item.desc}}</view>
 					<text class="content-date">{{item.date}}</text>
 				</view>
 			</view>
@@ -19,8 +19,8 @@
 </template>
 
 <script>
-	import { mapState } from "vuex"
-	import { timeRule } from "@/utils/tool"
+	import { mapState } from 'vuex'
+	import { timeRule } from '@/utils/tool'
 	import { imGetConversationList, imConversationRead } from '@/utils/imRong'
 	export default {
 		computed: {
@@ -77,7 +77,7 @@
 			handleClickAdvisory(item, index) {	//点击跳转消息列表
 				imConversationRead(item.id, item.conversationType).then(() => {
 					uni.navigateTo({
-						url: `/pages/advisoryChat/advisoryChat?id=${item.orderCode}`
+						url: `/pagesInquiry/advisoryChat/advisoryChat?id=${item.orderCode}`
 					})
 				})
 			}

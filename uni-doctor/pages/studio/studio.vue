@@ -1,7 +1,7 @@
 <template>
 	<view class="StudioContainer">
 		<view class="studio-box">
-			<navigator class="studio-item" hover-class="none" url="/pages/advisory/advisory">
+			<navigator class="studio-item" hover-class="none" url="/pagesInquiry/advisory/advisory">
 				<view class="item-icons">
 					<LayzImage src="@studio/d_studio_icon_interrogationnews.png" />
 					<text class="bage" v-if="orderCount > 0"></text>

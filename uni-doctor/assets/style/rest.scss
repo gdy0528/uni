@@ -25,3 +25,8 @@
 		font-size: $fontSize;
 	}
 }
+
+/* 修改popup样式 */
+.uni-popup {
+	z-index: 999 !important;
+}

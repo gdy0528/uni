@@ -1,3 +1,7 @@
+import store from '@/store'
+import { postAction } from '@/utils/api'
+import { showToast } from '@/utils/commonJs'
+
 /* 咨询消息列表时间规则 */
 export function timeRule(date) {
 	let moment = require('moment')
@@ -61,6 +65,105 @@ export function msgTimeRule(date) {
 	}
 }
 
+/* 处理聊天消息结构 */
+export function imMsgDesc(msgObj) {
+	let content
+	let userId = store.state.info.userId //获取当前人的userId
+	let msgType = msgObj.msgType
+	/* 处理消息类型数据 */
+	if (msgType == 'amapMsg' ||
+		msgType == 'vcMsg' ||
+		msgType == 'cancelMsg' ||
+		msgType == 'toCommentMsg' ||
+		msgType == 'giveGiftMsg') {
+		content = JSON.parse(msgObj.content)
+	} else if (msgType == 'startMsg' ||
+		msgType == 'refundMsg' ||
+		msgType == 'endMsg') {
+		content = msgObj.content.replace('XX', '患者')
+	} else {
+		content = msgObj.content
+	}
+	let msgDesc = { //自定义消息体
+		userId: msgObj.fromUserVo.id, //当前人id
+		userName: msgObj.fromUserVo.userNickname, //当前人名字
+		userImg: msgObj.fromUserVo.userImg, //当前人头像
+		msgType: msgType, //消息类型
+		orderCode: msgObj.mainId, //订单号
+		showTime: msgObj.showTime, //显示发送时间
+		sentTime: msgTimeRule(msgObj.msgDate), //发送时间
+		content: content, //发送内容
+		messageDirection: userId == msgObj.fromUserId ? "1" : "2", //消息方向, 发送: 1, 接收: 2
+		isTips: msgType == 'startMsg' || msgType == 'refundMsg' || msgType == 'endMsg' //是否显示提示框
+	}
+	return msgDesc
+}
+
+/* 处理监听聊天消息结构 */
+export function imChangeMsgDesc(msgObj) {
+	let content
+	let userId = store.state.info.userId //获取当前人的userId
+	let msgType = msgObj.msgType
+	/* 处理消息类型数据 */
+	if (msgType == 'amapMsg' ||
+		msgType == 'vcMsg' ||
+		msgType == 'cancelMsg' ||
+		msgType == 'toCommentMsg' ||
+		msgType == 'giveGiftMsg') {
+		content = JSON.parse(msgObj.content)
+	} else if (msgType == 'startMsg' ||
+		msgType == 'refundMsg' ||
+		msgType == 'endMsg') {
+		content = msgObj.content.replace('XX', '患者')
+	} else {
+		content = msgObj.content
+	}
+	let msgDesc = { //自定义消息体
+		userId: msgObj.user.id, //当前人id
+		userName: msgObj.user.name, //当前人名字
+		userImg: msgObj.user.portrait, //当前人头像
+		msgType: msgType, //消息类型
+		orderCode: msgObj.orderCode, //订单号
+		showTime: msgObj.showTime, //显示发送时间
+		sentTime: msgTimeRule(msgObj.sentTime), //发送时间
+		content: content, //发送内容
+		messageDirection: userId == msgObj.user.id ? "1" : "2", //消息方向, 发送: 1, 接收: 2
+		isTips: msgType == 'startMsg' || msgType == 'refundMsg' || msgType == 'endMsg' //是否显示提示框
+	}
+	return msgDesc
+}
+
+/* 发送聊天 */
+export function sendChat(sendObj, content, msgType) {
+	let {
+		channelType,
+		chatType,
+		mainId,
+		toUserId
+	} = sendObj
+	return new Promise((resolve, reject) => {
+		postAction('/api/common/chat/saveChat', {
+			channelType,
+			chatType,
+			content,
+			mainId,
+			msgType,
+			toUserId
+		}).then(data => {
+			let res = data.data
+			if (res.code == 200) {
+				resolve()
+			} else {
+				showToast({
+					title: "发送失败～",
+					icon: "none"
+				})
+				reject()
+			}
+		})
+	})
+}
+
 /* 计算分数显示的颜色 */
 export function grade(conut) {
 	if (conut >= 0 && conut <= 54) {
@@ -112,44 +215,45 @@ export function inquiry(type) {
 	}
 }
 
-
 /* 订单状态 */
 export function orderStatus(status) {
 	switch (status) { //处理订单状态返回文案
 		case "A":
-			return { 
+			return {
 				name: "未支付",
 				color: "#999999"
-			} 
-		case "B": case "DT":
-			return { 
+			}
+		case "B":
+		case "DT":
+			return {
 				name: "候诊中",
 				color: "#999999"
-			} 
+			}
 		case "C":
-			return { 
+			return {
 				name: "已结束",
 				color: "#999999"
-			} 
+			}
 		case "D":
-			return { 
+			return {
 				name: "已退款",
 				color: "#999999"
-			} 
+			}
 		case "J":
-			return { 
+			return {
 				name: "就诊中",
 				color: "#0E92F8"
-			} 
+			}
 		case "Q":
-			return { 
+			return {
 				name: "已取消",
 				color: "#999999"
-			} 
-		case "QP": case "QD":
-			return { 
+			}
+		case "QP":
+		case "QD":
+			return {
 				name: "已拒绝",
 				color: "#999999"
-			} 
+			}
 	}
 }

@@ -45,36 +45,6 @@
 			}
 		},
 		{
-			"path": "pages/receipt/receipt",
-			"style": {
-				"navigationBarTitleText": "咨询接单",
-				"enablePullDownRefresh": true,
-				"app-plus": {
-					"bounce": "none",
-					"titleNView": {
-						"buttons": [{
-							"width": "160upx",
-							"float": "right",
-							"text": "接单记录",
-							"fontSize": "28upx",
-							"color": "#FFFFFF"
-						}]
-					}
-				},
-				"h5": {
-					"titleNView": {
-						"buttons": [{
-							"width": "130upx",
-							"float": "right",
-							"text": "接单记录",
-							"fontSize": "28upx",
-							"color": "#FFFFFF"
-						}]
-					}
-				}
-			}
-		},
-		{
 			"path": "pages/qrcode/qrcode",
 			"style": {
 				"navigationBarTitleText": "邀请二维码"
@@ -140,13 +110,6 @@
 			}
 		},
 		{
-			"path": "pages/advisory/advisory",
-			"style": {
-				"navigationBarTitleText": "咨询消息",
-				"enablePullDownRefresh": true
-			}
-		},
-		{
 			"path": "pages/service/service",
 			"style": {
 				"navigationBarTitleText": "服务管理"
@@ -165,46 +128,104 @@
 				"navigationBarTitleText": "订单记录",
 				"enablePullDownRefresh": true
 			}
-		},
+		}
+	],
+	"subPackages": [
 		{
-			"path": "pages/warning/warning",
-			"style": {
-				"navigationBarTitleText": "患者预警提醒",
-				"enablePullDownRefresh": true,
-				"app-plus": {
-					"bounce": "none",
-					"titleNView": {
-						"buttons": [{
-							"width": "110upx",
-							"float": "right",
-							"text": "清理",
-							"fontSize": "28upx",
-							"color": "#FFFFFF"
-						}]
+			"root": "pagesInquiry",
+			"pages": [
+				{
+					"path": "warning/warning",
+					"style": {
+						"navigationBarTitleText": "患者预警提醒",
+						"enablePullDownRefresh": true,
+						"app-plus": {
+							"bounce": "none",
+							"titleNView": {
+								"buttons": [{
+									"width": "110upx",
+									"float": "right",
+									"text": "清理",
+									"fontSize": "28upx",
+									"color": "#FFFFFF"
+								}]
+							}
+						},
+						"h5": {
+							"titleNView": {
+								"buttons": [{
+									"width": "80upx",
+									"float": "right",
+									"text": "清理",
+									"fontSize": "28upx",
+									"color": "#FFFFFF"
+								}]
+							}
+						}
+					}
+				}, 
+				{
+					"path": "receipt/receipt",
+					"style": {
+						"navigationBarTitleText": "咨询接单",
+						"enablePullDownRefresh": true,
+						"app-plus": {
+							"bounce": "none",
+							"titleNView": {
+								"buttons": [{
+									"width": "160upx",
+									"float": "right",
+									"text": "接单记录",
+									"fontSize": "28upx",
+									"color": "#FFFFFF"
+								}]
+							}
+						},
+						"h5": {
+							"titleNView": {
+								"buttons": [{
+									"width": "130upx",
+									"float": "right",
+									"text": "接单记录",
+									"fontSize": "28upx",
+									"color": "#FFFFFF"
+								}]
+							}
+						}
 					}
 				},
-				"h5": {
-					"titleNView": {
-						"buttons": [{
-							"width": "80upx",
-							"float": "right",
-							"text": "清理",
-							"fontSize": "28upx",
-							"color": "#FFFFFF"
-						}]
+				{
+					"path": "advisory/advisory",
+					"style": {
+						"navigationBarTitleText": "咨询消息",
+						"enablePullDownRefresh": true
+					}
+				},
+				{
+					"path": "advisoryChat/advisoryChat",
+					"style": {
+						"navigationBarTitleText": "",
+						"app-plus": {
+							"softinputNavBar": "none",
+							"softinputMode": "adjustResize"
+						}
 					}
 				}
-			}
+			]
+		},
+		{
+			"root": "pagesWard",
+			"pages": [
+				{
+					"path": "ward/ward",
+					"style": {
+						"navigationBarTitleText": "院外病房",
+						"enablePullDownRefresh": true
+					}
+				}
+			]
 		}
-	    ,{
-            "path" : "pages/advisoryChat/advisoryChat",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": ""
-            }
-            
-        }
-    ],
+	],
 	"condition": {
 		"current": 0,
 		"list": [ //启动设置
@@ -233,7 +254,7 @@
 				"name": "病历总库"
 			},
 			{
-				"path": "pages/receipt/receipt",
+				"path": "pagesInquiry/receipt/receipt",
 				"name": "咨询接单"
 			},
 			{
@@ -265,7 +286,7 @@
 				"name": "修改助手"
 			},
 			{
-				"path": "pages/advisory/advisory",
+				"path": "pagesInquiry/advisory/advisory",
 				"name": "咨询消息"
 			},
 			{
@@ -281,8 +302,12 @@
 				"name": "订单记录"
 			},
 			{
-				"path": "pages/warning/warning",
+				"path": "pagesInquiry/warning/warning",
 				"name": "患者预警提醒"
+			},
+			{
+				"path": "pagesWard/wardList/wardList",
+				"name": "院外病房"
 			}
 		]
 	},

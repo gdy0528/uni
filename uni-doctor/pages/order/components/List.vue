@@ -115,24 +115,28 @@
 				}
 			},
 			handleSearchData() {	//重置数据
-				this.disabled = false
-				this.isEmpty = false	
-				this.current = 1 
-				this.orderList = [] //病历数据
-				this.postOrderRecordList(true)
+				this.handleChangRestData().then(() => {
+					this.postOrderRecordList(true)
+				})
 			},
 			handleRefresh() { //下拉刷新
-				let self = this
-				self.isEmpty = false	
-				self.disabled = false
-				self.current = 1 
-				self.orderList = []	//清空接单数据
-				self.postOrderRecordList(false).then(res => {	
-					uni.stopPullDownRefresh()
-					this.$showToast({
-						title: "刷新成功",
-						duration: 1000
+				this.handleChangRestData().then(() => {
+					this.postOrderRecordList(false).then(res => {
+						uni.stopPullDownRefresh()
+						this.$showToast({
+							title: "刷新成功",
+							duration: 1000
+						})
 					})
+				})
+			},
+			handleChangRestData() {	//重置数据
+				return new Promise(resolve => {
+					this.orderList = [] //订单数据
+					this.isEmpty = false	//判断是否请求数据为空
+					this.current = 1 //默认请求当前页数
+					this.disabled = false //是否禁用底部加载
+					resolve()
 				})
 			}
 		},

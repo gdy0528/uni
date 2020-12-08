@@ -4,7 +4,7 @@ import { imDisconnect } from '@/utils/imRong'
 
 const PROD_SERVICE = '' //线上环境
 const DEV_SERVICE = 'https://www.nkzj999.com/wx/serve/test-doctor' //测试环境
-// const DEV_SERVICE = 'http://192.168.0.183:8502' //测试环境
+// const DEV_SERVICE = 'http://192.168.0.104:8501' //测试环境
 
 function getSerive() { //获取请求地址
 	if (process.env.NODE_ENV === 'production') {
@@ -131,7 +131,7 @@ export function postAction(url, data, loading = true, toast = true) { //POST请�
 	})
 }
 
-export function fileAction(url, filePath, loading = true, toast = true) { //FILE请求
+export function fileAction(url, filePath, formData, loading = true, toast = true) { //FILE请求
 	showLoading(loading)
 	return new Promise((resolve, reject) => {
 		uni.uploadFile({
@@ -143,10 +143,8 @@ export function fileAction(url, filePath, loading = true, toast = true) { //FILE
 			url: `${getSerive()}${url}`,
 			// #endif
 			filePath,
-			name: 'file',
-			formData: {
-				'fileType': 'tx'
-			},
+			name: "file",
+			formData,
 			header: {
 				"token": store.state.token,
 				"source": getSource()

@@ -18,8 +18,8 @@
 							<view class="info_right_choice">
 								<view class="choice_mark" v-if="item.userState == 'P'">爱心贫困用户</view>
 								<view class="choice_icons" v-if="clear" @click="handleClickClear(item, index)">
-									<LayzImage v-if="item.isCheck" src="@warning/Selected_icon.png" />
-									<LayzImage v-else src="@warning/Unchecked-icon.png" />
+									<LayzImage v-if="item.isCheck" src="@pagesInquiry/warning/Selected_icon.png" />
+									<LayzImage v-else src="@pagesInquiry/warning/Unchecked-icon.png" />
 								</view>
 							</view>
 							<view class="info_right_data">
@@ -43,7 +43,7 @@
 		<view class="warning-clear" v-if="clear">
 			<view class="clear-btns" @click="handleClickDelList">
 				<view class="clear-icons">
-					<LayzImage src="@warning/clear_icon.png" />
+					<LayzImage src="@pagesInquiry/warning/clear_icon.png" />
 				</view>
 				<text class="clear-text">清理此次预警提醒</text>
 			</view>
@@ -362,7 +362,7 @@
 							color: $fontWhiteColor;
 							text-align: center;
 							border-radius: 25upx;
-							background: url('../../../static/warning/d_warn_bg_contact.png') no-repeat;
+							background: url('../../../static/pagesInquiry/warning/d_warn_bg_contact.png') no-repeat;
 							background-size: 100% 100%;
 						}
 					}
