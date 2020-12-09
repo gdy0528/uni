@@ -2,7 +2,7 @@
 	<CommonPopup class="HomePerfect" ref="HomePerfect">
 		<view class="perfect-box">
 			<view class="perfect-close" @click="handleClickPopup(false)">
-				<LayzImage src="@close.png" />
+				<LayzImage src="/static/close.png" />
 			</view>
 			<text class="perfect-title">脑科专家重要提示</text>
 			<text class="perfect-desc">尊敬的用户：脑科专家新一代的版本要上线了，我们在上线的同时也需要您的帮助，请您按照要求完善好个人资料！需要单独输入您擅长治疗的疾病。</text>
@@ -12,11 +12,7 @@
 </template>
 
 <script>
-	import CommonPopup from '@/common/Popup/Popup'
 	export default {
-		components: {
-			CommonPopup
-		},
 		methods: {
 			handleClickPopup(flag) {	//点击弹窗
 				this.$refs.HomePerfect.handlePopupOpen(flag)

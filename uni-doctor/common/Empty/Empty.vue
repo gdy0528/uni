@@ -15,7 +15,7 @@
 		props: {
 			imgs: {
 				type: String,
-				default: "@empty/nodata.png"
+				default: "/static/empty/nodata.png"
 			},
 			desc: {
 				type: String,

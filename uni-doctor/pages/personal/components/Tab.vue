@@ -7,7 +7,7 @@
 				</view>
 				<view class="item-name">{{item.name}}</view>
 				<view class="item-arrow">
-					<LayzImage src="@personal/d_personal_icon_link.png" />
+					<LayzImage src="/static/personal/d_personal_icon_link.png" />
 				</view>
 			</navigator>
 		</view>
@@ -24,31 +24,31 @@
 						show: false,
 						link: "",
 						name: "钱包中心",
-						icon: "@personal/wallet.png"
+						icon: "/static/personal/wallet.png"
 					},
 					{
 						show: false,
 						link: "",
 						name: "我的资讯",
-						icon: "@personal/news.png"
+						icon: "/static/personal/news.png"
 					},
 					{
 						show: false,
-						link: "/pages/assistant/assistant",
+						link: "/pagesPersonage/pages/assistant/assistant",
 						name: "我的助手",
-						icon: "@personal/assistant.png"
+						icon: "/static/personal/assistant.png"
 					},
 					{
 						show: true,
-						link: "/pages/qrcode/qrcode",
+						link: "/pagesPersonage/pages/qrcode/qrcode",
 						name: "邀请二维码",
-						icon: "@personal/code.png"
+						icon: "/static/personal/code.png"
 					},
 					{
 						show: true,
-						link: "/pages/settings/settings",
+						link: "/pagesPersonage/pages/settings/settings",
 						name: "我的设置",
-						icon: "@personal/set.png"
+						icon: "/static/personal/set.png"
 					}
 				]
 			}

@@ -2,8 +2,8 @@
 	<view class="ChatBottom">
 		<view class="chat-tool">
 			<view v-if="isWx" class="tool-icons" @click="hanleClickTool">
-				<LayzImage v-if="!isTool" src="@chat/ic-talk-yuyin.png" />
-				<LayzImage v-else src="@chat/ic-talk-wenzi.png" />
+				<LayzImage v-if="!isTool" src="/static/chat/ic-talk-yuyin.png" />
+				<LayzImage v-else src="/static/chat/ic-talk-wenzi.png" />
 			</view>
 			<view class="tool-content">
 				<textarea v-if="!isTool" class="content-value" :value="chatValue" placeholder="请输入" :focus="focus" :maxlength="500" auto-height :show-confirm-bar="false" :disable-default-padding="true" @input="handleChangeInput" @focus="handleChangeFoucs" @blur="handleChangeBlur" />
@@ -17,37 +17,37 @@
 		<view class="chat-toolbar" v-if="isToolbar">
 			<view class="toolbar-item" @click="hanleClickChooseImage">
 				<view class="item-icons">
-					<LayzImage src="@chat/ic_talk_picture.png" />
+					<LayzImage src="/static/chat/ic_talk_picture.png" />
 				</view>
 				<text class="item-text">图片</text>
 			</view>
 			<navigator v-if="order.patientId" class="toolbar-item" hover-class="none" :url="`/pages/medical/medical?id=${order.patientId}`">
 				<view class="item-icons">
-					<LayzImage src="@chat/ic_talk_medical-record.png" />
+					<LayzImage src="/static/chat/ic_talk_medical-record.png" />
 				</view>
 				<text class="item-text">病历</text>
 			</navigator>
 			<view class="toolbar-item" v-if="order.orderTypes == 'B' || order.orderTypes == 'C'" @click="handleClickCallPhone">
 				<view class="item-icons">
-					<LayzImage src="@chat/ic_talk_phone.png" />
+					<LayzImage src="/static/chat/ic_talk_phone.png" />
 				</view>
 				<text class="item-text">电话</text>
 			</view>
 			<view class="toolbar-item" @click="handleClickOpenLocation">
 				<view class="item-icons">
-					<LayzImage src="@chat/ic_talk_address.png" />
+					<LayzImage src="/static/chat/ic_talk_address.png" />
 				</view>
 				<text class="item-text">定位</text>
 			</view>
 			<view class="toolbar-item" v-if="order.orderState == 'J'" @click="$emit('finish', 'show')">
 				<view class="item-icons">
-					<LayzImage src="@chat/ic_talk_finish.png" />
+					<LayzImage src="/static/chat/ic_talk_finish.png" />
 				</view>
 				<text class="item-text">完结接单</text>
 			</view>
 			<view class="toolbar-item" v-if="order.orderState == 'J' && order.orderTypes != 'D'" @click="$emit('cancel', 'show')">
 				<view class="item-icons">
-					<LayzImage src="@chat/ic_talk_cancle.png" />
+					<LayzImage src="/static/chat/ic_talk_cancle.png" />
 				</view>
 				<text class="item-text">取消订单</text>
 			</view>
@@ -62,8 +62,7 @@
 <script>
 	import { isWeiXin } from '@/utils/wx'
 	import { sendChat } from '@/utils/tool'
-	import CommonPopup from '@/common/Popup/Popup'
-	import ToolVoice from '@/common/Business/voice'
+	import ToolVoice from './Voice'
 	const recorderManager = uni.getRecorderManager()	//全局录音
 	export default {
 		props: {
@@ -81,7 +80,6 @@
 			},
 		},
 		components: {
-			CommonPopup,
 			ToolVoice
 		},
 		data() {

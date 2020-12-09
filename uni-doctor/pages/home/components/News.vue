@@ -2,7 +2,7 @@
 	<view class="HomeNews">
 		<view class="news-swiper">
 			<view class="swiper-icons">
-				<LayzImage src="@home/d_home_icon_notice.png" />
+				<LayzImage src="/static/home/d_home_icon_notice.png" />
 			</view>
 			<view class="swiper-list">
 				<swiper class="swiper-box" :autoplay="true" :interval="3000" :duration="1000" :vertical="true" :circular="true">
@@ -47,33 +47,33 @@
 			service() {
 				return [
 					{
-						path: "/pagesInquiry/warning/warning",
+						path: "/pagesInquiry/pages/warning/warning",
 						name: "患者预警",
-						icons: "@home/d_home_icon_warn.png",
+						icons: "/static/home/d_home_icon_warn.png",
 						bage: this.serveObj.patientPush
 					},
 					{
-						path: "/pagesInquiry/receipt/receipt",
+						path: "/pagesInquiry/pages/receipt/receipt",
 						name: "咨询接单",
-						icons: "@home/d_home_icon_orders.png",
+						icons: "/static/home/d_home_icon_orders.png",
 						bage: this.serveObj.orderPush
 					},
 					{
-						path: "/pagesWard/wardList/wardList",
+						path: "/pagesWard/pages/ward/ward",
 						name: "院外病房",
-						icons: "@home/d_home_icon_medicallibrary.png",
+						icons: "/static/home/d_home_icon_medicallibrary.png",
 						bage: this.serveObj.cfPushCount > 0 ? -1 : 0,
 					},
 					{
 						path: "",
 						name: "复诊随访",
-						icons: "@home/d_home_icon_review.png",
+						icons: "/static/home/d_home_icon_review.png",
 						bage: this.serveObj.reexaminationPush > 0 && this.serveObj.noticeInt > 0 ? -1 : 0
 					},
 					{
 						path: "",
 						name: "出院留言",
-						icons: "@home/d_home_icon_message.png",
+						icons: "/static/home/d_home_icon_message.png",
 						bage: this.serveObj.messageNumber > 0 ? -1 : 0
 					}
 				]

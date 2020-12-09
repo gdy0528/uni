@@ -28,7 +28,7 @@
 					integralNumber: 0, //月剩余积分人数
 					charityNumber: 0, //治疗义诊人数
 					povertyNumber: 0, //治疗贫困人数
-					userHead: '@head.jpg', //用户头像
+					userHead: '/static/head.jpg', //用户头像
 					userName: "脑科专家" //用户账号
 				},
 				serveObj: { //首页角标

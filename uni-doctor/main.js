@@ -3,12 +3,14 @@ import App from './App'
 import store from './store'
 import LayzImage from './common/LazyImage/LazyImage'
 import Empty from './common/Empty/Empty'
+import Popup from './common/Popup/Popup'
 import { getAction, postAction, fileAction } from './utils/api'
 import { showToast, showModal} from './utils/commonJs'
 
 Vue.config.productionTip = false
 Vue.component('LayzImage', LayzImage)
 Vue.component('CommonEmpty', Empty)
+Vue.component('CommonPopup', Popup)
 
 Vue.prototype.$get = getAction
 Vue.prototype.$post = postAction

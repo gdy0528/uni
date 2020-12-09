@@ -1,7 +1,7 @@
 <template>
 	<view class="PersonalInfo">
 		<view class="info-box">
-			<navigator class="info-head" url="/pages/material/material">
+			<navigator class="info-head" url="/pagesPersonage/pages/material/material">
 				<LayzImage :src="info.userImg" round />
 			</navigator>
 			<view class="info-data">

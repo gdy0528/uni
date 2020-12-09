@@ -32,110 +32,95 @@
 			}
 		},
 		{
-			"path": "pages/settings/settings",
-			"style": {
-				"navigationBarTitleText": "我的设置"
-			}
-		},
-		{
-			"path": "pages/case/case",
-			"style": {
-				"navigationBarTitleText": "病历总库",
-				"enablePullDownRefresh": true
-			}
-		},
-		{
-			"path": "pages/qrcode/qrcode",
-			"style": {
-				"navigationBarTitleText": "邀请二维码"
-			}
-		},
-		{
 			"path": "pages/forget/forget",
 			"style": {
 				"navigationBarTitleText": "忘记密码"
-			}
-		},
-		{
-			"path": "pages/material/material",
-			"style": {
-				"navigationBarTitleText": "个人资料"
-			}
-		},
-		{
-			"path": "pages/medical/medical",
-			"style": {
-				"navigationBarTitleText": "病历库"
-			}
-		},
-		{
-			"path": "pages/assistant/assistant",
-			"style": {
-				"navigationBarTitleText": "我的助手",
-				"app-plus": {
-					"bounce": "none",
-					"titleNView": {
-						"buttons": [{
-							"width": "160upx",
-							"float": "right",
-							"text": "助手订单",
-							"fontSize": "28upx",
-							"color": "#FFFFFF"
-						}]
-					}
-				},
-				"h5": {
-					"titleNView": {
-						"buttons": [{
-							"width": "130upx",
-							"float": "right",
-							"text": "助手订单",
-							"fontSize": "28upx",
-							"color": "#FFFFFF"
-						}]
-					}
-				}
-			}
-		},
-		{
-			"path": "pages/addAssistant/addAssistant",
-			"style": {
-				"navigationBarTitleText": "添加助手"
-			}
-		},
-		{
-			"path": "pages/editAssistant/editAssistant",
-			"style": {
-				"navigationBarTitleText": "修改助手"
-			}
-		},
-		{
-			"path": "pages/service/service",
-			"style": {
-				"navigationBarTitleText": "服务管理"
-			}
-		},
-		{
-			"path": "pages/assistantHistory/assistantHistory",
-			"style": {
-				"navigationBarTitleText": "助手订单历史",
-				"enablePullDownRefresh": true
-			}
-		},
-		{
-			"path": "pages/order/order",
-			"style": {
-				"navigationBarTitleText": "订单记录",
-				"enablePullDownRefresh": true
 			}
 		}
 	],
 	"subPackages": [
 		{
+			"root": "pagesPersonage",
+			"pages": [
+				{
+					"path": "pages/assistant/assistant",
+					"style": {
+						"navigationBarTitleText": "我的助手",
+						"app-plus": {
+							"bounce": "none",
+							"titleNView": {
+								"buttons": [{
+									"width": "160upx",
+									"float": "right",
+									"text": "助手订单",
+									"fontSize": "28upx",
+									"color": "#FFFFFF"
+								}]
+							}
+						},
+						"h5": {
+							"titleNView": {
+								"buttons": [{
+									"width": "130upx",
+									"float": "right",
+									"text": "助手订单",
+									"fontSize": "28upx",
+									"color": "#FFFFFF"
+								}]
+							}
+						}
+					}
+				},
+				{
+					"path": "pages/addAssistant/addAssistant",
+					"style": {
+						"navigationBarTitleText": "添加助手"
+					}
+				},
+				{
+					"path": "pages/editAssistant/editAssistant",
+					"style": {
+						"navigationBarTitleText": "修改助手"
+					}
+				},
+				{
+					"path": "pages/assistantHistory/assistantHistory",
+					"style": {
+						"navigationBarTitleText": "助手订单历史",
+						"enablePullDownRefresh": true
+					}
+				},
+				{
+					"path": "pages/qrcode/qrcode",
+					"style": {
+						"navigationBarTitleText": "邀请二维码"
+					}
+				},
+				{
+					"path": "pages/settings/settings",
+					"style": {
+						"navigationBarTitleText": "我的设置"
+					}
+				},
+				{
+					"path": "pages/material/material",
+					"style": {
+						"navigationBarTitleText": "个人资料"
+					}
+				},
+				{
+					"path": "pages/service/service",
+					"style": {
+						"navigationBarTitleText": "服务管理"
+					}
+				}
+			]
+		},
+		{
 			"root": "pagesInquiry",
 			"pages": [
 				{
-					"path": "warning/warning",
+					"path": "pages/warning/warning",
 					"style": {
 						"navigationBarTitleText": "患者预警提醒",
 						"enablePullDownRefresh": true,
@@ -165,7 +150,7 @@
 					}
 				}, 
 				{
-					"path": "receipt/receipt",
+					"path": "pages/receipt/receipt",
 					"style": {
 						"navigationBarTitleText": "咨询接单",
 						"enablePullDownRefresh": true,
@@ -195,20 +180,40 @@
 					}
 				},
 				{
-					"path": "advisory/advisory",
+					"path": "pages/advisory/advisory",
 					"style": {
 						"navigationBarTitleText": "咨询消息",
 						"enablePullDownRefresh": true
 					}
 				},
 				{
-					"path": "advisoryChat/advisoryChat",
+					"path": "pages/advisoryChat/advisoryChat",
 					"style": {
 						"navigationBarTitleText": "",
 						"app-plus": {
 							"softinputNavBar": "none",
 							"softinputMode": "adjustResize"
 						}
+					}
+				},
+				{
+					"path": "pages/order/order",
+					"style": {
+						"navigationBarTitleText": "订单记录",
+						"enablePullDownRefresh": true
+					}
+				},
+				{
+					"path": "pages/case/case",
+					"style": {
+						"navigationBarTitleText": "病历总库",
+						"enablePullDownRefresh": true
+					}
+				},
+				{
+					"path": "pages/medical/medical",
+					"style": {
+						"navigationBarTitleText": "病历库"
 					}
 				}
 			]
@@ -217,7 +222,7 @@
 			"root": "pagesWard",
 			"pages": [
 				{
-					"path": "ward/ward",
+					"path": "pages/ward/ward",
 					"style": {
 						"navigationBarTitleText": "院外病房",
 						"enablePullDownRefresh": true
@@ -246,19 +251,19 @@
 				"name": "登录"
 			},
 			{
-				"path": "pages/settings/settings",
+				"path": "pagesPersonage/pages/settings/settings",
 				"name": "我的设置"
 			},
 			{
-				"path": "pages/case/case",
+				"path": "pagesInquiry/pages/case/case",
 				"name": "病历总库"
 			},
 			{
-				"path": "pagesInquiry/receipt/receipt",
+				"path": "pagesInquiry/pages/receipt/receipt",
 				"name": "咨询接单"
 			},
 			{
-				"path": "pages/qrcode/qrcode",
+				"path": "pagesPersonage/pages/qrcode/qrcode",
 				"name": "邀请二维码"
 			},
 			{
@@ -266,47 +271,47 @@
 				"name": "忘记密码"
 			},
 			{
-				"path": "pages/material/material",
+				"path": "pagesPersonage/pages/material/material",
 				"name": "个人资料"
 			},
 			{
-				"path": "pages/medical/medical",
+				"path": "pagesInquiry/pages/medical/medical",
 				"name": "病历库"
 			},
 			{
-				"path": "pages/assistant/assistant",
+				"path": "pagesPersonage/pages/assistant/assistant",
 				"name": "我的助手"
 			},
 			{
-				"path": "pages/addAssistant/addAssistant",
+				"path": "pagesPersonage/pages/addAssistant/addAssistant",
 				"name": "添加助手"
 			},
 			{
-				"path": "pages/editAssistant/editAssistant",
+				"path": "pagesPersonage/pages/editAssistant/editAssistant",
 				"name": "修改助手"
 			},
 			{
-				"path": "pagesInquiry/advisory/advisory",
+				"path": "pagesInquiry/pages/advisory/advisory",
 				"name": "咨询消息"
 			},
 			{
-				"path": "pages/service/service",
+				"path": "pagesPersonage/pages/service/service",
 				"name": "服务管理"
 			},
 			{
-				"path": "pages/assistantHistory/assistantHistory",
+				"path": "pagesPersonage/pages/assistantHistory/assistantHistory",
 				"name": "助手订单历史"
 			},
 			{
-				"path": "pages/order/order",
+				"path": "pagesInquiry/pages/order/order",
 				"name": "订单记录"
 			},
 			{
-				"path": "pagesInquiry/warning/warning",
+				"path": "pagesInquiry/pages/warning/warning",
 				"name": "患者预警提醒"
 			},
 			{
-				"path": "pagesWard/wardList/wardList",
+				"path": "pagesWard/pages/ward/ward",
 				"name": "院外病房"
 			}
 		]

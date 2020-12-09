@@ -2,7 +2,7 @@
 	<image 
 		class="imgs"
 		:style="{borderRadius : round ? '100%' : 'none'}"
-		:src="spilceSrc(src)" 
+		:src="src" 
 		:mode="mode" 
 		:lazy-load="lazy" 
 		:fade-show="fade" 
@@ -59,13 +59,6 @@
 			},
 			handleLoad(load) {
 				this.$emit('load', load)
-			}
-		},
-		computed: {
-			spilceSrc(src) {	//处理引用地址简写
-				return (src) => {
-					return src.replace('@','../../static/')
-				}
 			}
 		},
 	}

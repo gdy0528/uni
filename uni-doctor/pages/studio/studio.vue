@@ -1,41 +1,41 @@
 <template>
 	<view class="StudioContainer">
 		<view class="studio-box">
-			<navigator class="studio-item" hover-class="none" url="/pagesInquiry/advisory/advisory">
+			<navigator class="studio-item" hover-class="none" url="/pagesInquiry/pages/advisory/advisory">
 				<view class="item-icons">
-					<LayzImage src="@studio/d_studio_icon_interrogationnews.png" />
+					<LayzImage src="/static/studio/d_studio_icon_interrogationnews.png" />
 					<text class="bage" v-if="orderCount > 0"></text>
 				</view>
 				<view class="item-name">{{orderCount > 0 ? "您有新订单请查看" : '暂无消息'}}</view>
 			</navigator>
-			<navigator class="studio-item" hover-class="none" url="/pages/order/order">
+			<navigator class="studio-item" hover-class="none" url="/pagesInquiry/pages/order/order">
 				<view class="item-icons">
-					<LayzImage src="@studio/d_studio_icon_orderhistory.png" />
+					<LayzImage src="/static/studio/d_studio_icon_orderhistory.png" />
 				</view>
 				<view class="item-name">点击查看</view>
 			</navigator>
 		</view>
 		<view class="studio-box">
-			<navigator class="studio-item" hover-class="none" url="/pages/case/case">
+			<navigator class="studio-item" hover-class="none" url="/pagesInquiry/pages/case/case">
 				<view class="item-icons">
-					<LayzImage src="@studio/d_studio_icon_wardnews.png" />
+					<LayzImage src="/static/studio/d_studio_icon_wardnews.png" />
 				</view>
 				<view class="item-name">查看患者病历</view>
 			</navigator>
 			<view class="studio-item">
 				<view class="item-icons">
-					<LayzImage src="@studio/d_studio_icon_wardround.png" />
+					<LayzImage src="/static/studio/d_studio_icon_wardround.png" />
 				</view>
 				<view class="item-name">管理您的病人</view>
 			</view>
 		</view>
-		<navigator class="service-box" v-if="routerType != 3" hover-class="none" url="/pages/service/service">
+		<navigator class="service-box" v-if="routerType != 3" hover-class="none" url="/pagesPersonage/pages/service/service">
 			<view class="service-icons">
-				<LayzImage src="@studio/d_studio_icon_serve.png" />
+				<LayzImage src="/static/studio/d_studio_icon_serve.png" />
 			</view>
 			<view class="service-name">服务设置</view>
 			<view class="service-arrow">
-				<LayzImage src="@studio/link.png" />
+				<LayzImage src="/static/studio/link.png" />
 			</view>
 		</navigator>
 	</view>

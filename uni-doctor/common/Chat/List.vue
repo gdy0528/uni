@@ -92,7 +92,7 @@
 			handleClickMedical(messageDirection, userId) {	//点击患者头像
 				if (messageDirection == '2') {	//不等于自己的头像
 					uni.navigateTo({
-						url: `/pages/medical/medical?id=${userId}`
+						url: `/pagesInquiry/pages/medical/medical?id=${userId}`
 					})
 				}
 			},

@@ -2,7 +2,7 @@
 	<view class="LoginContainer" :class="isUser ? 'LoginTransform' : ''">
 		<view class="logo-box">
 			<view class="logo-icons">
-				<LayzImage src="@logo.png" />
+				<LayzImage src="/static/logo.png" />
 			</view>
 			<text class="logo-name" space="ensp">专业 权威 脑科专家</text>
 		</view>
@@ -15,8 +15,8 @@
 				<text class="input-name">密码</text>
 				<input class="input-value" type="text" :value="password" :password="isPassword" placeholder="请输入您的账号密码" @input="handleChangPassword">
 				<view class="input-icons" @click="handleClickTogglePassword">
-					<LayzImage v-if="isPassword" src="@ic_login_password-see.png" />
-					<LayzImage v-else src="@ic_login_password-nosee.png" />
+					<LayzImage v-if="isPassword" src="/static/ic_login_password-see.png" />
+					<LayzImage v-else src="/static/ic_login_password-nosee.png" />
 				</view>
 			</view>
 			<navigator class="login-link" hover-class="none" url="/pages/forget/forget">忘记密码</navigator>
