@@ -8,7 +8,7 @@
 		</scroll-view>
 		<ChatBottom ref="ChatBottom" :order="order" :sendObj="sendObj" @scroll="handleScrollTop" @finish="handleChangeAdvisoryFinlsh" @cancel="handleChangeAdvisoryCancel" />
 		<!-- 患者历史按钮 -->
-		<view class="patient_history_btns" v-if="isHistory">患者历史</view>
+		<view class="patient_history_btns" v-if="isHistory" @click="handleClickPatientHistory">患者历史</view>
 		<!-- 完结接单按钮 -->
 		<view class="patient_finlsh_btns" v-if="order.orderState == 'J'" @click="handleChangeAdvisoryFinlsh('show')">完结订单</view>
 		<!-- 完结订单 -->
@@ -174,6 +174,13 @@
 						this.handleScrollTop()
 					}
 				}
+			},
+			handleClickPatientHistory() {	//点击患者历史聊天
+				let { order } = this
+				let id = order.assistUserId != '0' ? order.assistUserId : order.patientId  //判断跳转id
+				uni.navigateTo({
+					url: `/pagesInquiry/pages/advisoryHistory/advisoryHistory?id=${id}&orderCode=${order.orderCode}&type=chat`
+				})
 			}
 		},
 		mounted() {

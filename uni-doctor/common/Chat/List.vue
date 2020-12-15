@@ -19,12 +19,12 @@
 					<!-- 语音 -->
 					<view class="content_voice" v-else-if="item.msgType == 'vcMsg'" :style="{width: `${handleChangeVoiceWidth(item.content.duration)}`}" @click="handleClickVocie(item.content, index)">
 						<view class="voice_icons" v-if="item.messageDirection == '1'">
-							<LayzImage v-if="index == innerAudioPlayIndex" src="@chat/voice_play_white.gif" />
-							<LayzImage v-else src="@chat/voice_play_whites.png" />
+							<LayzImage v-if="index == innerAudioPlayIndex" src="/static/chat/voice_play_white.gif" />
+							<LayzImage v-else src="/static/chat/voice_play_whites.png" />
 						</view>
 						<view class="voice_icons" v-else>
-							<LayzImage v-if="index == innerAudioPlayIndex" src="@chat/voice_play_gray.gif" />
-							<LayzImage v-else src="@chat/voice_play_grays.png" />
+							<LayzImage v-if="index == innerAudioPlayIndex" src="/static/chat/voice_play_gray.gif" />
+							<LayzImage v-else src="/static/chat/voice_play_grays.png" />
 						</view>
 						<text class="voice_text">{{item.content.duration}}''</text>
 					</view>

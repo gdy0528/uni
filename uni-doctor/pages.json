@@ -38,11 +38,9 @@
 			}
 		}
 	],
-	"subPackages": [
-		{
+	"subPackages": [{
 			"root": "pagesPersonage",
-			"pages": [
-				{
+			"pages": [{
 					"path": "pages/assistant/assistant",
 					"style": {
 						"navigationBarTitleText": "我的助手",
@@ -118,8 +116,7 @@
 		},
 		{
 			"root": "pagesInquiry",
-			"pages": [
-				{
+			"pages": [{
 					"path": "pages/warning/warning",
 					"style": {
 						"navigationBarTitleText": "患者预警提醒",
@@ -148,7 +145,7 @@
 							}
 						}
 					}
-				}, 
+				},
 				{
 					"path": "pages/receipt/receipt",
 					"style": {
@@ -215,20 +212,24 @@
 					"style": {
 						"navigationBarTitleText": "病历库"
 					}
+				}, 
+				{
+					"path": "pages/advisoryHistory/advisoryHistory",
+					"style": {
+						"navigationBarTitleText": ""
+					}
 				}
 			]
 		},
 		{
 			"root": "pagesWard",
-			"pages": [
-				{
-					"path": "pages/ward/ward",
-					"style": {
-						"navigationBarTitleText": "院外病房",
-						"enablePullDownRefresh": true
-					}
+			"pages": [{
+				"path": "pages/ward/ward",
+				"style": {
+					"navigationBarTitleText": "院外病房",
+					"enablePullDownRefresh": true
 				}
-			]
+			}]
 		}
 	],
 	"condition": {
@@ -313,6 +314,10 @@
 			{
 				"path": "pagesWard/pages/ward/ward",
 				"name": "院外病房"
+			},
+			{
+				"path": "pagesInquiry/pages/advisoryHistory/advisoryHistory",
+				"name": "咨询患者历史"
 			}
 		]
 	},

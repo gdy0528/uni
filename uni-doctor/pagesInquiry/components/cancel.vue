@@ -2,7 +2,7 @@
 	<view class="CancelContainer">
 		<view class="cancel-box">
 			<view class="cancel-close" @click="handleClickClose">
-				<LayzImage src="/stitc/close.png" />
+				<LayzImage src="/static/close.png" />
 			</view>
 			<text class="cancel-title">取消订单</text>
 			<view class="cancel-input">
