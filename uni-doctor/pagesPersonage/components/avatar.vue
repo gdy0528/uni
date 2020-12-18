@@ -239,10 +239,7 @@
 								}
 							},
 							fail: () => {
-								this.$showToast({
-									title: "请选择正确图片",
-									duration: 2000,
-								})
+								this.$showToast("请选择正确图片")
 							},
 							complete() {
 								uni.hideLoading();
@@ -301,10 +298,7 @@
 						});
 					},
 					fail: (res) => {
-						this.$showToast({
-							title: "error1",
-							duration: 2000,
-						})
+						this.$showToast("error1")
 					},
 					complete: () => {
 						uni.hideLoading();
@@ -349,10 +343,7 @@
 						// #endif
 					},
 					fail: (res) => {
-						this.$showToast({
-							title: "error1",
-							duration: 2000,
-						})
+						this.$showToast('error1')
 					},
 					complete: () => {
 						uni.hideLoading();
@@ -414,10 +405,7 @@
 						});
 					},
 					fail: () => {
-						this.$showToast({
-							title: "error_prv",
-							duration: 2000,
-						})
+						this.$showToast("error_prv")
 					},
 					complete: () => {
 						uni.hideLoading();
@@ -461,10 +449,7 @@
 						// #endif
 					},
 					fail: () => {
-						this.$showToast({
-							title: "error_prv",
-							duration: 2000,
-						})
+						this.$showToast("error_prv")
 					},
 					complete: () => {
 						uni.hideLoading();
@@ -739,10 +724,7 @@
 						this.pT = '0';
 					},
 					fail: () => {
-						this.$showToast({
-							title: "error2",
-							duration: 2000,
-						})
+						this.$showToast("error2")
 					},
 					complete: () => {
 						uni.hideLoading();
@@ -812,10 +794,7 @@
 						this.pT = this.drawTop + 'px';
 					},
 					fail: () => {
-						this.$showToast({
-							title: "error2",
-							duration: 2000,
-						})
+						this.$showToast("error2")
 					},
 					complete: () => {
 						uni.hideLoading();
@@ -1094,10 +1073,7 @@
 
 				if (!this.prvImgData) {
 					if (!(this.prvImgData = await this.fGetImgData().catch(() => {
-							this.$showToast({
-								title: "error_read",
-								duration: 2000,
-							})
+							this.$showToast("error_read")
 						}))) return;
 
 					this.target = new Uint8ClampedArray(this.prvImgData.length);

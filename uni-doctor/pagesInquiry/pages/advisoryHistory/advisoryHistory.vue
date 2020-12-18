@@ -1,6 +1,6 @@
 <template>
 	<view class="AdvisoryHistoryContainer">
-		<view class="history-screen">
+		<view class="history-screen" v-if="routerObj.type == 'chat'">
 			<view class="screen-title">选择咨询历史的时间</view>
 			<view class="screen-picker">
 				<CommonPicker :colums="dateColums" :value="date" columsKey="receivingDate"  @change="handleChangeDate" />
@@ -9,7 +9,7 @@
 				<LayzImage src="/static/middle-return-black-right.png" />
 			</view>
 		</view>
-		<view v-if="!date" class="history-date">
+		<view v-if="!date && routerObj.type == 'chat'" class="history-date">
 			<text class="date-desc">请先选择咨询时间，进行查看～</text>
 		</view>
 		<template v-else>
@@ -24,7 +24,7 @@
 
 <script>
 	import CommonPicker from '@/common/Picker/Picker'
-	import ChatList from '@/common/Chat/List'
+	import ChatList from '@/pagesInquiry/components/Chat/List'
 	import { imMsgDesc } from '@/utils/tool'
 	export default {
 		components: {
@@ -58,11 +58,11 @@
 						if (routerObj.type == "chat") { //判断是否从聊天进来
 							self.dateColums = datas.chatOptionVos
 						} else if (routerObj.type == "order") { //判断是否从订单记录记录进来
-							// let chat = {
-							// 	order: routerObj.orderCode,
-							// 	id: datas.group ? '' : routerObj.id
-							// }
-							// self.$refs.FormerlyChat.restData(chat) //获取聊天记录
+							this.order = {
+								orderCode: routerObj.orderCode,
+								toUserId: datas.group ? '' : routerObj.id
+							}
+							self.postChatData(true)	//获取消息聊天列表
 						}
 						uni.setNavigationBarTitle({ //设置标题
 							title: datas.name
@@ -83,7 +83,7 @@
 							size: 15
 						},
 						sceneType: 1,
-						toUserId: order.assistUserId ? '' : routerObj.id,
+						toUserId: order.toUserId,
 					}, loading).then(data => {
 						let res = data.data
 						if (res.code == 200) {
@@ -115,7 +115,11 @@
 				}
 			},
 			handleChangeDate(value) {	//监听选中的参数
-				this.order = value	//订单信息
+				let { routerObj } = this
+				this.order = {	//订单信息
+					orderCode: value.orderCode,
+					toUserId: value.assistUserId ? '' : routerObj.id
+				}
 				this.date = value.receivingDate	//咨询时间
 				this.chatList = [] //聊天数据
 				this.currentTime = '' //请求时间
@@ -168,7 +172,7 @@
 			.date-desc {
 				padding: 8upx 20upx;
 				margin-top: 30upx;
-				font-size: $fontMinSize;
+				font-size: $fontMiniSize;
 				color: $fontLightBlackColor;
 				border-radius: 10upx;
 				background-color: #DCDCDC;

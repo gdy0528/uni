@@ -23,9 +23,10 @@ export function showModal(showModalObj) {
 /* 二次处理提示交互 */
 export function showToast(showToastObj) {
 	return new Promise((resolve) => {
+		let dataType = typeof(showToastObj) == 'object'	//判断数据类型
 		uni.showToast({
-			title: showToastObj.title || "提示内容",
-			icon: showToastObj.icon || "success",
+			title: dataType ? showToastObj.title || "提示内容" : showToastObj,
+			icon: dataType ? showToastObj.icon || "success" : 'none',
 			image: showToastObj.image || "",
 			mask: showToastObj.mask || true,
 			duration: showToastObj.duration || 1500,

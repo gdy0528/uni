@@ -350,7 +350,7 @@
 					}
 					.item-count {
 						margin-top: 30upx;
-						font-size: $fontMinSize;
+						font-size: $fontMiniSize;
 						color: $fontBlueColor;
 						text-align: right;
 					}

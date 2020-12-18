@@ -51,7 +51,7 @@
 		width: 100%;
 		height: 76upx;
 		line-height: 76upx;
-		font-size: $fontMinSize;
+		font-size: $fontMiniSize;
 		color: $fontBlackColor;
 		background: $bgWhiteColor;
 		overflow: hidden;

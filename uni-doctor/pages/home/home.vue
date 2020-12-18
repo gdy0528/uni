@@ -2,7 +2,10 @@
 	<view class="HomeContainer">
 		<HomeInfo :infoObj="infoObj" />
 		<HomeNews :msgList="msgList" :serveObj="serveObj" />
-		<HomePerfect ref="HomePerfect" />
+		<!-- 资料缺失提醒 -->
+		<CommonPopup ref="HomePerfect">
+			<HomePerfect />
+		</CommonPopup>
 	</view>
 </template>
 

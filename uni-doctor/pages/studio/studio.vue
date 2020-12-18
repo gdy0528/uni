@@ -22,12 +22,12 @@
 				</view>
 				<view class="item-name">查看患者病历</view>
 			</navigator>
-			<view class="studio-item">
+			<navigator class="studio-item" hover-class="none" url="/pagesInquiry/pages/myPatient/myPatient">
 				<view class="item-icons">
 					<LayzImage src="/static/studio/d_studio_icon_wardround.png" />
 				</view>
 				<view class="item-name">管理您的病人</view>
-			</view>
+			</navigator>
 		</view>
 		<navigator class="service-box" v-if="routerType != 3" hover-class="none" url="/pagesPersonage/pages/service/service">
 			<view class="service-icons">

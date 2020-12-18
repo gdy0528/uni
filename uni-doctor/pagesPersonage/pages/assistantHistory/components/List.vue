@@ -127,13 +127,12 @@
 				})
 			},
 			handleRefresh() { //下拉刷新
-				this.handleChangRestData().then(() => {
-					this.postSubsidiaryOrderList(false).then(res => {
-						uni.stopPullDownRefresh()
-						this.$showToast({
-							title: "刷新成功",
-							duration: 1000
-						})
+				let { handleChangRestData, postSubsidiaryOrderList } = this
+				Promise.all([handleChangRestData(), postSubsidiaryOrderList(false)]).then(res => {
+					uni.stopPullDownRefresh()
+					this.$showToast({
+						title: "刷新成功",
+						duration: 1000
 					})
 				})
 			},
@@ -185,7 +184,7 @@
 					}
 					.top-identity {
 						padding: 3upx 20upx;
-						font-size: $fontMinSize;
+						font-size: $fontMiniSize;
 						color: $fontWhiteColor;
 						border-radius: 50upx;
 						background: #FCBC22;
@@ -225,7 +224,7 @@
 						flex-direction: column;
 						overflow: hidden;
 						.info_title {
-							font-size: $fontMinSize;
+							font-size: $fontMiniSize;
 							color: $fontGrayColor;
 							@include ellipsis;
 						}
@@ -243,7 +242,7 @@
 						.state-box {
 							position: relative;
 							padding: 0 15upx;
-							font-size: $fontMinSize;
+							font-size: $fontMiniSize;
 							color: var(--orderstatecolor);
 							border: 2upx solid var(--orderstatecolor);
 							border-radius: 50upx;
@@ -293,7 +292,7 @@
 						flex-direction: row;
 						align-items: baseline;
 						.money-desc {
-							font-size: $fontMinSize;
+							font-size: $fontMiniSize;
 							color: $fontBlackColor;
 						}
 						.money-nums {

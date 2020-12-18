@@ -331,7 +331,7 @@
 						}
 					}
 					.content-desc {
-						font-size: $fontMinSize;
+						font-size: $fontMiniSize;
 						color: $fontLightBlackColor;
 						@include ellipsis(2);
 					}

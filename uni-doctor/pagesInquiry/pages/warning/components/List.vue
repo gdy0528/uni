@@ -218,10 +218,7 @@
 						})
 					}).catch(() => {})
 				} else {
-					this.$showToast({
-						title: '当前没有选中的患者',
-						icon: 'none'
-					})
+					this.$showToast('当前没有选中的患者')
 				}
 			},
 			handleClickContact(info, flag) {	//点击联系他
@@ -306,7 +303,7 @@
 								.choice_mark {
 									margin-right: 16upx;
 									padding: 3upx 20upx;
-									font-size: $fontMinSize;
+									font-size: $fontMiniSize;
 									color: $fontWhiteColor;
 									border-radius: 50upx;
 									background: #FFB83C;
@@ -349,7 +346,7 @@
 						align-items: center;
 						justify-content: space-between;
 						.content-time {
-							font-size: $fontMinSize;
+							font-size: $fontMiniSize;
 							color: $fontDarkGrayColor;
 						}
 						.content-contact {
@@ -397,7 +394,7 @@
 					margin-right: 10upx;
 				}
 				.clear-text {
-					font-size: $fontMinSize;
+					font-size: $fontMiniSize;
 					color: $fontWhiteColor;
 				}
 			}
@@ -409,7 +406,7 @@
 				flex-direction: row;
 				align-items: center;
 				justify-content: center;
-				font-size: $fontMinSize;
+				font-size: $fontMiniSize;
 				color: $fontBlueColor;
 				border: 2upx solid $bgMainColor;
 				border-radius: 50upx;

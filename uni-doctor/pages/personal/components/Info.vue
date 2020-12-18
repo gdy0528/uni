@@ -65,7 +65,7 @@
 						color: $fontWhiteColor;
 					}
 					.title {
-						font-size: 26upx;
+						font-size: $fontAlmostSize;
 						color: $fontWhiteColor;
 					}
 				}
@@ -126,7 +126,7 @@
 						font-size: 45upx;
 					}
 					.item-name {
-						font-size: 26upx;
+						font-size: $fontAlmostSize;
 					}
 				}
 			}

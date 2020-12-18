@@ -84,11 +84,7 @@
 						}).then(data => {
 							let res = data.data
 							if (res.code == 200) {
-								this.$showToast({
-									title: '发送成功，请留意您的短信',
-									icon: "none",
-									duration: 2000
-								})
+								this.$showToast('发送成功，请留意您的短信')
 								//启动定时器
 								self.verifyTime = 120
 								const intervalId = setInterval(() => {
@@ -114,11 +110,7 @@
 					insPwd(password) &&
 					insPwd(passwords, "确认密码")) {
 					if (password != passwords) { //判断密码与确认密码是否一致
-						this.$showToast({
-							title: "两次密码不一致",
-							icon: "none",
-							duration: 2000
-						})
+						this.$showToast("两次密码不一致")
 					} else {
 						console.log(22222)
 					}

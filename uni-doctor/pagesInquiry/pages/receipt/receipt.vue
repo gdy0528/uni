@@ -141,7 +141,7 @@
 					height: 48upx;
 				}
 				.record-text {
-					font-size: $fontMinSize;
+					font-size: $fontMiniSize;
 					color: $fontGrayColor;
 				}
 			}

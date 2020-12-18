@@ -12,7 +12,7 @@
 	export default {
 		data() {
 			return {
-				imgs: '@empty/error.png',
+				imgs: '/static/empty/error.png',
 				desc: "找不到界面了"
 			}
 		},

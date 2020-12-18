@@ -147,10 +147,7 @@
 					self.focus = true
 				}, 0)
 				if (content.trim() == '') {
-					this.$showToast({
-						title: "请输入发送内容不能为空",
-						icon: "none"
-					})
+					this.$showToast("请输入发送内容不能为空")
 					return
 				}
 				sendChat(this.sendObj, content, 'txtMsg').then(() => {

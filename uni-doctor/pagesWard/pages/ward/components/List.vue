@@ -93,13 +93,12 @@
 				}
 			},
 			handleRefresh() { //下拉刷新
-				this.handleChangRestData().then(() => {
-					this.postWardList(false).then(res => {
-						uni.stopPullDownRefresh()
-						this.$showToast({
-							title: "刷新成功",
-							duration: 1000
-						})
+				let { handleChangRestData, postWardList } = this
+				Promise.all([handleChangRestData(), postWardList(false)]).then(res => {
+					uni.stopPullDownRefresh()
+					this.$showToast({
+						title: "刷新成功",
+						duration: 1000
 					})
 				})
 			},
@@ -179,22 +178,22 @@
 						align-items: center;
 						.info_doctorName {
 							max-width: 350upx;
-							font-size: 26upx;
+							font-size: $fontAlmostSize;
 							color: $fontLightBlackColor;
 							@include ellipsis;
 						}
 						.info_money {
 							margin-right: 20upx;
-							font-size: 26upx;
+							font-size: $fontAlmostSize;
 							color: $fontLightBlackColor;
 						}
 						.info_people {
-							font-size: 26upx;
+							font-size: $fontAlmostSize;
 							color: $fontLightBlackColor;
 						}
 						.info_date {
 							padding: 5upx 20upx;
-							font-size: $fontMinSize;
+							font-size: $fontMiniSize;
 							color: $fontWhiteColor;
 							border-radius: 50upx 0 0 50upx;
 							background: $bgMainColor;

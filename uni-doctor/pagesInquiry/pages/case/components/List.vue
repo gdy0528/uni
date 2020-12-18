@@ -99,13 +99,12 @@
 				}
 			},
 			handleRefresh() { //下拉刷新
-				this.handleChangRestData().then(() => {
-					this.postCaseData(false).then(res => {
-						uni.stopPullDownRefresh()
-						this.$showToast({
-							title: "刷新成功",
-							duration: 1000
-						})
+				let { handleChangRestData, postCaseData } = this
+				Promise.all([handleChangRestData(), postCaseData(false)]).then(res => {
+					uni.stopPullDownRefresh()
+					this.$showToast({
+						title: "刷新成功",
+						duration: 1000
 					})
 				})
 			},
@@ -188,7 +187,7 @@
 						}
 					}
 					.content-address {
-						font-size: $fontMinSize;
+						font-size: $fontMiniSize;
 						color: $fontGrayColor;
 						@include ellipsis;
 					}
@@ -200,13 +199,13 @@
 						.hospital-name {
 							max-width: 160upx;
 							margin-right: 22upx;
-							font-size: $fontMinSize;
+							font-size: $fontMiniSize;
 							color: $fontGrayColor;
 							@include ellipsis;
 						}
 						.hospital-address {
 							flex: 1;
-							font-size: $fontMinSize;
+							font-size: $fontMiniSize;
 							color: $fontGrayColor;
 							@include ellipsis;
 						}
@@ -218,7 +217,7 @@
 						align-items: center;
 						.case-item {
 							margin-right: 36upx;
-							font-size: $fontMinSize;
+							font-size: $fontMiniSize;
 							color: $fontBlackColor;
 						}
 					}

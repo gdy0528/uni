@@ -22,7 +22,7 @@
 					<text class="title">拨打患者电话</text>
 					<view class="patient_phone_item">
 						<view class="item_content">
-							<LayzImage class="content_icons" src="@business_phone.png" />
+							<LayzImage class="content_icons" src="/pagesInquiry/static/business_phone.png" />
 							<text class="content_desc">{{asteriskPhone(axbPhone)}}</text>
 						</view>
 						<text class="item_desc">（点击拨打）</text>
@@ -123,7 +123,7 @@
 <style lang="scss" scoped>
 	.ContactContainer {
 		width: 100%;
-		height: 100vh;
+		@include heightVh;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;

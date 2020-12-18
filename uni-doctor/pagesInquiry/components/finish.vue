@@ -75,7 +75,7 @@
 
 <style lang="scss" scoped>
 	.FinishContainer {
-		height: 100vh;
+		@include heightVh;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
@@ -116,7 +116,7 @@
 				.input_nums {
 					margin-top: 10upx;
 					align-self: flex-end;
-					font-size: $fontMinSize;
+					font-size: $fontMiniSize;
 					color: $fontLightBlackColor;
 				}
 			}

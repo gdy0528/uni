@@ -67,7 +67,7 @@
 			display: flex;
 			flex-direction: column;
 			.score-title {
-				font-size: 26upx;
+				font-size: $fontAlmostSize;
 				color: $fontBlackColor;
 			}
 			.score-box {
@@ -78,7 +78,7 @@
 			display: flex;
 			flex-direction: column;
 			.scurve-title {
-				font-size: 26upx;
+				font-size: $fontAlmostSize;
 				color: $fontBlackColor;
 			}
 			.scurve-box {

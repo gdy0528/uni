@@ -107,7 +107,7 @@
 					height: 60upx;
 					line-height: 60upx;
 					.swiper-item {
-						font-size: 26upx;
+						font-size: $fontAlmostSize;
 						color: $fontLightBlackColor;
 					}
 				}
@@ -125,13 +125,13 @@
 				background: $bgWhiteColor;
 				.tips-title {
 					margin-bottom: 6upx;
-					font-size: $fontMinSize;
+					font-size: $fontMiniSize;
 					color: $fontLightBlackColor;
 					font-weight: bold;
 				}
 				.tips-desc {
 					margin-bottom: 4upx;
-					font-size: $fontMinSize;
+					font-size: $fontMiniSize;
 					color: $fontLightBlackColor;
 				}
 			}

@@ -157,7 +157,7 @@
 						@include ellipsis;
 					}
 					.content-date {
-						font-size: $fontMinSize;
+						font-size: $fontMiniSize;
 						color: $fontGrayColor;
 						align-self: flex-end;
 					}

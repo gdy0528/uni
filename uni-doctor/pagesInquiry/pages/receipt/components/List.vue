@@ -115,13 +115,12 @@
 				}
 			},
 			handleRefresh() { //下拉刷新
-				this.handleChangRestData().then(() => {
-					this.postReceivingOrderList().then(res => {
-						uni.stopPullDownRefresh()
-						this.$showToast({
-							title: "刷新成功",
-							duration: 1000
-						})
+				let { handleChangRestData, postReceivingOrderList } = this
+				Promise.all([handleChangRestData(), postReceivingOrderList()]).then(res => {
+					uni.stopPullDownRefresh()
+					this.$showToast({
+						title: "刷新成功",
+						duration: 1000
 					})
 				})
 			},
@@ -347,7 +346,7 @@
 							width: 160upx;
 							height: 50upx;
 							line-height: 50upx;
-							font-size: $fontMinSize;
+							font-size: $fontMiniSize;
 							color: $fontWhiteColor;
 							text-align: center;
 							border-radius: 25upx;
@@ -373,7 +372,7 @@
 						width: 134upx;
 						height: 40upx;
 						line-height: 40upx;
-						font-size: $fontMinSize;
+						font-size: $fontMiniSize;
 						color: $fontBlueColor;
 						text-align: center;
 						border-radius: 0 10upx 0 10upx;
@@ -383,7 +382,7 @@
 						width: 220upx;
 						height: 40upx;
 						line-height: 40upx;
-						font-size: $fontMinSize;
+						font-size: $fontMiniSize;
 						color: $fontWhiteColor;
 						text-align: center;
 						border-radius: 0 10upx 0 10upx;

@@ -178,7 +178,7 @@
 				margin: 20upx 0;
 				padding: 9upx 16upx;
 				align-self: center;
-				font-size: $fontMinSize;
+				font-size: $fontMiniSize;
 				color: $fontWhiteColor;
 				border-radius: 10upx;
 				background: #DCDCDC;
@@ -187,7 +187,7 @@
 				margin-bottom: 30upx;
 				padding: 8upx 20upx;
 				align-self: center;
-				font-size: $fontMinSize;
+				font-size: $fontMiniSize;
 				color: $fontLightBlackColor;
 				border-radius: 10upx;
 				background: #DCDCDC;
@@ -257,7 +257,7 @@
 							bottom: 0;
 							width: 360upx;
 							padding: 10upx 20upx;
-							font-size: $fontMinSize;
+							font-size: $fontMiniSize;
 							color: $fontWhiteColor;
 							background-color: rgba(0,0,0,.3);
 						}

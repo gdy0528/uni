@@ -171,7 +171,7 @@
 					height: 48upx;
 				}
 				.clear-text {
-					font-size: $fontMinSize;
+					font-size: $fontMiniSize;
 					color: $fontGrayColor;
 				}
 				&.tabbar-cancel {

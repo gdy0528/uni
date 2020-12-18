@@ -212,11 +212,17 @@
 					"style": {
 						"navigationBarTitleText": "病历库"
 					}
-				}, 
+				},
 				{
 					"path": "pages/advisoryHistory/advisoryHistory",
 					"style": {
 						"navigationBarTitleText": ""
+					}
+				},
+				{
+					"path": "pages/myPatient/myPatient",
+					"style": {
+						"navigationBarTitleText": "我的患者"
 					}
 				}
 			]
@@ -230,6 +236,31 @@
 					"enablePullDownRefresh": true
 				}
 			}]
+		},
+		{
+			"root": "pagesVisit",
+			"pages": [{
+					"path": "pages/leave/leave",
+					"style": {
+						"navigationBarTitleText": "出院患者",
+						"enablePullDownRefresh": true
+					}
+				},
+				{
+					"path": "pages/enter/enter",
+					"style": {
+						"navigationBarTitleText": "就诊患者",
+						"enablePullDownRefresh": true
+					}
+				},
+				{
+					"path": "pages/visitHistory/visitHistory",
+					"style": {
+						"navigationBarTitleText": "复诊历史",
+						"enablePullDownRefresh": true
+					}
+				}
+			]
 		}
 	],
 	"condition": {
@@ -318,6 +349,22 @@
 			{
 				"path": "pagesInquiry/pages/advisoryHistory/advisoryHistory",
 				"name": "咨询患者历史"
+			},
+			{
+				"path": "pagesInquiry/pages/myPatient/myPatient",
+				"name": "我的患者"
+			},
+			{
+				"path": "pagesVisit/pages/leave/leave",
+				"name": "出院患者"
+			},
+			{
+				"path": "pagesVisit/pages/enter/enter",
+				"name": "就诊患者"
+			},
+			{
+				"path": "pagesVisit/pages/visitHistory/visitHistory",
+				"name": "复诊历史"
 			}
 		]
 	},

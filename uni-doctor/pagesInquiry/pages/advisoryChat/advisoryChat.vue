@@ -23,8 +23,8 @@
 </template>
 
 <script>
-	import ChatList from '@/common/Chat/List'
-	import ChatBottom from '@/common/Chat/Bottom'
+	import ChatList from '@/pagesInquiry/components/Chat/List'
+	import ChatBottom from '@/pagesInquiry/components/Chat/Bottom'
 	import FinlshOrder from '@/pagesInquiry/components/finish'
 	import CancelOrder from '@/pagesInquiry/components/cancel'
 	import { imMsgDesc } from '@/utils/tool'
@@ -202,7 +202,7 @@
 			display: flex;
 			flex-direction: row;
 			align-items: center;
-			font-size: $fontMinSize;
+			font-size: $fontMiniSize;
 			color: $fontLightBlackColor;
 			background: $bgWhiteColor;
 		}
@@ -222,7 +222,7 @@
 			/* #endif */
 			right: 0;
 			padding: 14upx 20upx 14upx 25upx;
-			font-size: $fontMinSize;
+			font-size: $fontMiniSize;
 			color: $fontBlueColor;
 			text-align: center;
 			border-radius: 50upx 0 0 50upx;

@@ -2,7 +2,7 @@
 	<view class="OrderList">
 		<scroll-view class="orderScroll" :style="{maxHeight: `${scrollH}`}" refresher-background="$bgColor" scroll-y="true" @scrolltolower="handleLower">
 			<view class="order-box" v-if="!isEmpty">
-				<view class="order-item" v-for="(item, index) in orderList" :key="index">
+				<view class="order-item" v-for="(item, index) in orderList" :key="index" @click="handleClickPatientHistory(item)">
 					<view class="item-top">
 						<view class="top-border" :style="{'background' : item.inquiryColor}"></view>
 						<text class="top-title">{{item.inquiryText}}</text>
@@ -120,13 +120,12 @@
 				})
 			},
 			handleRefresh() { //下拉刷新
-				this.handleChangRestData().then(() => {
-					this.postOrderRecordList(false).then(res => {
-						uni.stopPullDownRefresh()
-						this.$showToast({
-							title: "刷新成功",
-							duration: 1000
-						})
+				let { handleChangRestData, postOrderRecordList } = this
+				Promise.all([handleChangRestData(), postOrderRecordList(false)]).then(res => {
+					uni.stopPullDownRefresh()
+					this.$showToast({
+						title: "刷新成功",
+						duration: 1000
 					})
 				})
 			},
@@ -138,6 +137,14 @@
 					this.disabled = false //是否禁用底部加载
 					resolve()
 				})
+			},
+			handleClickPatientHistory(item) {	//跳转患者咨询历史
+				if (item.orderTypes != 'E' && (item.orderState == 'C' || item.orderState == 'D')) {  //判断不是病房并且订单状态是接过单的情况
+					let id = item.assistUserId == '0' ? item.patientId : item.assistUserId
+					uni.navigateTo({
+						url: `/pagesInquiry/pages/advisoryHistory/advisoryHistory?id=${id}&orderCode=${item.orderCode}&type=order`
+					})
+				}
 			}
 		},
 		watch: {
@@ -173,7 +180,7 @@
 						left: 3%;
 						bottom: 0;
 						width: 94%;
-						height: 1upx;
+						height: 2upx;
 						background: $underlineColor;
 					}
 					&:last-child:after {
@@ -270,7 +277,7 @@
 								}
 								.info_top_identity {
 									padding: 3upx 20upx;
-									font-size: $fontMinSize;
+									font-size: $fontMiniSize;
 									color: $fontWhiteColor;
 									border-radius: 50upx;
 									background: #FCBC22;
@@ -278,13 +285,13 @@
 							}
 							.info_desc {
 								margin-bottom: 10upx;
-								font-size: $fontMinSize;
+								font-size: $fontMiniSize;
 								color: $fontLightBlackColor;
 								@include ellipsis;
 							}
 							.info_date {
 								align-self: flex-end;
-								font-size: $fontMinSize;
+								font-size: $fontMiniSize;
 								color: $fontGrayColor;
 							}
 						}

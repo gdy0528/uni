@@ -94,11 +94,7 @@
 				let { name, phone, password, passwords, settingList } = this
 				if (insName(name) && insPhone(phone) && insPwd(password) && insPwd(passwords)) {
 					if (password != passwords) {
-						this.$showToast({
-							title: "两次密码不一致",
-							icon: "none",
-							duration: 1000
-						})
+						this.$showToast("两次密码不一致")
 						return
 					}
 					let suUserAuthority = "" //定义空字符

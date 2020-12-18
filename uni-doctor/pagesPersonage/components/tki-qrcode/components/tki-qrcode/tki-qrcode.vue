@@ -104,11 +104,7 @@ export default {
 					},
 				});
 			} else {
-				uni.showToast({
-					title: '二维码内容不能为空',
-					icon: 'none',
-					duration: 2000
-				});
+				uni.showToast('二维码内容不能为空');
 			}
 		},
 		_clearCode() {
