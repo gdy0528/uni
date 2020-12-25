@@ -298,7 +298,7 @@
 								let duration = parseInt(aduioContext.duration)	//获取当前音频的时长
 								// #endif
 								// #ifdef MP-WEIXIN
-								let duration = Math.ceil(res.duration/1000)	//获取当前音频的时长
+								let duration = Math.floor(res.duration/1000)	//获取当前音频的时长（向下取整）
 								// #endif
 								if (duration < 1) {
 									self.$showToast({

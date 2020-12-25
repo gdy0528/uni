@@ -33,9 +33,7 @@
 				self = this
 				// #endif
 				let subsidiaryOnOff = nextStatus ? '1' : '2'
-				self.$showModal({
-					content: '是否切换开关吗?',
-				}).then(() => {
+				self.$showModal("是否切换开关吗?").then(() => {
 					self.$post('/api/doctor/su/setSubsidiaryOnOff', {
 						subsidiaryOnOff
 					}).then(data => {

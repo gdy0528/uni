@@ -17,7 +17,7 @@
 			</view>
 		</view>
 		<view class="message-tab" v-if="!isEmpty">
-			<view class="tab-items" v-for="(item, index) in msgList" :key="index">
+			<view class="tab-items" v-for="(item, index) in msgList" :key="index" @click="handleClickRouter(item, index)">
 				<view class="items-score" :style="{color : item.gradeColor}">
 					<text class="score-nums">{{item.gradeText}}</text>
 				</view>
@@ -157,10 +157,12 @@
 			},
 			postMedicalRecordList(date) {	//获取看病病历&&自述病历数据
 				let self = this
+				let { id } = this.router
+				let { router, tabId } = this
 				this.$post('/api/doctor/medical/getMedicalRecordList',{
-					patientId: self.router.id,
+					patientId: id,
 					searchDate: date,
-					types: self.tabId,
+					types: tabId,
 					page: {
 						size: 10,
 						current: self.current
@@ -189,8 +191,9 @@
 			},
 			postFindHealthyAssessment(date) {	//获取智能诊断数据
 				let self = this
+				let { id } = this.router
 				this.$post('/api/doctor/medical/getFindHealthyAssessment',{
-					id: self.router.id,
+					id,
 					searchDate: date,
 					page: {
 						size: 10,
@@ -217,6 +220,19 @@
 						if (pages <= self.current) self.disabled = true
 					}
 				})
+			},
+			handleClickRouter(item, index) {	//根据tabid跳转不同的界面
+				let { tabId } = this
+				let { id } = this.router
+				let url //定义跳转连接
+				if (tabId == "A") {	//看病病历
+					url = item.typesDetail == "A1" ? `/pagesInquiry/pages/doorDetail/doorDetail?id=${item.id}` : `/pagesWard/pages/wardDetail/wardDetail?id=${id}&wardId=${item.wardId}`
+				} else if (tabId == "B") {	//自述病历
+					url	= `/pagesInquiry/pages/oneselfDetail/oneselfDetail?id=${id}&caseId=${item.id}`
+				} else if (tabId == "C") {	//智能诊断
+					url = `/pagesInquiry/pages/evaluatingDetail/evaluatingDetail?id=${id}&testCode=${item.testCode}`
+				}
+				uni.navigateTo({ url })
 			}
 		},
 		mounted() {

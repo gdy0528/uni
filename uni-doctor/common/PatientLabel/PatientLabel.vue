@@ -1,7 +1,7 @@
 <template>
-	<view class="PatientLabel" v-if="isLabel" :class="{'animation' : isAnimation, 'addAnimation' : isAdd}">
+	<view class="PatientLabel" v-if="isLabel" :class="{'animation' : isAnimation, 'addAnimation' : isAdd && set}">
 		<view class="label-box">
-			<text class="label-title">请为患者贴上标签：(最多3个)</text>
+			<text class="label-title">{{title}}</text>
 			<view class="label-list">
 				<view class="list-box">
 					<view 
@@ -14,9 +14,9 @@
 					</view>
 				</view>
 			</view>
-			<view class="label-set">
+			<view class="label-set" v-if="set">
 				<view class="set-icons">
-					<LayzImage src="/pagesVisit/static/leave/revise.png" />
+					<LayzImage src="/static/PatientLabel/revise.png" />
 				</view>
 				<text class="set-desc" @click="handleClcikToggleLable(true)">管理标签</text>
 			</view>
@@ -47,7 +47,7 @@
 								:value="item.labelName"
 								 @blur="handleChangeSetLabel($event, item, index)"/>
 							<view class="amend_close" @click="handleClickDelLabel(item, index)">
-								<LayzImage src="/pagesVisit/static/leave/ic_label_delete.png" />
+								<LayzImage src="/static/PatientLabel/ic_label_delete.png" />
 							</view>
 						</view>
 					</view>
@@ -55,7 +55,7 @@
 			</view>
 			<view class="edit-close" @click="handleClcikToggleLable(false)">
 				<view class="close-icons">
-					<LayzImage src="/pagesVisit/static/leave/label.png" />
+					<LayzImage src="/static/PatientLabel/label.png" />
 				</view>
 				<text class="close-desc">去贴标签</text>
 			</view>
@@ -66,6 +66,13 @@
 <script>
 	import { insEmpty } from '@/utils/check'
 	export default {
+		props: {
+			title: String,
+			set: {	//是否显示设置
+				type: Boolean,
+				default: true
+			}
+		},
 		data() {
 			return {
 				id: '',	//患者id
@@ -169,9 +176,7 @@
 			handleClickDelLabel(item, index) {	//删除标签
 				let self = this
 				let { activeLabel, labelList} = this
-				this.$showModal({
-					content: "确定是否删除该标签？"
-				}).then(res => {
+				this.$showModal("确定是否删除该标签？").then(res => {
 					self.$post('/api/doctor/label/deleteLabel', {
 						id: item.id
 					}).then(data => {

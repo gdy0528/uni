@@ -1,6 +1,6 @@
 <template>
 	<view class="ChatList" @touchstart="handleChangTouchStart">
-		<view class="chat-box" v-for="(item, index) in list" :key="index">
+		<view class="chat-box" :id="`msg-${item.msgUid}`" v-for="(item, index) in list" :key="item.msgUid">
 			<view class="chat-date" v-if="item.showTime == 'Y' || index == 0">{{item.sentTime}}</view>
 			<view class="chat-tips" v-if="item.isTips">{{item.content}}</view>
 			<view class="chat-info" v-else :class="{'chat-info-around' : item.messageDirection == '1','chat-info-none' : item.msgType == 'imgMsg' || item.msgType == 'amapMsg'}">
@@ -206,7 +206,7 @@
 				.info-content {
 					position: relative;
 					max-width: 500upx;
-					padding: 20upx;
+					padding: 10upx 20upx;
 					border-radius: 10upx;
 					background: $bgWhiteColor;
 					word-break: break-all;

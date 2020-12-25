@@ -68,7 +68,7 @@
 				flex-direction: row;
 				align-items: center;
 				justify-content: center;
-				&:after {
+				&:not(:last-child):after {
 					content: "";
 					position: absolute;
 					left: 100%;
@@ -76,11 +76,6 @@
 					width: 1upx;
 					height: 60upx;
 					background: $underlineColor;
-				}
-				&:last-child {
-					&:after {
-						background: transparent;
-					}
 				}
 				.item-title {
 					font-size: $fontSmallSize;

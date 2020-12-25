@@ -15,55 +15,61 @@
 			<view class="material-field">
 				<text class="field-name">性别：</text>
 				<view class="field-value">
-					<CommonPicker :colums="sexColums" :value="sex" columsKey="text" placeholder="请选择您的性别" @change="handleChangPicker($event, 'sex')" />
-				</view>
-				<view class="field-icons">
-					<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+					<CommonPicker :colums="sexColums" :value="sex" columsKey="text" placeholder="请选择您的性别" @change="handleChangPicker($event, 'sex')">
+						<view class="value-icons" slot="icons">
+							<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+						</view>
+					</CommonPicker>
 				</view>
 			</view>
 			<view class="material-field">
 				<text class="field-name">出生日期：</text>
 				<view class="field-value">
-					<CommonDatePicker :value="birthday" placeholder="请选择您的出生日期" @change="handleChangPicker($event, 'birthday')" />
-				</view>
-				<view class="field-icons">
-					<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+					<CommonDatePicker :value="birthday" placeholder="请选择您的出生日期" @change="handleChangPicker($event, 'birthday')">
+						<view class="value-icons" slot="icons">
+							<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+						</view>
+					</CommonDatePicker>
 				</view>
 			</view>
 			<view class="material-field">
 				<text class="field-name">所在区域：</text>
 				<view class="field-value">
-					<CommonAddressPicker :value="address" placeholder="请选择您的所在区域" @change="handleChangPicker($event, 'address')" />
-				</view>
-				<view class="field-icons">
-					<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+					<CommonAddressPicker :value="address" placeholder="请选择您的所在区域" @change="handleChangPicker($event, 'address')">
+						<view class="value-icons" slot="icons">
+							<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+						</view>
+					</CommonAddressPicker>
 				</view>
 			</view>
 			<view class="material-field">
 				<text class="field-name">所属医院：</text>
 				<view class="field-value">
-					<CommonPicker :colums="hospitalColums" :value="hospital" columsKey="text" placeholder="请选择您的所属医院" @change="handleChangPicker($event, 'hospital')" />
-				</view>
-				<view class="field-icons">
-					<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+					<CommonPicker :colums="hospitalColums" :value="hospital" columsKey="text" placeholder="请选择您的所属医院" @change="handleChangPicker($event, 'hospital')">
+						<view class="value-icons" slot="icons">
+							<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+						</view>
+					</CommonPicker>
 				</view>
 			</view>
 			<view class="material-field">
 				<text class="field-name">所属科室：</text>
 				<view class="field-value">
-					<CommonPicker :colums="departmentsColums" :value="departments" columsKey="text" placeholder="请选择您的所属科室" @change="handleChangPicker($event, 'departments')" />
-				</view>
-				<view class="field-icons">
-					<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+					<CommonPicker :colums="departmentsColums" :value="departments" columsKey="text" placeholder="请选择您的所属科室" @change="handleChangPicker($event, 'departments')">
+						<view class="value-icons" slot="icons">
+							<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+						</view>
+					</CommonPicker>
 				</view>
 			</view>
 			<view class="material-field">
 				<text class="field-name">您的职称：</text>
 				<view class="field-value">
-					<CommonPicker :colums="obligationColums" :value="obligation" columsKey="text" placeholder="请选择您的职称" @change="handleChangPicker($event, 'obligation')" />
-				</view>
-				<view class="field-icons">
-					<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+					<CommonPicker :colums="obligationColums" :value="obligation" columsKey="text" placeholder="请选择您的职称" @change="handleChangPicker($event, 'obligation')">
+						<view class="value-icons" slot="icons">
+							<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+						</view>
+					</CommonPicker>
 				</view>
 			</view>
 			<view class="material-field">
@@ -98,8 +104,8 @@
 <script>
 	import CommonAvatar from '@/pagesPersonage/components/avatar'
 	import CommonPicker from '@/common/Picker/Picker'
-	import CommonDatePicker from '@/common/Picker/DatePicker'
-	import CommonAddressPicker from '@/common/Picker/AddressPicker'
+	import CommonDatePicker from '@/common/Picker/dateTime/DateTimePicker'
+	import CommonAddressPicker from '@/common/Picker/address/AddressPicker'
 	import { insEmpty, insName } from '@/utils/check'
 	import { mapState, mapMutations } from 'vuex'
 	export default {
@@ -314,16 +320,16 @@
 				}
 				.field-value {
 					height: 85upx;
-					line-height: 85upx;
+					padding-left: 10upx;
 					flex: 1;
 					font-size: $fontSize;
 					color: $fontBlackColor;
 					text-align: right;
-				}
-				.field-icons {
-					width: 14upx;
-					height: 26upx;
-					margin-left: 20upx;
+					.value-icons {
+						width: 14upx;
+						height: 26upx;
+						margin-left: 20upx;
+					}
 				}
 			}
 			.material-textarea {

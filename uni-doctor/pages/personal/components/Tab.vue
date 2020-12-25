@@ -82,7 +82,7 @@
 				flex-direction: row;
 				align-items: center;
 				box-sizing: border-box;
-				&:after {
+				&:not(:last-child):after {
 					position: absolute;
 					right: 30upx;
 					left: 30upx;
@@ -91,9 +91,6 @@
 					content: ' ';
 					pointer-events: none;
 					border-bottom: 2upx solid #E5E5E5;
-				}
-				&:last-child:after {
-					border: none;
 				}
 				.item-icons {
 					width: 36upx;

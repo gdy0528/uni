@@ -25,7 +25,7 @@
 			handleTextScroll() {	//字体滚动
 				// 等待节点挂载后再执行,热门线路tip滚动实现
 				this.$nextTick(() => {
-					let query = wx.createSelectorQuery().in(this)
+					let query = uni.createSelectorQuery().in(this)
 					query.select('.TextScroll').boundingClientRect(data => {
 						this.tipWidth = data.width
 					}).exec();

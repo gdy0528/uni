@@ -63,13 +63,17 @@
 			<LeaveAssistant :list="assistantList" :checkList="checkData" @cancel="handleChangeToggleLeaveAssistant" @confirm="handleChangeConfirmLeaveAssistant" />
 		</CommonPopup>
 		<!-- 患者标签管理 -->
-		<PatientLabel ref="PatientLabel" @cancel="handleChangeTogglePatientLabel" @confirm="handleChangeConfirmPatientLabel" />
+		<PatientLabel 
+			ref="PatientLabel" 
+			title="请为患者贴上标签：(最多3个)" 
+			@cancel="handleChangeTogglePatientLabel" 
+			@confirm="handleChangeConfirmPatientLabel" />
 	</view>
 </template>
 
 <script>
 	import LeaveAssistant from './Assistant'
-	import PatientLabel from '@/pagesVisit/components/PatientLabel.vue'
+	import PatientLabel from '@/common/PatientLabel/PatientLabel'
 	export default {
 		props: {
 			userInfo: Object,	//用户类型

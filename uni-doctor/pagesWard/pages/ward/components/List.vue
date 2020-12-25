@@ -1,7 +1,7 @@
 <template>
 	<scroll-view class="WardList" :style="{height: `${scrollH}`}" refresher-background="$bgColor" scroll-y="true" @scrolltolower="handleLower">
 		<view class="list-box" v-if="!isEmpty">
-			<view class="list-item" v-for="(item, index) in wardList" :key="index">
+			<navigator class="list-item" v-for="(item, index) in wardList" :key="index" :url="`/pagesWard/pages/wardCheck/wardCheck?id=${item.id}`"> 
 				<view class="item-head">
 					<LayzImage :src="item.userImg" round />
 					<view class="head_state">
@@ -23,7 +23,7 @@
 						<text class="info_date">查房时间：{{item.startDate}}</text>
 					</view>
 				</view>
-			</view>
+			</navigator>
 		</view>
 		<CommonEmpty v-else />
 	</scroll-view>

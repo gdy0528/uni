@@ -14,10 +14,11 @@
 		<view class="screen-box">
 			<view class="screen-title">所属医院筛选</view>
 			<view class="screen-picker">
-				<CommonPicker :colums="hospitalArray" :value="hospitalValue" @change="handleChangeHospital" />
-			</view>
-			<view class="screen-icons">
-				<LayzImage src="/static/middle-return-black-right.png" />
+				<CommonPicker :colums="hospitalArray" :value="hospitalValue" @change="handleChangeHospital">
+					<view class="picker-icons" slot="icons">
+						<LayzImage src="/static/middle-return-black-right.png" />
+					</view>
+				</CommonPicker>
 			</view>
 		</view>
 	</view>
@@ -123,12 +124,12 @@
 				color: $fontBlackColor;
 			}
 			.screen-picker {
+				margin-left: 10upx;
 				flex: 1;
-			}
-			.screen-icons {
-				width: 38upx;
-				height: 38upx;
-				margin: 0 10upx -2upx 10upx;
+				.picker-icons {
+					width: 38upx;
+					height: 38upx;
+				}
 			}
 		}
 	}

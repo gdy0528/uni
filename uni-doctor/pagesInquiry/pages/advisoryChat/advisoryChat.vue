@@ -10,7 +10,9 @@
 		<!-- 患者历史按钮 -->
 		<view class="patient_history_btns" v-if="isHistory" @click="handleClickPatientHistory">患者历史</view>
 		<!-- 完结接单按钮 -->
+		<!-- #ifdef MP-WEIXIN -->
 		<view class="patient_finlsh_btns" v-if="order.orderState == 'J'" @click="handleChangeAdvisoryFinlsh('show')">完结订单</view>
+		<!-- #endif -->
 		<!-- 完结订单 -->
 		<CommonPopup ref="AdvisoryFinlsh" type="bottom">
 			<FinlshOrder :order="order" @cancel="handleChangeAdvisoryFinlsh" />
@@ -25,8 +27,8 @@
 <script>
 	import ChatList from '@/pagesInquiry/components/Chat/List'
 	import ChatBottom from '@/pagesInquiry/components/Chat/Bottom'
-	import FinlshOrder from '@/pagesInquiry/components/finish'
-	import CancelOrder from '@/pagesInquiry/components/cancel'
+	import FinlshOrder from './components/finish'
+	import CancelOrder from './components/cancel'
 	import { imMsgDesc } from '@/utils/tool'
 	export default {
 		components: {
@@ -51,50 +53,71 @@
 			}
 		},
 		methods: {
+			handleInit() {	//初始化项目
+				let { postOrderInfo, postisNotHistory, postChatData, handleScrollTop } = this
+				Promise.all([postOrderInfo(), postisNotHistory(), postChatData(true)]).then(data => {
+					handleScrollTop(data[data.length - 1]) //滑动到底部
+				})
+			},
+			handleChangeCurrentPages() { //修改顶部按钮
+				let { orderState } = this.order
+				// #ifdef H5
+				let dom = document.querySelector('.uni-page-head-ft .uni-page-head-btn .uni-btn-icon')
+				dom.innerHTML = orderState == 'J' ? "完结订单" : ""
+				// #endif
+				// #ifdef APP-PLUS
+				let webView = this.$mp.page.$getAppWebview()
+				webView.setTitleNViewButtonStyle(0, {
+					text: orderState == 'J' ? "完结订单" : ""
+				})
+				// #endif
+			},
 			postOrderInfo() { //获取订单信息
 				let self = this
 				let { routerObj } = this
-				this.$post('/api/common/chat/getOrderInfo', {
-					orderCode: routerObj.id
-				}, false).then(data => {
-					let res = data.data
-					if (res.code == 200) {
-						let datas = res.data
-						let title = datas.groupVo.groupName || datas.patientInfo.userNickname //判断是否有群名称
-						uni.setNavigationBarTitle({ //设置标题
-							title
-						})
-						let sendObj = {	//发送消息数据
-							channelType: datas.groupVo.id ? 'group' : 'person', //会话单聊、群聊
-							chatType: datas.orderTypes, //会话类型
-							mainId: datas.orderCode, //会话id,
-							toUserId: datas.groupVo.id || datas.patientInfo.id //接受人id
+				return new Promise(resolve => {
+					this.$post('/api/common/chat/getOrderInfo', {
+						orderCode: routerObj.id
+					}, false).then(data => {
+						let res = data.data
+						if (res.code == 200) {
+							let datas = res.data
+							let title = datas.groupVo.groupName || datas.patientInfo.userNickname //判断是否有群名称
+							uni.setNavigationBarTitle({ //设置标题
+								title
+							})
+							let sendObj = {	//发送消息数据
+								channelType: datas.groupVo.id ? 'group' : 'person', //会话单聊、群聊
+								chatType: datas.orderTypes, //会话类型
+								mainId: datas.orderCode, //会话id,
+								toUserId: datas.groupVo.id || datas.patientInfo.id //接受人id
+							}
+							self.order = datas
+							self.sendObj = sendObj
+							resolve()
 						}
-						self.order = datas
-						self.sendObj = sendObj
-						self.postisNotHistory()	//请求显示历史聊天
-						self.postChatData(true).then(() => {
-							self.handleScrollTop() //滑动到底部
-						})
-					}
+					})
 				})
 			},
 			postisNotHistory() {  //请求显示历史聊天
 				let self = this
-				let { order } = this
-				let id = order.assistUserId != '0' ? order.assistUserId : order.patientId  //判断获取患者id
-				this.$post('/api/doctor/order/isNotHistory',{
-					patientId: id
-				}).then(data => {
-					let res = data.data
-					if (res.code == 200) {
-						self.isHistory = res.data
-					}
+				let { assistUserId, patientId } = this.order
+				return new Promise(resolve => {
+					let id = assistUserId != '0' ? assistUserId : patientId  //判断获取患者id
+					this.$post('/api/doctor/order/isNotHistory',{
+						patientId: id
+					}, false).then(data => {
+						let res = data.data
+						if (res.code == 200) {
+							self.isHistory = res.data
+							resolve()
+						}
+					})
 				})
 			},
 			postChatData(loading) { //获取消息聊天列表
 				let self = this
-				let { routerObj, order, currentTime, current } = this
+				let { routerObj, order, currentTime, current, chatList } = this
 				return new Promise(resolve => {
 					self.$post('/api/common/chat/getChatById', {
 						chatType: 0,
@@ -114,34 +137,43 @@
 							let records = datas.page.records.map(item => {
 								return imMsgDesc(item)
 							})
-							self.currentTime = self.currentTime || datas.currentDate
-							if (self.current < 2) {
-								self.chatList = records.reverse()
+							self.currentTime = currentTime || datas.currentDate
+							if (current < 2) {
+								self.chatList = [...records.reverse()]
 							} else {
-								self.chatList = records.reverse().concat(self.chatList)
+								self.chatList = [...records.reverse(), ...self.chatList]
 							}
 							if (pages <= self.current) {
 								self.disabled = true
 							} else {
 								self.disabled = false
 							}
-							resolve(datas)
+							let newLength = self.chatList.length	//最新的list长度
+							let oldLength = chatList.length	//旧数据长度
+							const sel = `#msg-${current > 1 ? self.chatList[newLength - oldLength].msgUid : self.chatList[newLength - 1].msgUid}`
+							resolve(sel)
 						}
 					})
 				})
 			},
-			handleScrollTop() { //滑动到底部
-				setTimeout(() => {
-					this.scrollTop = this.scrollTop > 0 ? this.scrollTop + 1 : 10000
-				}, 300)
+			handleScrollTop(sel) { //滑动到底部
+				const query = uni.createSelectorQuery().in(this);
+				query
+					.select(sel)
+					.boundingClientRect(data => {
+						console.log(data)
+						this.scrollTop = data && data.top - 40
+					})
+				.exec();
 			},
 			handleChangeRefresh() {	//下拉加载
 				if (this._freshing || this.disabled) return;
 				this._freshing = true
 				this.current++
-				this.postChatData(false).then(() => {
+				this.postChatData(false).then(sel => {
 					this.triggered = false
 					this._freshing = false
+					this.handleScrollTop(sel)
 				})
 			},
 			handleChangeRestore() {	//下拉重置
@@ -183,12 +215,22 @@
 				})
 			}
 		},
+		watch: {
+			'order.orderState'() {	//监听订单状态是否发生改变
+				// #ifndef MP-WEIXIN
+				this.handleChangeCurrentPages()
+				// #endif
+			}
+		},
 		mounted() {
-			this.postOrderInfo() //获取订单信息
+			this.handleInit()	//初始化
 		},
 		onLoad(option) {
 			this.routerObj = option
-		}
+		},
+		onNavigationBarButtonTap(e) { //点击完结订单
+			this.handleChangeAdvisoryFinlsh('show')
+		},
 	}
 </script>
 

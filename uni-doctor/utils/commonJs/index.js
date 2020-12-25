@@ -1,9 +1,10 @@
 /* 二次处理模态框交互 */
 export function showModal(showModalObj) {
 	return new Promise((resolve, reject) => {
+		let dataType = typeof(showModalObj) == 'object'	//判断数据类型
 		uni.showModal({
 			title: showModalObj.title || "友情提示",
-			content: showModalObj.content,
+			content: dataType ? showModalObj.content || "提示内容" : showModalObj,
 			cancelText: showModalObj.cancelText || "取消",
 			cancelColor: showModalObj.cancelColor || "#000000",
 			confirmText: showModalObj.confirmText || "确认",

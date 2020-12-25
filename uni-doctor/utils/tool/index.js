@@ -2,6 +2,9 @@ import store from '@/store'
 import { postAction } from '@/utils/api'
 import { showToast } from '@/utils/commonJs'
 
+/* 生成随机数UUID */
+export function generateUUID() {  function S4() {    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)  }  return (S4() + S4())}
+
 /* 咨询消息列表时间规则 */
 export function timeRule(date) {
 	let moment = require('moment')
@@ -85,6 +88,7 @@ export function imMsgDesc(msgObj) {
 		content = msgObj.content
 	}
 	let msgDesc = { //自定义消息体
+		msgUid: generateUUID(),	//生成uuid
 		userId: msgObj.fromUserVo.id, //当前人id
 		userName: msgObj.fromUserVo.userNickname, //当前人名字
 		userImg: msgObj.fromUserVo.userImg, //当前人头像
@@ -119,6 +123,7 @@ export function imChangeMsgDesc(msgObj) {
 		content = msgObj.content
 	}
 	let msgDesc = { //自定义消息体
+		msgUid: generateUUID(),	//生成uuid
 		userId: msgObj.user.id, //当前人id
 		userName: msgObj.user.name, //当前人名字
 		userImg: msgObj.user.portrait, //当前人头像

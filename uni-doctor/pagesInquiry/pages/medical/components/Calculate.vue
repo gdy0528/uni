@@ -47,7 +47,7 @@
 				return {
 					name,
 					color,
-					value: this.calculation.healthyFraction
+					value
 				}
 			}
 		}
@@ -77,6 +77,7 @@
 		.calculate-curve {
 			display: flex;
 			flex-direction: column;
+			z-index: 1;
 			.scurve-title {
 				font-size: $fontAlmostSize;
 				color: $fontBlackColor;

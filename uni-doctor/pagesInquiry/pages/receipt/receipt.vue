@@ -24,7 +24,7 @@
 </template>
 
 <script>
-	import TextScroll from '@/pagesInquiry/components/textScroll'
+	import TextScroll from './components/TextScroll'
 	import ReceiptList from './components/List'
 	export default {
 		components: {

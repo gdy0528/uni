@@ -103,7 +103,7 @@
 								self.orderList = self.orderList.concat(records)
 							}
 							if (pages <= self.current) self.disabled = true
-							resolve(res.data)
+							resolve(datas)
 						}
 					})
 				})
@@ -174,7 +174,7 @@
 					padding: 20upx 0;
 					display: flex;
 					flex-direction: column;
-					&:after {
+					&:not(:last-child):after {
 						content: "";
 						position: absolute;
 						left: 3%;
@@ -182,9 +182,6 @@
 						width: 94%;
 						height: 2upx;
 						background: $underlineColor;
-					}
-					&:last-child:after {
-						background: transparent;
 					}
 					.item-top {
 						padding-right: 22upx;

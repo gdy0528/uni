@@ -5,19 +5,21 @@
 				<text class="item-title">助手名称</text>
 				<view class="item-value">
 					<CommonPicker :colums="assistantArray" :value="assistant" columsKey="userNickname" :fontSize="30" textAlign="left"
-					 @change="handleChangeName" />
-				</view>
-				<view class="item-icons">
-					<LayzImage src="/pagesPersonage/static/assistantHistory/ic_pull-down.png" />
+						@change="handleChangeName">
+						<view class="value-icons" slot="icons">
+							<LayzImage src="/pagesPersonage/static/assistantHistory/ic_pull-down.png" />
+						</view>
+					</CommonPicker>
 				</view>
 			</view>
 			<view class="screen-item">
 				<text class="item-title">订单时间</text>
 				<view class="item-value">
-					<CommonPicker :colums="orderDateArray" :value="orderDate" :fontSize="30" textAlign="left" @change="handleChangeOrderDate" />
-				</view>
-				<view class="item-icons">
-					<LayzImage src="/pagesPersonage/static/assistantHistory/ic_pull-down.png" />
+					<CommonPicker :colums="orderDateArray" :value="orderDate" :fontSize="30" textAlign="left" @change="handleChangeOrderDate">
+						<view class="value-icons" slot="icons">
+							<LayzImage src="/pagesPersonage/static/assistantHistory/ic_pull-down.png" />
+						</view>
+					</CommonPicker>
 				</view>
 			</view>
 		</view>
@@ -124,12 +126,13 @@
 					flex: 1;
 					height: 88upx;
 					line-height: 88upx;
-					padding-left: 5upx;
+					margin-left: 15upx;
 					overflow: hidden;
-				}
-				.item-icons {
-					width: 48upx;
-					height: 48upx;
+					.value-icons {
+						width: 48upx;
+						height: 48upx;
+						margin-left: auto;
+					}
 				}
 			}
 		}

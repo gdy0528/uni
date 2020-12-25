@@ -188,8 +188,29 @@
 					"style": {
 						"navigationBarTitleText": "",
 						"app-plus": {
+							"bounce": "none",
+							"titleNView": {
+								"buttons": [{
+									"width": "160upx",
+									"float": "right",
+									"text": "",
+									"fontSize": "28upx",
+									"color": "#FFFFFF"
+								}]
+							},
 							"softinputNavBar": "none",
 							"softinputMode": "adjustResize"
+						},
+						"h5": {
+							"titleNView": {
+								"buttons": [{
+									"width": "130upx",
+									"float": "right",
+									"text": "",
+									"fontSize": "28upx",
+									"color": "#FFFFFF"
+								}]
+							}
 						}
 					}
 				},
@@ -224,18 +245,69 @@
 					"style": {
 						"navigationBarTitleText": "我的患者"
 					}
+				},
+				{
+					"path": "pages/door/door",
+					"style": {
+						"navigationBarTitleText": "上门咨询详情"
+					}
+				},
+				{
+					"path": "pages/doorDetail/doorDetail",
+					"style": {
+						"navigationBarTitleText": "看病病历详情"
+					}
+
+				},
+				{
+					"path": "pages/evaluatingDetail/evaluatingDetail",
+					"style": {
+						"navigationBarTitleText": "智能评测详情"
+					}
+				},
+				{
+					"path": "pages/oneselfDetail/oneselfDetail",
+					"style": {
+						"navigationBarTitleText": "自述病历详情"
+					}
 				}
 			]
 		},
 		{
 			"root": "pagesWard",
 			"pages": [{
-				"path": "pages/ward/ward",
-				"style": {
-					"navigationBarTitleText": "院外病房",
-					"enablePullDownRefresh": true
+					"path": "pages/ward/ward",
+					"style": {
+						"navigationBarTitleText": "院外病房",
+						"enablePullDownRefresh": true
+					}
+				},
+				{
+					"path": "pages/wardDetail/wardDetail",
+					"style": {
+						"navigationBarTitleText": "看病病历详情"
+					}
+				},
+				{
+					"path": "pages/wardCheck/wardCheck",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": true
+					}
+				},
+				{
+					"path": "pages/repertoire/repertoire",
+					"style": {
+						"navigationBarTitleText": "病房总清单"
+					}
+				},
+				{
+					"path": "pages/ainRepertoire/ainRepertoire",
+					"style": {
+						"navigationBarTitleText": ""
+					}
 				}
-			}]
+			]
 		},
 		{
 			"root": "pagesVisit",
@@ -365,6 +437,34 @@
 			{
 				"path": "pagesVisit/pages/visitHistory/visitHistory",
 				"name": "复诊历史"
+			},
+			{
+				"path": "pagesInquiry/pages/doorDetail/doorDetail",
+				"name": "看病病历详情(上门)"
+			},
+			{
+				"path": "pagesWard/pages/wardDetail/wardDetail",
+				"name": "看病病历详情(病房)"
+			},
+			{
+				"path": "pagesInquiry/pages/evaluatingDetail/evaluatingDetail",
+				"name": "智能评测详情"
+			},
+			{
+				"path": "pagesInquiry/pages/oneselfDetail/oneselfDetail",
+				"name": "自述病历详情"
+			},
+			{
+				"path": "pagesWard/pages/wardCheck/wardCheck",
+				"name": "病房"
+			},
+			{
+				"path": "pagesWard/pages/repertoire/repertoire",
+				"name": "病房总清单"
+			},
+			{
+				"path": "pagesWard/pages/ainRepertoire/ainRepertoire",
+				"name": "个人清单"
 			}
 		]
 	},

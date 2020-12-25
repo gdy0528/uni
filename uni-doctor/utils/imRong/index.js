@@ -46,15 +46,18 @@ export function imWatch() {
 	im.watch({
 	  conversation(event) { //监听会话列表
 	    let updatedConversationList = event.updatedConversationList // 更新的会话列表
+			let conversationList = imRongInfo.conversationList	//获取当前存放聊天t数据
 			imRongInfo.takeUpdatedConversation = updatedConversationList[0]
+			imRongInfo.conversationList = im.Conversation.merge({ conversationList, updatedConversationList })	//使用im自带聊天数据处理
 			store.commit('SET_IM_RONG',imRongInfo)
 			console.log('收到最新会话列表:',updatedConversationList)
 	  },
 	  message(event) {	//监听收到消息
 	    let takeMsg = event.message
 			imRongInfo.takeMsg = takeMsg
-			imGetTotalUnreadCount()	//获取单聊的我未读数
 			store.commit('SET_IM_RONG',imRongInfo)
+			imGetTotalUnreadCount()	//获取单聊的我未读数
+			imGetConversationList()	//获取会话列表 
 	    console.log('收到新消息:', takeMsg);
 	  },
 	  status(event) {	//监听状态码
@@ -140,8 +143,7 @@ export function imGetTotalUnreadCount() {
 /* 获取会话列表 */
 export function imGetConversationList() {
 	return new Promise(resolve => {
-		im.Conversation.getList().then(function(conversationList) {
-			// console.log('获取会话列表成功', conversationList)
+		im.Conversation.getList().then((conversationList) => {
 			imRongInfo.conversationList = conversationList
 			store.commit('SET_IM_RONG',imRongInfo)
 			resolve()

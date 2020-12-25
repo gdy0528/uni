@@ -10,7 +10,6 @@
 	import MedicalCalculate from './components/Calculate'
 	import MedicalDetails from './components/Details'
 	import MedicalMessage from './components/Message'
-
 	export default {
 		components: {
 			MedicalCalculate,

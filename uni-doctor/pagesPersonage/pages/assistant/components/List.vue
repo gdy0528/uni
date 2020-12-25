@@ -52,17 +52,13 @@
 			},
 			handleClcikFreeze(id, index) {	//点击冻结
 				let self = this
-				this.$showModal({
-					content: "确认是否冻结吗?"
-				}).then(() => {
+				this.$showModal("确认是否冻结吗?").then(() => {
 					self.postFreezeSubsidiary(id, index, "N")
 				}).catch(() => {})
 			},
 			handleClickRelieve(id, index) {	//点击解冻
 				let self = this
-				this.$showModal({
-					content: "确认是否解冻吗?"
-				}).then(() => {
+				this.$showModal("确认是否解冻吗?").then(() => {
 					self.postFreezeSubsidiary(id, index, "Y")
 				}).catch(() => {})
 			},

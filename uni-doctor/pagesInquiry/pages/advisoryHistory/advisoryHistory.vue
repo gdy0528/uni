@@ -3,10 +3,11 @@
 		<view class="history-screen" v-if="routerObj.type == 'chat'">
 			<view class="screen-title">选择咨询历史的时间</view>
 			<view class="screen-picker">
-				<CommonPicker :colums="dateColums" :value="date" columsKey="receivingDate"  @change="handleChangeDate" />
-			</view>
-			<view class="screen-icons">
-				<LayzImage src="/static/middle-return-black-right.png" />
+				<CommonPicker :colums="dateColums" :value="date" columsKey="receivingDate" @change="handleChangeDate">
+					<view class="picker-icons" slot="icons">
+						<LayzImage src="/static/middle-return-black-right.png" />
+					</view>
+				</CommonPicker>
 			</view>
 		</view>
 		<view v-if="!date && routerObj.type == 'chat'" class="history-date">
@@ -156,12 +157,12 @@
 				color: $fontBlackColor;
 			}
 			.screen-picker {
+				margin-left: 10upx;
 				flex: 1;
-			}
-			.screen-icons {
-				width: 38upx;
-				height: 38upx;
-				margin: 0 10upx -2upx 10upx;
+				.picker-icons {
+					width: 38upx;
+					height: 38upx;
+				}
 			}
 		}
 		.history-date {
