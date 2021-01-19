@@ -111,6 +111,36 @@
 					"style": {
 						"navigationBarTitleText": "服务管理"
 					}
+				},
+				{
+					"path": "pages/amend/amend",
+					"style": {
+						"navigationBarTitleText": "修改密码"
+					}
+				},
+				{
+					"path": "pages/wallet/wallet",
+					"style": {
+						"navigationBarTitleText": "钱包中心"
+					}
+				},
+				{
+					"path": "pages/bankBind/bankBind",
+					"style": {
+						"navigationBarTitleText": "提现绑定"
+					}
+				},
+				{
+					"path": "pages/bank/bank",
+					"style": {
+						"navigationBarTitleText": "提现"
+					}
+				},
+				{
+					"path": "pages/audit/audit",
+					"style": {
+						"navigationBarTitleText": "审核资料"
+					}
 				}
 			]
 		},
@@ -306,6 +336,22 @@
 					"style": {
 						"navigationBarTitleText": ""
 					}
+				},
+				{
+					"path": "pages/wardRound/wardRound",
+					"style": {
+						"navigationBarTitleText": "查房中",
+						"app-plus": {
+							"softinputNavBar": "none",
+							"softinputMode": "adjustResize"
+						}
+					}
+				},
+				{
+					"path": "pages/wardHistory/wardHistory",
+					"style": {
+						"navigationBarTitleText": "病房聊天记录"
+					}
 				}
 			]
 		},
@@ -330,6 +376,133 @@
 					"style": {
 						"navigationBarTitleText": "复诊历史",
 						"enablePullDownRefresh": true
+					}
+				},
+				{
+					"path": "pages/visit/visit",
+					"style": {
+						"navigationBarTitleText": "复诊消息",
+						"enablePullDownRefresh": true,
+						"app-plus": {
+							"bounce": "none",
+							"titleNView": {
+								"buttons": [{
+									"width": "110upx",
+									"float": "right",
+									"text": "历史",
+									"fontSize": "28upx",
+									"color": "#FFFFFF"
+								}]
+							}
+						},
+						"h5": {
+							"titleNView": {
+								"buttons": [{
+									"width": "80upx",
+									"float": "right",
+									"text": "历史",
+									"fontSize": "28upx",
+									"color": "#FFFFFF"
+								}]
+							}
+						}
+					}
+				},
+				{
+					"path": "pages/visitChat/visitChat",
+					"style": {
+						"navigationBarTitleText": "",
+						"app-plus": {
+							"titleNView": {
+								"buttons": [{
+									"width": "60upx",
+									"float": "right",
+									"text": "&#xe644;",
+									"fontSrc": "/static/fonts/iconfont.ttf",
+									"fontSize": "44upx"
+								}]
+							},
+							"softinputNavBar": "none",
+							"softinputMode": "adjustResize"
+						},
+						"h5": {
+							"titleNView": {
+								"buttons": [{
+									"width": "60upx",
+									"float": "right",
+									"text": "&#xe644;",
+									"fontSrc": "/static/fonts/iconfont.ttf",
+									"fontSize": "44upx"
+								}]
+							}
+						}
+					}
+				},
+				{
+					"path": "pages/leaving/leaving",
+					"style": {
+						"navigationBarTitleText": "出院患者留言",
+						"enablePullDownRefresh": true,
+						"app-plus": {
+							"bounce": "none",
+							"titleNView": {
+								"buttons": [{
+									"width": "110upx",
+									"float": "right",
+									"text": "患者",
+									"fontSize": "28upx",
+									"color": "#FFFFFF"
+								}]
+							}
+						},
+						"h5": {
+							"titleNView": {
+								"buttons": [{
+									"width": "80upx",
+									"float": "right",
+									"text": "患者",
+									"fontSize": "28upx",
+									"color": "#FFFFFF"
+								}]
+							}
+						}
+					}
+				},
+				{
+					"path": "pages/leavingChat/leavingChat",
+					"style": {
+						"navigationBarTitleText": "",
+						"app-plus": {
+							"bounce": "none",
+							"titleNView": {
+								"buttons": [{
+									"width": "160upx",
+									"float": "right",
+									"text": "历史留言",
+									"fontSize": "28upx",
+									"color": "#FFFFFF"
+								}]
+							},
+							"softinputNavBar": "none",
+							"softinputMode": "adjustResize"
+						},
+						"h5": {
+							"titleNView": {
+								"buttons": [{
+									"width": "130upx",
+									"float": "right",
+									"text": "历史留言",
+									"fontSize": "28upx",
+									"color": "#FFFFFF"
+								}]
+							}
+						}
+					}
+				},
+				{
+					"path": "pages/leavingHistory/leavingHistory",
+					"style": {
+						"navigationBarTitleText": ""
 					}
 				}
 			]
@@ -465,6 +638,46 @@
 			{
 				"path": "pagesWard/pages/ainRepertoire/ainRepertoire",
 				"name": "个人清单"
+			},
+			{
+				"path": "pagesWard/pages/wardRound/wardRound",
+				"name": "查房中"
+			},
+			{
+				"path": "pagesWard/pages/wardHistory/wardHistory",
+				"name": "病房聊天记录"
+			},
+			{
+				"path": "pagesPersonage/pages/amend/amend",
+				"name": "修改密码"
+			},
+			{
+				"path": "pagesPersonage/pages/wallet/wallet",
+				"name": "钱包中心"
+			},
+			{
+				"path": "pagesPersonage/pages/bankBind/bankBind",
+				"name": "提现绑定"
+			},
+			{
+				"path": "pagesPersonage/pages/bank/bank",
+				"name": "提现"
+			},
+			{
+				"path": "pagesVisit/pages/visit/visit",
+				"name": "复诊消息"
+			},
+			{
+				"path": "pagesVisit/pages/visitChat/visitChat",
+				"name": "复诊聊天"
+			},
+			{
+				"path": "pagesVisit/pages/leaving/leaving",
+				"name": "出院患者留言"
+			},
+			{
+				"path": "pagesVisit/pages/leavingHistory/leavingHistory",
+				"name": "出院患者留言聊天记录"
 			}
 		]
 	},

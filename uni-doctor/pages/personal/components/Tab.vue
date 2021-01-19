@@ -1,7 +1,7 @@
 <template>
 	<view class="PersonalTab">
 		<view class="tab-box">
-			<navigator class="tab-item" v-for="(item, index) in tabBar" :key="index" v-if="tabShow(item.show)" :url="item.link">
+			<navigator class="tab-item" v-for="(item, index) in tabBar" :key="index" v-if="tabShow(item.verify)" :url="item.link">
 				<view class="item-icons">
 					<LayzImage :src="item.icon" />
 				</view>
@@ -21,31 +21,31 @@
 			return {
 				tabBar: [
 					{
-						show: false,
-						link: "",
+						verify: true,
+						link: "/pagesPersonage/pages/wallet/wallet",
 						name: "钱包中心",
 						icon: "/static/personal/wallet.png"
 					},
+					// {
+					// 	verify: true,
+					// 	link: "",
+					// 	name: "我的资讯",
+					// 	icon: "/static/personal/news.png"
+					// },
 					{
-						show: false,
-						link: "",
-						name: "我的资讯",
-						icon: "/static/personal/news.png"
-					},
-					{
-						show: false,
+						verify: true,
 						link: "/pagesPersonage/pages/assistant/assistant",
 						name: "我的助手",
 						icon: "/static/personal/assistant.png"
 					},
 					{
-						show: true,
+						verify: false,
 						link: "/pagesPersonage/pages/qrcode/qrcode",
 						name: "邀请二维码",
 						icon: "/static/personal/code.png"
 					},
 					{
-						show: true,
+						verify: false,
 						link: "/pagesPersonage/pages/settings/settings",
 						name: "我的设置",
 						icon: "/static/personal/set.png"
@@ -58,8 +58,8 @@
 				userType: state => state.info.userType
 			}),
 			tabShow(show) {	//计算是否显示标签
-				return (show) => {
-					return show ? true : this.userType != 3
+				return (verify) => {
+					return verify ? true : this.userType != 3
 				}
 			}
 		}

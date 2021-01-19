@@ -20,7 +20,7 @@
 					<view class="content-item">
 						<text class="item-title">患者姓名：</text>
 						<text class="item-desc">{{door.serviceName}}</text>
-						<navigator class="item-medical" hover-class="none" :url="`/pagesInquiry/pages/medical/medical?id=${door.patientid}`">患者病历</navigator>
+						<view class="item-medical" @click="RouterPatient(door.patientid)">患者病历</view>
 					</view>
 					<view class="content-item">
 						<text class="item-title">上门时间：</text>
@@ -76,6 +76,7 @@
 
 <script>
 	import { mapState } from 'vuex'
+	import { RouterPatient } from '@/utils/tool'
 	import DoorUnable from './components/Unable'
 	import DoorTime from './components/Time'
 	export default {
@@ -95,6 +96,7 @@
 			])
 		},
 		methods: {
+			RouterPatient,
 			postVisitOrderInfo() {  //获取上门详情
 				let self = this
 				let { userId, userType } = this.info
@@ -153,7 +155,7 @@
 						})
 					}
 				})
-			}
+			},
 		},
 		onShow() {
 			this.postVisitOrderInfo()	//获取上门详情

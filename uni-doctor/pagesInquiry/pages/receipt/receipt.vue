@@ -8,12 +8,12 @@
 				</view>
 			</view>
 			<!-- #ifdef MP-WEIXIN -->
-			<navigator class="tabbar-record" url="/pagesInquiry/pages/order/order">
+			<view class="tabbar-record" @click="handleRouter">
 				<view class="record-icons">
 					<LayzImage src="/pagesInquiry/static/receipt/ic_list_history.png" />
 				</view>
 				<text class="record-text">记录</text>
-			</navigator>
+			</view>
 			<!-- #endif -->
 		</view>
 		<view class="receipt-tips">
@@ -54,15 +54,18 @@
 		methods: {
 			handleClickTabbar(index) { //切换选项卡
 				this.tabId = this.tabbar[index].id
+			},
+			handleRouter() {	//点击跳转
+				uni.navigateTo({
+					url: "/pagesInquiry/pages/order/order"
+				})
 			}
 		},
 		onPullDownRefresh() {	//监听下拉刷新
 			this.$refs.ReceiptList.handleRefresh()	
 		},
 		onNavigationBarButtonTap(e) {	//监听订单记录按钮
-			uni.navigateTo({
-				url: "/pagesInquiry/pages/order/order"
-			})
+			this.handleRouter()
 		}
 	}
 </script>

@@ -58,6 +58,16 @@ export function imWatch() {
 			store.commit('SET_IM_RONG',imRongInfo)
 			imGetTotalUnreadCount()	//获取单聊的我未读数
 			imGetConversationList()	//获取会话列表 
+			if (takeMsg.content.customType == 'pay' && takeMsg.type == 6) {	//判断是否显示订单
+				showModal({
+					content: "您有一个新的订单",
+					confirmText: "去查看",
+				}).then(() => {
+					uni.navigateTo({
+						url: "/pagesInquiry/pages/receipt/receipt"
+					})
+				}).catch(() => {})
+			}
 	    console.log('收到新消息:', takeMsg);
 	  },
 	  status(event) {	//监听状态码

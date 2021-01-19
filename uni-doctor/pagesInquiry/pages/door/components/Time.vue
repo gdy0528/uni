@@ -12,7 +12,7 @@
 					<text class="item-round"></text>
 					<text class="item-title">修改预约时间：</text>
 					<text class="item-desc">
-						<CommonDatePicker :value="makeDateTime" type="datetime-all" :fontSize="24" textAlign="left" placeholder="请选择" @change="handleChangMakeDate">
+						<CommonDatePicker :value="makeDateTime" type="datetime-all" :fontSize="24" align="left" placeholder="请选择" @change="handleChangMakeDate">
 							<view class="desc-icons" slot="icons">
 								<LayzImage src="/static/middle-return-deep_gray-right.png" />
 							</view>

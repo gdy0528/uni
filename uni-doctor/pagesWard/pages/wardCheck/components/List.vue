@@ -6,10 +6,10 @@
 				:class="{'list-item-lable' : item.label}"
 				v-for="(item, index) in list" 
 				:key="index">
-				<view class="item-head">
+				<view class="item-head" @click="RouterPatient(item.id)">
 					<LayzImage :src="item.userImg" round />
 				</view>
-				<view class="item-content">
+				<view class="item-content" @click="handleClickWardHistory(ward.id, item.id)">
 					<view class="content-info">
 						<text class="info-name">{{item.userNickname}}</text>
 						<view class="info-date">
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+	import { RouterPatient } from '@/utils/tool'
 	import PatientLabel from '@/common/PatientLabel/PatientLabel'
 	export default {
 		components: {
@@ -63,6 +64,12 @@
 			}
 		},
 		methods: {
+			RouterPatient,
+			handleClickWardHistory(wardId, id) {	//跳转病房聊天记录
+				uni.navigateTo({
+					url: `/pagesWard/pages/wardHistory/wardHistory?wardId=${wardId}&id=${id}`
+				})
+			},
 			handleClickDialogue(index) {	//点击选中展示隐藏
 				let { dialogueIdx } = this
 				if (index == dialogueIdx ) {

@@ -4,7 +4,7 @@
 			<view class="screen-item">
 				<text class="item-title">时间选择</text>
 				<view class="item-picker">
-					<CommonPicker textAlign="left" :colums="date" :value="dateValue" @change="handleChangeDate" />
+					<CommonPicker align="left" :colums="date" :value="dateValue" @change="handleChangeDate" />
 				</view>
 				<view class="item-icons">
 					<LayzImage src="/pagesInquiry/static/medical/d_medicallibrary_icon_link.png" />

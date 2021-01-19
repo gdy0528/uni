@@ -3,10 +3,10 @@
 		<view class="lineUp-box" v-if="list.length > 0">
 			<view class="lineUp-item" v-for="(item, index) in list" :key="index">
 				<text class="item-number" :style="{background: `${computedState(item.state).color}`}">{{item.lineNum}}</text>
-				<view class="item-head">
+				<view class="item-head" @click="RouterPatient(item.id)">
 					<LayzImage :src="item.userImg" round />
 				</view>
-				<view class="item-content">
+				<view class="item-content" @click="handleClickWardHistory(ward.id, item.id)">
 					<view class="content-info">
 						<text class="info_name">{{item.userNickname}}</text>
 						<text class="info_state">{{computedState(item.state).text}}</text>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+	import { RouterPatient } from '@/utils/tool'
 	export default {
 		props: {
 			list: Array,
@@ -54,10 +55,13 @@
 				}
 			}
 		},
-		data() {
-			return {
-				
-			}
+		methods: {
+			RouterPatient,
+			handleClickWardHistory(wardId, id) {	//跳转病房聊天记录
+				uni.navigateTo({
+					url: `/pagesWard/pages/wardHistory/wardHistory?wardId=${wardId}&id=${id}`
+				})
+			},
 		}
 	}
 </script>

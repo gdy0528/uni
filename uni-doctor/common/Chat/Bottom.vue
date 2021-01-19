@@ -1,20 +1,23 @@
 <template>
 	<view class="ChatBottom">
 		<view class="chat-tool">
-			<view v-if="isWx" class="tool-icons" @click="hanleClickTool">
+			<view v-if="isWx && isScene" class="tool-icons" @click="hanleClickTool">
 				<LayzImage v-if="!isTool" src="/static/chat/ic-talk-yuyin.png" />
 				<LayzImage v-else src="/static/chat/ic-talk-wenzi.png" />
+			</view>
+			<view v-if="sendImg" class="tool-icons" @click="hanleClickChooseImage">
+				<LayzImage src="/static/chat/ic-talk-tupian.png" />
 			</view>
 			<view class="tool-content">
 				<textarea v-if="!isTool" class="content-value" :value="chatValue" placeholder="请输入" :focus="focus" :maxlength="500" auto-height :show-confirm-bar="false" :disable-default-padding="true" @input="handleChangeInput" @focus="handleChangeFoucs" @blur="handleChangeBlur" />
 				<button v-else class="content-voice" :class="{'voice-active' : isTouch}" plain @touchstart.stop="handleTouchStartVoice" @touchend.stop="handleTouchEndVoice" @touchmove.stop="handleTouchMoveVoice" @touchcancel="handleChangeCloseToolVoice">{{voiceText}}</button>
 			</view>
 			<view class="tool-btns">
-				<button v-if="isToolBtns" class="btns-send" confirm-type="send" plain @click="handleClickSend">发送</button>
+				<button v-if="isToolBtns || !isScene" class="btns-send" confirm-type="send" plain @click="handleClickSend">{{sendTxt}}</button>
 				<button v-else class="btns-cut" plain @click="handleClickCut">更多</button>
 			</view>
 		</view>
-		<view class="chat-toolbar" v-if="isToolbar">
+		<view class="chat-toolbar" v-if="isToolbar && isScene">
 			<view class="toolbar-item" @click="hanleClickChooseImage">
 				<view class="item-icons">
 					<LayzImage src="/static/chat/ic_talk_picture.png" />
@@ -66,18 +69,30 @@
 	const recorderManager = uni.getRecorderManager()	//全局录音
 	export default {
 		props: {
-			order: {
+			scene: {	//使用场景
+				type: String,
+				default: "default"
+			},
+			order: {	//订单模型
 				type: Object,
 				default: () => {
 					return {}
 				}
 			},
-			sendObj: {
+			sendObj: {	//发送消息模型
 				type: Object,
 				default: () => {
 					return {}
 				}
 			},
+			sendImg: {	//是否显示便捷图片发送
+				type: Boolean,
+				default: false
+			},
+			sendTxt: {	//默认发送文案
+				type: String,
+				default: "发送"
+			}	
 		},
 		components: {
 			ToolVoice
@@ -115,6 +130,14 @@
 			VoiceState() {	//判断是否上下滑动作
 				let { startY, moveY } = this
 				return moveY - startY > 0 
+			},
+			isScene() {	//使用场景
+				let { scene } = this
+				if (scene != "default") {	//复诊使用场景
+					return false
+				} else {
+					return true
+				}
 			}
 		},
 		methods: {
@@ -142,6 +165,7 @@
 			},
 			handleClickSend() {	//发送内容
 				let self = this
+				let { scene } = this
 				let content = this.chatValue
 				setTimeout(() => {
 					self.focus = true
@@ -150,12 +174,14 @@
 					this.$showToast("请输入发送内容不能为空")
 					return
 				}
-				sendChat(this.sendObj, content, 'txtMsg').then(() => {
+				sendChat(this.sendObj, content, 'txtMsg', scene).then(list => {
 					self.chatValue = ""
+					self.$emit('list', list)
 				}).catch(() => {})
 			},
 			hanleClickChooseImage() {	//发送图片
 				let self = this
+				let { scene } = this
 				uni.chooseImage({
 					count: 1,
 					success: rsp => {
@@ -165,7 +191,9 @@
 							let res = data.data
 							if (res.code == 200) {
 								let content = res.data.fileUrl
-								sendChat(this.sendObj, content, 'imgMsg')
+								sendChat(this.sendObj, content, 'imgMsg', scene).then(list => {
+									self.$emit('list', list)
+								})
 							}
 						})
 					}
@@ -188,6 +216,7 @@
 				})
 			},
 			handleClickOpenLocation() {	//点击打开位置
+				let { scene } = this
 				uni.chooseLocation({
 					latitude: this.latitude,
 					longitude: this.longitude,
@@ -205,7 +234,9 @@
 							lat: res.latitude,
 							address: res.name
 						}
-						sendChat(this.sendObj, content, 'amapMsg')
+						sendChat(this.sendObj, content, 'amapMsg', scene).then(list => {
+							self.$emit('list', list)
+						})
 					}
 				})
 			},
@@ -282,6 +313,7 @@
 			},
 			handleTouchEndVoice() {	//结束录音
 				let self = this
+				let { scene } = this
 				self.voiceText = "按 住 说 话"
 				self.isTouch = false
 				self.hanleClearStartTime() //清除按住说话定时器
@@ -314,7 +346,9 @@
 										let resFile = data.data
 										if (resFile.code == 200) {
 											let content = resFile.data
-											sendChat(self.sendObj, content, 'vcMsg')
+											sendChat(self.sendObj, content, 'vcMsg', scene).then(list => {
+												self.$emit('list', list)
+											})
 										}
 									})
 								}
@@ -335,8 +369,11 @@
 			}
 		},
 		mounted() {
-			this.getLocation()	//获取地理位置
-			this.handleAuthVoice()	//授权录音设备
+			let { scene } = this
+			if (scene == "default") {
+				this.getLocation()	//获取地理位置
+				this.handleAuthVoice()	//授权录音设备
+			}
 		}
 	}
 </script>
@@ -397,11 +434,11 @@
 					color: $fontWhiteColor;
 					border-radius: 10upx;
 					border: none;
-					background: $bgMainColor;
+					background: #4CADF8;
 				}
 				.btns-send {
 					@extend .btns-cut;
-					background: #4CADF8;
+					background: $bgMainColor;
 				}
 			}
 		}

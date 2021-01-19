@@ -4,7 +4,6 @@
 		<WardCheckState 
 			v-show="(wardCheck.state == 1 || wardCheck.state == 3) && wardCheck.user.userId == wardCheck.leader.id && tabId == 0" 
 			:ward="wardCheck"
-			:router="routerObj"
 			@close="postVirtualWardInfo" />
 		<view class="wardCheckList">
 			<WardCheckLineUp v-if="tabId == 0" :list="lineUpPatientList" :ward="wardCheck" />
@@ -63,7 +62,6 @@
 								self.tabId = 1
 							}
 							self.wardCheck = datas
-							console.log(datas)
 							resolve()
 						}
 					})

@@ -6,7 +6,7 @@
 				<CommonCircle :value="fraction.value" :text="fraction.name" :progressColor="fraction.color" :textColor="fraction.color" />
 			</view>
 		</view>
-		<view class="calculate-curve">
+		<view class="calculate-curve" v-if="echart">
 			<text class="scurve-title">健康曲线</text>
 			<view class="scurve-box">
 				<CommonEcharts :opts="opts" chartType="line" :cWidth="230" :cHeight="120" />
@@ -21,7 +21,8 @@
 	import { grade } from '@/utils/tool'
 	export default {
 		props: {
-			calculation: Object
+			calculation: Object,
+			echart: Boolean	//解决小程序展示bug问题
 		},
 		components: {
 			CommonCircle,

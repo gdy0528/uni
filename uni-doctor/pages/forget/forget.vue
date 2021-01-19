@@ -9,24 +9,24 @@
 		<view class="forget-box">
 			<view class="forget-input">
 				<text class="input-name">账号</text>
-				<input class="input-value" type="number" :value="phone" maxlength="11" placeholder="请输入您的手机号码" @input="handleChangPhone">
+				<input class="input-value" type="number" :value="phone" maxlength="11" placeholder="请输入您的手机号码" @input="handleChangeInput($event, 'phone')">
 			</view>
 			<view class="forget-input">
-				<input class="input-value" type="number" :value="verify" maxlength="6" placeholder="您的验证码" @input="handleChangVerify">
+				<input class="input-value" type="number" :value="verify" maxlength="6" placeholder="您的验证码" @input="handleChangeInput($event, 'verify')">
 				<button class="input-btns" plain @click="handleClickGetVerify">{{verifyTime > 0 ? `已发送(${verifyTime})s` : '获取验证码'}}</button>
 			</view>
 			<view class="forget-input">
 				<text class="input-name">密码</text>
-				<input class="input-value" type="text" :value="password" :password="isPassword" placeholder="请输入您的账号密码" @input="handleChangPassword">
-				<view class="input-icons" @click="handleClickTogglePassword('password')">
+				<input class="input-value" type="text" :value="password" :password="isPassword" placeholder="请输入您的账号密码" @input="handleChangeInput($event, 'password')">
+				<view class="input-icons" @click="handleClickTogglePassword('isPassword')">
 					<LayzImage v-if="isPassword" src="/static/ic_login_password-see.png" />
 					<LayzImage v-else src="/static/ic_login_password-nosee.png" />
 				</view>
 			</view>
 			<view class="forget-input">
 				<text class="input-name">确认密码</text>
-				<input class="input-value" type="text" :value="passwords" :password="isPasswords" placeholder="请再次确认密码" @input="handleChangPasswords">
-				<view class="input-icons" @click="handleClickTogglePassword('passwords')">
+				<input class="input-value" type="text" :value="passwords" :password="isPasswords" placeholder="请再次确认密码" @input="handleChangeInput($event, 'passwords')">
+				<view class="input-icons" @click="handleClickTogglePassword('isPasswords')">
 					<LayzImage v-if="isPasswords" src="/static/ic_login_password-see.png" />
 					<LayzImage v-else src="/static/ic_login_password-nosee.png" />
 				</view>
@@ -39,7 +39,10 @@
 </template>
 
 <script>
+	import { mapMutations } from 'vuex'
+	import { imDisconnect } from '@/utils/imRong'
 	import { insPhone, insEmpty, insPwd } from '@/utils/check'
+	import aesEncrypt from '@/utils/aesEncrypt'
 	export default {
 		data() {
 			return {
@@ -54,24 +57,15 @@
 			}
 		},
 		methods: {
+			...mapMutations([
+				'SET_TOKEN',
+				'SET_INFO'
+			]),
 			handleClickTogglePassword(type) { //切换显示密码字段
-				if (type == "password") {
-					this.isPassword = !this.isPassword
-				} else {
-					this.isPasswords = !this.isPasswords
-				}
+				this[type] = !this[type]
 			},
-			handleChangPhone(e) { //实时监听账号输入
-				this.phone = e.target.value
-			},
-			handleChangVerify(e) { //实时监听验证码
-				this.verify = e.target.value
-			},
-			handleChangPassword(e) { //实时监听密码输入
-				this.password = e.target.value
-			},
-			handleChangPasswords(e) { //实时监听确认密码输入
-				this.passwords = e.target.value
+			handleChangeInput(e, type) {	//监听输入
+				this[type] = e.target.value
 			},
 			handleClickGetVerify() { //获取验证码
 				let self = this
@@ -110,9 +104,36 @@
 					insPwd(password) &&
 					insPwd(passwords, "确认密码")) {
 					if (password != passwords) { //判断密码与确认密码是否一致
-						this.$showToast("两次密码不一致")
+						self.$showToast("两次密码不一致")
 					} else {
-						console.log(22222)
+						self.$get('/api/common/wx/getEncryptedString', {}, false).then(data => {
+							let res = data.data
+							if (res.code == 200) {
+								let ase = res.data
+								let asePwd = aesEncrypt.encryption(password, ase.key, ase.iv)
+								self.$post('/api/common/wx/forgetPass', {
+									userName: phone,
+									userPass: asePwd,
+									userType: 'doctor',
+									smsCode: verify
+								}).then(data => {
+									let res = data.data
+									if (res.code == 200) {
+										self.$showToast({
+											title: '修改成功',
+											duration: 1000
+										}).then(() => {
+											imDisconnect()
+											self.SET_TOKEN('')
+											self.SET_INFO('')
+											uni.reLaunch({
+												url: "/pages/login/login"
+											})
+										})
+									}
+								})
+							}
+						})
 					}
 				}
 			}

@@ -4,7 +4,7 @@
 		<scroll-view class="advisory-scroll" style="overflow-anchor: auto;" efresher-background="$bgColor" scroll-y="true"
 		 :scroll-top="scrollTop" :refresher-threshold="100" :scroll-anchoring="true" refresher-background="$bgColor" :refresher-enabled="!disabled" :refresher-triggered="triggered"
 		 @refresherrefresh="handleChangeRefresh" @refresherrestore="handleChangeRestore">
-			<ChatList :list="chatList" :order="order" @scroll="handleScrollTop" @touch="handleChangeTouch" />
+			<ChatList ref="ChatList" :list="chatList" :order="order" @scroll="handleScrollTop" @touch="handleChangeTouch" />
 		</scroll-view>
 		<ChatBottom ref="ChatBottom" :order="order" :sendObj="sendObj" @scroll="handleScrollTop" @finish="handleChangeAdvisoryFinlsh" @cancel="handleChangeAdvisoryCancel" />
 		<!-- 患者历史按钮 -->
@@ -25,12 +25,14 @@
 </template>
 
 <script>
-	import ChatList from '@/pagesInquiry/components/Chat/List'
-	import ChatBottom from '@/pagesInquiry/components/Chat/Bottom'
+	import { Chat } from '@/common/Chat/chat'
+	import { imMsgDesc } from '@/utils/tool'
 	import FinlshOrder from './components/finish'
 	import CancelOrder from './components/cancel'
-	import { imMsgDesc } from '@/utils/tool'
+	import ChatList from '@/common/Chat/List'
+	import ChatBottom from '@/common/Chat/Bottom'
 	export default {
+		mixins: [ Chat ],
 		components: {
 			ChatList,
 			ChatBottom,
@@ -39,24 +41,18 @@
 		},
 		data() {
 			return {
-				routerObj: {}, //路由信息
 				order: {}, //订单信息
 				isHistory: false,	//是否展示历史聊天
-				sendObj: {},	//发送消息
-				chatList: [], //聊天数据
-				currentTime: '', //请求时间
-				current: 1, //请求当前页数
-				disabled: false, //是否禁用请求
-				scrollTop: 0, //滑动到底部高度
-				triggered: true,	//下拉状态
-				_freshing: false,	//下拉状态
 			}
 		},
 		methods: {
 			handleInit() {	//初始化项目
-				let { postOrderInfo, postisNotHistory, postChatData, handleScrollTop } = this
-				Promise.all([postOrderInfo(), postisNotHistory(), postChatData(true)]).then(data => {
-					handleScrollTop(data[data.length - 1]) //滑动到底部
+				let { postOrderInfo, postisNotHistory, postChatList, handleScrollTop } = this
+				this.postOrderInfo().then(() => {
+					Promise.all([postisNotHistory(), postChatList(true)]).then(data => {
+						let sel = data[data.length - 1]
+						if (sel) handleScrollTop(sel) //滑动到底部
+					})
 				})
 			},
 			handleChangeCurrentPages() { //修改顶部按钮
@@ -115,7 +111,7 @@
 					})
 				})
 			},
-			postChatData(loading) { //获取消息聊天列表
+			postChatList(loading) { //获取消息聊天列表
 				let self = this
 				let { routerObj, order, currentTime, current, chatList } = this
 				return new Promise(resolve => {
@@ -143,45 +139,22 @@
 							} else {
 								self.chatList = [...records.reverse(), ...self.chatList]
 							}
-							if (pages <= self.current) {
+							if (pages <= current) {
 								self.disabled = true
 							} else {
 								self.disabled = false
 							}
-							let newLength = self.chatList.length	//最新的list长度
-							let oldLength = chatList.length	//旧数据长度
-							const sel = `#msg-${current > 1 ? self.chatList[newLength - oldLength].msgUid : self.chatList[newLength - 1].msgUid}`
-							resolve(sel)
+							if (self.chatList.length > 0) {
+								let newLength = self.chatList.length	//最新的list长度
+								let oldLength = chatList.length	//旧数据长度
+								const sel = `#msg-${current > 1 ? self.chatList[newLength - oldLength].msgUid : self.chatList[newLength - 1].msgUid}`
+								resolve(sel)
+							} else {
+								resolve(false)
+							}
 						}
 					})
 				})
-			},
-			handleScrollTop(sel) { //滑动到底部
-				const query = uni.createSelectorQuery().in(this);
-				query
-					.select(sel)
-					.boundingClientRect(data => {
-						console.log(data)
-						this.scrollTop = data && data.top - 40
-					})
-				.exec();
-			},
-			handleChangeRefresh() {	//下拉加载
-				if (this._freshing || this.disabled) return;
-				this._freshing = true
-				this.current++
-				this.postChatData(false).then(sel => {
-					this.triggered = false
-					this._freshing = false
-					this.handleScrollTop(sel)
-				})
-			},
-			handleChangeRestore() {	//下拉重置
-				this.triggered = 'restore' // 需要重置
-			},
-			handleChangeTouch(val) {	//手指触摸列表
-				uni.hideKeyboard()
-				this.$refs.ChatBottom.isToolbar = false
 			},
 			handleChangeAdvisoryFinlsh(val) {	//是否显示完结订单弹窗
 				if (val == 'show') {
@@ -224,9 +197,6 @@
 		},
 		mounted() {
 			this.handleInit()	//初始化
-		},
-		onLoad(option) {
-			this.routerObj = option
 		},
 		onNavigationBarButtonTap(e) { //点击完结订单
 			this.handleChangeAdvisoryFinlsh('show')

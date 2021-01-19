@@ -4,7 +4,7 @@
 			<view class="screen-item">
 				<text class="item-title">助手名称</text>
 				<view class="item-value">
-					<CommonPicker :colums="assistantArray" :value="assistant" columsKey="userNickname" :fontSize="30" textAlign="left"
+					<CommonPicker :colums="assistantArray" :value="assistant" columsKey="userNickname" :fontSize="30" align="left"
 						@change="handleChangeName">
 						<view class="value-icons" slot="icons">
 							<LayzImage src="/pagesPersonage/static/assistantHistory/ic_pull-down.png" />
@@ -15,7 +15,7 @@
 			<view class="screen-item">
 				<text class="item-title">订单时间</text>
 				<view class="item-value">
-					<CommonPicker :colums="orderDateArray" :value="orderDate" :fontSize="30" textAlign="left" @change="handleChangeOrderDate">
+					<CommonPicker :colums="orderDateArray" :value="orderDate" :fontSize="30" align="left" @change="handleChangeOrderDate">
 						<view class="value-icons" slot="icons">
 							<LayzImage src="/pagesPersonage/static/assistantHistory/ic_pull-down.png" />
 						</view>

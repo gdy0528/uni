@@ -1,7 +1,7 @@
 <template>
 	<view class="RepertoireContainer">
 		<view class="repertoire-screen">
-			<CommonPicker :colums="dateColums" :value="date" placeholder="选择时间" textAlign="center" :fontSize="30" @change="handleChangeDate">
+			<CommonPicker :colums="dateColums" :value="date" placeholder="选择时间" align="center" :fontSize="30" @change="handleChangeDate">
 				<view class="screen-icons" slot="icons">
 					<LayzImage src="/pagesWard/static/repertoire/ic_bingfang_pulldown.png" />
 				</view>

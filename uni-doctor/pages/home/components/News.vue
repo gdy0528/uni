@@ -65,13 +65,13 @@
 						bage: this.serveObj.cfPushCount > 0 ? -1 : 0,
 					},
 					{
-						path: "",
+						path: "/pagesVisit/pages/visit/visit",
 						name: "复诊随访",
 						icons: "/static/home/d_home_icon_review.png",
 						bage: this.serveObj.reexaminationPush > 0 && this.serveObj.noticeInt > 0 ? -1 : 0
 					},
 					{
-						path: "",
+						path: "/pagesVisit/pages/leaving/leaving",
 						name: "出院留言",
 						icons: "/static/home/d_home_icon_message.png",
 						bage: this.serveObj.messageNumber > 0 ? -1 : 0

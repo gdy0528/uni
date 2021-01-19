@@ -1,7 +1,7 @@
 <template>
 	<scroll-view class="CaseList" :style="{height: `${scrollH}`}" refresher-background="$bgColor" scroll-y="true" @scrolltolower="handleLower">
 		<view class="list-box" v-if="!isEmpty">
-			<navigator class="list-item" v-for="(item, index) in caseList" :key="index" :url="`/pagesInquiry/pages/medical/medical?id=${item.id}`">
+			<view class="list-item" v-for="(item, index) in caseList" :key="index" @click="RouterPatient(item.id)">
 				<view class="item-head">
 					<LayzImage :src="item.userImg" round />
 				</view>
@@ -25,14 +25,14 @@
 						<text class="case-item" v-if="item.online > 0">看病病历({{item.online}})</text>
 					</view>
 				</view>
-			</navigator>
+			</view>
 		</view>
 		<CommonEmpty v-else />
 	</scroll-view>
 </template>
 
 <script>
-	import { grade } from '@/utils/tool'
+	import { grade, RouterPatient } from '@/utils/tool'
 	export default {
 		data() {
 			return {
@@ -59,6 +59,7 @@
 			}
 		},
 		methods: {
+			RouterPatient,
 			postCaseData(loading) { //请求病历库数据
 				let self = this
 				return new Promise((resolve) => {
@@ -67,7 +68,7 @@
 						hospital: self.hospital,
 						page: {
 							current: self.current,
-							size: 5
+							size: 8
 						}
 					}, loading).then(data => {
 						let res = data.data
@@ -123,7 +124,7 @@
 					this.disabled = false //是否禁用底部加载
 					resolve()
 				})
-			}
+			},
 		},
 		mounted() {
 			this.postCaseData(true) //请求病历库数据

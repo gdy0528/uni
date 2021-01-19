@@ -24,7 +24,7 @@
 				type: String,
 				default: ""
 			},
-			textAlign: {
+			align: {
 				type: String,
 				default: "right"
 			},
@@ -39,12 +39,12 @@
 		},
 		computed: {
 			justifyContent() {	//处理对齐方式
-				let { textAlign } = this
-				if (textAlign == "right") {
+				let { align } = this
+				if (align == "right") {
 					return "flex-end"
-				} else if (textAlign == "left") {
+				} else if (align == "left") {
 					return "flex-start"
-				} else if (textAlign == "center") {
+				} else if (align == "center") {
 					return "center"
 				}
 			}

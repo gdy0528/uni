@@ -54,10 +54,12 @@
 					isNotout: details.isNotout
 				}
 				this.contact = contact
+				this.$emit("echart", false)
 				this.$refs.WarningContact.handlePopupOpen(true)
 			},
 			handleChangeCancelContact(val) {	//取消弹窗
 				this.contact = {}
+				this.$emit("echart", true)
 				this.$refs.WarningContact.handlePopupOpen(false)
 			}
 		},

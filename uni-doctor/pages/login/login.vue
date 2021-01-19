@@ -9,11 +9,11 @@
 		<view class="login-box">
 			<view class="login-input">
 				<text class="input-name">账号</text>
-				<input class="input-value" type="number" :value="phone" maxlength="11" placeholder="请输入您的手机号码" @input="handleChangPhone">
+				<input class="input-value" type="number" :value="phone" maxlength="11" placeholder="请输入您的手机号码" @input="handleChangeInput($event, 'phone')">
 			</view>
 			<view class="login-input">
 				<text class="input-name">密码</text>
-				<input class="input-value" type="text" :value="password" :password="isPassword" placeholder="请输入您的账号密码" @input="handleChangPassword">
+				<input class="input-value" type="text" :value="password" :password="isPassword" placeholder="请输入您的账号密码" @input="handleChangeInput($event, 'password')">
 				<view class="input-icons" @click="handleClickTogglePassword">
 					<LayzImage v-if="isPassword" src="/static/ic_login_password-see.png" />
 					<LayzImage v-else src="/static/ic_login_password-nosee.png" />
@@ -91,18 +91,15 @@
 				if (isUser) {
 					this.isUser = false
 				} else {
-
+					this.$showToast("暂未开发微信，请稍等")
 				}
 			},
 			handleClickTogglePassword() { //切换显示密码字段
 				this.isPassword = !this.isPassword
 			},
-			handleChangPhone(e) { //实时监听账号输入
-				this.phone = e.target.value
+			handleChangeInput(e, type) {	//监听输入
+				this[type] = e.target.value
 			},
-			handleChangPassword(e) { //实时监听密码输入
-				this.password = e.target.value
-			}
 		}
 	}
 </script>

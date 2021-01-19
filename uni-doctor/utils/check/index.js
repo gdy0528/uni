@@ -98,7 +98,10 @@ export function insPhone(phone) {
 
 /* 判断银行卡号 */
 export function insBankCard(bank) {
-	if (!/^([1-9]{1})(\d{15}|\d{18})$/.test(bank)) {
+	if (bank.length < 0 || bank == "") {
+		insShowToast('银行卡号不能为空')
+		return
+	} else if (!/^([1-9]{1})(\d{15}|\d{18})$/.test(bank)) {
 		insShowToast('请输入正确的银行卡号')
 		return
 	} else {

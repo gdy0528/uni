@@ -1,12 +1,12 @@
 <template>
 	<view class="SettingsContainer">
 		<view class="setting-box">
-			<view class="setting-item">
+			<navigator class="setting-item" url="/pagesPersonage/pages/amend/amend">
 				<text class="item-desc">修改密码</text>
 				<view class="item-arrow">
 					<LayzImage src="/static/middle-return-light_gray-right.png" />
 				</view>
-			</view>
+			</navigator>
 		</view>
 		<view class="setting-btns">
 			<button class="btns" type="default" @click="handleClickLoginOut">退出登录</button>
@@ -28,6 +28,7 @@
 					content: "确认是否退出登录?",
 					confirmText: "退出",
 				}).then(() => {
+					imDisconnect()
 					this.SET_TOKEN('')
 					this.SET_INFO('')
 					uni.reLaunch({

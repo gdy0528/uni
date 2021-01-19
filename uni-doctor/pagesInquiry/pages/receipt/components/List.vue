@@ -10,7 +10,7 @@
 						<text class="top-desc">{{item.stateDesc}}</text>
 					</view>
 					<view class="item-content" @click="handleClickDoor(item)">
-						<view class="content-head" @click.stop="handleClickPatient(item.patientId)">
+						<view class="content-head" @click.stop="RouterPatient(item.patientId)">
 							<view class="head-carry">
 								<LayzImage :src="item.userImg" round />
 							</view>
@@ -79,7 +79,7 @@
 
 <script>
 	import { mapState } from 'vuex'
-	import { inquiry } from '@/utils/tool'
+	import { inquiry, RouterPatient } from '@/utils/tool'
 	import ReceiptZero from './Zero'
 	export default {
 		props: {
@@ -116,10 +116,10 @@
 				// #ifndef MP-WEIXIN
 				return `${winHeight}upx`
 				// #endif
-
 			}
 		},
 		methods: {
+			RouterPatient,
 			postReceivingOrderList() {	//获取订单信息
 				let self = this
 				return new Promise((resolve) => {
@@ -208,11 +208,6 @@
 					})
 				}
 			},
-			handleClickPatient(id) {	//跳转患者病历详情
-				uni.navigateTo({
-					url: `/pagesInquiry/pages/medical/medical?id=${id}`
-				})
-			},
 			handleClickReceiving(order, index) {	//立即接单
 				let self = this
 				self.isReceiving = true
@@ -227,7 +222,6 @@
 								title: "接单成功",
 								duration: 500
 							}).then(() => {
-								resolve()
 								self.receiptList[index].orderState = "J"  //修改成已接单
 								uni.navigateTo({
 									url: `/pagesInquiry/pages/advisoryChat/advisoryChat?id=${datas.receivingOrderVo.orderCode}`
@@ -235,9 +229,9 @@
 								self.isReceiving = false
 							})
 						} else {
-							resolve()
 							self.isReceiving = false
 						}
+						resolve()
 					})
 				})
 			},

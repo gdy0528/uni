@@ -1,7 +1,7 @@
 <template>
 	<view class="MedicalContainer">
-		<MedicalDetails :details="details" :router="routerObj" />
-		<MedicalCalculate v-if="calculation" :calculation="calculation" />
+		<MedicalDetails :details="details" :router="routerObj" @echart="handleChangeIsEchart" />
+		<MedicalCalculate v-if="calculation" :calculation="calculation" :echart="isEchart" />
 		<MedicalMessage ref="MedicalMessage" :date="dateList" :router="routerObj" />
 	</view>
 </template>
@@ -22,6 +22,7 @@
 				details: {}, //患者信息
 				dateList: [], //病历选择时间筛选数据
 				calculation: false, //分数详情
+				isEchart: true	//是否展示健康曲线
 			}
 		},
 		methods: {
@@ -41,6 +42,11 @@
 						self.dateList = datas.dateList //病历选择时间筛选数据
 					}
 				})
+			},
+			handleChangeIsEchart(flag) {	//监听图表是否展示
+				// #ifdef MP-WEIXIN
+				this.isEchart = flag
+				// #endif
 			}
 		},
 		onReachBottom() { //监听滑动到底部

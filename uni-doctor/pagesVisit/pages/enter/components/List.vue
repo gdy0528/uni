@@ -6,7 +6,7 @@
 					v-for="(item, index) in enterList" 
 					:key="index"
 					@click="handleClickVisitHistory(item.id)">
-					<view class="item-head" @click.stop="handleClickPatient(item.id)">
+					<view class="item-head" @click.stop="RouterPatient(item.id)">
 						<LayzImage :src="item.userImg" round />
 					</view>
 					<view class="item-content">
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+	import { RouterPatient } from '@/utils/tool'
 	export default {
 		data() {
 			return {
@@ -45,6 +46,7 @@
 			}
 		},
 		methods: {
+			RouterPatient,
 			postEnterPatientList(loading) {	//获取就诊患者数据
 				let self = this
 				let { current } = this
@@ -97,11 +99,6 @@
 					this.current = 1 //默认请求当前页数
 					this.disabled = false //是否禁用底部加载
 					resolve()
-				})
-			},
-			handleClickPatient(id) {	//跳转患者病历详情
-				uni.navigateTo({
-					url: `/pagesInquiry/pages/medical/medical?id=${id}`
 				})
 			},
 			handleClickVisitHistory(id) {	//跳转复诊历史

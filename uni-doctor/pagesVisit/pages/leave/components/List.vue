@@ -5,7 +5,7 @@
 				<view class="list-item" v-for="(item, index) in leaveList" :key="index">
 					<view class="item-operate" @click="handleClickOperate(index)">操作</view>
 					<view class="item-operate-content" v-if="operateIndex == index">
-						<text class="operate-content-text">留言</text>
+						<text class="operate-content-text" @click="handleClickLeaving(item.id)">留言</text>
 						<text class="operate-content-text" @click="handleClickSetLabel(item, index)">设置患者标签</text>
 					</view>
 					<view 
@@ -19,7 +19,7 @@
 					</view>
 					<view class="item-content" @click="handleClickVisitHistory(item.id)">
 						<view class="content-info">
-							<view class="info_head" @click.stop="handleClickPatient(item.id)">
+							<view class="info_head" @click.stop="RouterPatient(item.id)">
 								<LayzImage :src="item.userImg" round />
 							</view>
 							<view class="info_content">
@@ -72,6 +72,7 @@
 </template>
 
 <script>
+	import { RouterPatient } from '@/utils/tool'
 	import LeaveAssistant from './Assistant'
 	import PatientLabel from '@/common/PatientLabel/PatientLabel'
 	export default {
@@ -111,6 +112,7 @@
 			}
 		},
 		methods: {
+			RouterPatient,
 			postLeavePatientList(loading) {	//获取出院患者数据
 				let self = this
 				let { select, current } = this
@@ -265,9 +267,9 @@
 					url: `/pagesVisit/pages/visitHistory/visitHistory?id=${id}`
 				})
 			},
-			handleClickPatient(id) {	//跳转患者病历详情
+			handleClickLeaving(id) {	//点击留言
 				uni.navigateTo({
-					url: `/pagesInquiry/pages/medical/medical?id=${id}`
+					url: `/pagesVisit/pages/leavingChat/leavingChat?id=${id}`
 				})
 			},
 			handleClickSetLabel(item, index) { //点击设置标签

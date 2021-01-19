@@ -43,16 +43,33 @@ function handleSuceesState(data, loading, toast) { //处理后台成功返回状
 	let state = datas.code //获取后台状态码
 	return new Promise(resolve => {
 		if (state != 200 && toast && data.statusCode == 200) {
-			if (state == 901 || state == 902 || state == 903 || state == 702 || state == 703 || state == 706) { //登录情况
+			if (state == 901 || state == 902 || state == 903 || state == 702 || state == 703 || state == 704) { //登录情况
 				store.commit("SET_TOKEN", '')
 				store.commit("SET_INFO", '')
 				showModal({
 					content: datas.msg,
-					showCancel: false,
-					confirmText: "去登录",
+					showCancel: false
 				}).then(() => {
 					uni.redirectTo({
 						url: "/pages/login/login"
+					})
+				})
+			} else if (state == 701 || state == 705) {	//资料未填写
+				showModal({
+					content: datas.msg,
+					showCancel: false
+				}).then(() => {
+					uni.redirectTo({
+						url: "/pagesPersonage/pages/audit/audit"
+					})
+				})
+			} else if (state == 921) {	//助手没有权限
+				showModal({
+					content: datas.msg,
+					showCancel: false
+				}).then(() => {
+					uni.redirectTo({
+						url: "/pages/home/home"
 					})
 				})
 			} else {

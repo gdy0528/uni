@@ -9,7 +9,10 @@
 					<text class="info_name" space="nbsp">当前患者 {{ward.correntVo.userNickname}}</text>
 					<text class="info_nums">剩余{{ward.correntVo.surplus}}人待查房</text>
 				</view>
-				<view class="content-btns" :class="{'look-btns' : timeCompare}">{{timeCompare ? `查房时间为每天${ward.lookTimeText}` : '点击查房'}}</view>
+				<view 
+					class="content-btns" 
+					:class="{'look-btns' : timeCompare}"
+					@click="handleClickLookWard">{{timeCompare ? `查房时间为每天${ward.lookTimeText}` : '点击查房'}}</view>
 			</view>
 		</view>
 		<view class="state-off-box" v-else-if="!timeCompare">
@@ -22,8 +25,7 @@
 <script>
 	export default {
 		props: {
-			ward: Object,
-			router: Object
+			ward: Object
 		},
 		data() {
 			return {
@@ -44,7 +46,7 @@
 			handleClickCloseDoor() { //点击关闭病房
 				let self = this
 				let { isClose } = this
-				let { id } = this.router
+				let { id } = this.ward
 				if (isClose) {
 					self.$showModal("是否结束该病房？").then(() => {
 						self.$post('/api/doctor/ward/endCheckWard', {
@@ -89,6 +91,22 @@
 				} else {
 					self.isClose = true
 					self.closeDoorText = "点击关闭当天查房"
+				}
+			},
+			handleClickLookWard() {	//点击查房
+				let { id } = this.ward
+				let { startTime, endTime } = this
+				if (startTime > endTime) {
+					this.$post('/api/doctor/ward/verifyWard', {
+						id
+					}).then(data => {
+						let res = data.data
+						if (res.code == 200) {
+							uni.navigateTo({
+								url: `/pagesWard/pages/wardRound/wardRound?wardId=${id}`
+							})
+						}
+					})
 				}
 			}
 		},

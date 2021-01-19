@@ -3,7 +3,7 @@
 		<view class="list-box">
 			<view class="list-item" v-for="(item, index) in list" :key="index">
 				<view class="item-info">
-					<text class="info-name">{{item.doctorName ? `查房医生：${item.doctorNickname}` : "未查房"}}</text>
+					<text class="info-name">{{item.doctorName ? `查房医生：${item.doctorName}` : "未查房"}}</text>
 					<text class="info-date">{{item.createDate}}</text>
 				</view>
 				<view class="item-content">

@@ -17,7 +17,7 @@
 				<view class="field-value">
 					<CommonPicker :colums="sexColums" :value="sex" columsKey="text" placeholder="请选择您的性别" @change="handleChangPicker($event, 'sex')">
 						<view class="value-icons" slot="icons">
-							<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+							<LayzImage src="/pagesPersonage/static/link_gray.png" />
 						</view>
 					</CommonPicker>
 				</view>
@@ -27,7 +27,7 @@
 				<view class="field-value">
 					<CommonDatePicker :value="birthday" placeholder="请选择您的出生日期" @change="handleChangPicker($event, 'birthday')">
 						<view class="value-icons" slot="icons">
-							<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+							<LayzImage src="/pagesPersonage/static/link_gray.png" />
 						</view>
 					</CommonDatePicker>
 				</view>
@@ -37,7 +37,7 @@
 				<view class="field-value">
 					<CommonAddressPicker :value="address" placeholder="请选择您的所在区域" @change="handleChangPicker($event, 'address')">
 						<view class="value-icons" slot="icons">
-							<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+							<LayzImage src="/pagesPersonage/static/link_gray.png" />
 						</view>
 					</CommonAddressPicker>
 				</view>
@@ -47,7 +47,7 @@
 				<view class="field-value">
 					<CommonPicker :colums="hospitalColums" :value="hospital" columsKey="text" placeholder="请选择您的所属医院" @change="handleChangPicker($event, 'hospital')">
 						<view class="value-icons" slot="icons">
-							<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+							<LayzImage src="/pagesPersonage/static/link_gray.png" />
 						</view>
 					</CommonPicker>
 				</view>
@@ -57,7 +57,7 @@
 				<view class="field-value">
 					<CommonPicker :colums="departmentsColums" :value="departments" columsKey="text" placeholder="请选择您的所属科室" @change="handleChangPicker($event, 'departments')">
 						<view class="value-icons" slot="icons">
-							<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+							<LayzImage src="/pagesPersonage/static/link_gray.png" />
 						</view>
 					</CommonPicker>
 				</view>
@@ -67,7 +67,7 @@
 				<view class="field-value">
 					<CommonPicker :colums="obligationColums" :value="obligation" columsKey="text" placeholder="请选择您的职称" @change="handleChangPicker($event, 'obligation')">
 						<view class="value-icons" slot="icons">
-							<LayzImage src="/pagesPersonage/static/material/link_gray.png" />
+							<LayzImage src="/pagesPersonage/static/link_gray.png" />
 						</view>
 					</CommonPicker>
 				</view>
@@ -102,12 +102,12 @@
 </template>
 
 <script>
+	import { mapState, mapMutations } from 'vuex'
+	import { insEmpty, insName } from '@/utils/check'
 	import CommonAvatar from '@/pagesPersonage/components/avatar'
 	import CommonPicker from '@/common/Picker/Picker'
 	import CommonDatePicker from '@/common/Picker/dateTime/DateTimePicker'
 	import CommonAddressPicker from '@/common/Picker/address/AddressPicker'
-	import { insEmpty, insName } from '@/utils/check'
-	import { mapState, mapMutations } from 'vuex'
 	export default {
 		components: {
 			CommonAvatar,
@@ -166,37 +166,47 @@
 			...mapMutations([
 				'SET_INFO'
 			]),
+			handleInit() {	//初始化项目
+				let { getDoctorOption, postUserAuditData } = this
+				Promise.all([getDoctorOption(), postUserAuditData()])
+			},
 			postUserAuditData() { //获取个人资料
 				let self = this
-				this.$post('/api/doctor/login/getUserAuditData').then(data => {
-					let res = data.data
-					if(res.code == 200) {
-						let info = res.data
-						self.seniority = info.physicianCertificates ? true : false
-						self.avatarSrc = info.userImg
-						self.name = info.userNickname
-						self.sex = info.userSex
-						self.birthday = info.userBirth
-						self.address = info.userArea
-						self.hospital = info.physicianHospital
-						self.departments = info.physicianDepartment
-						self.obligation = info.physicianTitle
-						self.phone = info.physicianPhone
-						self.skilled = info.adept
-						self.describe = info.physicianIntroduce
-					}
+				return new Promise(resolve => {
+					this.$post('/api/doctor/login/getUserAuditData').then(data => {
+						let res = data.data
+						if (res.code == 200) {
+							let info = res.data
+							self.seniority = info.physicianCertificates ? true : false
+							self.avatarSrc = info.userImg
+							self.name = info.userNickname
+							self.sex = info.userSex
+							self.birthday = info.userBirth
+							self.address = info.userArea
+							self.hospital = info.physicianHospital
+							self.departments = info.physicianDepartment
+							self.obligation = info.physicianTitle
+							self.phone = info.physicianPhone
+							self.skilled = info.adept
+							self.describe = info.physicianIntroduce
+							resolve()
+						}
+					})
 				})
 			},
 			getDoctorOption() { //获取医生类型筛选数据
 				let self = this
-				this.$get('/api/common/collective/getOption', {}, false).then(data => {
-					let res = data.data
-					if (res.code == 200) {
-						let datas = res.data
-						self.hospitalColums = datas.hospitalList //所属医院数据 
-						self.departmentsColums = datas.departmentList //所属科室数据 
-						self.obligationColums = datas.positionList //所属职称数据 
-					}
+				return new Promise(resolve => {
+					this.$get('/api/common/collective/getOption', {}, false).then(data => {
+						let res = data.data
+						if (res.code == 200) {
+							let datas = res.data
+							self.hospitalColums = datas.hospitalList //所属医院数据 
+							self.departmentsColums = datas.departmentList //所属科室数据 
+							self.obligationColums = datas.positionList //所属职称数据 
+							resolve()
+						}
+					})
 				})
 			},
 			handleChangUpload(rsp) { //监听是否生成头像
@@ -264,8 +274,7 @@
 			}
 		},
 		mounted() {
-			this.getDoctorOption()	//获取医生类型筛选数据
-			this.postUserAuditData()	//获取个人资料
+			this.handleInit()	//初始化项目
 		}
 	}
 </script>
@@ -273,6 +282,8 @@
 <style lang="scss" scoped>
 	.MaterialContainer {
 		padding: 20upx 20upx 0 20upx;
+		display: flex;
+		flex-direction: column;
 		.material-box {
 			position: relative;
 			margin-bottom: 20upx;

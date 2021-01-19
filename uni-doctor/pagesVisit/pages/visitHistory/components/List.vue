@@ -2,9 +2,13 @@
 	<view class="VisitHistoryList">
 		<scroll-view class="history-scroll" refresher-background="$bgColor" scroll-y="true" @scrolltolower="handleLower">
 			<view class="history-box" v-if="!isEmpty">
-				<view class="history-item" v-for="(item, index) in visitHistoryList" :key="index">
+				<view 
+					class="history-item" 
+					v-for="(item, index) in visitHistoryList" 
+					:key="index"
+					@click="handleClickVisitHistory(item.id)">
 					<view class="item-info">
-						<view class="info-head" @click.stop="handleClickPatient(item.fcUserInfo.id)">
+						<view class="info-head" @click.stop="RouterPatient(item.fcUserInfo.id)">
 							<LayzImage :src="item.fcUserInfo.userImg" round/>
 						</view>
 						<view class="info-content">
@@ -43,7 +47,7 @@
 </template>
 
 <script>
-	import { timeRule } from '@/utils/tool'
+	import { timeRule, RouterPatient } from '@/utils/tool'
 	export default {
 		props: {
 			routerObj: Object
@@ -57,6 +61,12 @@
 			}
 		},
 		methods: {
+			RouterPatient,	
+			handleClickVisitHistory(id) {	//跳转复诊历史
+				uni.navigateTo({
+					url: `/pagesVisit/pages/visitChat/visitChat?id=${id}&state=0`
+				})
+			},
 			postVisitHistoryList(loading) {	//获取复诊历史数据
 				let self = this
 				let moment = require('moment')
@@ -144,11 +154,6 @@
 					this.current = 1 //默认请求当前页数
 					this.disabled = false //是否禁用底部加载
 					resolve()
-				})
-			},
-			handleClickPatient(id) {	//跳转患者病历详情
-				uni.navigateTo({
-					url: `/pagesInquiry/pages/medical/medical?id=${id}`
 				})
 			},
 		},

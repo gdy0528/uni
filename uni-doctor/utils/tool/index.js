@@ -139,33 +139,44 @@ export function imChangeMsgDesc(msgObj) {
 }
 
 /* 发送聊天 */
-export function sendChat(sendObj, content, msgType) {
-	let {
-		channelType,
-		chatType,
-		mainId,
-		toUserId
-	} = sendObj
+export function sendChat(sendObj, content, msgType, scene) {
 	return new Promise((resolve, reject) => {
-		postAction('/api/common/chat/saveChat', {
-			channelType,
-			chatType,
-			content,
-			mainId,
-			msgType,
-			toUserId
-		}).then(data => {
-			let res = data.data
-			if (res.code == 200) {
-				resolve()
-			} else {
-				showToast({
-					title: "发送失败～",
-					icon: "none"
-				})
-				reject()
-			}
-		})
+		if (scene == "default") {	//病房&问诊
+			let { channelType, chatType, mainId, toUserId } = sendObj
+			postAction('/api/common/chat/saveChat', {
+				channelType,
+				chatType,
+				content,
+				mainId,
+				msgType,
+				toUserId
+			}).then(data => {
+				let res = data.data
+				if (res.code == 200) {
+					resolve()
+				} else {
+					showToast({
+						title: "发送失败～",
+						icon: "none"
+					})
+					reject()
+				}
+			})
+		} else if (scene == "visit" || scene == "leaving") {	//复诊消息
+			let user = { ...sendObj, content, msgType }
+			postAction('/api/common/chat/saveFcChat', user).then(data => {
+				let res = data.data
+				if (res.code == 200) {
+					resolve(user)
+				} else {
+					showToast({
+						title: "发送失败～",
+						icon: "none"
+					})
+					reject()
+				}
+			})
+		}
 	})
 }
 
@@ -261,4 +272,11 @@ export function orderStatus(status) {
 				color: "#999999"
 			}
 	}
+}
+
+/* 跳转患者病历详情 */
+export function RouterPatient(id) {
+	uni.navigateTo({
+		url: `/pagesInquiry/pages/medical/medical?id=${id}`
+	})
 }

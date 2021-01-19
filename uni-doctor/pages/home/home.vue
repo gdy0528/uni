@@ -52,43 +52,53 @@
 			}),
 		},
 		methods: {
+			handleInit() {	//初始化项目
+				let { postHome, postHomeSign } = this
+				Promise.all([postHomeSign(), postHome()])
+			},
 			postHome() { //请求首页数据
 				let self = this
-				this.$post('/api/doctor/login/home').then(data => {
-					let res = data.data
-					if (res.code == 200) {
-						let serveCount = res.data.serveCount
-						self.infoObj = {
-							browseNumber: serveCount.browseNumber, //浏览我的次数
-							servePatientNumber: serveCount.servePatientNumber, //服务患者总数
-							patientNumber: serveCount.patientNumber, //我的患者
-							suNumber: serveCount.suNumber, //我的助手
-							integralNumber: serveCount.integralNumber, //月剩余积分人数
-							charityNumber: serveCount.charityNumber, //治疗义诊人数
-							povertyNumber: serveCount.povertyNumber, //治疗贫困人数
-							userHead: res.data.img, //用户头像
-							userName: res.data.nickName //用户账号
+				return new Promise(resolve => {
+					this.$post('/api/doctor/login/home').then(data => {
+						let res = data.data
+						if (res.code == 200) {
+							let serveCount = res.data.serveCount
+							self.infoObj = {
+								browseNumber: serveCount.browseNumber, //浏览我的次数
+								servePatientNumber: serveCount.servePatientNumber, //服务患者总数
+								patientNumber: serveCount.patientNumber, //我的患者
+								suNumber: serveCount.suNumber, //我的助手
+								integralNumber: serveCount.integralNumber, //月剩余积分人数
+								charityNumber: serveCount.charityNumber, //治疗义诊人数
+								povertyNumber: serveCount.povertyNumber, //治疗贫困人数
+								userHead: res.data.img, //用户头像
+								userName: res.data.nickName //用户账号
+							}
+							self.msgList = res.data.msgList
+							self.verify = res.data.verify
+							resolve()
 						}
-						self.msgList = res.data.msgList
-						self.verify = res.data.verify
-					}
+					})
 				})
 			},
 			postHomeSign() { //获取首页角标
 				let self = this
-				this.$post('/api/doctor/login/homeSign', {}, false, false).then(data => {
-					let res = data.data
-					if (res.code == 200) {
-						self.serveObj = {
-							noticeInt: res.data.noticeInt, //复诊角标
-							orderPush: res.data.orderPush, //咨询角标
-							patientHistoryPush: res.data.patientHistoryPush, //病历库角标
-							patientPush: res.data.patientPush, //预警角标
-							reexaminationPush: res.data.reexaminationPush, //复诊角标
-							cfPushCount: res.data.wardInfo.cfPushCount, //查房角标
-							messageNumber: res.data.messageNumber //出院角标
+				return new Promise(resolve => {
+					this.$post('/api/doctor/login/homeSign', {}, false, false).then(data => {
+						let res = data.data
+						if (res.code == 200) {
+							self.serveObj = {
+								noticeInt: res.data.noticeInt, //复诊角标
+								orderPush: res.data.orderPush, //咨询角标
+								patientHistoryPush: res.data.patientHistoryPush, //病历库角标
+								patientPush: res.data.patientPush, //预警角标
+								reexaminationPush: res.data.reexaminationPush, //复诊角标
+								cfPushCount: res.data.wardInfo.cfPushCount, //查房角标
+								messageNumber: res.data.messageNumber ,//出院角标
+							}
+							resolve()
 						}
-					}
+					})
 				})
 			}
 		},
@@ -100,15 +110,14 @@
 				deep: true,
 				handler(newMsg) {
 					let content = newMsg.content
-					if (newMsg.messageType == "Ec:CustomMsg" && (content.customType == "pay" || content.customType == "order")) {	//判断消息是否为后台自定义消息&下单状态||订单目前状态
+					if (newMsg.type == 6 && (content.customType == "pay" || content.customType == "order")) {	//判断消息是否为后台自定义消息&下单状态||订单目前状态
 						this.postHomeSign()	//获取首页角标
 					}
 				}
 			}
 		},
 		onShow() {
-			this.postHome() //请求首页数据
-			this.postHomeSign()	//获取首页角标
+			this.handleInit()	//初始化项目
 		}
 	}
 </script>

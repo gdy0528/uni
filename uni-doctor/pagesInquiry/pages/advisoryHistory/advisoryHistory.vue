@@ -24,54 +24,60 @@
 </template>
 
 <script>
-	import CommonPicker from '@/common/Picker/Picker'
-	import ChatList from '@/pagesInquiry/components/Chat/List'
+	import { Chat } from '@/common/Chat/chat'
 	import { imMsgDesc } from '@/utils/tool'
+	import CommonPicker from '@/common/Picker/Picker'
+	import ChatList from '@/common/Chat/List'
+	import ChatBottom from '@/common/Chat/Bottom'
 	export default {
+		mixins: [ Chat ],
 		components: {
 			CommonPicker,
-			ChatList
+			ChatList,
+			ChatBottom
 		},
 		data() {
 			return {
-				routerObj: {}, //路由信息
 				order: {},	//订单信息
 				date: '', //咨询时间
 				dateColums: [], //咨询时间数据
-				chatList: [], //聊天数据
-				currentTime: '', //请求时间
-				current: 1, //请求当前页数
-				disabled: false, //是否禁用请求
 			}
 		},
 		methods: {
+			handleInit() {	//初始化项目
+				let { postChatOption, postChatList } = this
+				postChatOption().then(flag => { if (flag) postChatList(true) })
+			},
 			postChatOption() { //获取历史聊天数据以及时间选择数据
 				let self = this
 				let { routerObj } = this
-				this.$post('/api/doctor/order/historyChat', {
-					patientId: routerObj.id,
-					orderCode: routerObj.orderCode,
-					type: routerObj.type == "chat"
-				}).then(data => {
-					let res = data.data
-					if (res.code == 200) {
-						let datas = res.data
-						if (routerObj.type == "chat") { //判断是否从聊天进来
-							self.dateColums = datas.chatOptionVos
-						} else if (routerObj.type == "order") { //判断是否从订单记录记录进来
-							this.order = {
-								orderCode: routerObj.orderCode,
-								toUserId: datas.group ? '' : routerObj.id
+				return new Promise(resolve => {
+					this.$post('/api/doctor/order/historyChat', {
+						patientId: routerObj.id,
+						orderCode: routerObj.orderCode,
+						type: routerObj.type == "chat"
+					}).then(data => {
+						let res = data.data
+						if (res.code == 200) {
+							let datas = res.data
+							uni.setNavigationBarTitle({ //设置标题
+								title: datas.name
+							})
+							if (routerObj.type == "chat") { //判断是否从聊天进来
+								self.dateColums = datas.chatOptionVos
+								resolve(false)
+							} else if (routerObj.type == "order") { //判断是否从订单记录记录进来
+								this.order = {
+									orderCode: routerObj.orderCode,
+									toUserId: datas.group ? '' : routerObj.id
+								}
+								resolve(true)
 							}
-							self.postChatData(true)	//获取消息聊天列表
 						}
-						uni.setNavigationBarTitle({ //设置标题
-							title: datas.name
-						})
-					}
+					})
 				})
 			},
-			postChatData(loading) { //获取消息聊天列表
+			postChatList(loading) { //获取消息聊天列表
 				let self = this
 				let { routerObj, order, currentTime, current } = this
 				return new Promise(resolve => {
@@ -112,7 +118,7 @@
 			handleLower() {	//滑动到底部
 				if (!this.disabled) {
 					this.current++
-					this.postChatData(true)
+					this.postChatList(true)
 				}
 			},
 			handleChangeDate(value) {	//监听选中的参数
@@ -127,16 +133,13 @@
 				this.current = 1 //请求当前页数
 				this.disabled = false //是否禁用请求
 				this.$nextTick(() => {
-					this.postChatData(true)	//获取消息聊天列表
+					this.postChatList(true)	//获取消息聊天列表
 				})
 			}
 		},
 		mounted() {
-			this.postChatOption()	//获取历史聊天数据以及时间选择数据
+			this.handleInit()	//初始化项目
 		},
-		onLoad(option) {
-			this.routerObj = option
-		}
 	}
 </script>
 

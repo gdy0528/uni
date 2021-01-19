@@ -2,17 +2,17 @@
 	<view class="AinRepertoireContainer">
 		<scroll-view :style="{height: `${scrollH}`}" refresher-background="$bgColor" scroll-y="true" @scrolltolower="handleLower">
 			<view class="ain-list" v-if="repertoireList.length > 0">
-				<WardDetailList :list="repertoireList" />
+				<AinRepertoirelList :list="repertoireList" />
 			</view>
 		</scroll-view> 
 	</view>
 </template>
 
 <script>
-	import WardDetailList from '@/pagesWard/components/detail' 
+	import AinRepertoirelList from '@/pagesWard/components/detail' 
 	export default {
 		components: {
-			WardDetailList
+			AinRepertoirelList
 		},
 		data() {
 			return {
@@ -56,7 +56,10 @@
 							let datas = res.data
 							let user = datas.user  //获取患者信息
 							let pages = datas.patientWardDetailedVo.pages //总页数
-							let records = datas.patientWardDetailedVo.records
+							let records = datas.patientWardDetailedVo.records.map(item => {
+								item.doctorName = item.doctorNickname
+								return item
+							})
 							if (current < 2) {
 								self.repertoireList = records
 								self.isEmpty = records.length > 0 ? false : true

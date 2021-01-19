@@ -80,7 +80,7 @@
 			this.cco = uni.createCanvasContext('oper-canvas', this);
 			this.ccp = uni.createCanvasContext('prv-canvas', this);
 			this.qlty = parseFloat(this.quality) || 1;
-			this.imgSrc.imgSrc = this.avatarSrc;
+			this.imgSrc.imgSrc = this.avatarSrc || '/static/head.jpg';
 			this.letRotate = (this.canRotate === false || this.inner === true || this.inner === 'true' || this.canRotate === 'false') ? 0 : 1;
 			this.letScale = (this.canScale === false || this.canScale === 'false') ? 0 : 1;
 			this.isin = (this.inner === true || this.inner === 'true') ? 1 : 0;

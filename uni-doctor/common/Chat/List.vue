@@ -2,7 +2,12 @@
 	<view class="ChatList" @touchstart="handleChangTouchStart">
 		<view class="chat-box" :id="`msg-${item.msgUid}`" v-for="(item, index) in list" :key="item.msgUid">
 			<view class="chat-date" v-if="item.showTime == 'Y' || index == 0">{{item.sentTime}}</view>
+			<!-- 系统聊天消息 -->
 			<view class="chat-tips" v-if="item.isTips">{{item.content}}</view>
+			<!-- 复诊消息 -->
+			<view class="chat-visit" v-else-if="item.msgType == 'endMsg' && scene == 'visit'">
+				{{item.content}}
+			</view>
 			<view class="chat-info" v-else :class="{'chat-info-around' : item.messageDirection == '1','chat-info-none' : item.msgType == 'imgMsg' || item.msgType == 'amapMsg'}">
 				<view class="info-head" @click="handleClickMedical(item.messageDirection, item.userId)">
 					<LayzImage :src="item.userImg" round />
@@ -59,7 +64,7 @@
 
 <script>
 	import { mapState } from 'vuex'
-	import { imChangeMsgDesc } from '@/utils/tool'
+	import { imChangeMsgDesc, RouterPatient } from '@/utils/tool'
 	import { imConversationRead } from '@/utils/imRong'
 	const innerAudioContext = uni.createInnerAudioContext()	//创建语音播放器
 	export default {
@@ -70,7 +75,11 @@
 				default: () => {
 					return {}
 				}
-			}
+			},
+			scene: {	//使用场景
+				type: String,
+				default: "default"
+			},
 		},
 		computed: {
 			...mapState({
@@ -89,11 +98,17 @@
 			handleChangTouchStart() {	//手指触摸
 				this.$emit('touch', 'start')
 			},
+			handleChangeMsgHeight(box) {	//处理msg的高度
+				return new Promise(resolve => {
+					const query = uni.createSelectorQuery().in(this);
+					query.select(box).boundingClientRect(data => {
+						resolve(data)
+					}).exec()
+				})
+			},
 			handleClickMedical(messageDirection, userId) {	//点击患者头像
 				if (messageDirection == '2') {	//不等于自己的头像
-					uni.navigateTo({
-						url: `/pagesInquiry/pages/medical/medical?id=${userId}`
-					})
+					RouterPatient(userId)
 				}
 			},
 			handleClickPreviewImage(src) {	//预览图片
@@ -192,6 +207,35 @@
 				border-radius: 10upx;
 				background: #DCDCDC;
 			}
+			.chat-visit {
+				padding: 0 50upx;
+				margin-bottom: 30upx;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				font-size: $fontSize;
+				color: $fontGrayColor;
+				border: 0 solid #999999;
+				&::before,
+				&::after {
+					-webkit-transform: scaleY(0.5);
+					transform: scaleY(0.5);
+					content: '';
+					display: block;
+					flex: 1;
+					box-sizing: border-box;
+					height: 2upx;
+					border-color: inherit;
+					border-style: inherit;
+					border-width: 2upx 0 0;
+				}
+				&::before {
+					margin-right: 32upx;
+				}
+				&::after {
+					margin-left: 32upx;
+				}
+			}
 			.chat-info {
 				padding: 0 30upx 50upx 30upx;
 				display: flex;
@@ -225,6 +269,7 @@
 						line-height: 1.5;
 						font-size: $fontSize;
 						color: $fontBlackColor;
+						word-break: break-word;
 					}
 					.content_image {
 						width: 160upx;

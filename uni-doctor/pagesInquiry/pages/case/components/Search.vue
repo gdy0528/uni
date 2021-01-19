@@ -6,10 +6,10 @@
 					<LayzImage src="/pagesInquiry/static/case/d_doctorlist_icon_search.png" />
 				</view>
 				<view class="item-input">
-					<input class="input-search" type="text" name="search" confirm-type="search" placeholder="搜索想查看的患者" @input="handleInput" @confirm="handleSearch">
+					<input class="input-search" type="text" :value="search" name="search" confirm-type="search" placeholder="搜索想查看的患者" @input="handleInput" @confirm="handleSearch">
 				</view>
 			</view>
-			<button class="search-btns" plain="true" @click="handleSearch">搜索</button>
+			<button class="search-btns" plain @click="handleSearch">搜索</button>
 		</view>
 		<view class="screen-box">
 			<view class="screen-title">所属医院筛选</view>
@@ -51,7 +51,7 @@
 			handleInput(e) {	//监听输入
 				this.search = e.target.value
 			},
-			handleSearch(e) {	//点击搜索
+			handleSearch() {	//点击搜索
 				this.handleEmitValue()
 			},
 			handleChangeHospital(value) { //监听选择所属医院
